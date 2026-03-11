@@ -48,6 +48,7 @@ jobs:
           GMAIL_TO: ${{ secrets.GMAIL_TO }}
           GITHUB_REPO_OWNER: ${{ secrets.GITHUB_REPO_OWNER }}
           GITHUB_REPO_NAME: ${{ secrets.GITHUB_REPO_NAME }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python main.py
 
       # Passo 5: Fazer commit e push do docs/index.html gerado
