@@ -1,0 +1,16 @@
+# Secrets - NUNCA enviar ao GitHub
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Ambiente virtual
+venv/
+env/
+.venv/
+
+# Sistema
+.DS_Store
+Thumbs.db

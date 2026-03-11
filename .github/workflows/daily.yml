@@ -1,0 +1,63 @@
+# .github/workflows/daily.yml
+# Este arquivo define o "robô" que executa seu script automaticamente todo dia.
+# GitHub Actions lê este arquivo e agenda a execução conforme o cron abaixo.
+
+name: Daily Organizer
+
+on:
+  # Formato cron: "minuto hora * * *"
+  # 0 9 * * * = todo dia às 09:00 UTC = 06:00 BRT (UTC-3)
+  schedule:
+    - cron: "0 9 * * *"
+
+  # Permite executar manualmente pelo site do GitHub — ótimo para testes!
+  # Vá em: Repositório → Actions → Daily Organizer → "Run workflow"
+  workflow_dispatch:
+
+# O workflow precisa de permissão para fazer push do HTML gerado de volta ao repo
+permissions:
+  contents: write
+
+jobs:
+  run-daily-organizer:
+    runs-on: ubuntu-latest  # Máquina virtual Linux gratuita do GitHub
+
+    steps:
+      # Passo 1: Baixar o código do repositório para a máquina virtual
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # Token criado automaticamente pelo GitHub
+
+      # Passo 2: Instalar Python 3.12
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Passo 3: Instalar as dependências listadas em requirements.txt
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      # Passo 4: Executar o script principal
+      # As variáveis de ambiente vêm dos GitHub Secrets (configurados em Settings)
+      - name: Executar script
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          GMAIL_TO: ${{ secrets.GMAIL_TO }}
+          GITHUB_REPO_OWNER: ${{ secrets.GITHUB_REPO_OWNER }}
+          GITHUB_REPO_NAME: ${{ secrets.GITHUB_REPO_NAME }}
+        run: python main.py
+
+      # Passo 5: Fazer commit e push do docs/index.html gerado
+      # GitHub Pages vai servir este arquivo automaticamente como site
+      - name: Publicar site no GitHub Pages
+        run: |
+          git config user.name "Daily Organizer Bot"
+          git config user.email "bot@daily-organizer"
+          git add docs/index.html
+          # "git diff --cached --quiet" verifica se há mudanças para commitar.
+          # O "||" significa "se o comando anterior falhar (=há mudanças), execute o próximo"
+          git diff --cached --quiet || git commit -m "chore: site do dia $(date +'%Y-%m-%d')"
+          git push

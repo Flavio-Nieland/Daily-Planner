@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Dia — 10/03/2026</title>
+    <style>
+        /* Variáveis de cor: mudar aqui reflete em todo o site */
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --high: #dc2626;
+            --high-bg: #fee2e2;
+            --low: #16a34a;
+            --low-bg: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem;
+        }
+
+        /* Cabeçalho */
+        .header {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+        }
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .header .subtitle {
+            color: var(--muted);
+            margin-top: 0.375rem;
+            font-size: 0.95rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .card-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        /* Grade do tempo: 3 colunas iguais */
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+        .weather-period {
+            background: var(--bg);
+            border-radius: 8px;
+            padding: 0.875rem 0.5rem;
+            text-align: center;
+        }
+        .weather-period .period-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+            margin-bottom: 0.375rem;
+        }
+        .weather-period .temp {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+        .weather-period .condition {
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 0.2rem;
+            line-height: 1.3;
+        }
+        .weather-period .rain {
+            font-size: 0.72rem;
+            color: #0369a1;
+            margin-top: 0.3rem;
+        }
+
+        /* Lista de atividades */
+        .activity-list {
+            list-style: none;
+        }
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.625rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        .badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .badge-high { background: var(--high-bg); color: var(--high); }
+        .badge-low  { background: var(--low-bg);  color: var(--low); }
+
+        .activity-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.72rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Bom dia, Flávio!</h1>
+        <p class="subtitle">Terça-feira &middot; 10/03/2026</p>
+    </div>
+
+    <!-- Previsão do Tempo -->
+    <div class="card">
+        <p class="card-title">Previsão do Tempo &mdash; São José / SC</p>
+        <div class="weather-grid">
+
+            <div class="weather-period">
+                <div class="period-label">Manhã</div>
+                <div class="temp">18.8–22.0°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 3%</div>
+            </div>
+
+            <div class="weather-period">
+                <div class="period-label">Tarde</div>
+                <div class="temp">21.3–21.9°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 30%</div>
+            </div>
+
+            <div class="weather-period">
+                <div class="period-label">Noite</div>
+                <div class="temp">20.3–21.1°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 28%</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Atividades do Dia -->
+    <div class="card">
+        <p class="card-title">Atividades de Hoje</p>
+        <ul class="activity-list">
+            
+            <li class="activity-item">
+                
+                    <span class="badge badge-high">Alta</span>
+                
+                <span class="activity-name">trabalhar</span>
+            </li>
+            
+            <li class="activity-item">
+                
+                    <span class="badge badge-high">Alta</span>
+                
+                <span class="activity-name">TCC</span>
+            </li>
+            
+            <li class="activity-item">
+                
+                    <span class="badge badge-high">Alta</span>
+                
+                <span class="activity-name">treinar</span>
+            </li>
+            
+            <li class="activity-item">
+                
+                    <span class="badge badge-low">Baixa</span>
+                
+                <span class="activity-name">musica</span>
+            </li>
+            
+        </ul>
+    </div>
+
+    <footer>
+        Gerado em 17:27 &middot; Daily Organizer
+    </footer>
+
+</body>
+</html>
