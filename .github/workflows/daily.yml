@@ -57,9 +57,8 @@ jobs:
         run: |
           git config user.name "Daily Organizer Bot"
           git config user.email "bot@daily-organizer"
+          git fetch origin main
+          git rebase origin/main
           git add docs/index.html
-          # "git diff --cached --quiet" verifica se há mudanças para commitar.
-          # O "||" significa "se o comando anterior falhar (=há mudanças), execute o próximo"
           git diff --cached --quiet || git commit -m "chore: site do dia $(date +'%Y-%m-%d')"
-          git pull --rebase origin main
           git push
