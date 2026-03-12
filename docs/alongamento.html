@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alongamento — 11/03/2026</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .back-link::before { content: '←'; }
+
+        .header {
+            text-align: center;
+            padding: 1rem 0 1.5rem;
+        }
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .header .subtitle {
+            color: var(--muted);
+            margin-top: 0.375rem;
+            font-size: 0.95rem;
+        }
+        .header .focus-pill {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.3rem 1rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+        .card-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        .exercise-list {
+            list-style: none;
+        }
+        .exercise-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.875rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .exercise-item:last-child { border-bottom: none; }
+
+        .exercise-number {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        .exercise-text {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .exercise-name {
+            font-size: 0.975rem;
+            font-weight: 500;
+        }
+        .exercise-instruction {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-top: 0.15rem;
+        }
+        .exercise-duration {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-left: auto;
+            padding-top: 0.15rem;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.72rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="header">
+        <h1>Alongamento de Hoje</h1>
+        <p class="subtitle">Segunda-feira &middot; 11/03/2026</p>
+        <span class="focus-pill">Coluna, mobilidade de quadril e alongamento geral &middot; 15 min</span>
+    </div>
+
+    <div class="card">
+        <p class="card-title">Exercícios</p>
+        <ol class="exercise-list">
+            
+            <li class="exercise-item">
+                <span class="exercise-number">1</span>
+                <div class="exercise-text">
+                    <span class="exercise-name">Respiração do Gato-Vaca</span>
+                    <span class="exercise-instruction">Alterne entre arquear e curvar as costas, sincronizando com a respiração.</span>
+                </div>
+                <span class="exercise-duration">60 segundos</span>
+            </li>
+            
+            <li class="exercise-item">
+                <span class="exercise-number">2</span>
+                <div class="exercise-text">
+                    <span class="exercise-name">Rotação Torácica Sentado</span>
+                    <span class="exercise-instruction">Sente-se com as pernas cruzadas e gire o tronco suavemente para cada lado.</span>
+                </div>
+                <span class="exercise-duration">90 segundos</span>
+            </li>
+            
+            <li class="exercise-item">
+                <span class="exercise-number">3</span>
+                <div class="exercise-text">
+                    <span class="exercise-name">Alongamento Isquiotibiais Sentado</span>
+                    <span class="exercise-instruction">Sente-se com as pernas estendidas, incline-se para frente tentando alcançar os pés.</span>
+                </div>
+                <span class="exercise-duration">120 segundos</span>
+            </li>
+            
+            <li class="exercise-item">
+                <span class="exercise-number">4</span>
+                <div class="exercise-text">
+                    <span class="exercise-name">Ponte Glútea</span>
+                    <span class="exercise-instruction">Deitado de costas, eleve os quadris contraindo os glúteos.</span>
+                </div>
+                <span class="exercise-duration">60 segundos</span>
+            </li>
+            
+            <li class="exercise-item">
+                <span class="exercise-number">5</span>
+                <div class="exercise-text">
+                    <span class="exercise-name">Alongamento Piriforme</span>
+                    <span class="exercise-instruction">Deitado, cruze um tornozelo sobre o joelho oposto e puxe a coxa em direção ao peito.</span>
+                </div>
+                <span class="exercise-duration">90 segundos</span>
+            </li>
+            
+            <li class="exercise-item">
+                <span class="exercise-number">6</span>
+                <div class="exercise-text">
+                    <span class="exercise-name">Alongamento Lateral em Pé</span>
+                    <span class="exercise-instruction">Em pé, incline-se lateralmente para cada lado, alongando a lateral do corpo.</span>
+                </div>
+                <span class="exercise-duration">60 segundos</span>
+            </li>
+            
+            <li class="exercise-item">
+                <span class="exercise-number">7</span>
+                <div class="exercise-text">
+                    <span class="exercise-name">Círculos com os Braços</span>
+                    <span class="exercise-instruction">Gire os braços para frente e para trás em movimentos circulares.</span>
+                </div>
+                <span class="exercise-duration">60 segundos</span>
+            </li>
+            
+            <li class="exercise-item">
+                <span class="exercise-number">8</span>
+                <div class="exercise-text">
+                    <span class="exercise-name">Alongamento Cervical</span>
+                    <span class="exercise-instruction">Incline a cabeça para os lados e para frente, alongando o pescoço suavemente.</span>
+                </div>
+                <span class="exercise-duration">120 segundos</span>
+            </li>
+            
+        </ol>
+    </div>
+
+    <footer>
+        Gerado em 23:35 &middot; Daily Organizer
+    </footer>
+
+</body>
+</html>

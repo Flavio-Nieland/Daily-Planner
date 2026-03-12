@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitura — {{ date }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:    #2563eb;
+            --bg:         #f1f5f9;
+            --card:       #ffffff;
+            --text:       #0f172a;
+            --muted:      #64748b;
+            --border:     #e2e8f0;
+            --shadow:     0 1px 3px rgba(15,23,42,.07), 0 4px 16px rgba(15,23,42,.05);
+            --radius:     18px;
+            --green:      #22c55e;
+            --green-dark: #16a34a;
+            --green-bg:   #f0fdf4;
+            --amber:      #d97706;
+            --amber-bg:   #fffbeb;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            margin-bottom: 1rem;
+            transition: background .15s;
+        }
+        .back-link:hover { background: #dbeafe; }
+        .back-link::before { content: '←'; }
+
+        .hero {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem 1.75rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 24px rgba(217,119,6,.25);
+        }
+        .hero h1 { font-size: 1.7rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+        .hero-sub { color: rgba(255,255,255,.75); margin-top: 0.35rem; font-size: 0.88rem; font-weight: 500; }
+        .hero-badge {
+            display: inline-block;
+            margin-top: 0.75rem;
+            background: rgba(255,255,255,.2);
+            border: 1px solid rgba(255,255,255,.3);
+            color: #fff;
+            border-radius: 999px;
+            padding: 0.3rem 1rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+        .sec-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .sec-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+        .si-amber  { background: var(--amber-bg); }
+        .si-green  { background: var(--green-bg); }
+        .sec-title { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+
+        /* Meta de Hoje */
+        .goal-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.45;
+        }
+        .goal-text.done { color: var(--green-dark); }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 0.75rem;
+        }
+        .reading-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px; height: 22px;
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            flex-shrink: 0;
+            position: relative;
+            transition: background .15s;
+        }
+        .reading-checkbox:checked { background: var(--primary); }
+        .reading-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 4px; top: 1px;
+            width: 10px; height: 6px;
+            border-left: 2.5px solid #fff;
+            border-bottom: 2.5px solid #fff;
+            transform: rotate(-45deg);
+        }
+        .checkbox-label { font-size: 0.92rem; color: var(--text); cursor: pointer; font-weight: 500; }
+
+        .progress-bar-wrap {
+            background: var(--border);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, #818cf8 100%);
+            border-radius: 999px;
+            transition: width .4s ease;
+        }
+        .progress-label {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 0.45rem;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        /* Info table */
+        .info-table { width: 100%; border-collapse: collapse; }
+        .info-table tr { border-bottom: 1px solid var(--border); }
+        .info-table tr:last-child { border-bottom: none; }
+        .info-table td { padding: 0.55rem 0; font-size: 0.9rem; }
+        .info-table td:first-child { color: var(--muted); width: 55%; }
+        .info-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+
+        /* Próximo Livro */
+        .next-book-intro {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.55;
+        }
+        .field-group { margin-bottom: 0.875rem; }
+        .field-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .field-group input {
+            width: 100%;
+            padding: 0.55rem 0.75rem;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            outline: none;
+            background: var(--bg);
+            transition: border-color .15s;
+        }
+        .field-group input:focus { border-color: var(--primary); }
+        .btn-next-book {
+            margin-top: 0.25rem;
+            width: 100%;
+            padding: 0.65rem 1rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: opacity .15s;
+        }
+        .btn-next-book:hover { opacity: .88; }
+        .confirm-msg {
+            margin-top: 0.875rem;
+            padding: 0.875rem 1rem;
+            background: var(--green-bg);
+            border-radius: 10px;
+            font-size: 0.875rem;
+            color: var(--green-dark);
+            line-height: 1.55;
+            border-left: 3px solid var(--green);
+        }
+        .confirm-msg code {
+            font-family: monospace;
+            background: rgba(22,163,74,.12);
+            padding: 0.1em 0.35em;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.72rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="hero">
+        <h1>Leitura de Hoje</h1>
+        <p class="hero-sub">{{ day_name }} &middot; {{ date }}</p>
+        <span class="hero-badge">{{ reading_plan.title }}</span>
+    </div>
+
+    <!-- Meta de Hoje -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-amber">📖</span>
+            <span class="sec-title">Meta de Hoje</span>
+        </div>
+        <p class="goal-text" id="goal-text">Carregando...</p>
+        <div class="checkbox-row" id="checkbox-row">
+            <input type="checkbox" class="reading-checkbox" id="reading-done" onchange="toggleReading(this.checked)">
+            <label class="checkbox-label" for="reading-done">Leitura concluída hoje</label>
+        </div>
+        <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-label" id="progress-label">0 / {{ reading_plan.total_sessions }} sessões</div>
+    </div>
+
+    <!-- Plano de Leitura -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-amber">📚</span>
+            <span class="sec-title">Plano de Leitura</span>
+        </div>
+        <table class="info-table">
+            <tr><td>Autor</td><td>{{ reading_plan.author }}</td></tr>
+            <tr><td>Edição</td><td>{{ reading_plan.edition }}</td></tr>
+            <tr><td>Total de {{ reading_plan.unit_type }}</td><td>{{ reading_plan.total_units }}</td></tr>
+            <tr><td>Sessões totais (4 semanas)</td><td>{{ reading_plan.total_sessions }}</td></tr>
+            <tr><td>{{ reading_plan.unit_type | capitalize }} por sessão</td><td>{{ reading_plan.units_per_session }}</td></tr>
+        </table>
+    </div>
+
+    <!-- Próximo Livro -->
+    <div class="card" id="next-book-card" style="display:none">
+        <div class="sec-head">
+            <span class="sec-icon si-green">🎉</span>
+            <span class="sec-title">Próximo Livro</span>
+        </div>
+        <p class="next-book-intro">
+            Parabéns por concluir <strong>{{ reading_plan.title }}</strong>!<br>
+            Qual será o próximo livro?
+        </p>
+        <div id="next-book-form">
+            <div class="field-group">
+                <label>Título</label>
+                <input type="text" id="next-title" placeholder="Ex: Dom Casmurro">
+            </div>
+            <div class="field-group">
+                <label>Autor</label>
+                <input type="text" id="next-author" placeholder="Ex: Machado de Assis">
+            </div>
+            <div class="field-group">
+                <label>Edição / Editora</label>
+                <input type="text" id="next-edition" placeholder="Ex: Editora Ática (Série Bom Livro)">
+            </div>
+            <button class="btn-next-book" onclick="saveNextBook()">Salvar e baixar next_book.json</button>
+        </div>
+        <div class="confirm-msg" id="next-book-confirm" style="display:none">
+            Próximo livro salvo! Mova o arquivo <code>next_book.json</code> para a pasta do projeto
+            e execute <code>python main.py</code> normalmente — o plano será gerado automaticamente.
+        </div>
+    </div>
+
+    <footer>
+        Gerado em {{ generated_at }} &middot; Daily Organizer
+    </footer>
+
+    <script>
+        const LS_KEY      = 'daily-organizer-reading:' + {{ (reading_plan.title ~ '|' ~ reading_plan.edition) | tojson }};
+        const LS_NEXT_KEY = 'daily-organizer-next-book';
+        const TOTAL_UNITS       = {{ reading_plan.total_units }};
+        const TOTAL_SESSIONS    = {{ reading_plan.total_sessions }};
+        const UNITS_PER_SESSION = {{ reading_plan.units_per_session }};
+        const UNIT_TYPE = {{ reading_plan.unit_type | tojson }};
+
+        function todayStr() {
+            const d = new Date();
+            return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        }
+        function getState() {
+            const raw = localStorage.getItem(LS_KEY);
+            if (!raw) return { checked_dates: [] };
+            try { return JSON.parse(raw); } catch { return { checked_dates: [] }; }
+        }
+        function saveState(state) { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+
+        function render() {
+            const state = getState();
+            const today = todayStr();
+            const checkedDates = state.checked_dates || [];
+            const doneBefore = checkedDates.filter(d => d < today).length;
+            const currentSession = doneBefore;
+            const start = currentSession * UNITS_PER_SESSION + 1;
+            const end = Math.min((currentSession + 1) * UNITS_PER_SESSION, TOTAL_UNITS);
+            const unitCap = UNIT_TYPE.charAt(0).toUpperCase() + UNIT_TYPE.slice(1);
+            const allDone = checkedDates.length >= TOTAL_SESSIONS;
+            const goalEl = document.getElementById('goal-text');
+            if (allDone) { goalEl.textContent = 'Livro concluído! Parabéns!'; goalEl.classList.add('done'); }
+            else { goalEl.textContent = `${unitCap} ${start}–${end} de ${TOTAL_UNITS}`; goalEl.classList.remove('done'); }
+            document.getElementById('reading-done').checked = checkedDates.includes(today);
+            const totalDone = checkedDates.length;
+            const pct = TOTAL_SESSIONS > 0 ? Math.min((totalDone / TOTAL_SESSIONS) * 100, 100) : 0;
+            document.getElementById('progress-fill').style.width = pct.toFixed(1) + '%';
+            document.getElementById('progress-label').textContent = `${totalDone} / ${TOTAL_SESSIONS} sessões`;
+            const nextCard = document.getElementById('next-book-card');
+            if (allDone) {
+                nextCard.style.display = 'block';
+                const savedNext = localStorage.getItem(LS_NEXT_KEY);
+                if (savedNext) {
+                    const nb = JSON.parse(savedNext);
+                    document.getElementById('next-title').value   = nb.title   || '';
+                    document.getElementById('next-author').value  = nb.author  || '';
+                    document.getElementById('next-edition').value = nb.edition || '';
+                    document.getElementById('next-book-confirm').style.display = 'block';
+                }
+            } else { nextCard.style.display = 'none'; }
+        }
+
+        function toggleReading(checked) {
+            const state = getState();
+            const today = todayStr();
+            const dates = state.checked_dates || [];
+            if (checked) { if (!dates.includes(today)) dates.push(today); }
+            else { const idx = dates.indexOf(today); if (idx !== -1) dates.splice(idx, 1); }
+            state.checked_dates = dates;
+            saveState(state);
+            render();
+        }
+
+        function saveNextBook() {
+            const title   = document.getElementById('next-title').value.trim();
+            const author  = document.getElementById('next-author').value.trim();
+            const edition = document.getElementById('next-edition').value.trim();
+            if (!title || !author || !edition) { alert('Preencha título, autor e edição antes de salvar.'); return; }
+            const nextBook = { title, author, edition };
+            localStorage.setItem(LS_NEXT_KEY, JSON.stringify(nextBook));
+            const blob = new Blob([JSON.stringify(nextBook, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = 'next_book.json';
+            document.body.appendChild(a); a.click();
+            document.body.removeChild(a); URL.revokeObjectURL(url);
+            document.getElementById('next-book-confirm').style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', render);
+    </script>
+
+</body>
+</html>

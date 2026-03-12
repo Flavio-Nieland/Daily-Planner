@@ -33,6 +33,13 @@ WEEKLY_SCHEDULE = {
     6: ["ler", "alongar", "ingles", "xadrez"],             # Domingo
 }
 
+WORKOUT_SCHEDULE = {
+    0: {"name": "Peito e Tríceps", "exercises": ["Supino Reto", "Crucifixo Máquina", "Crucifixo Livre", "Supino Inclinado", "Tríceps Francês Alteres", "Tríceps Polia Corda"]},
+    1: {"name": "Costas e Bíceps", "exercises": ["Puxada Alta", "Remada Baixa", "Remada Máquina", "Graviton", "Rosca Scott", "Rosca Direta"]},
+    2: {"name": "Pernas", "exercises": ["Agachamento", "Cadeira Extensora", "Flexora", "Adutora", "Abdutora", "Leg Press"]},
+    3: {"name": "Ombro e Braços", "exercises": ["Desenvolvimento Máquina", "Desenvolvimento Lateral", "Trapézio", "Rosca Barra", "Tríceps Barra", "Trapézio Polia"]},
+}
+
 DAY_NAMES = {
     0: "Segunda-feira",
     1: "Terça-feira",
@@ -42,6 +49,21 @@ DAY_NAMES = {
     5: "Sábado",
     6: "Domingo",
 }
+
+CURRENT_BOOK = {
+    "title": "Triste Fim de Policarpo Quaresma",
+    "author": "Lima Barreto",
+    "edition": "Editora Moderna (Série Clássicos)",
+}
+
+
+def count_reading_days() -> int:
+    return sum(1 for acts in WEEKLY_SCHEDULE.values() if "ler" in acts)
+
+
+def get_today_workout(weekday: int):
+    """Retorna o treino do dia ou None se não houver treino programado."""
+    return WORKOUT_SCHEDULE.get(weekday)
 
 
 def get_today_schedule(weekday: int) -> list:

@@ -14,3 +14,9 @@ env/
 # Sistema
 .DS_Store
 Thumbs.db
+
+# Cache diário — não comitar
+diet_plan.json
+stretching_plan.json
+programming_plan.json
+next_book.json

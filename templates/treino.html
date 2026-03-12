@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino — {{ date }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:    #2563eb;
+            --accent:     #7c3aed;
+            --bg:         #f1f5f9;
+            --card:       #ffffff;
+            --text:       #0f172a;
+            --muted:      #64748b;
+            --border:     #e2e8f0;
+            --shadow:     0 1px 3px rgba(15,23,42,.07), 0 4px 16px rgba(15,23,42,.05);
+            --radius:     18px;
+            --orange:     #f97316;
+            --orange-bg:  #fff7ed;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            margin-bottom: 1rem;
+            transition: background .15s;
+        }
+        .back-link:hover { background: #dbeafe; }
+        .back-link::before { content: '←'; }
+
+        .hero {
+            background: linear-gradient(135deg, var(--orange) 0%, #ef4444 100%);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem 1.75rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 24px rgba(249,115,22,.25);
+        }
+        .hero h1 { font-size: 1.7rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+        .hero-sub { color: rgba(255,255,255,.75); margin-top: 0.35rem; font-size: 0.88rem; font-weight: 500; }
+        .hero-badge {
+            display: inline-block;
+            margin-top: 0.75rem;
+            background: rgba(255,255,255,.2);
+            border: 1px solid rgba(255,255,255,.3);
+            color: #fff;
+            border-radius: 999px;
+            padding: 0.3rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+        .sec-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .sec-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+            background: var(--orange-bg);
+        }
+        .sec-title { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+
+        .exercise-list { list-style: none; }
+        .exercise-item {
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .exercise-item:last-child { border-bottom: none; }
+        .exercise-number {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange) 0%, #ef4444 100%);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .exercise-name { font-size: 0.95rem; font-weight: 500; }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.72rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="hero">
+        <h1>Treino de Hoje</h1>
+        <p class="hero-sub">{{ day_name }} &middot; {{ date }}</p>
+        <span class="hero-badge">{{ workout.name }}</span>
+    </div>
+
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon">💪</span>
+            <span class="sec-title">Exercícios</span>
+        </div>
+        <ol class="exercise-list">
+            {% for exercise in workout.exercises %}
+            <li class="exercise-item">
+                <span class="exercise-number">{{ loop.index }}</span>
+                <span class="exercise-name">{{ exercise }}</span>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+
+    <footer>
+        Gerado em {{ generated_at }} &middot; Daily Organizer
+    </footer>
+
+</body>
+</html>

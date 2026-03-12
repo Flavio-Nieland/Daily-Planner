@@ -1,0 +1,961 @@
+{
+  "goal": "Técnica avançada em violão e piano elétrico",
+  "start_date": "11/03/2026",
+  "sessions_per_week": 2,
+  "total_sessions": 32,
+  "sessions": [
+    {
+      "session": 1,
+      "week": 1,
+      "instrument": "Violão",
+      "topic": "Arpejo PIMA em Am-G-F-E",
+      "goal_description": "Executar arpejos PIMA de forma limpa e consistente nas progressões Am-G-F-E.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Arpejo PIMA Am",
+          "duration_minutes": 15,
+          "description": "Arpejo P-I-M-A em Am, BPM 60, 20 repetições. Polegar na 5ª corda, dedos arqueados."
+        },
+        {
+          "title": "Arpejo PIMA G",
+          "duration_minutes": 15,
+          "description": "Arpejo P-I-M-A em G, BPM 60, 20 repetições. Polegar na 6ª corda, dedos arqueados."
+        },
+        {
+          "title": "Arpejo PIMA F",
+          "duration_minutes": 15,
+          "description": "Arpejo P-I-M-A em F, BPM 60, 20 repetições. Polegar na 6ª corda, dedos arqueados."
+        },
+        {
+          "title": "Arpejo PIMA E",
+          "duration_minutes": 10,
+          "description": "Arpejo P-I-M-A em E, BPM 60, 20 repetições. Polegar na 6ª corda, dedos arqueados."
+        }
+      ]
+    },
+    {
+      "session": 2,
+      "week": 1,
+      "instrument": "Piano Elétrico",
+      "topic": "Escala de Dó Maior com duas mãos",
+      "goal_description": "Tocar a escala de Dó maior com ambas as mãos de forma sincronizada.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Escala Dó Maior Mão Direita",
+          "duration_minutes": 20,
+          "description": "Escala de Dó maior com a mão direita, 2 oitavas, BPM 60, 10 repetições."
+        },
+        {
+          "title": "Escala Dó Maior Mão Esquerda",
+          "duration_minutes": 20,
+          "description": "Escala de Dó maior com a mão esquerda, 2 oitavas, BPM 60, 10 repetições."
+        },
+        {
+          "title": "Escala Dó Maior Duas Mãos",
+          "duration_minutes": 15,
+          "description": "Escala de Dó maior com 2 mãos em paralelo, 2 oitavas, BPM 60, 5 repetições seguidas."
+        }
+      ]
+    },
+    {
+      "session": 3,
+      "week": 2,
+      "instrument": "Violão",
+      "topic": "Introdução à Bossa Nova (Acordes)",
+      "goal_description": "Aprender e praticar acordes básicos de bossa nova.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Acorde Bm7",
+          "duration_minutes": 15,
+          "description": "Praticar o acorde Bm7 (x24232), 30 repetições lentas, focando na precisão."
+        },
+        {
+          "title": "Acorde E7",
+          "duration_minutes": 15,
+          "description": "Praticar o acorde E7 (020100), 30 repetições lentas, focando na transição."
+        },
+        {
+          "title": "Acorde Am7",
+          "duration_minutes": 15,
+          "description": "Praticar o acorde Am7 (x02010), 30 repetições lentas, focando na sonoridade."
+        },
+        {
+          "title": "Transições Bm7-E7-Am7",
+          "duration_minutes": 10,
+          "description": "Transição entre os acordes Bm7-E7-Am7, BPM 60, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 4,
+      "week": 2,
+      "instrument": "Piano Elétrico",
+      "topic": "Escala de Sol Maior com duas mãos",
+      "goal_description": "Tocar a escala de Sol maior com ambas as mãos de forma sincronizada.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Escala Sol Maior Mão Direita",
+          "duration_minutes": 20,
+          "description": "Escala de Sol maior com a mão direita, 2 oitavas, BPM 70, 10 repetições."
+        },
+        {
+          "title": "Escala Sol Maior Mão Esquerda",
+          "duration_minutes": 20,
+          "description": "Escala de Sol maior com a mão esquerda, 2 oitavas, BPM 70, 10 repetições."
+        },
+        {
+          "title": "Escala Sol Maior Duas Mãos",
+          "duration_minutes": 15,
+          "description": "Escala de Sol maior com 2 mãos em paralelo, 2 oitavas, BPM 70, 5 repetições seguidas."
+        }
+      ]
+    },
+    {
+      "session": 5,
+      "week": 3,
+      "instrument": "Violão",
+      "topic": "Bossa Nova (Batida)",
+      "goal_description": "Aprender e praticar a batida básica da bossa nova.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Batida Bossa Nova (polegar)",
+          "duration_minutes": 20,
+          "description": "Batida bossa nova usando apenas o polegar (baixo-baixo), BPM 70, 20 repetições."
+        },
+        {
+          "title": "Batida Bossa Nova (dedos)",
+          "duration_minutes": 20,
+          "description": "Batida bossa nova completa (baixo-baixo-cima-cima-baixo), BPM 70, 20 repetições."
+        },
+        {
+          "title": "Aplicar Batida Bm7-E7-Am7",
+          "duration_minutes": 15,
+          "description": "Aplicar a batida bossa nova nos acordes Bm7-E7-Am7, BPM 70, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 6,
+      "week": 3,
+      "instrument": "Piano Elétrico",
+      "topic": "Voicings Maiores (Triades)",
+      "goal_description": "Aprender voicings simples para acordes maiores (triades).",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Voicing Cmaj (E/C)",
+          "duration_minutes": 20,
+          "description": "Voicing Cmaj (E/C): mão esq. C, mão dir. E-G-C, 15 repetições lentas."
+        },
+        {
+          "title": "Voicing Fmaj (A/F)",
+          "duration_minutes": 20,
+          "description": "Voicing Fmaj (A/F): mão esq. F, mão dir. A-C-F, 15 repetições lentas."
+        },
+        {
+          "title": "Voicing Gmaj (B/G)",
+          "duration_minutes": 15,
+          "description": "Voicing Gmaj (B/G): mão esq. G, mão dir. B-D-G, 15 repetições lentas."
+        }
+      ]
+    },
+    {
+      "session": 7,
+      "week": 4,
+      "instrument": "Violão",
+      "topic": "Fingerpicking Básico",
+      "goal_description": "Introdução ao fingerpicking com um padrão simples.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Padrão Fingerpicking (T-1-2-3)",
+          "duration_minutes": 20,
+          "description": "Padrão T-1-2-3 (polegar, indicador, médio, anelar) em cordas soltas, BPM 60, 20 repetições."
+        },
+        {
+          "title": "Padrão Fingerpicking em Am",
+          "duration_minutes": 20,
+          "description": "Aplicar o padrão T-1-2-3 no acorde de Am, BPM 60, 20 repetições."
+        },
+        {
+          "title": "Padrão Fingerpicking em G",
+          "duration_minutes": 15,
+          "description": "Aplicar o padrão T-1-2-3 no acorde de G, BPM 60, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 8,
+      "week": 4,
+      "instrument": "Piano Elétrico",
+      "topic": "Voicings Menores (Triades)",
+      "goal_description": "Aprender voicings simples para acordes menores (triades).",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Voicing Am (C/A)",
+          "duration_minutes": 20,
+          "description": "Voicing Am (C/A): mão esq. A, mão dir. C-E-A, 15 repetições lentas."
+        },
+        {
+          "title": "Voicing Dm (F/D)",
+          "duration_minutes": 20,
+          "description": "Voicing Dm (F/D): mão esq. D, mão dir. F-A-D, 15 repetições lentas."
+        },
+        {
+          "title": "Voicing Em (G/E)",
+          "duration_minutes": 15,
+          "description": "Voicing Em (G/E): mão esq. E, mão dir. G-B-E, 15 repetições lentas."
+        }
+      ]
+    },
+    {
+      "session": 9,
+      "week": 5,
+      "instrument": "Violão",
+      "topic": "Arpejo PIMA com Progressão II-V-I",
+      "goal_description": "Aplicar arpejos PIMA em uma progressão II-V-I em Dó maior.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Arpejo PIMA Dm",
+          "duration_minutes": 15,
+          "description": "Arpejo P-I-M-A em Dm (x00231), BPM 70, 20 repetições."
+        },
+        {
+          "title": "Arpejo PIMA G7",
+          "duration_minutes": 15,
+          "description": "Arpejo P-I-M-A em G7 (320001), BPM 70, 20 repetições."
+        },
+        {
+          "title": "Arpejo PIMA Cmaj7",
+          "duration_minutes": 15,
+          "description": "Arpejo P-I-M-A em Cmaj7 (x32000), BPM 70, 20 repetições."
+        },
+        {
+          "title": "Progressão Dm-G7-Cmaj7",
+          "duration_minutes": 10,
+          "description": "Tocar a progressão Dm-G7-Cmaj7 com arpejos PIMA, BPM 70, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 10,
+      "week": 5,
+      "instrument": "Piano Elétrico",
+      "topic": "Comping Básico (Triades)",
+      "goal_description": "Introdução ao comping básico com voicings de triades na mão esquerda.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Comping Cmaj (C-G)",
+          "duration_minutes": 20,
+          "description": "Comping Cmaj: mão esq. C-G, BPM 80, 20 repetições."
+        },
+        {
+          "title": "Comping Dm (D-A)",
+          "duration_minutes": 20,
+          "description": "Comping Dm: mão esq. D-A, BPM 80, 20 repetições."
+        },
+        {
+          "title": "Comping Gmaj (G-D)",
+          "duration_minutes": 15,
+          "description": "Comping Gmaj: mão esq. G-D, BPM 80, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 11,
+      "week": 6,
+      "instrument": "Violão",
+      "topic": "Bossa Nova com Acordes e Batida",
+      "goal_description": "Tocar uma progressão de bossa nova com acordes e batida consistentes.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Acordes Bm7-E7-Am7 (revisão)",
+          "duration_minutes": 10,
+          "description": "Revisar os acordes Bm7-E7-Am7, 10 repetições cada."
+        },
+        {
+          "title": "Batida Bossa Nova (revisão)",
+          "duration_minutes": 15,
+          "description": "Revisar a batida bossa nova completa, BPM 75, 15 repetições."
+        },
+        {
+          "title": "Progressão Bossa Nova",
+          "duration_minutes": 30,
+          "description": "Tocar a progressão Bm7-E7-Am7 com a batida bossa nova, BPM 75, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 12,
+      "week": 6,
+      "instrument": "Piano Elétrico",
+      "topic": "Comping Básico (7ª)",
+      "goal_description": "Praticar comping com acordes com sétima (7ª) na mão esquerda.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Comping Cmaj7 (C-G-B)",
+          "duration_minutes": 20,
+          "description": "Comping Cmaj7: mão esq. C-G-B, BPM 85, 20 repetições."
+        },
+        {
+          "title": "Comping Dm7 (D-A-C)",
+          "duration_minutes": 20,
+          "description": "Comping Dm7: mão esq. D-A-C, BPM 85, 20 repetições."
+        },
+        {
+          "title": "Comping G7 (G-D-F)",
+          "duration_minutes": 15,
+          "description": "Comping G7: mão esq. G-D-F, BPM 85, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 13,
+      "week": 7,
+      "instrument": "Violão",
+      "topic": "Fingerpicking com Progressão Am-G-C-F",
+      "goal_description": "Aplicar o padrão de fingerpicking em uma progressão de acordes Am-G-C-F.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Fingerpicking Am",
+          "duration_minutes": 15,
+          "description": "Padrão T-1-2-3 no acorde de Am, BPM 65, 20 repetições."
+        },
+        {
+          "title": "Fingerpicking G",
+          "duration_minutes": 15,
+          "description": "Padrão T-1-2-3 no acorde de G, BPM 65, 20 repetições."
+        },
+        {
+          "title": "Fingerpicking C",
+          "duration_minutes": 15,
+          "description": "Padrão T-1-2-3 no acorde de C, BPM 65, 20 repetições."
+        },
+        {
+          "title": "Fingerpicking F",
+          "duration_minutes": 10,
+          "description": "Padrão T-1-2-3 no acorde de F, BPM 65, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 14,
+      "week": 7,
+      "instrument": "Piano Elétrico",
+      "topic": "Voicings com 7ª (Dm7-G7-Cmaj7)",
+      "goal_description": "Aprender voicings com 7ª para a progressão Dm7-G7-Cmaj7.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Voicing Dm7",
+          "duration_minutes": 15,
+          "description": "Voicing Dm7: mão esq. D-A, mão dir. F-C, 15 repetições lentas."
+        },
+        {
+          "title": "Voicing G7",
+          "duration_minutes": 15,
+          "description": "Voicing G7: mão esq. G-D, mão dir. F-B, 15 repetições lentas."
+        },
+        {
+          "title": "Voicing Cmaj7",
+          "duration_minutes": 15,
+          "description": "Voicing Cmaj7: mão esq. C-G, mão dir. E-B, 15 repetições lentas."
+        },
+        {
+          "title": "Progressão Voicings Dm7-G7-Cmaj7",
+          "duration_minutes": 10,
+          "description": "Tocar a progressão Dm7-G7-Cmaj7 com voicings, BPM 70, 5 repetições."
+        }
+      ]
+    },
+    {
+      "session": 15,
+      "week": 8,
+      "instrument": "Violão",
+      "topic": "Bossa Nova e Fingerpicking combinados (Am-G-C-F)",
+      "goal_description": "Experimentar combinar elementos de bossa nova e fingerpicking na progressão Am-G-C-F.",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Fingerpicking Am-G-C-F",
+          "duration_minutes": 25,
+          "description": "Tocar Am-G-C-F com fingerpicking (T-1-2-3), BPM 70, 5 repetições."
+        },
+        {
+          "title": "Bossa Nova Am-G-C-F (adaptado)",
+          "duration_minutes": 30,
+          "description": "Tentar adaptar a batida de bossa nova na progressão Am-G-C-F, BPM 70, 5 repetições."
+        }
+      ]
+    },
+    {
+      "session": 16,
+      "week": 8,
+      "instrument": "Piano Elétrico",
+      "topic": "Comping II-V-I (Dm7-G7-Cmaj7)",
+      "goal_description": "Aplicar o comping aprendido na progressão II-V-I (Dm7-G7-Cmaj7).",
+      "steps": [
+        {
+          "title": "Aquecimento Dedos",
+          "duration_minutes": 5,
+          "description": "Exercícios de alongamento e aquecimento dos dedos, 5 minutos."
+        },
+        {
+          "title": "Comping Dm7 (revisão)",
+          "duration_minutes": 10,
+          "description": "Comping Dm7: mão esq. D-A-C, BPM 90, 10 repetições."
+        },
+        {
+          "title": "Comping G7 (revisão)",
+          "duration_minutes": 10,
+          "description": "Comping G7: mão esq. G-D-F, BPM 90, 10 repetições."
+        },
+        {
+          "title": "Comping Cmaj7 (revisão)",
+          "duration_minutes": 10,
+          "description": "Comping Cmaj7: mão esq. C-G-B, BPM 90, 10 repetições."
+        },
+        {
+          "title": "Comping Progressão Dm7-G7-Cmaj7",
+          "duration_minutes": 25,
+          "description": "Tocar a progressão Dm7-G7-Cmaj7 com comping, BPM 90, 10 repetições."
+        }
+      ]
+    },
+    {
+      "session": 17,
+      "week": 9,
+      "instrument": "Violão",
+      "topic": "Improviso Pentatônico Menor - Am",
+      "goal_description": "Improvisar solos usando a pentatônica menor de Am sobre backing track.",
+      "steps": [
+        {
+          "title": "Aquecimento - Escala Pentatônica Am",
+          "duration_minutes": 15,
+          "description": "Tocar a escala pentatônica menor de Am em 5 posições, subindo e descendo. BPM 80, 3 repetições por posição."
+        },
+        {
+          "title": "Padrões Rítmicos",
+          "duration_minutes": 15,
+          "description": "Aplicar 3 padrões rítmicos diferentes (ex: colcheias, semicolcheias, quiálteras) à escala pentatônica. BPM 90, 4 repetições de cada padrão."
+        },
+        {
+          "title": "Improviso Livre",
+          "duration_minutes": 20,
+          "description": "Improvisar sobre backing track em Am (120 BPM) usando a escala pentatônica menor. Focar em frases melódicas."
+        },
+        {
+          "title": "Análise do Solo",
+          "duration_minutes": 10,
+          "description": "Gravar o improviso e analisar os pontos fortes e fracos. Identificar frases interessantes."
+        }
+      ]
+    },
+    {
+      "session": 18,
+      "week": 9,
+      "instrument": "Piano Elétrico",
+      "topic": "Jazz Comping - II-V-I em C",
+      "goal_description": "Desenvolver habilidades de comping jazzístico sobre a progressão II-V-I em Dó maior.",
+      "steps": [
+        {
+          "title": "Voicings Básicos - Dm7",
+          "duration_minutes": 15,
+          "description": "Tocar Dm7 com voicings na mão esquerda (rootless voicings: 3-5-7-9). BPM 60, 10 repetições de cada voicing."
+        },
+        {
+          "title": "Voicings Básicos - G7",
+          "duration_minutes": 15,
+          "description": "Tocar G7 com voicings na mão esquerda (rootless voicings: 3-5-7-9). BPM 60, 10 repetições de cada voicing."
+        },
+        {
+          "title": "Voicings Básicos - Cmaj7",
+          "duration_minutes": 15,
+          "description": "Tocar Cmaj7 com voicings na mão esquerda (rootless voicings: 3-5-7-9). BPM 60, 10 repetições de cada voicing."
+        },
+        {
+          "title": "Comping Simplificado",
+          "duration_minutes": 15,
+          "description": "Tocar a progressão Dm7-G7-Cmaj7 com voicings básicos, usando um ritmo de 'swing' (1-e-&-a). BPM 80, 8 repetições."
+        }
+      ]
+    },
+    {
+      "session": 19,
+      "week": 10,
+      "instrument": "Violão",
+      "topic": "Improviso Pentatônico Maior - A",
+      "goal_description": "Improvisar solos usando a pentatônica maior de A sobre backing track com harmonia maior.",
+      "steps": [
+        {
+          "title": "Aquecimento - Escala Pentatônica A",
+          "duration_minutes": 10,
+          "description": "Tocar a escala pentatônica maior de A em 5 posições. BPM 85, 3 repetições por posição."
+        },
+        {
+          "title": "Ligados e Slides",
+          "duration_minutes": 15,
+          "description": "Incorporar ligados (hammer-ons e pull-offs) e slides à escala pentatônica. BPM 95, 4 repetições com cada técnica."
+        },
+        {
+          "title": "Improviso Livre",
+          "duration_minutes": 25,
+          "description": "Improvisar sobre backing track em A (120 BPM) usando a escala pentatônica maior. Explorar o uso de bends."
+        },
+        {
+          "title": "Transcrição",
+          "duration_minutes": 10,
+          "description": "Transcrever um pequeno trecho de um solo de blues/rock que utilize a pentatônica maior."
+        }
+      ]
+    },
+    {
+      "session": 20,
+      "week": 10,
+      "instrument": "Piano Elétrico",
+      "topic": "Jazz Comping - Ritmo Sincopado",
+      "goal_description": "Aprimorar o comping jazzístico adicionando ritmos sincopados à progressão II-V-I em C.",
+      "steps": [
+        {
+          "title": "Exercício Rítmico - Contratiempo",
+          "duration_minutes": 10,
+          "description": "Bater palmas no contratempo (2 e 4) em 4/4. BPM 70, 20 repetições."
+        },
+        {
+          "title": "Comping com Contratiempo - Dm7-G7-Cmaj7",
+          "duration_minutes": 20,
+          "description": "Tocar a progressão Dm7-G7-Cmaj7, acentuando o contratempo com os voicings. BPM 85, 6 repetições."
+        },
+        {
+          "title": "Variações Rítmicas",
+          "duration_minutes": 20,
+          "description": "Experimentar diferentes variações rítmicas no comping, utilizando síncopas e pausas. BPM 90, 4 repetições de cada variação."
+        },
+        {
+          "title": "Análise de Comping",
+          "duration_minutes": 10,
+          "description": "Ouvir e analisar gravações de comping de pianistas de jazz, identificando o uso de síncopas."
+        }
+      ]
+    },
+    {
+      "session": 21,
+      "week": 11,
+      "instrument": "Violão",
+      "topic": "Levada Complexa - Samba",
+      "goal_description": "Aprender a levada do samba no violão.",
+      "steps": [
+        {
+          "title": "Aquecimento - Acordes de Samba",
+          "duration_minutes": 10,
+          "description": "Tocar acordes básicos de samba (ex: Am7, Dm7, G7, Cmaj7) com a digitação correta. BPM 70, 5 repetições de cada acorde."
+        },
+        {
+          "title": "Padrão Rítmico Básico - Samba",
+          "duration_minutes": 20,
+          "description": "Tocar o padrão rítmico básico do samba (surdo na marcação, tamborim com desenhos rítmicos). BPM 80, 10 repetições."
+        },
+        {
+          "title": "Aplicação da Levada - Samba",
+          "duration_minutes": 20,
+          "description": "Aplicar a levada do samba a uma progressão harmônica simples (ex: Am7-Dm7-G7-Cmaj7). BPM 85, 8 repetições."
+        },
+        {
+          "title": "Variações da Levada",
+          "duration_minutes": 10,
+          "description": "Explorar pequenas variações da levada do samba, adicionando suingue."
+        }
+      ]
+    },
+    {
+      "session": 22,
+      "week": 11,
+      "instrument": "Piano Elétrico",
+      "topic": "Improviso II-V-I - Escala Mixolídia",
+      "goal_description": "Improvisar sobre a progressão II-V-I usando a escala Mixolídia.",
+      "steps": [
+        {
+          "title": "Escala Mixolídia - G",
+          "duration_minutes": 10,
+          "description": "Praticar a escala Mixolídia de G (G-A-B-C-D-E-F). BPM 80, 5 repetições."
+        },
+        {
+          "title": "Arpejos - G7",
+          "duration_minutes": 10,
+          "description": "Praticar o arpejo de G7 (G-B-D-F). BPM 75, 10 repetições."
+        },
+        {
+          "title": "Improviso Livre - II-V-I em C",
+          "duration_minutes": 30,
+          "description": "Improvisar sobre a progressão Dm7-G7-Cmaj7, utilizando a escala Mixolídia de G (para o G7). BPM 90. Focar no 'V' da progressão."
+        },
+        {
+          "title": "Análise de Solo",
+          "duration_minutes": 10,
+          "description": "Analisar um solo de jazz que utilize a escala Mixolídia sobre o acorde dominante."
+        }
+      ]
+    },
+    {
+      "session": 23,
+      "week": 12,
+      "instrument": "Violão",
+      "topic": "Levada Complexa - Bossa Nova",
+      "goal_description": "Aprender a levada da bossa nova no violão.",
+      "steps": [
+        {
+          "title": "Aquecimento - Acordes de Bossa Nova",
+          "duration_minutes": 10,
+          "description": "Tocar acordes de bossa nova (ex: Am7, D7/9, Gmaj7, Cmaj7/9) com digitações características. BPM 75, 5 repetições de cada acorde."
+        },
+        {
+          "title": "Padrão Rítmico Básico - Bossa Nova",
+          "duration_minutes": 20,
+          "description": "Tocar o padrão rítmico básico da bossa nova (dedo polegar marcando o baixo, outros dedos com suingue). BPM 85, 10 repetições."
+        },
+        {
+          "title": "Aplicação da Levada - Bossa Nova",
+          "duration_minutes": 20,
+          "description": "Aplicar a levada da bossa nova a uma progressão harmônica (ex: Am7-D7/9-Gmaj7-Cmaj7/9). BPM 90, 8 repetições."
+        },
+        {
+          "title": "Variações da Levada",
+          "duration_minutes": 10,
+          "description": "Explorar pequenas variações da levada da bossa nova, adicionando sincopes."
+        }
+      ]
+    },
+    {
+      "session": 24,
+      "week": 12,
+      "instrument": "Piano Elétrico",
+      "topic": "Improviso II-V-I - Escala Alterada",
+      "goal_description": "Improvisar sobre a progressão II-V-I utilizando a escala alterada sobre o acorde dominante.",
+      "steps": [
+        {
+          "title": "Escala Alterada - G",
+          "duration_minutes": 10,
+          "description": "Praticar a escala alterada de G (G-Ab-Bb-B-Db-Eb-F). BPM 70, 5 repetições."
+        },
+        {
+          "title": "Arpejos - G7alt",
+          "duration_minutes": 10,
+          "description": "Praticar o arpejo de G7alt (G-B-Db-F). BPM 75, 10 repetições."
+        },
+        {
+          "title": "Improviso Livre - II-V-I em C",
+          "duration_minutes": 30,
+          "description": "Improvisar sobre a progressão Dm7-G7-Cmaj7, utilizando a escala alterada de G (para o G7). BPM 80. Focar no 'V' da progressão."
+        },
+        {
+          "title": "Análise de Solo",
+          "duration_minutes": 10,
+          "description": "Analisar um solo de jazz que utilize a escala alterada sobre o acorde dominante."
+        }
+      ]
+    },
+    {
+      "session": 25,
+      "week": 13,
+      "instrument": "Violão",
+      "topic": "Levada Complexa - Baião",
+      "goal_description": "Aprender a levada do baião no violão.",
+      "steps": [
+        {
+          "title": "Aquecimento - Acordes de Baião",
+          "duration_minutes": 10,
+          "description": "Tocar acordes característicos do baião (ex: Am, E7, Dm, G). BPM 70, 5 repetições de cada acorde."
+        },
+        {
+          "title": "Padrão Rítmico Básico - Baião",
+          "duration_minutes": 20,
+          "description": "Tocar o padrão rítmico básico do baião (zabumba, triângulo, sanfona). BPM 90, 10 repetições."
+        },
+        {
+          "title": "Aplicação da Levada - Baião",
+          "duration_minutes": 20,
+          "description": "Aplicar a levada do baião a uma progressão harmônica (ex: Am-E7-Am). BPM 95, 8 repetições."
+        },
+        {
+          "title": "Variações da Levada",
+          "duration_minutes": 10,
+          "description": "Explorar variações da levada do baião, adaptando ao violão."
+        }
+      ]
+    },
+    {
+      "session": 26,
+      "week": 13,
+      "instrument": "Piano Elétrico",
+      "topic": "Improviso II-V-I - Acordes com Tensão",
+      "goal_description": "Improvisar sobre a progressão II-V-I utilizando acordes com tensão.",
+      "steps": [
+        {
+          "title": "Voicings Dm7(9)",
+          "duration_minutes": 15,
+          "description": "Tocar Dm7(9) com diferentes voicings. BPM 65, 10 repetições por voicing."
+        },
+        {
+          "title": "Voicings G7(b9)",
+          "duration_minutes": 15,
+          "description": "Tocar G7(b9) com diferentes voicings. BPM 65, 10 repetições por voicing."
+        },
+        {
+          "title": "Voicings Cmaj7(#11)",
+          "duration_minutes": 15,
+          "description": "Tocar Cmaj7(#11) com diferentes voicings. BPM 65, 10 repetições por voicing."
+        },
+        {
+          "title": "Improviso II-V-I com tensões",
+          "duration_minutes": 15,
+          "description": "Improvisar sobre Dm7(9) - G7(b9) - Cmaj7(#11). BPM 80, focando em ligar as tensões."
+        }
+      ]
+    },
+    {
+      "session": 27,
+      "week": 14,
+      "instrument": "Violão",
+      "topic": "Levada Complexa - Choro",
+      "goal_description": "Aprender a levada do choro no violão.",
+      "steps": [
+        {
+          "title": "Aquecimento - Acordes de Choro",
+          "duration_minutes": 10,
+          "description": "Tocar acordes característicos do choro (ex: Am7, Dm7, G7, Cmaj7) com digitações típicas. BPM 75, 5 repetições de cada acorde."
+        },
+        {
+          "title": "Padrão Rítmico Básico - Choro",
+          "duration_minutes": 20,
+          "description": "Tocar o padrão rítmico básico do choro (violão tenor marcando o contrabaixo, violão acompanhador com suingue). BPM 95, 10 repetições."
+        },
+        {
+          "title": "Aplicação da Levada - Choro",
+          "duration_minutes": 20,
+          "description": "Aplicar a levada do choro a uma progressão harmônica (ex: Am7-Dm7-G7-Cmaj7). BPM 100, 8 repetições."
+        },
+        {
+          "title": "Variações da Levada",
+          "duration_minutes": 10,
+          "description": "Explorar variações da levada do choro, adaptando ao violão."
+        }
+      ]
+    },
+    {
+      "session": 28,
+      "week": 14,
+      "instrument": "Piano Elétrico",
+      "topic": "Improviso II-V-I - Progressões com Modulação",
+      "goal_description": "Improvisar sobre progressões II-V-I com modulações próximas (ex: C -> G).",
+      "steps": [
+        {
+          "title": "II-V-I em C",
+          "duration_minutes": 10,
+          "description": "Praticar Dm7-G7-Cmaj7 em C. BPM 70, 5 repetições."
+        },
+        {
+          "title": "II-V-I em G",
+          "duration_minutes": 10,
+          "description": "Praticar Em7-A7-Dmaj7 em G. BPM 70, 5 repetições."
+        },
+        {
+          "title": "Progressão com Modulação",
+          "duration_minutes": 20,
+          "description": "Improvisar sobre a progressão Dm7-G7-Cmaj7 - Em7-A7-Dmaj7. BPM 80. Modulação de C para G."
+        },
+        {
+          "title": "Improviso Livre",
+          "duration_minutes": 20,
+          "description": "Improvisar livremente sobre a progressão, explorando as modulações e as escalas apropriadas."
+        }
+      ]
+    },
+    {
+      "session": 29,
+      "week": 15,
+      "instrument": "Violão",
+      "topic": "Arranjo - Simplificando Músicas Populares",
+      "goal_description": "Criar arranjos simplificados de músicas populares para violão solo.",
+      "steps": [
+        {
+          "title": "Escolha da Música",
+          "duration_minutes": 10,
+          "description": "Escolher uma música popular simples com progressão harmônica clara (ex: 4 acordes)."
+        },
+        {
+          "title": "Transcrição da Melodia",
+          "duration_minutes": 15,
+          "description": "Transcrever a melodia principal da música para o violão."
+        },
+        {
+          "title": "Arranjo Harmônico",
+          "duration_minutes": 25,
+          "description": "Criar um arranjo harmônico simplificado, utilizando dedilhados ou batidas simples para acompanhar a melodia."
+        },
+        {
+          "title": "Refinamento do Arranjo",
+          "duration_minutes": 10,
+          "description": "Refinar o arranjo, adicionando pequenos detalhes e variações para torná-lo mais interessante."
+        }
+      ]
+    },
+    {
+      "session": 30,
+      "week": 15,
+      "instrument": "Piano Elétrico",
+      "topic": "Improviso II-V-I - Modos Gregos",
+      "goal_description": "Improvisar sobre a progressão II-V-I usando diferentes Modos Gregos (ex: Dórico, Mixolídio, Jônico).",
+      "steps": [
+        {
+          "title": "Modo Dórico - D",
+          "duration_minutes": 10,
+          "description": "Praticar o Modo Dórico de D (D-E-F-G-A-B-C). BPM 75, 5 repetições."
+        },
+        {
+          "title": "Modo Mixolídio - G",
+          "duration_minutes": 10,
+          "description": "Praticar o Modo Mixolídio de G (G-A-B-C-D-E-F). BPM 75, 5 repetições."
+        },
+        {
+          "title": "Modo Jônico - C",
+          "duration_minutes": 10,
+          "description": "Praticar o Modo Jônico de C (C-D-E-F-G-A-B). BPM 75, 5 repetições."
+        },
+        {
+          "title": "Improviso Livre - II-V-I em C",
+          "duration_minutes": 30,
+          "description": "Improvisar sobre Dm7-G7-Cmaj7 usando os modos Dórico (Dm7), Mixolídio (G7) e Jônico (Cmaj7). BPM 90."
+        }
+      ]
+    },
+    {
+      "session": 31,
+      "week": 16,
+      "instrument": "Violão",
+      "topic": "Composição - Melodia e Harmonia",
+      "goal_description": "Compor uma pequena peça musical original para violão solo.",
+      "steps": [
+        {
+          "title": "Escolha do Tom",
+          "duration_minutes": 5,
+          "description": "Escolher um tom para a composição (ex: D maior, A menor)."
+        },
+        {
+          "title": "Criação da Melodia",
+          "duration_minutes": 20,
+          "description": "Compor uma melodia simples e cativante. Utilizar um gravador para registrar as ideias."
+        },
+        {
+          "title": "Harmonização da Melodia",
+          "duration_minutes": 25,
+          "description": "Harmonizar a melodia, criando uma progressão harmônica adequada. Experimentar diferentes acordes e inversões."
+        },
+        {
+          "title": "Refinamento da Composição",
+          "duration_minutes": 10,
+          "description": "Refinar a composição, adicionando detalhes e variações para torná-la mais interessante."
+        }
+      ]
+    },
+    {
+      "session": 32,
+      "week": 16,
+      "instrument": "Piano Elétrico",
+      "topic": "Revisão e Consolidação",
+      "goal_description": "Revisar e consolidar todos os conceitos e técnicas aprendidas nas últimas semanas.",
+      "steps": [
+        {
+          "title": "Revisão Voicings",
+          "duration_minutes": 15,
+          "description": "Revisar todos os voicings aprendidos (Dm7, G7, Cmaj7, tensões). BPM 70. Focar na sonoridade."
+        },
+        {
+          "title": "Revisão Escalas",
+          "duration_minutes": 15,
+          "description": "Revisar escalas (Mixolídia, Alterada). BPM 80, focando na aplicação aos acordes."
+        },
+        {
+          "title": "Improviso II-V-I - Combinação",
+          "duration_minutes": 20,
+          "description": "Improvisar sobre Dm7-G7-Cmaj7 combinando voicings, escalas e progressões aprendidas. BPM 90."
+        },
+        {
+          "title": "Gravação e Análise",
+          "duration_minutes": 10,
+          "description": "Gravar o improviso e analisar os pontos fortes e fracos para futuras práticas."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Música — 11/03/2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:     #2563eb;
+            --bg:          #f1f5f9;
+            --card:        #ffffff;
+            --text:        #0f172a;
+            --muted:       #64748b;
+            --border:      #e2e8f0;
+            --shadow:      0 1px 3px rgba(15,23,42,.07), 0 4px 16px rgba(15,23,42,.05);
+            --radius:      18px;
+            --green:       #22c55e;
+            --green-dark:  #16a34a;
+            --green-bg:    #f0fdf4;
+            --violao:      #d97706;
+            --violao-bg:   #fef3c7;
+            --violao-dark: #92400e;
+            --piano:       #7c3aed;
+            --piano-bg:    #ede9fe;
+            --piano-dark:  #4c1d95;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            margin-bottom: 1rem;
+            transition: background .15s;
+        }
+        .back-link:hover { background: #dbeafe; }
+        .back-link::before { content: '←'; }
+
+        .hero {
+            background: linear-gradient(135deg, #d97706 0%, #7c3aed 100%);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem 1.75rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 24px rgba(124,58,237,.2);
+        }
+        .hero h1 { font-size: 1.7rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+        .hero-sub { color: rgba(255,255,255,.75); margin-top: 0.35rem; font-size: 0.88rem; font-weight: 500; }
+        .hero-badge {
+            display: inline-block;
+            margin-top: 0.75rem;
+            background: rgba(255,255,255,.18);
+            border: 1px solid rgba(255,255,255,.28);
+            color: #fff;
+            border-radius: 999px;
+            padding: 0.28rem 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+        .sec-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .sec-head-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .sec-head-row .sec-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .sec-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+        .si-violao { background: var(--violao-bg); }
+        .si-piano  { background: var(--piano-bg); }
+        .si-green  { background: var(--green-bg); }
+        .si-blue   { background: #eff6ff; }
+        .sec-title { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+
+        /* Instrumento badge */
+        .instr-badge {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+        }
+        .instr-violao { background: var(--violao-bg); color: var(--violao-dark); }
+        .instr-piano  { background: var(--piano-bg);  color: var(--piano-dark);  }
+
+        /* Sessão atual */
+        .topic-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+            line-height: 1.35;
+        }
+        .session-label { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500; }
+        .goal-desc {
+            font-size: 0.88rem;
+            color: var(--muted);
+            line-height: 1.55;
+            margin-bottom: 1.1rem;
+            font-style: italic;
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 0.625rem 0.875rem;
+            border-left: 3px solid var(--border);
+        }
+
+        /* Steps */
+        .step-card {
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 0.875rem 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+        .step-num {
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .violao-num { background: var(--violao); }
+        .piano-num  { background: var(--piano); }
+        .step-title { font-size: 0.88rem; font-weight: 600; flex: 1; color: var(--text); }
+        .step-duration {
+            font-size: 0.72rem;
+            color: var(--muted);
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.15rem 0.55rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .step-desc { font-size: 0.835rem; color: var(--muted); line-height: 1.55; padding-left: 32px; }
+
+        /* Checkbox & progress */
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 0.75rem;
+        }
+        .music-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px; height: 22px;
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            flex-shrink: 0;
+            position: relative;
+            transition: background .15s;
+        }
+        .music-checkbox:checked { background: var(--primary); }
+        .music-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 4px; top: 1px;
+            width: 10px; height: 6px;
+            border-left: 2.5px solid #fff;
+            border-bottom: 2.5px solid #fff;
+            transform: rotate(-45deg);
+        }
+        .checkbox-label { font-size: 0.92rem; color: var(--text); cursor: pointer; font-weight: 500; }
+        .progress-bar-wrap { background: var(--border); border-radius: 999px; height: 8px; overflow: hidden; }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, #818cf8 100%);
+            border-radius: 999px;
+            transition: width .4s ease;
+        }
+        .progress-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.45rem; text-align: right; font-weight: 500; }
+
+        /* Próxima sessão */
+        .next-locked {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        .lock-icon { font-size: 1.5rem; flex-shrink: 0; opacity: .5; }
+        .next-lock-title { font-size: 0.88rem; font-weight: 600; color: var(--muted); }
+        .next-lock-hint  { font-size: 0.78rem; color: #94a3b8; margin-top: 0.2rem; }
+
+        .next-preview { display: flex; flex-direction: column; gap: 0.5rem; }
+        .next-preview-topic { font-size: 1rem; font-weight: 600; color: var(--text); }
+        .next-preview-meta  { font-size: 0.82rem; color: var(--muted); }
+        .next-unlocked-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            background: var(--green-bg);
+            border-radius: 999px;
+            padding: 0.2rem 0.65rem;
+        }
+
+        /* Calendário */
+        .cal-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.875rem;
+        }
+        .cal-nav-btn {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--muted);
+            display: flex; align-items: center; justify-content: center;
+            transition: all .15s;
+            line-height: 1;
+        }
+        .cal-nav-btn:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+        .cal-month-label { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+
+        .cal-legend {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .cal-legend-item { display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; color: var(--muted); }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .ld-violao { background: var(--violao); }
+        .ld-piano  { background: var(--piano); }
+
+        .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+        .cal-day-header {
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 0.25rem 0 0.4rem;
+            letter-spacing: 0.03em;
+        }
+        .cal-cell {
+            aspect-ratio: 1;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--muted);
+            position: relative;
+        }
+        .cal-cell.cal-future { color: #cbd5e1; }
+        .cal-cell.cal-today { background: var(--bg); border: 2px solid var(--primary); color: var(--primary); font-weight: 700; }
+        .cal-cell.cal-done-violao { background: var(--violao); color: #fff; font-weight: 700; cursor: pointer; }
+        .cal-cell.cal-done-violao:hover { background: #b45309; }
+        .cal-cell.cal-done-piano  { background: var(--piano); color: #fff; font-weight: 700; cursor: pointer; }
+        .cal-cell.cal-done-piano:hover { background: #6d28d9; }
+        .cal-cell.cal-done-violao::after, .cal-cell.cal-done-piano::after {
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.65);
+        }
+        .cal-cell.cal-today.cal-done-violao { background: var(--violao); border-color: var(--violao-dark); color: #fff; }
+        .cal-cell.cal-today.cal-done-piano  { background: var(--piano);  border-color: var(--piano-dark);  color: #fff; }
+
+        .cal-detail {
+            margin-top: 0.875rem;
+            padding: 0.875rem 1rem;
+            border-radius: 12px;
+            border-left: 3px solid var(--primary);
+            background: #eff6ff;
+            display: none;
+        }
+        .cal-detail.violao-detail { background: var(--violao-bg); border-left-color: var(--violao); }
+        .cal-detail.piano-detail  { background: var(--piano-bg);  border-left-color: var(--piano);  }
+        .cal-detail-date { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem; }
+        .cal-detail.violao-detail .cal-detail-date { color: var(--violao-dark); }
+        .cal-detail.piano-detail  .cal-detail-date { color: var(--piano-dark); }
+        .cal-detail-session { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem; }
+        .cal-detail-topic { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+        .cal-detail-goal  { font-size: 0.85rem; color: var(--muted); line-height: 1.4; font-style: italic; }
+
+        /* Info table */
+        .info-table { width: 100%; border-collapse: collapse; }
+        .info-table tr { border-bottom: 1px solid var(--border); }
+        .info-table tr:last-child { border-bottom: none; }
+        .info-table td { padding: 0.55rem 0; font-size: 0.9rem; }
+        .info-table td:first-child { color: var(--muted); width: 55%; }
+        .info-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+
+        .all-done-msg { text-align: center; padding: 1.5rem 0; font-size: 1.1rem; font-weight: 700; color: var(--green-dark); }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.72rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="hero">
+        <h1>Música de Hoje</h1>
+        <p class="hero-sub">Terça-feira &middot; 11/03/2026</p>
+        <span class="hero-badge">Técnica avançada em violão e piano elétrico</span>
+    </div>
+
+    <!-- Sessão Atual -->
+    <div class="card" id="current-card">
+        <div class="sec-head-row">
+            <div class="sec-left">
+                <span class="sec-icon si-violao">🎵</span>
+                <span class="sec-title">Sessão de Hoje</span>
+            </div>
+            <span class="instr-badge" id="instr-badge"></span>
+        </div>
+        <div id="current-body">
+            <h2 class="topic-title" id="topic-title"></h2>
+            <p class="session-label" id="session-label"></p>
+            <p class="goal-desc" id="goal-desc"></p>
+            <div id="steps-container" style="margin-bottom:1.25rem"></div>
+            <div class="checkbox-row">
+                <input type="checkbox" class="music-checkbox" id="music-done" onchange="toggleMusic(this.checked)">
+                <label class="checkbox-label" for="music-done">Sessão concluída</label>
+            </div>
+            <div class="progress-bar-wrap">
+                <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="progress-label" id="progress-label">0 / 32 sessões</div>
+        </div>
+        <div class="all-done-msg" id="all-done-msg" style="display:none">
+            Plano concluído! Parabéns pela dedicação!
+        </div>
+    </div>
+
+    <!-- Próxima Sessão -->
+    <div class="card" id="next-card">
+        <div class="sec-head">
+            <span class="sec-icon si-blue">⏭️</span>
+            <span class="sec-title">Próxima Sessão</span>
+        </div>
+        <div id="next-content"></div>
+    </div>
+
+    <!-- Histórico -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-green">📅</span>
+            <span class="sec-title">Histórico de Sessões</span>
+        </div>
+        <div class="cal-nav">
+            <button class="cal-nav-btn" onclick="calPrev()">&#8249;</button>
+            <span class="cal-month-label" id="cal-month-label"></span>
+            <button class="cal-nav-btn" onclick="calNext()">&#8250;</button>
+        </div>
+        <div class="cal-legend">
+            <div class="cal-legend-item"><span class="legend-dot ld-violao"></span> Violão</div>
+            <div class="cal-legend-item"><span class="legend-dot ld-piano"></span> Piano Elétrico</div>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-detail" id="cal-detail">
+            <div class="cal-detail-date" id="cal-detail-date"></div>
+            <div class="cal-detail-session" id="cal-detail-session"></div>
+            <div class="cal-detail-topic" id="cal-detail-topic"></div>
+            <div class="cal-detail-goal" id="cal-detail-goal"></div>
+        </div>
+    </div>
+
+    <!-- Plano -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-blue">📋</span>
+            <span class="sec-title">Sobre o Plano</span>
+        </div>
+        <table class="info-table">
+            <tr><td>Meta</td><td>Técnica avançada em violão e piano elétrico</td></tr>
+            <tr><td>Início</td><td>11/03/2026</td></tr>
+            <tr><td>Frequência</td><td>2x por semana</td></tr>
+            <tr><td>Total de sessões</td><td>32</td></tr>
+            <tr><td>Duração por sessão</td><td>1 hora</td></tr>
+        </table>
+    </div>
+
+    <footer>
+        Gerado em 23:51 &middot; Daily Organizer
+    </footer>
+
+    <script>
+        const LS_KEY         = 'daily-organizer-music';
+        const SESSIONS       = [{"goal_description": "Executar arpejos PIMA de forma limpa e consistente nas progress\u00f5es Am-G-F-E.", "instrument": "Viol\u00e3o", "session": 1, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Arpejo P-I-M-A em Am, BPM 60, 20 repeti\u00e7\u00f5es. Polegar na 5\u00aa corda, dedos arqueados.", "duration_minutes": 15, "title": "Arpejo PIMA Am"}, {"description": "Arpejo P-I-M-A em G, BPM 60, 20 repeti\u00e7\u00f5es. Polegar na 6\u00aa corda, dedos arqueados.", "duration_minutes": 15, "title": "Arpejo PIMA G"}, {"description": "Arpejo P-I-M-A em F, BPM 60, 20 repeti\u00e7\u00f5es. Polegar na 6\u00aa corda, dedos arqueados.", "duration_minutes": 15, "title": "Arpejo PIMA F"}, {"description": "Arpejo P-I-M-A em E, BPM 60, 20 repeti\u00e7\u00f5es. Polegar na 6\u00aa corda, dedos arqueados.", "duration_minutes": 10, "title": "Arpejo PIMA E"}], "topic": "Arpejo PIMA em Am-G-F-E", "week": 1}, {"goal_description": "Tocar a escala de D\u00f3 maior com ambas as m\u00e3os de forma sincronizada.", "instrument": "Piano El\u00e9trico", "session": 2, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Escala de D\u00f3 maior com a m\u00e3o direita, 2 oitavas, BPM 60, 10 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Escala D\u00f3 Maior M\u00e3o Direita"}, {"description": "Escala de D\u00f3 maior com a m\u00e3o esquerda, 2 oitavas, BPM 60, 10 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Escala D\u00f3 Maior M\u00e3o Esquerda"}, {"description": "Escala de D\u00f3 maior com 2 m\u00e3os em paralelo, 2 oitavas, BPM 60, 5 repeti\u00e7\u00f5es seguidas.", "duration_minutes": 15, "title": "Escala D\u00f3 Maior Duas M\u00e3os"}], "topic": "Escala de D\u00f3 Maior com duas m\u00e3os", "week": 1}, {"goal_description": "Aprender e praticar acordes b\u00e1sicos de bossa nova.", "instrument": "Viol\u00e3o", "session": 3, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Praticar o acorde Bm7 (x24232), 30 repeti\u00e7\u00f5es lentas, focando na precis\u00e3o.", "duration_minutes": 15, "title": "Acorde Bm7"}, {"description": "Praticar o acorde E7 (020100), 30 repeti\u00e7\u00f5es lentas, focando na transi\u00e7\u00e3o.", "duration_minutes": 15, "title": "Acorde E7"}, {"description": "Praticar o acorde Am7 (x02010), 30 repeti\u00e7\u00f5es lentas, focando na sonoridade.", "duration_minutes": 15, "title": "Acorde Am7"}, {"description": "Transi\u00e7\u00e3o entre os acordes Bm7-E7-Am7, BPM 60, 10 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Transi\u00e7\u00f5es Bm7-E7-Am7"}], "topic": "Introdu\u00e7\u00e3o \u00e0 Bossa Nova (Acordes)", "week": 2}, {"goal_description": "Tocar a escala de Sol maior com ambas as m\u00e3os de forma sincronizada.", "instrument": "Piano El\u00e9trico", "session": 4, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Escala de Sol maior com a m\u00e3o direita, 2 oitavas, BPM 70, 10 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Escala Sol Maior M\u00e3o Direita"}, {"description": "Escala de Sol maior com a m\u00e3o esquerda, 2 oitavas, BPM 70, 10 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Escala Sol Maior M\u00e3o Esquerda"}, {"description": "Escala de Sol maior com 2 m\u00e3os em paralelo, 2 oitavas, BPM 70, 5 repeti\u00e7\u00f5es seguidas.", "duration_minutes": 15, "title": "Escala Sol Maior Duas M\u00e3os"}], "topic": "Escala de Sol Maior com duas m\u00e3os", "week": 2}, {"goal_description": "Aprender e praticar a batida b\u00e1sica da bossa nova.", "instrument": "Viol\u00e3o", "session": 5, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Batida bossa nova usando apenas o polegar (baixo-baixo), BPM 70, 20 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Batida Bossa Nova (polegar)"}, {"description": "Batida bossa nova completa (baixo-baixo-cima-cima-baixo), BPM 70, 20 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Batida Bossa Nova (dedos)"}, {"description": "Aplicar a batida bossa nova nos acordes Bm7-E7-Am7, BPM 70, 10 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Aplicar Batida Bm7-E7-Am7"}], "topic": "Bossa Nova (Batida)", "week": 3}, {"goal_description": "Aprender voicings simples para acordes maiores (triades).", "instrument": "Piano El\u00e9trico", "session": 6, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Voicing Cmaj (E/C): m\u00e3o esq. C, m\u00e3o dir. E-G-C, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 20, "title": "Voicing Cmaj (E/C)"}, {"description": "Voicing Fmaj (A/F): m\u00e3o esq. F, m\u00e3o dir. A-C-F, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 20, "title": "Voicing Fmaj (A/F)"}, {"description": "Voicing Gmaj (B/G): m\u00e3o esq. G, m\u00e3o dir. B-D-G, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 15, "title": "Voicing Gmaj (B/G)"}], "topic": "Voicings Maiores (Triades)", "week": 3}, {"goal_description": "Introdu\u00e7\u00e3o ao fingerpicking com um padr\u00e3o simples.", "instrument": "Viol\u00e3o", "session": 7, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Padr\u00e3o T-1-2-3 (polegar, indicador, m\u00e9dio, anelar) em cordas soltas, BPM 60, 20 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Padr\u00e3o Fingerpicking (T-1-2-3)"}, {"description": "Aplicar o padr\u00e3o T-1-2-3 no acorde de Am, BPM 60, 20 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Padr\u00e3o Fingerpicking em Am"}, {"description": "Aplicar o padr\u00e3o T-1-2-3 no acorde de G, BPM 60, 10 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Padr\u00e3o Fingerpicking em G"}], "topic": "Fingerpicking B\u00e1sico", "week": 4}, {"goal_description": "Aprender voicings simples para acordes menores (triades).", "instrument": "Piano El\u00e9trico", "session": 8, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Voicing Am (C/A): m\u00e3o esq. A, m\u00e3o dir. C-E-A, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 20, "title": "Voicing Am (C/A)"}, {"description": "Voicing Dm (F/D): m\u00e3o esq. D, m\u00e3o dir. F-A-D, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 20, "title": "Voicing Dm (F/D)"}, {"description": "Voicing Em (G/E): m\u00e3o esq. E, m\u00e3o dir. G-B-E, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 15, "title": "Voicing Em (G/E)"}], "topic": "Voicings Menores (Triades)", "week": 4}, {"goal_description": "Aplicar arpejos PIMA em uma progress\u00e3o II-V-I em D\u00f3 maior.", "instrument": "Viol\u00e3o", "session": 9, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Arpejo P-I-M-A em Dm (x00231), BPM 70, 20 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Arpejo PIMA Dm"}, {"description": "Arpejo P-I-M-A em G7 (320001), BPM 70, 20 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Arpejo PIMA G7"}, {"description": "Arpejo P-I-M-A em Cmaj7 (x32000), BPM 70, 20 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Arpejo PIMA Cmaj7"}, {"description": "Tocar a progress\u00e3o Dm-G7-Cmaj7 com arpejos PIMA, BPM 70, 10 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Progress\u00e3o Dm-G7-Cmaj7"}], "topic": "Arpejo PIMA com Progress\u00e3o II-V-I", "week": 5}, {"goal_description": "Introdu\u00e7\u00e3o ao comping b\u00e1sico com voicings de triades na m\u00e3o esquerda.", "instrument": "Piano El\u00e9trico", "session": 10, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Comping Cmaj: m\u00e3o esq. C-G, BPM 80, 20 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Comping Cmaj (C-G)"}, {"description": "Comping Dm: m\u00e3o esq. D-A, BPM 80, 20 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Comping Dm (D-A)"}, {"description": "Comping Gmaj: m\u00e3o esq. G-D, BPM 80, 10 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Comping Gmaj (G-D)"}], "topic": "Comping B\u00e1sico (Triades)", "week": 5}, {"goal_description": "Tocar uma progress\u00e3o de bossa nova com acordes e batida consistentes.", "instrument": "Viol\u00e3o", "session": 11, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Revisar os acordes Bm7-E7-Am7, 10 repeti\u00e7\u00f5es cada.", "duration_minutes": 10, "title": "Acordes Bm7-E7-Am7 (revis\u00e3o)"}, {"description": "Revisar a batida bossa nova completa, BPM 75, 15 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Batida Bossa Nova (revis\u00e3o)"}, {"description": "Tocar a progress\u00e3o Bm7-E7-Am7 com a batida bossa nova, BPM 75, 10 repeti\u00e7\u00f5es.", "duration_minutes": 30, "title": "Progress\u00e3o Bossa Nova"}], "topic": "Bossa Nova com Acordes e Batida", "week": 6}, {"goal_description": "Praticar comping com acordes com s\u00e9tima (7\u00aa) na m\u00e3o esquerda.", "instrument": "Piano El\u00e9trico", "session": 12, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Comping Cmaj7: m\u00e3o esq. C-G-B, BPM 85, 20 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Comping Cmaj7 (C-G-B)"}, {"description": "Comping Dm7: m\u00e3o esq. D-A-C, BPM 85, 20 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Comping Dm7 (D-A-C)"}, {"description": "Comping G7: m\u00e3o esq. G-D-F, BPM 85, 10 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Comping G7 (G-D-F)"}], "topic": "Comping B\u00e1sico (7\u00aa)", "week": 6}, {"goal_description": "Aplicar o padr\u00e3o de fingerpicking em uma progress\u00e3o de acordes Am-G-C-F.", "instrument": "Viol\u00e3o", "session": 13, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Padr\u00e3o T-1-2-3 no acorde de Am, BPM 65, 20 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Fingerpicking Am"}, {"description": "Padr\u00e3o T-1-2-3 no acorde de G, BPM 65, 20 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Fingerpicking G"}, {"description": "Padr\u00e3o T-1-2-3 no acorde de C, BPM 65, 20 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Fingerpicking C"}, {"description": "Padr\u00e3o T-1-2-3 no acorde de F, BPM 65, 10 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Fingerpicking F"}], "topic": "Fingerpicking com Progress\u00e3o Am-G-C-F", "week": 7}, {"goal_description": "Aprender voicings com 7\u00aa para a progress\u00e3o Dm7-G7-Cmaj7.", "instrument": "Piano El\u00e9trico", "session": 14, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Voicing Dm7: m\u00e3o esq. D-A, m\u00e3o dir. F-C, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 15, "title": "Voicing Dm7"}, {"description": "Voicing G7: m\u00e3o esq. G-D, m\u00e3o dir. F-B, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 15, "title": "Voicing G7"}, {"description": "Voicing Cmaj7: m\u00e3o esq. C-G, m\u00e3o dir. E-B, 15 repeti\u00e7\u00f5es lentas.", "duration_minutes": 15, "title": "Voicing Cmaj7"}, {"description": "Tocar a progress\u00e3o Dm7-G7-Cmaj7 com voicings, BPM 70, 5 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Progress\u00e3o Voicings Dm7-G7-Cmaj7"}], "topic": "Voicings com 7\u00aa (Dm7-G7-Cmaj7)", "week": 7}, {"goal_description": "Experimentar combinar elementos de bossa nova e fingerpicking na progress\u00e3o Am-G-C-F.", "instrument": "Viol\u00e3o", "session": 15, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Tocar Am-G-C-F com fingerpicking (T-1-2-3), BPM 70, 5 repeti\u00e7\u00f5es.", "duration_minutes": 25, "title": "Fingerpicking Am-G-C-F"}, {"description": "Tentar adaptar a batida de bossa nova na progress\u00e3o Am-G-C-F, BPM 70, 5 repeti\u00e7\u00f5es.", "duration_minutes": 30, "title": "Bossa Nova Am-G-C-F (adaptado)"}], "topic": "Bossa Nova e Fingerpicking combinados (Am-G-C-F)", "week": 8}, {"goal_description": "Aplicar o comping aprendido na progress\u00e3o II-V-I (Dm7-G7-Cmaj7).", "instrument": "Piano El\u00e9trico", "session": 16, "steps": [{"description": "Exerc\u00edcios de alongamento e aquecimento dos dedos, 5 minutos.", "duration_minutes": 5, "title": "Aquecimento Dedos"}, {"description": "Comping Dm7: m\u00e3o esq. D-A-C, BPM 90, 10 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Comping Dm7 (revis\u00e3o)"}, {"description": "Comping G7: m\u00e3o esq. G-D-F, BPM 90, 10 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Comping G7 (revis\u00e3o)"}, {"description": "Comping Cmaj7: m\u00e3o esq. C-G-B, BPM 90, 10 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Comping Cmaj7 (revis\u00e3o)"}, {"description": "Tocar a progress\u00e3o Dm7-G7-Cmaj7 com comping, BPM 90, 10 repeti\u00e7\u00f5es.", "duration_minutes": 25, "title": "Comping Progress\u00e3o Dm7-G7-Cmaj7"}], "topic": "Comping II-V-I (Dm7-G7-Cmaj7)", "week": 8}, {"goal_description": "Improvisar solos usando a pentat\u00f4nica menor de Am sobre backing track.", "instrument": "Viol\u00e3o", "session": 17, "steps": [{"description": "Tocar a escala pentat\u00f4nica menor de Am em 5 posi\u00e7\u00f5es, subindo e descendo. BPM 80, 3 repeti\u00e7\u00f5es por posi\u00e7\u00e3o.", "duration_minutes": 15, "title": "Aquecimento - Escala Pentat\u00f4nica Am"}, {"description": "Aplicar 3 padr\u00f5es r\u00edtmicos diferentes (ex: colcheias, semicolcheias, qui\u00e1lteras) \u00e0 escala pentat\u00f4nica. BPM 90, 4 repeti\u00e7\u00f5es de cada padr\u00e3o.", "duration_minutes": 15, "title": "Padr\u00f5es R\u00edtmicos"}, {"description": "Improvisar sobre backing track em Am (120 BPM) usando a escala pentat\u00f4nica menor. Focar em frases mel\u00f3dicas.", "duration_minutes": 20, "title": "Improviso Livre"}, {"description": "Gravar o improviso e analisar os pontos fortes e fracos. Identificar frases interessantes.", "duration_minutes": 10, "title": "An\u00e1lise do Solo"}], "topic": "Improviso Pentat\u00f4nico Menor - Am", "week": 9}, {"goal_description": "Desenvolver habilidades de comping jazz\u00edstico sobre a progress\u00e3o II-V-I em D\u00f3 maior.", "instrument": "Piano El\u00e9trico", "session": 18, "steps": [{"description": "Tocar Dm7 com voicings na m\u00e3o esquerda (rootless voicings: 3-5-7-9). BPM 60, 10 repeti\u00e7\u00f5es de cada voicing.", "duration_minutes": 15, "title": "Voicings B\u00e1sicos - Dm7"}, {"description": "Tocar G7 com voicings na m\u00e3o esquerda (rootless voicings: 3-5-7-9). BPM 60, 10 repeti\u00e7\u00f5es de cada voicing.", "duration_minutes": 15, "title": "Voicings B\u00e1sicos - G7"}, {"description": "Tocar Cmaj7 com voicings na m\u00e3o esquerda (rootless voicings: 3-5-7-9). BPM 60, 10 repeti\u00e7\u00f5es de cada voicing.", "duration_minutes": 15, "title": "Voicings B\u00e1sicos - Cmaj7"}, {"description": "Tocar a progress\u00e3o Dm7-G7-Cmaj7 com voicings b\u00e1sicos, usando um ritmo de \u0027swing\u0027 (1-e-\u0026-a). BPM 80, 8 repeti\u00e7\u00f5es.", "duration_minutes": 15, "title": "Comping Simplificado"}], "topic": "Jazz Comping - II-V-I em C", "week": 9}, {"goal_description": "Improvisar solos usando a pentat\u00f4nica maior de A sobre backing track com harmonia maior.", "instrument": "Viol\u00e3o", "session": 19, "steps": [{"description": "Tocar a escala pentat\u00f4nica maior de A em 5 posi\u00e7\u00f5es. BPM 85, 3 repeti\u00e7\u00f5es por posi\u00e7\u00e3o.", "duration_minutes": 10, "title": "Aquecimento - Escala Pentat\u00f4nica A"}, {"description": "Incorporar ligados (hammer-ons e pull-offs) e slides \u00e0 escala pentat\u00f4nica. BPM 95, 4 repeti\u00e7\u00f5es com cada t\u00e9cnica.", "duration_minutes": 15, "title": "Ligados e Slides"}, {"description": "Improvisar sobre backing track em A (120 BPM) usando a escala pentat\u00f4nica maior. Explorar o uso de bends.", "duration_minutes": 25, "title": "Improviso Livre"}, {"description": "Transcrever um pequeno trecho de um solo de blues/rock que utilize a pentat\u00f4nica maior.", "duration_minutes": 10, "title": "Transcri\u00e7\u00e3o"}], "topic": "Improviso Pentat\u00f4nico Maior - A", "week": 10}, {"goal_description": "Aprimorar o comping jazz\u00edstico adicionando ritmos sincopados \u00e0 progress\u00e3o II-V-I em C.", "instrument": "Piano El\u00e9trico", "session": 20, "steps": [{"description": "Bater palmas no contratempo (2 e 4) em 4/4. BPM 70, 20 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Exerc\u00edcio R\u00edtmico - Contratiempo"}, {"description": "Tocar a progress\u00e3o Dm7-G7-Cmaj7, acentuando o contratempo com os voicings. BPM 85, 6 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Comping com Contratiempo - Dm7-G7-Cmaj7"}, {"description": "Experimentar diferentes varia\u00e7\u00f5es r\u00edtmicas no comping, utilizando s\u00edncopas e pausas. BPM 90, 4 repeti\u00e7\u00f5es de cada varia\u00e7\u00e3o.", "duration_minutes": 20, "title": "Varia\u00e7\u00f5es R\u00edtmicas"}, {"description": "Ouvir e analisar grava\u00e7\u00f5es de comping de pianistas de jazz, identificando o uso de s\u00edncopas.", "duration_minutes": 10, "title": "An\u00e1lise de Comping"}], "topic": "Jazz Comping - Ritmo Sincopado", "week": 10}, {"goal_description": "Aprender a levada do samba no viol\u00e3o.", "instrument": "Viol\u00e3o", "session": 21, "steps": [{"description": "Tocar acordes b\u00e1sicos de samba (ex: Am7, Dm7, G7, Cmaj7) com a digita\u00e7\u00e3o correta. BPM 70, 5 repeti\u00e7\u00f5es de cada acorde.", "duration_minutes": 10, "title": "Aquecimento - Acordes de Samba"}, {"description": "Tocar o padr\u00e3o r\u00edtmico b\u00e1sico do samba (surdo na marca\u00e7\u00e3o, tamborim com desenhos r\u00edtmicos). BPM 80, 10 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Padr\u00e3o R\u00edtmico B\u00e1sico - Samba"}, {"description": "Aplicar a levada do samba a uma progress\u00e3o harm\u00f4nica simples (ex: Am7-Dm7-G7-Cmaj7). BPM 85, 8 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Aplica\u00e7\u00e3o da Levada - Samba"}, {"description": "Explorar pequenas varia\u00e7\u00f5es da levada do samba, adicionando suingue.", "duration_minutes": 10, "title": "Varia\u00e7\u00f5es da Levada"}], "topic": "Levada Complexa - Samba", "week": 11}, {"goal_description": "Improvisar sobre a progress\u00e3o II-V-I usando a escala Mixol\u00eddia.", "instrument": "Piano El\u00e9trico", "session": 22, "steps": [{"description": "Praticar a escala Mixol\u00eddia de G (G-A-B-C-D-E-F). BPM 80, 5 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Escala Mixol\u00eddia - G"}, {"description": "Praticar o arpejo de G7 (G-B-D-F). BPM 75, 10 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Arpejos - G7"}, {"description": "Improvisar sobre a progress\u00e3o Dm7-G7-Cmaj7, utilizando a escala Mixol\u00eddia de G (para o G7). BPM 90. Focar no \u0027V\u0027 da progress\u00e3o.", "duration_minutes": 30, "title": "Improviso Livre - II-V-I em C"}, {"description": "Analisar um solo de jazz que utilize a escala Mixol\u00eddia sobre o acorde dominante.", "duration_minutes": 10, "title": "An\u00e1lise de Solo"}], "topic": "Improviso II-V-I - Escala Mixol\u00eddia", "week": 11}, {"goal_description": "Aprender a levada da bossa nova no viol\u00e3o.", "instrument": "Viol\u00e3o", "session": 23, "steps": [{"description": "Tocar acordes de bossa nova (ex: Am7, D7/9, Gmaj7, Cmaj7/9) com digita\u00e7\u00f5es caracter\u00edsticas. BPM 75, 5 repeti\u00e7\u00f5es de cada acorde.", "duration_minutes": 10, "title": "Aquecimento - Acordes de Bossa Nova"}, {"description": "Tocar o padr\u00e3o r\u00edtmico b\u00e1sico da bossa nova (dedo polegar marcando o baixo, outros dedos com suingue). BPM 85, 10 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Padr\u00e3o R\u00edtmico B\u00e1sico - Bossa Nova"}, {"description": "Aplicar a levada da bossa nova a uma progress\u00e3o harm\u00f4nica (ex: Am7-D7/9-Gmaj7-Cmaj7/9). BPM 90, 8 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Aplica\u00e7\u00e3o da Levada - Bossa Nova"}, {"description": "Explorar pequenas varia\u00e7\u00f5es da levada da bossa nova, adicionando sincopes.", "duration_minutes": 10, "title": "Varia\u00e7\u00f5es da Levada"}], "topic": "Levada Complexa - Bossa Nova", "week": 12}, {"goal_description": "Improvisar sobre a progress\u00e3o II-V-I utilizando a escala alterada sobre o acorde dominante.", "instrument": "Piano El\u00e9trico", "session": 24, "steps": [{"description": "Praticar a escala alterada de G (G-Ab-Bb-B-Db-Eb-F). BPM 70, 5 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Escala Alterada - G"}, {"description": "Praticar o arpejo de G7alt (G-B-Db-F). BPM 75, 10 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Arpejos - G7alt"}, {"description": "Improvisar sobre a progress\u00e3o Dm7-G7-Cmaj7, utilizando a escala alterada de G (para o G7). BPM 80. Focar no \u0027V\u0027 da progress\u00e3o.", "duration_minutes": 30, "title": "Improviso Livre - II-V-I em C"}, {"description": "Analisar um solo de jazz que utilize a escala alterada sobre o acorde dominante.", "duration_minutes": 10, "title": "An\u00e1lise de Solo"}], "topic": "Improviso II-V-I - Escala Alterada", "week": 12}, {"goal_description": "Aprender a levada do bai\u00e3o no viol\u00e3o.", "instrument": "Viol\u00e3o", "session": 25, "steps": [{"description": "Tocar acordes caracter\u00edsticos do bai\u00e3o (ex: Am, E7, Dm, G). BPM 70, 5 repeti\u00e7\u00f5es de cada acorde.", "duration_minutes": 10, "title": "Aquecimento - Acordes de Bai\u00e3o"}, {"description": "Tocar o padr\u00e3o r\u00edtmico b\u00e1sico do bai\u00e3o (zabumba, tri\u00e2ngulo, sanfona). BPM 90, 10 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Padr\u00e3o R\u00edtmico B\u00e1sico - Bai\u00e3o"}, {"description": "Aplicar a levada do bai\u00e3o a uma progress\u00e3o harm\u00f4nica (ex: Am-E7-Am). BPM 95, 8 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Aplica\u00e7\u00e3o da Levada - Bai\u00e3o"}, {"description": "Explorar varia\u00e7\u00f5es da levada do bai\u00e3o, adaptando ao viol\u00e3o.", "duration_minutes": 10, "title": "Varia\u00e7\u00f5es da Levada"}], "topic": "Levada Complexa - Bai\u00e3o", "week": 13}, {"goal_description": "Improvisar sobre a progress\u00e3o II-V-I utilizando acordes com tens\u00e3o.", "instrument": "Piano El\u00e9trico", "session": 26, "steps": [{"description": "Tocar Dm7(9) com diferentes voicings. BPM 65, 10 repeti\u00e7\u00f5es por voicing.", "duration_minutes": 15, "title": "Voicings Dm7(9)"}, {"description": "Tocar G7(b9) com diferentes voicings. BPM 65, 10 repeti\u00e7\u00f5es por voicing.", "duration_minutes": 15, "title": "Voicings G7(b9)"}, {"description": "Tocar Cmaj7(#11) com diferentes voicings. BPM 65, 10 repeti\u00e7\u00f5es por voicing.", "duration_minutes": 15, "title": "Voicings Cmaj7(#11)"}, {"description": "Improvisar sobre Dm7(9) - G7(b9) - Cmaj7(#11). BPM 80, focando em ligar as tens\u00f5es.", "duration_minutes": 15, "title": "Improviso II-V-I com tens\u00f5es"}], "topic": "Improviso II-V-I - Acordes com Tens\u00e3o", "week": 13}, {"goal_description": "Aprender a levada do choro no viol\u00e3o.", "instrument": "Viol\u00e3o", "session": 27, "steps": [{"description": "Tocar acordes caracter\u00edsticos do choro (ex: Am7, Dm7, G7, Cmaj7) com digita\u00e7\u00f5es t\u00edpicas. BPM 75, 5 repeti\u00e7\u00f5es de cada acorde.", "duration_minutes": 10, "title": "Aquecimento - Acordes de Choro"}, {"description": "Tocar o padr\u00e3o r\u00edtmico b\u00e1sico do choro (viol\u00e3o tenor marcando o contrabaixo, viol\u00e3o acompanhador com suingue). BPM 95, 10 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Padr\u00e3o R\u00edtmico B\u00e1sico - Choro"}, {"description": "Aplicar a levada do choro a uma progress\u00e3o harm\u00f4nica (ex: Am7-Dm7-G7-Cmaj7). BPM 100, 8 repeti\u00e7\u00f5es.", "duration_minutes": 20, "title": "Aplica\u00e7\u00e3o da Levada - Choro"}, {"description": "Explorar varia\u00e7\u00f5es da levada do choro, adaptando ao viol\u00e3o.", "duration_minutes": 10, "title": "Varia\u00e7\u00f5es da Levada"}], "topic": "Levada Complexa - Choro", "week": 14}, {"goal_description": "Improvisar sobre progress\u00f5es II-V-I com modula\u00e7\u00f5es pr\u00f3ximas (ex: C -\u003e G).", "instrument": "Piano El\u00e9trico", "session": 28, "steps": [{"description": "Praticar Dm7-G7-Cmaj7 em C. BPM 70, 5 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "II-V-I em C"}, {"description": "Praticar Em7-A7-Dmaj7 em G. BPM 70, 5 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "II-V-I em G"}, {"description": "Improvisar sobre a progress\u00e3o Dm7-G7-Cmaj7 - Em7-A7-Dmaj7. BPM 80. Modula\u00e7\u00e3o de C para G.", "duration_minutes": 20, "title": "Progress\u00e3o com Modula\u00e7\u00e3o"}, {"description": "Improvisar livremente sobre a progress\u00e3o, explorando as modula\u00e7\u00f5es e as escalas apropriadas.", "duration_minutes": 20, "title": "Improviso Livre"}], "topic": "Improviso II-V-I - Progress\u00f5es com Modula\u00e7\u00e3o", "week": 14}, {"goal_description": "Criar arranjos simplificados de m\u00fasicas populares para viol\u00e3o solo.", "instrument": "Viol\u00e3o", "session": 29, "steps": [{"description": "Escolher uma m\u00fasica popular simples com progress\u00e3o harm\u00f4nica clara (ex: 4 acordes).", "duration_minutes": 10, "title": "Escolha da M\u00fasica"}, {"description": "Transcrever a melodia principal da m\u00fasica para o viol\u00e3o.", "duration_minutes": 15, "title": "Transcri\u00e7\u00e3o da Melodia"}, {"description": "Criar um arranjo harm\u00f4nico simplificado, utilizando dedilhados ou batidas simples para acompanhar a melodia.", "duration_minutes": 25, "title": "Arranjo Harm\u00f4nico"}, {"description": "Refinar o arranjo, adicionando pequenos detalhes e varia\u00e7\u00f5es para torn\u00e1-lo mais interessante.", "duration_minutes": 10, "title": "Refinamento do Arranjo"}], "topic": "Arranjo - Simplificando M\u00fasicas Populares", "week": 15}, {"goal_description": "Improvisar sobre a progress\u00e3o II-V-I usando diferentes Modos Gregos (ex: D\u00f3rico, Mixol\u00eddio, J\u00f4nico).", "instrument": "Piano El\u00e9trico", "session": 30, "steps": [{"description": "Praticar o Modo D\u00f3rico de D (D-E-F-G-A-B-C). BPM 75, 5 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Modo D\u00f3rico - D"}, {"description": "Praticar o Modo Mixol\u00eddio de G (G-A-B-C-D-E-F). BPM 75, 5 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Modo Mixol\u00eddio - G"}, {"description": "Praticar o Modo J\u00f4nico de C (C-D-E-F-G-A-B). BPM 75, 5 repeti\u00e7\u00f5es.", "duration_minutes": 10, "title": "Modo J\u00f4nico - C"}, {"description": "Improvisar sobre Dm7-G7-Cmaj7 usando os modos D\u00f3rico (Dm7), Mixol\u00eddio (G7) e J\u00f4nico (Cmaj7). BPM 90.", "duration_minutes": 30, "title": "Improviso Livre - II-V-I em C"}], "topic": "Improviso II-V-I - Modos Gregos", "week": 15}, {"goal_description": "Compor uma pequena pe\u00e7a musical original para viol\u00e3o solo.", "instrument": "Viol\u00e3o", "session": 31, "steps": [{"description": "Escolher um tom para a composi\u00e7\u00e3o (ex: D maior, A menor).", "duration_minutes": 5, "title": "Escolha do Tom"}, {"description": "Compor uma melodia simples e cativante. Utilizar um gravador para registrar as ideias.", "duration_minutes": 20, "title": "Cria\u00e7\u00e3o da Melodia"}, {"description": "Harmonizar a melodia, criando uma progress\u00e3o harm\u00f4nica adequada. Experimentar diferentes acordes e invers\u00f5es.", "duration_minutes": 25, "title": "Harmoniza\u00e7\u00e3o da Melodia"}, {"description": "Refinar a composi\u00e7\u00e3o, adicionando detalhes e varia\u00e7\u00f5es para torn\u00e1-la mais interessante.", "duration_minutes": 10, "title": "Refinamento da Composi\u00e7\u00e3o"}], "topic": "Composi\u00e7\u00e3o - Melodia e Harmonia", "week": 16}, {"goal_description": "Revisar e consolidar todos os conceitos e t\u00e9cnicas aprendidas nas \u00faltimas semanas.", "instrument": "Piano El\u00e9trico", "session": 32, "steps": [{"description": "Revisar todos os voicings aprendidos (Dm7, G7, Cmaj7, tens\u00f5es). BPM 70. Focar na sonoridade.", "duration_minutes": 15, "title": "Revis\u00e3o Voicings"}, {"description": "Revisar escalas (Mixol\u00eddia, Alterada). BPM 80, focando na aplica\u00e7\u00e3o aos acordes.", "duration_minutes": 15, "title": "Revis\u00e3o Escalas"}, {"description": "Improvisar sobre Dm7-G7-Cmaj7 combinando voicings, escalas e progress\u00f5es aprendidas. BPM 90.", "duration_minutes": 20, "title": "Improviso II-V-I - Combina\u00e7\u00e3o"}, {"description": "Gravar o improviso e analisar os pontos fortes e fracos para futuras pr\u00e1ticas.", "duration_minutes": 10, "title": "Grava\u00e7\u00e3o e An\u00e1lise"}], "topic": "Revis\u00e3o e Consolida\u00e7\u00e3o", "week": 16}];
+        const TOTAL_SESSIONS = 32;
+        const MONTH_NAMES    = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+        const DAY_HEADERS    = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+
+        let calYear  = new Date().getFullYear();
+        let calMonth = new Date().getMonth();
+
+        function todayStr() {
+            const d = new Date();
+            return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        }
+        function escHtml(str) {
+            return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+        function instrClass(instr) { return (instr || '').toLowerCase().includes('piano') ? 'piano' : 'violao'; }
+        function getState() {
+            const raw = localStorage.getItem(LS_KEY);
+            if (!raw) return { checked_dates: [], session_by_date: {} };
+            try { const s = JSON.parse(raw); if (!s.session_by_date) s.session_by_date = {}; return s; }
+            catch { return { checked_dates: [], session_by_date: {} }; }
+        }
+        function saveState(state) { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+
+        function renderCurrentSession(session, idx, isCompleted) {
+            const ic = instrClass(session.instrument);
+            const badge = document.getElementById('instr-badge');
+            badge.textContent = session.instrument;
+            badge.className = `instr-badge instr-${ic}`;
+            document.getElementById('topic-title').textContent = session.topic;
+            document.getElementById('session-label').textContent = `Sessão ${idx + 1} de ${TOTAL_SESSIONS} · Semana ${session.week} · 1 hora`;
+            document.getElementById('goal-desc').textContent = session.goal_description;
+            const container = document.getElementById('steps-container');
+            container.innerHTML = '';
+            (session.steps || []).forEach((step, i) => {
+                const el = document.createElement('div');
+                el.className = 'step-card';
+                el.innerHTML = `
+                    <div class="step-header">
+                        <span class="step-num ${ic}-num">${i + 1}</span>
+                        <span class="step-title">${escHtml(step.title)}</span>
+                        <span class="step-duration">${step.duration_minutes} min</span>
+                    </div>
+                    <p class="step-desc">${escHtml(step.description)}</p>`;
+                container.appendChild(el);
+            });
+            document.getElementById('music-done').checked = isCompleted;
+        }
+
+        function renderNextSession(nextSession, nextIdx, isUnlocked) {
+            const nextCard    = document.getElementById('next-card');
+            const nextContent = document.getElementById('next-content');
+            if (!nextSession) { nextCard.style.display = 'none'; return; }
+            nextCard.style.display = 'block';
+            if (!isUnlocked) {
+                nextContent.innerHTML = `
+                    <div class="next-locked">
+                        <span class="lock-icon">&#128274;</span>
+                        <div>
+                            <p class="next-lock-title">Sessão bloqueada</p>
+                            <p class="next-lock-hint">Conclua a sessão atual para desbloquear</p>
+                        </div>
+                    </div>`;
+            } else {
+                const ic = instrClass(nextSession.instrument);
+                nextContent.innerHTML = `
+                    <div class="next-preview">
+                        <span class="next-unlocked-label">&#10003; Desbloqueada</span>
+                        <span class="instr-badge instr-${ic}">${escHtml(nextSession.instrument)}</span>
+                        <p class="next-preview-topic">${escHtml(nextSession.topic)}</p>
+                        <p class="next-preview-meta">Sessão ${nextIdx + 1} de ${TOTAL_SESSIONS} · Semana ${nextSession.week} · 1 hora · ${(nextSession.steps || []).length} exercícios</p>
+                    </div>`;
+            }
+        }
+
+        function render() {
+            const state        = getState();
+            const checkedDates = state.checked_dates || [];
+            const today        = todayStr();
+            const doneBefore     = checkedDates.filter(d => d < today).length;
+            const isCheckedToday = checkedDates.includes(today);
+            const totalDone      = checkedDates.length;
+            const allDone        = totalDone >= TOTAL_SESSIONS;
+            const currentIdx     = Math.min(doneBefore, TOTAL_SESSIONS - 1);
+            if (allDone) {
+                document.getElementById('current-body').style.display = 'none';
+                document.getElementById('all-done-msg').style.display = 'block';
+                document.getElementById('next-card').style.display    = 'none';
+            } else {
+                document.getElementById('current-body').style.display = '';
+                document.getElementById('all-done-msg').style.display = 'none';
+                renderCurrentSession(SESSIONS[currentIdx], currentIdx, isCheckedToday);
+                const nextIdx = currentIdx + 1;
+                renderNextSession(nextIdx < TOTAL_SESSIONS ? SESSIONS[nextIdx] : null, nextIdx, isCheckedToday);
+            }
+            const pct = (totalDone / TOTAL_SESSIONS) * 100;
+            document.getElementById('progress-fill').style.width  = pct.toFixed(1) + '%';
+            document.getElementById('progress-label').textContent = `${totalDone} / ${TOTAL_SESSIONS} sessões`;
+        }
+
+        function toggleMusic(checked) {
+            const state         = getState();
+            const today         = todayStr();
+            const dates         = state.checked_dates || [];
+            const sessionByDate = state.session_by_date || {};
+            if (checked) {
+                if (!dates.includes(today)) {
+                    const doneBefore = dates.filter(d => d < today).length;
+                    const idx = Math.min(doneBefore, TOTAL_SESSIONS - 1);
+                    dates.push(today);
+                    sessionByDate[today] = idx;
+                }
+            } else {
+                const i = dates.indexOf(today);
+                if (i !== -1) dates.splice(i, 1);
+                delete sessionByDate[today];
+            }
+            state.checked_dates   = dates;
+            state.session_by_date = sessionByDate;
+            saveState(state);
+            render();
+            renderCalendar();
+        }
+
+        function renderCalendar() {
+            const state         = getState();
+            const checkedDates  = state.checked_dates || [];
+            const sessionByDate = state.session_by_date || {};
+            const today         = todayStr();
+            document.getElementById('cal-month-label').textContent = `${MONTH_NAMES[calMonth]} ${calYear}`;
+            const grid = document.getElementById('cal-grid');
+            grid.innerHTML = '';
+            DAY_HEADERS.forEach(d => {
+                const el = document.createElement('div');
+                el.className = 'cal-day-header';
+                el.textContent = d;
+                grid.appendChild(el);
+            });
+            const firstDow    = new Date(calYear, calMonth, 1).getDay();
+            const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+            for (let i = 0; i < firstDow; i++) {
+                const el = document.createElement('div');
+                el.className = 'cal-cell';
+                grid.appendChild(el);
+            }
+            for (let d = 1; d <= daysInMonth; d++) {
+                const dateStr = `${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+                const el = document.createElement('div');
+                el.className  = 'cal-cell';
+                el.textContent = d;
+                const isDone   = checkedDates.includes(dateStr);
+                const isToday  = dateStr === today;
+                const isFuture = dateStr > today;
+                if (isToday)  el.classList.add('cal-today');
+                if (isFuture && !isDone) el.classList.add('cal-future');
+                if (isDone) {
+                    const idx  = sessionByDate[dateStr];
+                    const sess = idx !== undefined ? SESSIONS[idx] : null;
+                    const ic   = instrClass(sess ? sess.instrument : '');
+                    el.classList.add(`cal-done-${ic}`);
+                    el.addEventListener('click', () => showCalDetail(dateStr, idx));
+                }
+                grid.appendChild(el);
+            }
+        }
+
+        function showCalDetail(dateStr, sessionIdx) {
+            const detail = document.getElementById('cal-detail');
+            if (sessionIdx === undefined || sessionIdx === null || !SESSIONS[sessionIdx]) { detail.style.display = 'none'; return; }
+            const session = SESSIONS[sessionIdx];
+            const [y, m, d] = dateStr.split('-');
+            const ic = instrClass(session.instrument);
+            detail.className     = `cal-detail ${ic}-detail`;
+            detail.style.display = 'block';
+            document.getElementById('cal-detail-date').textContent    = `${d}/${m}/${y}`;
+            document.getElementById('cal-detail-session').textContent = `Sessão ${session.session} de ${TOTAL_SESSIONS} · Semana ${session.week} · ${session.instrument}`;
+            document.getElementById('cal-detail-topic').textContent   = session.topic;
+            document.getElementById('cal-detail-goal').textContent    = session.goal_description;
+        }
+
+        function calPrev() {
+            calMonth--;
+            if (calMonth < 0) { calMonth = 11; calYear--; }
+            document.getElementById('cal-detail').style.display = 'none';
+            renderCalendar();
+        }
+        function calNext() {
+            calMonth++;
+            if (calMonth > 11) { calMonth = 0; calYear++; }
+            document.getElementById('cal-detail').style.display = 'none';
+            renderCalendar();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { render(); renderCalendar(); });
+    </script>
+
+</body>
+</html>

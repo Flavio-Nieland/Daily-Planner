@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitura — 11/03/2026</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --green: #16a34a;
+            --green-bg: #dcfce7;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .back-link::before { content: '←'; }
+
+        .header {
+            text-align: center;
+            padding: 1rem 0 1.5rem;
+        }
+        .header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .header .subtitle {
+            color: var(--muted);
+            margin-top: 0.375rem;
+            font-size: 0.95rem;
+        }
+        .header .book-name {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 0.3rem 1rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        .card-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1rem;
+        }
+
+        /* Meta de Hoje */
+        .goal-text {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+        .goal-text.done {
+            color: var(--green);
+            font-size: 1.1rem;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .reading-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            cursor: pointer;
+            flex-shrink: 0;
+            position: relative;
+            transition: background 0.15s;
+        }
+        .reading-checkbox:checked {
+            background: var(--primary);
+        }
+        .reading-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 10px;
+            height: 6px;
+            border-left: 2.5px solid #fff;
+            border-bottom: 2.5px solid #fff;
+            transform: rotate(-45deg);
+        }
+        .checkbox-label {
+            font-size: 0.95rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .progress-bar-wrap {
+            background: var(--border);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 999px;
+            transition: width 0.3s ease;
+        }
+        .progress-label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.4rem;
+            text-align: right;
+        }
+
+        /* Tabela informativa */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .info-table tr {
+            border-bottom: 1px solid var(--border);
+        }
+        .info-table tr:last-child {
+            border-bottom: none;
+        }
+        .info-table td {
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        .info-table td:first-child {
+            color: var(--muted);
+            width: 55%;
+        }
+        .info-table td:last-child {
+            font-weight: 600;
+            color: var(--text);
+            text-align: right;
+        }
+
+        /* Próximo Livro */
+        .next-book-intro {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .field-group {
+            margin-bottom: 0.75rem;
+        }
+        .field-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .field-group input {
+            width: 100%;
+            padding: 0.5rem 0.7rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--text);
+            outline: none;
+            background: var(--bg);
+        }
+        .field-group input:focus {
+            border-color: var(--primary);
+        }
+        .btn-next-book {
+            margin-top: 0.25rem;
+            width: 100%;
+            padding: 0.6rem 1rem;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-next-book:hover { opacity: 0.88; }
+        .confirm-msg {
+            margin-top: 0.875rem;
+            padding: 0.75rem 1rem;
+            background: var(--green-bg);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--green);
+            line-height: 1.5;
+        }
+        .confirm-msg code {
+            font-family: monospace;
+            background: rgba(22,163,74,0.12);
+            padding: 0.1em 0.35em;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.72rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="header">
+        <h1>Leitura de Hoje</h1>
+        <p class="subtitle">Segunda-feira &middot; 11/03/2026</p>
+        <span class="book-name">Triste Fim de Policarpo Quaresma</span>
+    </div>
+
+    <!-- Meta de Hoje -->
+    <div class="card">
+        <p class="card-title">Meta de Hoje</p>
+        <p class="goal-text" id="goal-text">Carregando...</p>
+        <div class="checkbox-row" id="checkbox-row">
+            <input type="checkbox" class="reading-checkbox" id="reading-done" onchange="toggleReading(this.checked)">
+            <label class="checkbox-label" for="reading-done">Leitura concluída hoje</label>
+        </div>
+        <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-label" id="progress-label">0 / 12 sessões</div>
+    </div>
+
+    <!-- Plano de Leitura -->
+    <div class="card">
+        <p class="card-title">Plano de Leitura</p>
+        <table class="info-table">
+            <tr>
+                <td>Autor</td>
+                <td>Lima Barreto</td>
+            </tr>
+            <tr>
+                <td>Edição</td>
+                <td>Editora Moderna (Série Clássicos)</td>
+            </tr>
+            <tr>
+                <td>Total de páginas</td>
+                <td>208</td>
+            </tr>
+            <tr>
+                <td>Sessões totais (4 semanas)</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Páginas por sessão</td>
+                <td>18</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Próximo Livro (aparece apenas quando o livro atual for concluído) -->
+    <div class="card" id="next-book-card" style="display:none">
+        <p class="card-title">Próximo Livro</p>
+        <p class="next-book-intro">
+            Parabéns por concluir <strong>Triste Fim de Policarpo Quaresma</strong>!<br>
+            Qual será o próximo livro?
+        </p>
+        <div id="next-book-form">
+            <div class="field-group">
+                <label>Título</label>
+                <input type="text" id="next-title" placeholder="Ex: Dom Casmurro">
+            </div>
+            <div class="field-group">
+                <label>Autor</label>
+                <input type="text" id="next-author" placeholder="Ex: Machado de Assis">
+            </div>
+            <div class="field-group">
+                <label>Edição / Editora</label>
+                <input type="text" id="next-edition" placeholder="Ex: Editora Ática (Série Bom Livro)">
+            </div>
+            <button class="btn-next-book" onclick="saveNextBook()">Salvar e baixar next_book.json</button>
+        </div>
+        <div class="confirm-msg" id="next-book-confirm" style="display:none">
+            Próximo livro salvo! Mova o arquivo <code>next_book.json</code> para a pasta do projeto
+            e execute <code>python main.py</code> normalmente — o plano será gerado automaticamente.
+        </div>
+    </div>
+
+    <footer>
+        Gerado em 23:35 &middot; Daily Organizer
+    </footer>
+
+    <script>
+        const LS_KEY      = 'daily-organizer-reading:' + "Triste Fim de Policarpo Quaresma|Editora Moderna (S\u00e9rie Cl\u00e1ssicos)";
+        const LS_NEXT_KEY = 'daily-organizer-next-book';
+        const TOTAL_UNITS     = 208;
+        const TOTAL_SESSIONS  = 12;
+        const UNITS_PER_SESSION = 18;
+        const UNIT_TYPE = "p\u00e1ginas";
+
+        function todayStr() {
+            const d = new Date();
+            const y = d.getFullYear();
+            const m = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${y}-${m}-${day}`;
+        }
+
+        function getState() {
+            const raw = localStorage.getItem(LS_KEY);
+            if (!raw) return { checked_dates: [] };
+            try { return JSON.parse(raw); } catch { return { checked_dates: [] }; }
+        }
+
+        function saveState(state) {
+            localStorage.setItem(LS_KEY, JSON.stringify(state));
+        }
+
+        function render() {
+            const state = getState();
+            const today = todayStr();
+            const checkedDates = state.checked_dates || [];
+
+            // Sessões concluídas antes de hoje determinam qual bloco ler hoje
+            const doneBefore = checkedDates.filter(d => d < today).length;
+            const currentSession = doneBefore;
+
+            const start = currentSession * UNITS_PER_SESSION + 1;
+            const end = Math.min((currentSession + 1) * UNITS_PER_SESSION, TOTAL_UNITS);
+            const unitCap = UNIT_TYPE.charAt(0).toUpperCase() + UNIT_TYPE.slice(1);
+
+            const allDone = checkedDates.length >= TOTAL_SESSIONS;
+
+            const goalEl = document.getElementById('goal-text');
+            if (allDone) {
+                goalEl.textContent = 'Livro concluído! Parabéns!';
+                goalEl.classList.add('done');
+            } else {
+                goalEl.textContent = `${unitCap} ${start}–${end} de ${TOTAL_UNITS}`;
+                goalEl.classList.remove('done');
+            }
+
+            document.getElementById('reading-done').checked = checkedDates.includes(today);
+
+            const totalDone = checkedDates.length;
+            const pct = TOTAL_SESSIONS > 0 ? Math.min((totalDone / TOTAL_SESSIONS) * 100, 100) : 0;
+            document.getElementById('progress-fill').style.width = pct.toFixed(1) + '%';
+            document.getElementById('progress-label').textContent =
+                `${totalDone} / ${TOTAL_SESSIONS} sessões`;
+
+            // Mostra card do próximo livro quando concluído
+            const nextCard = document.getElementById('next-book-card');
+            if (allDone) {
+                nextCard.style.display = 'block';
+                const savedNext = localStorage.getItem(LS_NEXT_KEY);
+                if (savedNext) {
+                    const nb = JSON.parse(savedNext);
+                    document.getElementById('next-title').value   = nb.title   || '';
+                    document.getElementById('next-author').value  = nb.author  || '';
+                    document.getElementById('next-edition').value = nb.edition || '';
+                    document.getElementById('next-book-confirm').style.display = 'block';
+                }
+            } else {
+                nextCard.style.display = 'none';
+            }
+        }
+
+        function toggleReading(checked) {
+            const state = getState();
+            const today = todayStr();
+            const dates = state.checked_dates || [];
+
+            if (checked) {
+                if (!dates.includes(today)) dates.push(today);
+            } else {
+                const idx = dates.indexOf(today);
+                if (idx !== -1) dates.splice(idx, 1);
+            }
+            state.checked_dates = dates;
+            saveState(state);
+            render();
+        }
+
+        function saveNextBook() {
+            const title   = document.getElementById('next-title').value.trim();
+            const author  = document.getElementById('next-author').value.trim();
+            const edition = document.getElementById('next-edition').value.trim();
+
+            if (!title || !author || !edition) {
+                alert('Preencha título, autor e edição antes de salvar.');
+                return;
+            }
+
+            const nextBook = { title, author, edition };
+
+            // Salva no localStorage
+            localStorage.setItem(LS_NEXT_KEY, JSON.stringify(nextBook));
+
+            // Dispara download do next_book.json
+            const blob = new Blob([JSON.stringify(nextBook, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'next_book.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            document.getElementById('next-book-confirm').style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', render);
+    </script>
+
+</body>
+</html>

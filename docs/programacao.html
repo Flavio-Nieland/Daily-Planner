@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação — 11/03/2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:   #2563eb;
+            --accent:    #7c3aed;
+            --bg:        #f1f5f9;
+            --card:      #ffffff;
+            --text:      #0f172a;
+            --muted:     #64748b;
+            --border:    #e2e8f0;
+            --shadow:    0 1px 3px rgba(15,23,42,.07), 0 4px 16px rgba(15,23,42,.05);
+            --radius:    18px;
+            --purple-bg: #faf5ff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            margin-bottom: 1rem;
+            transition: background .15s;
+        }
+        .back-link:hover { background: #dbeafe; }
+        .back-link::before { content: '←'; }
+
+        .hero {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem 1.75rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 24px rgba(79,70,229,.25);
+        }
+        .hero h1 { font-size: 1.7rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+        .hero-sub { color: rgba(255,255,255,.75); margin-top: 0.35rem; font-size: 0.88rem; font-weight: 500; }
+        .hero-pills {
+            margin-top: 0.75rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .hero-pill {
+            display: inline-block;
+            background: rgba(255,255,255,.2);
+            border: 1px solid rgba(255,255,255,.3);
+            color: #fff;
+            border-radius: 999px;
+            padding: 0.28rem 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .hero-pill-secondary {
+            background: rgba(255,255,255,.1);
+            border-color: rgba(255,255,255,.2);
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        .sec-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .sec-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--purple-bg);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+        .sec-texts { display: flex; flex-direction: column; }
+        .sec-title { font-size: 0.92rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+        .sec-sub   { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; }
+
+        .step-item {
+            padding: 0.875rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .step-item:last-child { border-bottom: none; }
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+        }
+        .step-num-title {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .step-num {
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            background: #ede9fe;
+            color: #6d28d9;
+            font-size: 0.72rem;
+            font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .step-title { font-size: 0.95rem; font-weight: 600; color: var(--text); }
+        .step-duration {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #6d28d9;
+            white-space: nowrap;
+            background: #ede9fe;
+            border-radius: 999px;
+            padding: 0.2rem 0.6rem;
+            flex-shrink: 0;
+        }
+        .step-description { font-size: 0.875rem; color: var(--muted); line-height: 1.55; padding-left: 36px; }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.72rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="hero">
+        <h1>Programação de Hoje</h1>
+        <p class="hero-sub">Sexta-feira &middot; 11/03/2026</p>
+        <div class="hero-pills">
+            <span class="hero-pill">RAG com LangChain</span>
+            
+            <span class="hero-pill hero-pill-secondary">LangChain</span>
+            
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon">💻</span>
+            <div class="sec-texts">
+                <span class="sec-title">Plano de 1 hora</span>
+                <span class="sec-sub">Intermediário</span>
+            </div>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-header">
+                <div class="step-num-title">
+                    <span class="step-num">1</span>
+                    <span class="step-title">Revisão de Embeddings</span>
+                </div>
+                <span class="step-duration">10 min</span>
+            </div>
+            <p class="step-description">Revisar o conceito de embeddings e sua importância no RAG. Consultar a documentação do LangChain sobre embeddings.</p>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-header">
+                <div class="step-num-title">
+                    <span class="step-num">2</span>
+                    <span class="step-title">Implementação da Indexação</span>
+                </div>
+                <span class="step-duration">20 min</span>
+            </div>
+            <p class="step-description">Escrever um script Python para indexar um pequeno conjunto de documentos de texto usando LangChain e um modelo de embedding (ex: OpenAIEmbeddings). Salvar o índice em disco.</p>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-header">
+                <div class="step-num-title">
+                    <span class="step-num">3</span>
+                    <span class="step-title">Criação da Chain de Pergunta</span>
+                </div>
+                <span class="step-duration">20 min</span>
+            </div>
+            <p class="step-description">Implementar uma chain LangChain que receba uma pergunta do usuário, busque documentos relevantes no índice criado e use um LLM (ex: ChatOpenAI) para gerar uma resposta.</p>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-header">
+                <div class="step-num-title">
+                    <span class="step-num">4</span>
+                    <span class="step-title">Teste e Ajustes</span>
+                </div>
+                <span class="step-duration">10 min</span>
+            </div>
+            <p class="step-description">Testar a chain com diferentes perguntas e ajustar parâmetros (ex: número de documentos a buscar, temperatura do LLM) para otimizar a qualidade das respostas.</p>
+        </div>
+        
+    </div>
+
+    <footer>
+        Gerado em 23:54 &middot; Daily Organizer
+    </footer>
+
+</body>
+</html>

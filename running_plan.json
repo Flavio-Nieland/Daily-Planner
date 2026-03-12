@@ -1,0 +1,200 @@
+{
+  "goal": "10km em 4 meses",
+  "start_date": "11/03/2026",
+  "runs_per_week": 2,
+  "total_sessions": 32,
+  "sessions": [
+    {
+      "session": 1,
+      "week": 1,
+      "goal_description": "Corra 10 minutos contínuos em ritmo leve (pace: conseguir falar frases curtas)",
+      "duration_minutes": 10
+    },
+    {
+      "session": 2,
+      "week": 1,
+      "goal_description": "Alterne: 2 min correndo + 1 min caminhando × 6 séries (18 min total)",
+      "duration_minutes": 18
+    },
+    {
+      "session": 3,
+      "week": 2,
+      "goal_description": "Corra 12 minutos contínuos em ritmo leve (pace: conseguir falar frases curtas)",
+      "duration_minutes": 12
+    },
+    {
+      "session": 4,
+      "week": 2,
+      "goal_description": "Alterne: 3 min correndo + 1 min caminhando × 5 séries (20 min total)",
+      "duration_minutes": 20
+    },
+    {
+      "session": 5,
+      "week": 3,
+      "goal_description": "Corra 15 minutos contínuos em ritmo leve (pace: conseguir falar frases curtas)",
+      "duration_minutes": 15
+    },
+    {
+      "session": 6,
+      "week": 3,
+      "goal_description": "Alterne: 4 min correndo + 1 min caminhando × 4 séries (20 min total)",
+      "duration_minutes": 20
+    },
+    {
+      "session": 7,
+      "week": 4,
+      "goal_description": "Corra 18 minutos contínuos em ritmo leve (pace: conseguir falar frases curtas)",
+      "duration_minutes": 18
+    },
+    {
+      "session": 8,
+      "week": 4,
+      "goal_description": "Alterne: 5 min correndo + 1 min caminhando × 4 séries (24 min total)",
+      "duration_minutes": 24
+    },
+    {
+      "session": 9,
+      "week": 5,
+      "goal_description": "Corra 20 minutos contínuos, pace livre",
+      "duration_minutes": 20
+    },
+    {
+      "session": 10,
+      "week": 5,
+      "goal_description": "Corra 2km sem parar em ritmo confortável",
+      "distance_km": 2
+    },
+    {
+      "session": 11,
+      "week": 6,
+      "goal_description": "Corra 25 minutos contínuos, pace livre",
+      "duration_minutes": 25
+    },
+    {
+      "session": 12,
+      "week": 6,
+      "goal_description": "Corra 2.5km sem parar em ritmo confortável",
+      "distance_km": 2.5
+    },
+    {
+      "session": 13,
+      "week": 7,
+      "goal_description": "Corra 30 minutos contínuos, pace livre",
+      "duration_minutes": 30
+    },
+    {
+      "session": 14,
+      "week": 7,
+      "goal_description": "Corra 3km sem parar em ritmo confortável",
+      "distance_km": 3
+    },
+    {
+      "session": 15,
+      "week": 8,
+      "goal_description": "Corra 35 minutos contínuos, pace livre",
+      "duration_minutes": 35
+    },
+    {
+      "session": 16,
+      "week": 8,
+      "goal_description": "Corra 3.5km sem parar em ritmo confortável",
+      "distance_km": 3.5
+    },
+    {
+      "session": 17,
+      "week": 9,
+      "goal_description": "Corra 4km sem parar em ritmo confortável",
+      "distance_km": 4
+    },
+    {
+      "session": 18,
+      "week": 9,
+      "goal_description": "Corra 4.5km sem parar em ritmo confortável",
+      "distance_km": 4.5
+    },
+    {
+      "session": 19,
+      "week": 10,
+      "goal_description": "Corra 5km sem parar em ritmo confortável",
+      "distance_km": 5
+    },
+    {
+      "session": 20,
+      "week": 10,
+      "goal_description": "Corra 5.5km sem parar em ritmo confortável",
+      "distance_km": 5.5
+    },
+    {
+      "session": 21,
+      "week": 11,
+      "goal_description": "Corra 6km sem parar em ritmo confortável",
+      "distance_km": 6
+    },
+    {
+      "session": 22,
+      "week": 11,
+      "goal_description": "Corra 7km sem parar em ritmo confortável",
+      "distance_km": 7
+    },
+    {
+      "session": 23,
+      "week": 12,
+      "goal_description": "Corra 8km sem parar em ritmo confortável",
+      "distance_km": 8
+    },
+    {
+      "session": 24,
+      "week": 12,
+      "goal_description": "Corra 5km, mantendo pace constante do início ao fim",
+      "distance_km": 5
+    },
+    {
+      "session": 25,
+      "week": 13,
+      "goal_description": "Corra 6km, mantendo pace constante do início ao fim",
+      "distance_km": 6
+    },
+    {
+      "session": 26,
+      "week": 13,
+      "goal_description": "Corra 7km, mantendo pace constante do início ao fim",
+      "distance_km": 7
+    },
+    {
+      "session": 27,
+      "week": 14,
+      "goal_description": "Corra 8km, mantendo pace constante do início ao fim",
+      "distance_km": 8
+    },
+    {
+      "session": 28,
+      "week": 14,
+      "goal_description": "Corra 6km, mantendo pace constante do início ao fim",
+      "distance_km": 6
+    },
+    {
+      "session": 29,
+      "week": 15,
+      "goal_description": "Corra 9km, mantendo pace constante do início ao fim",
+      "distance_km": 9
+    },
+    {
+      "session": 30,
+      "week": 15,
+      "goal_description": "Corra 7km, mantendo pace constante do início ao fim",
+      "distance_km": 7
+    },
+    {
+      "session": 31,
+      "week": 16,
+      "goal_description": "Corra 10km, mantendo pace constante do início ao fim",
+      "distance_km": 10
+    },
+    {
+      "session": 32,
+      "week": 16,
+      "goal_description": "Corra 5km, mantendo pace constante do início ao fim",
+      "distance_km": 5
+    }
+  ]
+}

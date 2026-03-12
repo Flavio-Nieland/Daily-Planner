@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrida — {{ date }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:    #2563eb;
+            --bg:         #f1f5f9;
+            --card:       #ffffff;
+            --text:       #0f172a;
+            --muted:      #64748b;
+            --border:     #e2e8f0;
+            --shadow:     0 1px 3px rgba(15,23,42,.07), 0 4px 16px rgba(15,23,42,.05);
+            --radius:     18px;
+            --green:      #22c55e;
+            --green-dark: #16a34a;
+            --green-bg:   #f0fdf4;
+            --green-mid:  #4ade80;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 999px;
+            padding: 0.35rem 0.9rem;
+            margin-bottom: 1rem;
+            transition: background .15s;
+        }
+        .back-link:hover { background: #dbeafe; }
+        .back-link::before { content: '←'; }
+
+        .hero {
+            background: linear-gradient(135deg, #16a34a 0%, #0d9488 100%);
+            border-radius: var(--radius);
+            padding: 2rem 1.5rem 1.75rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 24px rgba(22,163,74,.25);
+        }
+        .hero h1 { font-size: 1.7rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+        .hero-sub { color: rgba(255,255,255,.75); margin-top: 0.35rem; font-size: 0.88rem; font-weight: 500; }
+        .hero-badge {
+            display: inline-block;
+            margin-top: 0.75rem;
+            background: rgba(255,255,255,.2);
+            border: 1px solid rgba(255,255,255,.3);
+            color: #fff;
+            border-radius: 999px;
+            padding: 0.3rem 1rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+        .sec-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        .sec-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.05rem;
+            flex-shrink: 0;
+        }
+        .si-green  { background: var(--green-bg); }
+        .si-blue   { background: #eff6ff; }
+        .sec-title { font-size: 0.92rem; font-weight: 700; color: var(--text); }
+
+        /* Meta de Hoje */
+        .goal-text {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        .goal-text.done { color: var(--green-dark); font-size: 1.1rem; font-weight: 600; }
+        .session-label { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; font-weight: 500; }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 0.75rem;
+        }
+        .running-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px; height: 22px;
+            border: 2px solid var(--green-dark);
+            border-radius: 6px;
+            cursor: pointer;
+            flex-shrink: 0;
+            position: relative;
+            transition: background .15s;
+        }
+        .running-checkbox:checked { background: var(--green-dark); }
+        .running-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            left: 4px; top: 1px;
+            width: 10px; height: 6px;
+            border-left: 2.5px solid #fff;
+            border-bottom: 2.5px solid #fff;
+            transform: rotate(-45deg);
+        }
+        .checkbox-label { font-size: 0.92rem; color: var(--text); cursor: pointer; font-weight: 500; }
+
+        .progress-bar-wrap {
+            background: var(--border);
+            border-radius: 999px;
+            height: 8px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--green-dark) 0%, #0d9488 100%);
+            border-radius: 999px;
+            transition: width .4s ease;
+        }
+        .progress-label {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 0.45rem;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        /* Info table */
+        .info-table { width: 100%; border-collapse: collapse; }
+        .info-table tr { border-bottom: 1px solid var(--border); }
+        .info-table tr:last-child { border-bottom: none; }
+        .info-table td { padding: 0.55rem 0; font-size: 0.9rem; }
+        .info-table td:first-child { color: var(--muted); width: 55%; }
+        .info-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
+
+        /* Calendário */
+        .cal-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.875rem;
+        }
+        .cal-nav-btn {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--muted);
+            display: flex; align-items: center; justify-content: center;
+            transition: all .15s;
+            line-height: 1;
+        }
+        .cal-nav-btn:hover { background: var(--green-dark); border-color: var(--green-dark); color: #fff; }
+        .cal-month-label { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+
+        .cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 3px;
+        }
+        .cal-day-header {
+            text-align: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--muted);
+            padding: 0.25rem 0 0.4rem;
+            letter-spacing: 0.03em;
+        }
+        .cal-cell {
+            aspect-ratio: 1;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--muted);
+            position: relative;
+        }
+        .cal-cell.empty { background: none; }
+        .cal-cell.cal-future { color: #cbd5e1; }
+        .cal-cell.cal-today {
+            background: var(--bg);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .cal-cell.cal-done {
+            background: var(--green-dark);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .cal-cell.cal-done:hover { background: #15803d; }
+        .cal-cell.cal-done::after {
+            content: '';
+            position: absolute;
+            bottom: 3px;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.65);
+        }
+        .cal-cell.cal-today.cal-done {
+            background: var(--green-dark);
+            border-color: #166534;
+            color: #fff;
+        }
+
+        .cal-detail {
+            margin-top: 0.875rem;
+            padding: 0.875rem 1rem;
+            background: var(--green-bg);
+            border-radius: 12px;
+            border-left: 3px solid var(--green-dark);
+            display: none;
+        }
+        .cal-detail-date {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.3rem;
+        }
+        .cal-detail-session { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem; }
+        .cal-detail-goal { font-size: 0.9rem; font-weight: 600; color: #166534; line-height: 1.45; }
+
+        footer {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.72rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="hero">
+        <h1>Corrida de Hoje</h1>
+        <p class="hero-sub">{{ day_name }} &middot; {{ date }}</p>
+        <span class="hero-badge">Meta: {{ running_plan.goal }}</span>
+    </div>
+
+    <!-- Meta de Hoje -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-green">🏃</span>
+            <span class="sec-title">Meta de Hoje</span>
+        </div>
+        <p class="goal-text" id="goal-text">Carregando...</p>
+        <p class="session-label" id="session-label"></p>
+        <div class="checkbox-row">
+            <input type="checkbox" class="running-checkbox" id="running-done" onchange="toggleRunning(this.checked)">
+            <label class="checkbox-label" for="running-done">Corrida concluída hoje</label>
+        </div>
+        <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-label" id="progress-label">0 / {{ running_plan.total_sessions }} corridas</div>
+    </div>
+
+    <!-- Histórico: Calendário -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-green">📅</span>
+            <span class="sec-title">Histórico de Corridas</span>
+        </div>
+        <div class="cal-nav">
+            <button class="cal-nav-btn" onclick="calPrev()">&#8249;</button>
+            <span class="cal-month-label" id="cal-month-label"></span>
+            <button class="cal-nav-btn" onclick="calNext()">&#8250;</button>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-detail" id="cal-detail">
+            <div class="cal-detail-date" id="cal-detail-date"></div>
+            <div class="cal-detail-session" id="cal-detail-session"></div>
+            <div class="cal-detail-goal" id="cal-detail-goal"></div>
+        </div>
+    </div>
+
+    <!-- Plano -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-blue">📋</span>
+            <span class="sec-title">Plano</span>
+        </div>
+        <table class="info-table">
+            <tr><td>Meta final</td><td>{{ running_plan.goal }}</td></tr>
+            <tr><td>Início</td><td>{{ running_plan.start_date }}</td></tr>
+            <tr><td>Frequência</td><td>{{ running_plan.runs_per_week }}x por semana</td></tr>
+            <tr><td>Total de sessões</td><td>{{ running_plan.total_sessions }}</td></tr>
+        </table>
+    </div>
+
+    <footer>
+        Gerado em {{ generated_at }} &middot; Daily Organizer
+    </footer>
+
+    <script>
+        const LS_KEY       = 'daily-organizer-running';
+        const SESSIONS     = {{ running_plan.sessions | tojson }};
+        const TOTAL_SESSIONS = {{ running_plan.total_sessions }};
+
+        const goalEl         = document.getElementById('goal-text');
+        const sessionLabelEl = document.getElementById('session-label');
+        const checkbox       = document.getElementById('running-done');
+        const progressFill   = document.getElementById('progress-fill');
+        const progressLabel  = document.getElementById('progress-label');
+
+        const MONTH_NAMES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+        const DAY_HEADERS = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+
+        let calYear  = new Date().getFullYear();
+        let calMonth = new Date().getMonth();
+
+        function todayStr() {
+            const d = new Date();
+            return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+        }
+        function getState() {
+            const raw = localStorage.getItem(LS_KEY);
+            if (!raw) return { checked_dates: [], session_by_date: {} };
+            try { const s = JSON.parse(raw); if (!s.session_by_date) s.session_by_date = {}; return s; }
+            catch { return { checked_dates: [], session_by_date: {} }; }
+        }
+        function saveState(state) { localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+
+        function render() {
+            const checkedDates = getState().checked_dates || [];
+            const today = todayStr();
+            const doneBefore = checkedDates.filter(d => d < today).length;
+            const currentIdx = Math.min(doneBefore, TOTAL_SESSIONS - 1);
+            const allDone = checkedDates.length >= TOTAL_SESSIONS;
+            if (allDone) {
+                goalEl.textContent = '10km concluídos! Parabéns!';
+                goalEl.classList.add('done');
+                sessionLabelEl.textContent = `${TOTAL_SESSIONS} de ${TOTAL_SESSIONS} sessões concluídas`;
+            } else {
+                const session = SESSIONS[currentIdx];
+                goalEl.textContent = session.goal_description;
+                goalEl.classList.remove('done');
+                sessionLabelEl.textContent = `Sessão ${currentIdx + 1} de ${TOTAL_SESSIONS} · Semana ${session.week}`;
+            }
+            checkbox.checked = checkedDates.includes(today);
+            const pct = (checkedDates.length / TOTAL_SESSIONS) * 100;
+            progressFill.style.width = pct.toFixed(1) + '%';
+            progressLabel.textContent = `${checkedDates.length} / ${TOTAL_SESSIONS} corridas`;
+        }
+
+        function toggleRunning(checked) {
+            const state = getState();
+            const today = todayStr();
+            const dates = state.checked_dates || [];
+            const sessionByDate = state.session_by_date || {};
+            if (checked) {
+                if (!dates.includes(today)) {
+                    const doneBefore = dates.filter(d => d < today).length;
+                    const currentIdx = Math.min(doneBefore, TOTAL_SESSIONS - 1);
+                    dates.push(today);
+                    sessionByDate[today] = currentIdx;
+                }
+            } else {
+                const idx = dates.indexOf(today);
+                if (idx !== -1) dates.splice(idx, 1);
+                delete sessionByDate[today];
+            }
+            state.checked_dates = dates;
+            state.session_by_date = sessionByDate;
+            saveState(state);
+            render();
+            renderCalendar();
+        }
+
+        function renderCalendar() {
+            const state = getState();
+            const checkedDates  = state.checked_dates || [];
+            const sessionByDate = state.session_by_date || {};
+            const today = todayStr();
+            document.getElementById('cal-month-label').textContent = `${MONTH_NAMES[calMonth]} ${calYear}`;
+            const grid = document.getElementById('cal-grid');
+            grid.innerHTML = '';
+            DAY_HEADERS.forEach(d => {
+                const el = document.createElement('div');
+                el.className = 'cal-day-header';
+                el.textContent = d;
+                grid.appendChild(el);
+            });
+            const firstDow = new Date(calYear, calMonth, 1).getDay();
+            for (let i = 0; i < firstDow; i++) {
+                const el = document.createElement('div');
+                el.className = 'cal-cell empty';
+                grid.appendChild(el);
+            }
+            const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+            for (let d = 1; d <= daysInMonth; d++) {
+                const dateStr = `${calYear}-${String(calMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+                const el = document.createElement('div');
+                el.className = 'cal-cell';
+                el.textContent = d;
+                const isDone  = checkedDates.includes(dateStr);
+                const isToday = dateStr === today;
+                const isFuture = dateStr > today;
+                if (isDone)   el.classList.add('cal-done');
+                if (isToday)  el.classList.add('cal-today');
+                if (isFuture && !isDone) el.classList.add('cal-future');
+                if (isDone) el.addEventListener('click', () => showCalDetail(dateStr, sessionByDate[dateStr]));
+                grid.appendChild(el);
+            }
+        }
+
+        function showCalDetail(dateStr, sessionIdx) {
+            const detail = document.getElementById('cal-detail');
+            if (sessionIdx === undefined || sessionIdx === null || !SESSIONS[sessionIdx]) { detail.style.display = 'none'; return; }
+            const session = SESSIONS[sessionIdx];
+            const [y, m, d] = dateStr.split('-');
+            const metric = session.distance_km ? `${session.distance_km} km` : session.duration_minutes ? `${session.duration_minutes} min` : '';
+            document.getElementById('cal-detail-date').textContent = `${d}/${m}/${y}`;
+            document.getElementById('cal-detail-session').textContent = `Sessão ${session.session} de ${TOTAL_SESSIONS} · Semana ${session.week}${metric ? ' · ' + metric : ''}`;
+            document.getElementById('cal-detail-goal').textContent = session.goal_description;
+            detail.style.display = 'block';
+        }
+
+        function calPrev() {
+            calMonth--;
+            if (calMonth < 0) { calMonth = 11; calYear--; }
+            document.getElementById('cal-detail').style.display = 'none';
+            renderCalendar();
+        }
+        function calNext() {
+            calMonth++;
+            if (calMonth > 11) { calMonth = 0; calYear++; }
+            document.getElementById('cal-detail').style.display = 'none';
+            renderCalendar();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => { render(); renderCalendar(); });
+    </script>
+
+</body>
+</html>
