@@ -58,7 +58,7 @@ jobs:
           git config user.name "Daily Organizer Bot"
           git config user.email "bot@daily-organizer"
           git fetch origin main
-          git rebase origin/main
+          git rebase --autostash origin/main
           git add docs/index.html
           git diff --cached --quiet || git commit -m "chore: site do dia $(date +'%Y-%m-%d')"
           git push
