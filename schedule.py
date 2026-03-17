@@ -17,7 +17,6 @@ PRIORITY = {
     "xadrez": 2,
     "programar": 2,
     "correr": 2,
-    "PFC": 2,
     "ingles": 2,
 }
 
@@ -26,8 +25,8 @@ PRIORITY = {
 WEEKLY_SCHEDULE = {
     0: ["trabalhar", "ler", "treinar", "alongar"],        # Segunda
     1: ["trabalhar", "TCC", "treinar", "musica"],          # Terça
-    2: ["trabalhar", "PFC", "treinar", "programação"],     # Quarta
-    3: ["trabalhar", "PFC", "treinar", "Inglês"],          # Quinta
+    2: ["trabalhar", "TCC", "treinar", "programação"],     # Quarta
+    3: ["trabalhar", "TCC", "treinar", "Inglês"],          # Quinta
     4: ["trabalhar", "xadrez", "programar", "correr"],     # Sexta
     5: ["alongar", "musica", "ler", "correr"],             # Sábado
     6: ["ler", "alongar", "ingles", "xadrez"],             # Domingo
