@@ -484,6 +484,42 @@
             flex-shrink: 0;
         }
 
+        /* ── Album do Dia ─────────────────────────────────────────────── */
+        .si-purple { background: #f3f0ff; }
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            padding: 0.4rem 1rem;
+            background: #1db954;
+            color: #fff;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity .15s;
+        }
+        .btn-play:hover { opacity: .85; }
+        .album-body {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .album-cover {
+            width: 96px;
+            height: 96px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(15,23,42,.12);
+        }
+        .album-info { flex: 1; min-width: 0; }
+        .album-title  { font-size: 1rem; font-weight: 700; color: var(--text); }
+        .album-artist { font-size: 0.88rem; color: var(--muted); margin-top: 0.1rem; }
+        .album-meta   { font-size: 0.75rem; color: var(--muted); margin: 0.3rem 0 0.6rem; }
+        .album-why    { font-size: 0.85rem; line-height: 1.55; color: var(--text); }
+
         /* ── Footer ───────────────────────────────────────────────────── */
         footer {
             text-align: center;
@@ -769,6 +805,33 @@
 
         document.addEventListener('DOMContentLoaded', renderDiet);
     </script>
+    {% endif %}
+
+    {% if album_suggestion and album_suggestion.album %}
+    <!-- Album do Dia -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-purple">🎵</span>
+            <div class="sec-texts">
+                <span class="sec-title">Álbum do Dia</span>
+                <span class="sec-sub">{% if album_suggestion.type == 'new' %}Descoberta nova{% else %}Da sua biblioteca{% endif %}</span>
+            </div>
+        </div>
+        <div class="album-body">
+            {% if album_suggestion.cover_url %}
+            <img class="album-cover" src="{{ album_suggestion.cover_url }}" alt="Capa de {{ album_suggestion.album }}">
+            {% endif %}
+            <div class="album-info">
+                <div class="album-title">{{ album_suggestion.album }}</div>
+                <div class="album-artist">{{ album_suggestion.artist }}</div>
+                <div class="album-meta">{{ album_suggestion.year }}{% if album_suggestion.genre %} · {{ album_suggestion.genre }}{% endif %}</div>
+                <p class="album-why">{{ album_suggestion.why }}</p>
+                {% if album_suggestion.spotify_id %}
+                <a href="spotify:album:{{ album_suggestion.spotify_id }}" class="btn-play">▶ Ouvir no Spotify</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     {% endif %}
 
     <footer>

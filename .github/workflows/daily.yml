@@ -49,6 +49,9 @@ jobs:
           GITHUB_REPO_OWNER: ${{ secrets.REPO_OWNER }}
           GITHUB_REPO_NAME: ${{ secrets.REPO_NAME }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
         run: python main.py
 
       # Passo 5: Fazer commit e push do docs/index.html gerado

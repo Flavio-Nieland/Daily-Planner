@@ -28,6 +28,7 @@ from jinja2 import Environment, FileSystemLoader    # Motor de templates HTML
 from weather import fetch_weather
 from schedule import get_today_schedule, get_today_workout, DAY_NAMES, CURRENT_BOOK, count_reading_days
 from email_sender import send_daily_email
+from spotify import get_spotify_taste_profile, search_album
 
 # load_dotenv() lê o arquivo .env e carrega as variáveis.
 # Em produção (GitHub Actions), as variáveis já existem no ambiente — isso não faz mal.
@@ -95,6 +96,7 @@ PROGRAMMING_PLAN_PATH = Path("programming_plan.json")
 RUNNING_PLAN_PATH     = Path("running_plan.json")
 MUSIC_PLAN_PATH       = Path("music_plan.json")
 DIET_PLAN_PATH        = Path("diet_plan.json")
+ALBUM_SUGGESTION_PATH = Path("album_suggestion.json")
 
 
 def _parse_json_response(text: str) -> dict:
@@ -361,6 +363,7 @@ def get_diet_plan(date_str: str, now: datetime) -> dict:
     yesterday_iso = (now - timedelta(days=1)).strftime("%Y-%m-%d")
     tomorrow_iso  = (now + timedelta(days=1)).strftime("%Y-%m-%d")
 
+    # Cache hit: plano já é de hoje
     if DIET_PLAN_PATH.exists():
         cached = json.loads(DIET_PLAN_PATH.read_text(encoding="utf-8"))
         if cached.get("reference_date") == today_iso:
@@ -377,43 +380,156 @@ def get_diet_plan(date_str: str, now: datetime) -> dict:
     else:
         estacao = "Primavera"
 
-    prompt = f"""Monte 3 dias de dieta completa (ontem={yesterday_iso}, hoje={today_iso}, amanhã={tomorrow_iso}).
+    # Reaproveitar dias já gerados anteriormente para manter continuidade
+    # "amanhã" de ontem → "hoje" de hoje
+    # "hoje" de ontem → "ontem" de hoje
+    # Só gera do zero o que não existe ainda
+    carried_days = {}
+    if DIET_PLAN_PATH.exists():
+        prev = json.loads(DIET_PLAN_PATH.read_text(encoding="utf-8"))
+        prev_days = prev.get("days", {})
+        if today_iso in prev_days:
+            carried_days[today_iso] = prev_days[today_iso]
+        if yesterday_iso in prev_days:
+            carried_days[yesterday_iso] = prev_days[yesterday_iso]
+        if tomorrow_iso in prev_days:
+            carried_days[tomorrow_iso] = prev_days[tomorrow_iso]
+
+    days_to_generate = [d for d in [yesterday_iso, today_iso, tomorrow_iso] if d not in carried_days]
+
+    if days_to_generate:
+        carried_json = json.dumps(carried_days, ensure_ascii=False) if carried_days else "{}"
+        prompt = f"""Monte refeições para os seguintes dias: {', '.join(days_to_generate)}.
 Cada dia: 2800kcal, alimentos tipicamente brasileiros, saudáveis, custo barato ou médio.
 5 refeições por dia. Equilíbrio para disposição, saúde e hipertrofia muscular.
-Varie os alimentos entre os dias. Use frutas e legumes da estação atual no Brasil ({estacao}).
+Varie os alimentos entre os dias e em relação aos dias já existentes abaixo.
+Use frutas e legumes da estação atual no Brasil ({estacao}).
 
-Retorne APENAS JSON válido:
+Dias já definidos (NÃO alterar, apenas para evitar repetição):
+{carried_json}
+
+Retorne APENAS JSON válido com os dias solicitados:
 {{
-  "reference_date": "{today_iso}",
-  "days": {{
-    "{yesterday_iso}": {{
-      "date": "{yesterday_iso}",
-      "total_kcal": 2800,
-      "meals": [
-        {{"name": "Café da Manhã", "time": "07:00", "kcal": 550,
-         "items": [{{"food": "Aveia em flocos", "qty": "40g"}}, ...]}},
-        {{"name": "Lanche da Manhã", "time": "10:00", "kcal": 300, "items": [...]}},
-        {{"name": "Almoço", "time": "12:30", "kcal": 800, "items": [...]}},
-        {{"name": "Lanche da Tarde", "time": "16:00", "kcal": 350, "items": [...]}},
-        {{"name": "Jantar", "time": "19:30", "kcal": 800, "items": [...]}}
-      ]
-    }},
-    "{today_iso}": {{ ... }},
-    "{tomorrow_iso}": {{ ... }}
-  }}
+  {', '.join(f'"{d}": {{"date": "{d}", "total_kcal": 2800, "meals": [{{"name": "Café da Manhã", "time": "07:00", "kcal": 550, "items": [{{"food": "...", "qty": "..."}}]}}, {{"name": "Lanche da Manhã", "time": "10:00", "kcal": 300, "items": [...]}}, {{"name": "Almoço", "time": "12:30", "kcal": 800, "items": [...]}}, {{"name": "Lanche da Tarde", "time": "16:00", "kcal": 350, "items": [...]}}, {{"name": "Jantar", "time": "19:30", "kcal": 800, "items": [...]}}]}}' for d in days_to_generate)}
 }}
 Nomes fixos das refeições: "Café da Manhã", "Lanche da Manhã", "Almoço", "Lanche da Tarde", "Jantar"."""
 
-    plan = _parse_json_response(_generate(prompt))
+        new_days = _parse_json_response(_generate(prompt))
+        carried_days.update(new_days)
+
+    plan = {
+        "reference_date": today_iso,
+        "days": {d: carried_days[d] for d in [yesterday_iso, today_iso, tomorrow_iso] if d in carried_days},
+    }
     DIET_PLAN_PATH.write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
     print("Dieta gerada.")
     return plan
 
 
+def get_album_suggestion(taste_profile: dict, date_str: str) -> dict:
+    """
+    Gera a sugestão de álbum do dia usando o perfil Spotify + Gemini.
+    - 75% dos dias: álbum novo (não está nos saved albums)
+    - 25% dos dias: revisita um álbum da biblioteca
+    Decisão determinística por data (hash MD5).
+    Cacheado em album_suggestion.json.
+    """
+    import hashlib
+
+    if ALBUM_SUGGESTION_PATH.exists():
+        cached = json.loads(ALBUM_SUGGESTION_PATH.read_text(encoding="utf-8"))
+        if cached.get("date") == date_str:
+            return cached
+
+    day_hash = int(hashlib.md5(date_str.encode()).hexdigest(), 16) % 100
+    is_new   = day_hash < 75
+
+    saved_albums  = taste_profile.get("saved_albums", [])
+    top_genres    = taste_profile.get("top_genres", [])
+    top_artists   = taste_profile.get("top_artists", [])
+    top_tracks    = taste_profile.get("top_tracks", [])
+
+    if is_new:
+        saved_list = "\n".join(
+            f'- {a["album"]} — {a["artist"]}' for a in saved_albums[:20]
+        )
+        prompt = f"""Sugira UM álbum musical para Flávio ouvir hoje.
+
+Perfil musical (Spotify):
+- Gêneros favoritos: {', '.join(top_genres) or 'variado'}
+- Artistas favoritos: {', '.join(top_artists) or 'variado'}
+- Músicas favoritas: {', '.join(top_tracks[:5]) or 'variado'}
+
+Álbuns que Flávio JÁ TEM na biblioteca (NÃO sugerir nenhum destes):
+{saved_list or '(nenhum salvo ainda)'}
+
+Critérios:
+- Deve ser um álbum que Flávio provavelmente NÃO conhece
+- Estilo coerente com o gosto musical acima
+- Pode ser clássico consagrado ou lançamento recente
+- Álbum completo (não EP ou single)
+
+Retorne APENAS JSON válido, sem markdown:
+{{
+  "album": "Nome do álbum",
+  "artist": "Nome do artista",
+  "year": "Ano de lançamento",
+  "genre": "Gênero principal",
+  "why": "2-3 frases explicando por que combina com o gosto do Flávio e vale ouvir hoje"
+}}"""
+
+        data       = _parse_json_response(_generate(prompt))
+        album_info = search_album(data.get("album", ""), data.get("artist", ""))
+        suggestion = {
+            "date":       date_str,
+            "type":       "new",
+            "album":      data.get("album", ""),
+            "artist":     data.get("artist", ""),
+            "year":       data.get("year", ""),
+            "genre":      data.get("genre", ""),
+            "why":        data.get("why", ""),
+            "cover_url":  album_info["cover_url"],
+            "spotify_id": album_info["spotify_id"],
+        }
+
+    else:
+        if not saved_albums:
+            return {}
+
+        album = saved_albums[day_hash % len(saved_albums)]
+        prompt = f"""Flávio vai revisitar hoje o álbum "{album['album']}" de {album['artist']} ({album.get('year', '')}).
+
+Escreva 2-3 frases motivando a escuta deste álbum hoje, mencionando o que o torna especial.
+Tom: caloroso, entusiasmado, pessoal.
+
+Retorne APENAS JSON válido, sem markdown:
+{{
+  "why": "2-3 frases motivando a revisita"
+}}"""
+
+        data = _parse_json_response(_generate(prompt))
+        suggestion = {
+            "date":       date_str,
+            "type":       "revisit",
+            "album":      album["album"],
+            "artist":     album["artist"],
+            "year":       album.get("year", ""),
+            "genre":      "",
+            "why":        data.get("why", ""),
+            "cover_url":  album.get("cover_url"),
+            "spotify_id": album.get("spotify_id"),
+        }
+
+    ALBUM_SUGGESTION_PATH.write_text(
+        json.dumps(suggestion, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    return suggestion
+
+
 def generate_site(
     weather: dict, activities: list, day_name: str, date_str: str, workout, weekday: int,
     reading_plan=None, stretching_plan=None, programming_plan=None, running_plan=None, music_plan=None,
-    diet_plan=None,
+    diet_plan=None, album_suggestion=None,
 ) -> None:
     """
     Gera docs/index.html e, se houver treino no dia, docs/treino.html.
@@ -439,6 +555,7 @@ def generate_site(
         running_plan=running_plan,
         music_plan=music_plan,
         diet_plan=diet_plan,
+        album_suggestion=album_suggestion,
     )
     (docs_dir / "index.html").write_text(html, encoding="utf-8")
     print(f"Site gerado em {docs_dir / 'index.html'}")
@@ -563,9 +680,16 @@ def main():
         except Exception as e:
             print(f"Aviso: plano de dieta indisponível ({e}). Dieta desativada.")
             diet_plan = None
+        try:
+            taste_profile   = get_spotify_taste_profile()
+            album_suggestion = get_album_suggestion(taste_profile, date_str)
+        except Exception as e:
+            print(f"Aviso: sugestão de álbum indisponível ({e}). Seção desativada.")
+            album_suggestion = None
         generate_site(mock_weather(manha, tarde, noite), activities, day_name, date_str, workout, weekday,
                       reading_plan=reading_plan, stretching_plan=stretching_plan, programming_plan=programming_plan,
-                      running_plan=running_plan, music_plan=music_plan, diet_plan=diet_plan)
+                      running_plan=running_plan, music_plan=music_plan, diet_plan=diet_plan,
+                      album_suggestion=album_suggestion)
         print("HTML gerado. Execute: start docs\\index.html")
         return
 
@@ -613,12 +737,20 @@ def main():
     except Exception as e:
         print(f"Aviso: plano de dieta indisponível ({e}). Dieta desativada.")
         diet_plan = None
+    try:
+        print("Buscando perfil Spotify e gerando sugestão de álbum...")
+        taste_profile    = get_spotify_taste_profile()
+        album_suggestion = get_album_suggestion(taste_profile, date_str)
+    except Exception as e:
+        print(f"Aviso: sugestão de álbum indisponível ({e}). Seção desativada.")
+        album_suggestion = None
 
     # Passo 3: gerar o site
     print("Gerando site HTML...")
     generate_site(weather, activities, day_name, date_str, workout, weekday,
                   reading_plan=reading_plan, stretching_plan=stretching_plan, programming_plan=programming_plan,
-                  running_plan=running_plan, music_plan=music_plan, diet_plan=diet_plan)
+                  running_plan=running_plan, music_plan=music_plan, diet_plan=diet_plan,
+                  album_suggestion=album_suggestion)
 
     # Passo 4: enviar e-mail
     # URL onde o GitHub Pages vai servir o site
