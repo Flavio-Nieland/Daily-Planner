@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 11/03/2026</title>
+    <title>Programação — 20/03/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -161,7 +161,7 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Sexta-feira &middot; 11/03/2026</p>
+        <p class="hero-sub">Sexta-feira &middot; 20/03/2026</p>
         <div class="hero-pills">
             <span class="hero-pill">RAG com LangChain</span>
             
@@ -183,50 +183,61 @@
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">1</span>
-                    <span class="step-title">Revisão de Embeddings</span>
+                    <span class="step-title">Revisão Rápida: RAG</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">5 min</span>
             </div>
-            <p class="step-description">Revisar o conceito de embeddings e sua importância no RAG. Consultar a documentação do LangChain sobre embeddings.</p>
+            <p class="step-description">Relembre os componentes principais de um sistema RAG (Retrieval-Augmented Generation).</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">2</span>
-                    <span class="step-title">Implementação da Indexação</span>
+                    <span class="step-title">Carregamento de Documentos</span>
                 </div>
-                <span class="step-duration">20 min</span>
+                <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Escrever um script Python para indexar um pequeno conjunto de documentos de texto usando LangChain e um modelo de embedding (ex: OpenAIEmbeddings). Salvar o índice em disco.</p>
+            <p class="step-description">Escreva código para carregar um arquivo de texto (ex: um artigo da Wikipedia) usando LangChain.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Criação da Chain de Pergunta</span>
+                    <span class="step-title">Criação de Embeddings</span>
                 </div>
                 <span class="step-duration">20 min</span>
             </div>
-            <p class="step-description">Implementar uma chain LangChain que receba uma pergunta do usuário, busque documentos relevantes no índice criado e use um LLM (ex: ChatOpenAI) para gerar uma resposta.</p>
+            <p class="step-description">Implemente a geração de embeddings para os documentos carregados usando um modelo pré-treinado do Hugging Face Transformers (através do LangChain).</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Teste e Ajustes</span>
+                    <span class="step-title">Armazenamento Vetorial</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Testar a chain com diferentes perguntas e ajustar parâmetros (ex: número de documentos a buscar, temperatura do LLM) para otimizar a qualidade das respostas.</p>
+            <p class="step-description">Crie um índice vetorial usando ChromaDB (ou outro banco vetorial suportado pelo LangChain) e adicione os embeddings gerados.</p>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-header">
+                <div class="step-num-title">
+                    <span class="step-num">5</span>
+                    <span class="step-title">Consulta e Resposta</span>
+                </div>
+                <span class="step-duration">5 min</span>
+            </div>
+            <p class="step-description">Formule uma pergunta relevante ao documento e utilize o índice vetorial para recuperar os trechos mais relevantes e gerar uma resposta com o LLM.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 23:54 &middot; Daily Organizer
+        Gerado em 00:15 &middot; Daily Organizer
     </footer>
 
 </body>
