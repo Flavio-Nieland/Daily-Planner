@@ -98,6 +98,7 @@ RUNNING_PLAN_PATH     = Path("running_plan.json")
 MUSIC_PLAN_PATH       = Path("music_plan.json")
 DIET_PLAN_PATH        = Path("diet_plan.json")
 ALBUM_SUGGESTION_PATH = Path("album_suggestion.json")
+ALBUM_HISTORY_PATH    = Path("album_history.json")
 PSALM_OF_DAY_PATH     = Path("psalm_of_day.json")
 
 
@@ -451,9 +452,20 @@ def get_album_suggestion(taste_profile: dict, date_str: str) -> dict:
     top_artists   = taste_profile.get("top_artists", [])
     top_tracks    = taste_profile.get("top_tracks", [])
 
+    # Carrega histórico de álbuns já sugeridos
+    history: list[dict] = []
+    if ALBUM_HISTORY_PATH.exists():
+        try:
+            history = json.loads(ALBUM_HISTORY_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            history = []
+
     if is_new:
         saved_list = "\n".join(
             f'- {a["album"]} — {a["artist"]}' for a in saved_albums[:20]
+        )
+        history_list = "\n".join(
+            f'- {h["album"]} — {h["artist"]}' for h in history
         )
         prompt = f"""Sugira UM álbum musical para Flávio ouvir hoje.
 
@@ -464,6 +476,9 @@ Perfil musical (Spotify):
 
 Álbuns que Flávio JÁ TEM na biblioteca (NÃO sugerir nenhum destes):
 {saved_list or '(nenhum salvo ainda)'}
+
+Álbuns que JÁ FORAM sugeridos nos últimos dias (NÃO repetir nenhum destes):
+{history_list or '(nenhum ainda)'}
 
 Critérios:
 - Deve ser um álbum que Flávio provavelmente NÃO conhece
@@ -525,6 +540,14 @@ Retorne APENAS JSON válido, sem markdown:
     ALBUM_SUGGESTION_PATH.write_text(
         json.dumps(suggestion, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+
+    # Adiciona ao histórico se ainda não estiver registrado nesta data
+    if not any(h.get("date") == date_str for h in history):
+        history.append({"date": date_str, "album": suggestion["album"], "artist": suggestion["artist"]})
+        ALBUM_HISTORY_PATH.write_text(
+            json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
     return suggestion
 
 
