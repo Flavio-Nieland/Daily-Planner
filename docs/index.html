@@ -7,24 +7,22 @@
     <title>Seu Dia — 23/03/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary:    #2563eb;
-            --accent:     #7c3aed;
-            --bg:         #f1f5f9;
-            --card:       #ffffff;
-            --text:       #0f172a;
-            --muted:      #64748b;
-            --border:     #e2e8f0;
-            --shadow:     0 1px 3px rgba(15,23,42,.07), 0 4px 16px rgba(15,23,42,.05);
-            --radius:     18px;
-            --high:       #ef4444;
-            --high-bg:    #fef2f2;
-            --green:      #22c55e;
-            --green-dark: #16a34a;
-            --green-bg:   #f0fdf4;
-            --orange:     #f97316;
+            --primary:    #c2683a;
+            --bg:         #faf7f2;
+            --card:       #f5f0e8;
+            --text:       #2c1810;
+            --muted:      #8c7b6e;
+            --border:     #e8e0d5;
+            --shadow:     0 1px 3px rgba(44,24,16,.06);
+            --radius:     10px;
+            --high:       #b83c2a;
+            --high-bg:    #fdf0ed;
+            --green:      #4a7c59;
+            --green-bg:   #f0f7f2;
+            --orange:     #d4873a;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,25 +39,27 @@
 
         /* ── Hero ─────────────────────────────────────────────────────── */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: var(--radius);
-            padding: 2.25rem 1.5rem 2rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            box-shadow: 0 8px 32px rgba(37,99,235,.22);
+            background: transparent;
+            padding: 2.5rem 0 1.5rem;
+            text-align: left;
+            margin-bottom: 2rem;
+            border-bottom: 1.5px solid var(--border);
         }
         .hero h1 {
-            font-size: 1.9rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.03em;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.01em;
             line-height: 1.1;
         }
         .hero-sub {
-            color: rgba(255,255,255,.75);
-            margin-top: 0.4rem;
-            font-size: 0.9rem;
-            font-weight: 500;
+            color: var(--primary);
+            margin-top: 0.35rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         /* ── Cards ────────────────────────────────────────────────────── */
@@ -67,7 +67,8 @@
             background: var(--card);
             border-radius: var(--radius);
             padding: 1.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+            border: 1px solid var(--border);
             box-shadow: var(--shadow);
         }
 
@@ -79,18 +80,15 @@
             margin-bottom: 1.25rem;
         }
         .sec-icon {
-            width: 36px; height: 36px;
-            border-radius: 10px;
+            width: 32px; height: 32px;
+            border-radius: 8px;
+            background: #ede8df;
             display: flex; align-items: center; justify-content: center;
-            font-size: 1.05rem;
+            font-size: 1rem;
             flex-shrink: 0;
         }
-        .si-blue    { background: #eff6ff; }
-        .si-orange  { background: #fff7ed; }
-        .si-green   { background: #f0fdf4; }
-        .si-food    { background: #fefce8; }
         .sec-texts  { display: flex; flex-direction: column; }
-        .sec-title  { font-size: 0.92rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+        .sec-title  { font-size: 0.95rem; font-weight: 700; color: var(--text); line-height: 1.2; }
         .sec-sub    { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; }
 
         /* ── Weather grid ─────────────────────────────────────────────── */
@@ -100,15 +98,15 @@
             gap: 0.625rem;
         }
         .weather-period {
-            background: var(--bg);
-            border-radius: 12px;
-            padding: 0.875rem 0.5rem;
+            background: #ede8df;
+            border-radius: 10px;
+            padding: 0.75rem 0.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
         .weather-period .period-label {
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -116,8 +114,8 @@
             margin-bottom: 0.375rem;
         }
         .weather-period .temp {
-            font-size: 1.2rem;
-            font-weight: 700;
+            font-size: 1.3rem;
+            font-weight: 800;
             color: var(--text);
         }
         .weather-period .condition {
@@ -250,7 +248,7 @@
             animation: snow-fall 5s ease-in-out infinite;
         }
         @keyframes snow-fall { 0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(7px);opacity:1} }
-        .wx-default { background: var(--bg); }
+        .wx-default { background: #ede8df; }
 
         /* ── Weight ───────────────────────────────────────────────────── */
         .weight-question {
@@ -263,8 +261,8 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--bg);
-            border-radius: 12px;
+            background: #ede8df;
+            border-radius: 10px;
             padding: 0.5rem;
         }
         .weight-input-row input {
@@ -276,25 +274,39 @@
             font-family: 'Inter', sans-serif;
             color: var(--text);
             outline: none;
-            background: #fff;
+            background: #faf7f2;
             min-width: 0;
         }
         .weight-input-row input:focus { border-color: var(--primary); }
         .weight-unit { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
-        .btn-save {
+        .btn-primary {
             padding: 0.5rem 1.1rem;
             background: var(--primary);
-            color: #fff;
+            color: #faf7f2;
             border: none;
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             font-family: 'Inter', sans-serif;
             transition: opacity .15s;
             white-space: nowrap;
         }
-        .btn-save:hover { opacity: .88; }
+        .btn-primary:hover { opacity: .85; }
+        .btn-outline {
+            padding: 0.5rem 1.1rem;
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: opacity .15s;
+            white-space: nowrap;
+        }
+        .btn-outline:hover { opacity: .7; }
 
         .weight-row {
             display: flex;
@@ -307,25 +319,14 @@
         .weight-row-label { font-size: 0.82rem; color: var(--muted); flex: 1; }
         .weight-row-value { font-size: 1.05rem; font-weight: 700; color: var(--text); }
         .weight-diff-pos  { color: #ef4444; font-size: 0.8rem; font-weight: 600; }
-        .weight-diff-neg  { color: var(--green-dark); font-size: 0.8rem; font-weight: 600; }
+        .weight-diff-neg  { color: var(--green); font-size: 0.8rem; font-weight: 600; }
 
         .btn-chart {
             margin-top: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            padding: 0.45rem 1rem;
-            background: transparent;
-            border: 1.5px solid var(--primary);
-            border-radius: 8px;
-            color: var(--primary);
-            font-size: 0.82rem;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            transition: background .15s;
         }
-        .btn-chart:hover { background: #eff6ff; }
         #chart-container { margin-top: 1rem; }
 
         /* ── Activities ───────────────────────────────────────────────── */
@@ -338,8 +339,8 @@
             .activities-grid { grid-template-columns: 1fr; }
         }
         .prio-col {
-            background: var(--bg);
-            border-radius: 12px;
+            background: #ede8df;
+            border-radius: 10px;
             padding: 0.875rem;
         }
         .prio-label {
@@ -359,7 +360,7 @@
             flex-shrink: 0;
         }
         .dot-high { background: var(--high); }
-        .dot-low  { background: var(--primary); }
+        .dot-low  { background: var(--primary); opacity: .6; }
 
         .activity-list { list-style: none; }
         .activity-item {
@@ -370,13 +371,6 @@
             border-bottom: 1px solid var(--border);
         }
         .activity-item:last-child { border-bottom: none; }
-        .activity-item::before {
-            content: '';
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: #cbd5e1;
-            flex-shrink: 0;
-        }
         .activity-name {
             font-size: 0.875rem;
             font-weight: 500;
@@ -388,9 +382,9 @@
             text-transform: capitalize;
             color: var(--primary);
             text-decoration: none;
-            border-bottom: 1.5px dashed var(--primary);
+            border-bottom: 1px solid var(--primary);
         }
-        .activity-link:hover { border-bottom-style: solid; }
+        .activity-link:hover { opacity: .75; }
 
         /* ── Diet ─────────────────────────────────────────────────────── */
         .diet-nav {
@@ -403,7 +397,7 @@
             width: 36px; height: 36px;
             border-radius: 50%;
             border: 1.5px solid var(--border);
-            background: var(--bg);
+            background: #ede8df;
             font-size: 1.35rem;
             line-height: 1;
             display: flex; align-items: center; justify-content: center;
@@ -415,7 +409,7 @@
         .diet-arrow:not(:disabled):hover {
             background: var(--primary);
             border-color: var(--primary);
-            color: #fff;
+            color: #faf7f2;
         }
         .diet-day-label {
             font-size: 0.95rem;
@@ -426,18 +420,18 @@
             text-align: center;
             font-size: 0.78rem;
             color: var(--muted);
-            background: var(--bg);
+            background: transparent;
+            border: 1px solid var(--border);
             border-radius: 999px;
             padding: 0.3rem 1rem;
             margin-bottom: 1rem;
         }
         .meal-card {
-            background: var(--bg);
-            border-radius: 12px;
-            padding: 0.875rem 1rem;
-            margin-bottom: 0.625rem;
+            padding: 0.875rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 0;
         }
-        .meal-card:last-child { margin-bottom: 0; }
+        .meal-card:last-child { border-bottom: none; }
         .meal-header {
             display: flex;
             align-items: center;
@@ -448,13 +442,13 @@
         .meal-name { font-size: 0.88rem; font-weight: 700; color: var(--text); flex: 1; }
         .meal-time { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
         .meal-kcal {
-            background: #fff;
+            background: #ede8df;
             border: 1px solid var(--border);
             border-radius: 999px;
             padding: 0.15rem 0.55rem;
             font-size: 0.72rem;
             font-weight: 600;
-            color: var(--text);
+            color: var(--muted);
             white-space: nowrap;
         }
         .meal-items {
@@ -473,7 +467,7 @@
         }
         .meal-item-name::before {
             content: '–';
-            color: #94a3b8;
+            color: #c9bfb4;
             margin-right: 0.35rem;
             font-size: 0.72rem;
         }
@@ -485,7 +479,6 @@
         }
 
         /* ── Album do Dia ─────────────────────────────────────────────── */
-        .si-purple { background: #f3f0ff; }
         .btn-play {
             display: inline-flex;
             align-items: center;
@@ -509,10 +502,10 @@
         .album-cover {
             width: 96px;
             height: 96px;
-            border-radius: 12px;
+            border-radius: 10px;
             object-fit: cover;
             flex-shrink: 0;
-            box-shadow: 0 2px 8px rgba(15,23,42,.12);
+            box-shadow: 0 2px 10px rgba(44,24,16,.12);
         }
         .album-info { flex: 1; min-width: 0; }
         .album-title  { font-size: 1rem; font-weight: 700; color: var(--text); }
@@ -521,7 +514,6 @@
         .album-why    { font-size: 0.85rem; line-height: 1.55; color: var(--text); }
 
         /* ── Salmo do Dia ─────────────────────────────────────────────── */
-        .si-gold { background: linear-gradient(135deg, #d4a017, #f0c040); }
         .psalm-body { padding: 0.2rem 0; }
         .psalm-text {
             font-size: 0.88rem;
@@ -541,9 +533,11 @@
         /* ── Footer ───────────────────────────────────────────────────── */
         footer {
             text-align: center;
-            color: #94a3b8;
-            font-size: 0.72rem;
-            margin-top: 2rem;
+            color: var(--muted);
+            font-size: 0.75rem;
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
         }
     </style>
 </head>
@@ -557,30 +551,30 @@
     <!-- Previsão do Tempo -->
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-blue">⛅</span>
+            <span class="sec-icon">⛅</span>
             <div class="sec-texts">
                 <span class="sec-title">Previsão do Tempo</span>
                 <span class="sec-sub">São José / SC</span>
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-partly">
+            <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">22.7–26.7°C</div>
-                <div class="condition">Parcialmente nublado</div>
+                <div class="temp">18–24°C</div>
+                <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-cloudy">
+            <div class="weather-period wx-light-rain">
                 <div class="period-label">Tarde</div>
-                <div class="temp">26.0–28.2°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 8%</div>
+                <div class="temp">18–24°C</div>
+                <div class="condition">Pancadas fracas</div>
+                <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-cloudy-night">
+            <div class="weather-period wx-storm">
                 <div class="period-label">Noite</div>
-                <div class="temp">23.7–25.1°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 5%</div>
+                <div class="temp">18–24°C</div>
+                <div class="condition">Tempestade</div>
+                <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
@@ -589,7 +583,7 @@
     <!-- Peso Semanal (apenas segunda-feira) -->
     <div class="card" id="weight-card">
         <div class="sec-head">
-            <span class="sec-icon si-orange">⚖️</span>
+            <span class="sec-icon">⚖️</span>
             <span class="sec-title">Peso Semanal</span>
         </div>
 
@@ -598,7 +592,7 @@
             <div class="weight-input-row">
                 <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
                 <span class="weight-unit">kg</span>
-                <button class="btn-save" onclick="saveWeight()">Salvar</button>
+                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
             </div>
         </div>
 
@@ -615,7 +609,7 @@
             <span id="weight-diff"></span>
         </div>
 
-        <button class="btn-chart" onclick="toggleChart()">Ver progressão</button>
+        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
         <div id="chart-container" style="display:none">
             <canvas id="weight-chart"></canvas>
         </div>
@@ -695,7 +689,7 @@
     <!-- Atividades do Dia -->
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-green">✅</span>
+            <span class="sec-icon">✅</span>
             <span class="sec-title">Atividades de Hoje</span>
         </div>
         <div class="activities-grid">
@@ -745,7 +739,7 @@
     
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-food">🥗</span>
+            <span class="sec-icon">🥗</span>
             <span class="sec-title">Dieta do Dia</span>
         </div>
         <div class="diet-nav">
@@ -758,7 +752,7 @@
     </div>
 
     <script>
-        const DIET_DAYS = {"2026-03-22": {"date": "2026-03-22", "meals": [{"items": [{"food": "Tapioca", "qty": "2 unidades m\u00e9dias"}, {"food": "Ovos mexidos", "qty": "3 unidades"}, {"food": "Banana prata", "qty": "1 unidade"}, {"food": "Caf\u00e9 sem a\u00e7\u00facar", "qty": "1 x\u00edcara"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural desnatado", "qty": "200g"}, {"food": "Granola", "qty": "30g"}, {"food": "Morango", "qty": "100g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "150g"}, {"food": "Feij\u00e3o carioca", "qty": "1 concha (150g)"}, {"food": "Peito de frango grelhado", "qty": "150g"}, {"food": "Salada de tomate, pepino e alface", "qty": "200g"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Pasta de amendoim integral", "qty": "2 colheres de sopa"}, {"food": "Mel\u00e3o", "qty": "2 fatias m\u00e9dias"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Pur\u00ea de batata doce", "qty": "200g"}, {"food": "Carne magra mo\u00edda refogada", "qty": "150g"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "200g"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-03-23": {"date": "2026-03-23", "meals": [{"items": [{"food": "Mingau de aveia", "qty": "250g"}, {"food": "Leite desnatado", "qty": "200 ml"}, {"food": "Amendoas laminadas", "qty": "15g"}, {"food": "Mam\u00e3o papaia", "qty": "1/2 unidade m\u00e9dia"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Castanha de caju", "qty": "30g"}, {"food": "Uva", "qty": "200g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "100g"}, {"food": "Lentilha", "qty": "1 concha (150g)"}, {"food": "Fil\u00e9 de peixe assado (til\u00e1pia)", "qty": "150g"}, {"food": "Couve refogada", "qty": "150g"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Shake de Whey Protein", "qty": "30g"}, {"food": "Leite de am\u00eandoas", "qty": "250ml"}, {"food": "Cacau em p\u00f3", "qty": "1 colher de ch\u00e1"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes com carne", "qty": "500 ml"}, {"food": "P\u00e3o franc\u00eas integral", "qty": "1 unidade"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-03-24": {"date": "2026-03-24", "meals": [{"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Queijo minas frescal", "qty": "60g"}, {"food": "Suco de laranja natural", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Ma\u00e7\u00e3", "qty": "1 unidade m\u00e9dia"}, {"food": "Mix de castanhas (par\u00e1, am\u00eandoas, nozes)", "qty": "30g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Macarr\u00e3o integral", "qty": "150g"}, {"food": "Molho de tomate caseiro", "qty": "150g"}, {"food": "Alm\u00f4ndegas de carne magra", "qty": "120g"}, {"food": "Salada de r\u00facula e cenoura ralada", "qty": "200g"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Vitamina de abacate", "qty": "300 ml"}, {"food": "Leite desnatado", "qty": "200 ml"}, {"food": "Abacate", "qty": "50g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Omelete com legumes", "qty": "4 ovos + 150g legumes"}, {"food": "Ab\u00f3bora assada", "qty": "200g"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
+        const DIET_DAYS = {"2026-03-22": {"date": "2026-03-22", "meals": [{"items": [{"food": "Tapioca", "qty": "2 unidades m\u00e9dias"}, {"food": "Ovos mexidos", "qty": "3 unidades"}, {"food": "Mam\u00e3o picado", "qty": "1 x\u00edcara"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural integral", "qty": "200g"}, {"food": "Granola", "qty": "3 colheres de sopa"}, {"food": "Banana", "qty": "1 unidade m\u00e9dia"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "1.5 x\u00edcaras"}, {"food": "Feij\u00e3o carioca", "qty": "1 concha"}, {"food": "Frango grelhado", "qty": "200g"}, {"food": "Salada de folhas verdes (alface, r\u00facula)", "qty": "\u00c0 vontade"}, {"food": "Tomate", "qty": "1 unidade m\u00e9dia"}, {"food": "Pepino", "qty": "1/2 unidade"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Pasta de amendoim integral", "qty": "2 colheres de sopa"}, {"food": "Morango", "qty": "10 unidades"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Pur\u00ea de batata doce", "qty": "2 x\u00edcaras"}, {"food": "Carne mo\u00edda magra refogada", "qty": "200g"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "1 x\u00edcara"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-03-23": {"date": "2026-03-23", "meals": [{"items": [{"food": "Mingau de aveia", "qty": "1.5 x\u00edcaras"}, {"food": "Leite desnatado", "qty": "200ml"}, {"food": "Whey Protein", "qty": "1 scoop"}, {"food": "Manga picada", "qty": "1/2 unidade m\u00e9dia"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Castanhas do Par\u00e1", "qty": "5 unidades"}, {"food": "Ma\u00e7\u00e3", "qty": "1 unidade m\u00e9dia"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "1 x\u00edcara"}, {"food": "Lentilha", "qty": "1 concha"}, {"food": "Peixe assado (til\u00e1pia)", "qty": "200g"}, {"food": "Salada de repolho roxo", "qty": "\u00c0 vontade"}, {"food": "Cenoura ralada", "qty": "1/2 x\u00edcara"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Vitamina de abacate", "qty": "1 copo grande"}, {"food": "Leite vegetal (am\u00eandoa, coco)", "qty": "200ml"}, {"food": "Semente de chia", "qty": "1 colher de sopa"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Omelete", "qty": "4 ovos"}, {"food": "Queijo cottage", "qty": "2 colheres de sopa"}, {"food": "Espinafre refogado", "qty": "1 x\u00edcara"}, {"food": "P\u00e3o integral", "qty": "1 fatia"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-03-24": {"date": "2026-03-24", "meals": [{"items": [{"food": "P\u00e3o de forma integral", "qty": "2 fatias"}, {"food": "Requeij\u00e3o light", "qty": "2 colheres de sopa"}, {"food": "Peito de peru", "qty": "3 fatias"}, {"food": "Suco de laranja natural", "qty": "1 copo (200ml)"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Mix de frutas vermelhas (amora, framboesa, morango)", "qty": "1 x\u00edcara"}, {"food": "Iogurte natural desnatado", "qty": "1 pote"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Macarr\u00e3o integral", "qty": "1.5 x\u00edcaras"}, {"food": "Molho de tomate caseiro", "qty": "\u00c0 vontade"}, {"food": "Atum s\u00f3lido em \u00e1gua", "qty": "1 lata (170g)"}, {"food": "Salada de gr\u00e3o de bico", "qty": "1/2 x\u00edcara"}, {"food": "Beterraba ralada", "qty": "1/2 x\u00edcara"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Prote\u00edna vegana em p\u00f3", "qty": "1 scoop"}, {"food": "Leite de coco", "qty": "250 ml"}, {"food": "Goiaba", "qty": "1 unidade grande"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes (ab\u00f3bora, chuchu, vagem)", "qty": "2 pratos fundos"}, {"food": "Frango desfiado", "qty": "150g"}, {"food": "Torrada integral", "qty": "2 unidades"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
         const DAY_ORDER = Object.keys(DIET_DAYS).sort();
         const TODAY_ISO = (function() {
             const d = new Date();
@@ -817,7 +811,7 @@
     <!-- Album do Dia -->
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-purple">🎵</span>
+            <span class="sec-icon">🎵</span>
             <div class="sec-texts">
                 <span class="sec-title">Álbum do Dia</span>
                 <span class="sec-sub">Descoberta nova</span>
@@ -825,11 +819,15 @@
         </div>
         <div class="album-body">
             
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273dc04f429698834d0736ddb0a" alt="Capa de Sobrevivendo no Inferno">
+            
             <div class="album-info">
-                <div class="album-title">Ys</div>
-                <div class="album-artist">Joanna Newsom</div>
-                <div class="album-meta">2006 · Baroque Pop</div>
-                <p class="album-why">Considerando o apreço de Flávio por artistas como Radiohead e Pink Floyd, e sua abertura a gêneros variados, 'Ys' de Joanna Newsom pode ser uma agradável surpresa. A complexidade das composições, a instrumentação rica e a voz única de Newsom remetem a elementos progressivos e experimentais, com uma sensibilidade pop barroca que pode cativar sua atenção.</p>
+                <div class="album-title">Sobrevivendo no Inferno</div>
+                <div class="album-artist">Racionais MC's</div>
+                <div class="album-meta">1997 · Hip Hop</div>
+                <p class="album-why">Considerando o apreço de Flávio por rock brasileiro com letras impactantes (Legião Urbana, Raul Seixas) e sua abertura a outros gêneros como Daft Punk, Sobrevivendo no Inferno é uma obra-prima do rap nacional com letras socialmente conscientes e melodias marcantes. A profundidade lírica e a crueza da realidade retratada ressoarão com a sensibilidade musical de Flávio.</p>
+                
+                <a href="spotify:album:1UzrzuOmZfBgXyS3pgKD10" class="btn-play">▶ Ouvir no Spotify</a>
                 
             </div>
         </div>
@@ -840,7 +838,7 @@
     <!-- Salmo do Dia -->
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-gold">✝️</span>
+            <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
                 <span class="sec-sub">Salmos 56</span>
@@ -866,7 +864,7 @@ pois tu livraste a minha alma da morte. Não livraste também os meus pés de tr
     
 
     <footer>
-        Gerado em 21:31 &middot; Daily Organizer
+        Gerado em 23:06 &middot; Daily Organizer
     </footer>
 
 </body>

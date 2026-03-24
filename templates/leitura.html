@@ -6,22 +6,19 @@
     <title>Leitura — {{ date }}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary:    #2563eb;
-            --bg:         #f1f5f9;
-            --card:       #ffffff;
-            --text:       #0f172a;
-            --muted:      #64748b;
-            --border:     #e2e8f0;
-            --shadow:     0 1px 3px rgba(15,23,42,.07), 0 4px 16px rgba(15,23,42,.05);
-            --radius:     18px;
-            --green:      #22c55e;
-            --green-dark: #16a34a;
-            --green-bg:   #f0fdf4;
-            --amber:      #d97706;
-            --amber-bg:   #fffbeb;
+            --primary:    #c2683a;
+            --bg:         #faf7f2;
+            --card:       #f5f0e8;
+            --text:       #2c1810;
+            --muted:      #8c7b6e;
+            --border:     #e8e0d5;
+            --shadow:     0 1px 3px rgba(44,24,16,.06);
+            --radius:     10px;
+            --green:      #4a7c59;
+            --green-bg:   #f0f7f2;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -35,51 +32,38 @@
         }
 
         .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            border-radius: 999px;
-            padding: 0.35rem 0.9rem;
-            margin-bottom: 1rem;
-            transition: background .15s;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.82rem; font-weight: 600; color: var(--primary);
+            text-decoration: none; background: #ede8df;
+            border: 1px solid var(--border); border-radius: 999px;
+            padding: 0.35rem 0.9rem; margin-bottom: 1rem; transition: background .15s;
         }
-        .back-link:hover { background: #dbeafe; }
+        .back-link:hover { background: #e0d8ce; }
         .back-link::before { content: '←'; }
 
         .hero {
-            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-            border-radius: var(--radius);
-            padding: 2rem 1.5rem 1.75rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            box-shadow: 0 6px 24px rgba(217,119,6,.25);
+            background: transparent; padding: 2rem 0 1.25rem; text-align: left;
+            margin-bottom: 1.5rem; border-bottom: 1.5px solid var(--border);
         }
-        .hero h1 { font-size: 1.7rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
-        .hero-sub { color: rgba(255,255,255,.75); margin-top: 0.35rem; font-size: 0.88rem; font-weight: 500; }
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem; font-weight: 700; color: var(--text);
+            letter-spacing: -0.01em; line-height: 1.15;
+        }
+        .hero-sub {
+            color: var(--primary); margin-top: 0.3rem; font-size: 0.78rem;
+            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        }
         .hero-badge {
-            display: inline-block;
-            margin-top: 0.75rem;
-            background: rgba(255,255,255,.2);
-            border: 1px solid rgba(255,255,255,.3);
-            color: #fff;
-            border-radius: 999px;
-            padding: 0.3rem 1rem;
-            font-size: 0.88rem;
-            font-weight: 600;
+            display: inline-block; margin-top: 0.6rem; background: #ede8df;
+            border: 1px solid var(--border); color: var(--text);
+            border-radius: 999px; padding: 0.28rem 0.875rem; font-size: 0.82rem; font-weight: 600;
         }
 
         .card {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow);
+            background: var(--card); border-radius: var(--radius);
+            padding: 1.5rem; margin-bottom: 0.75rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow);
         }
         .sec-head {
             display: flex;
@@ -88,14 +72,13 @@
             margin-bottom: 1.25rem;
         }
         .sec-icon {
-            width: 36px; height: 36px;
-            border-radius: 10px;
+            width: 32px; height: 32px;
+            border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
             font-size: 1.05rem;
             flex-shrink: 0;
+            background: #ede8df;
         }
-        .si-amber  { background: var(--amber-bg); }
-        .si-green  { background: var(--green-bg); }
         .sec-title { font-size: 0.92rem; font-weight: 700; color: var(--text); }
 
         /* Meta de Hoje */
@@ -106,14 +89,14 @@
             margin-bottom: 1rem;
             line-height: 1.45;
         }
-        .goal-text.done { color: var(--green-dark); }
+        .goal-text.done { color: var(--green); }
 
         .checkbox-row {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             margin-bottom: 1.25rem;
-            background: var(--bg);
+            background: #ede8df;
             border-radius: 10px;
             padding: 0.75rem;
         }
@@ -148,7 +131,7 @@
         }
         .progress-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary) 0%, #818cf8 100%);
+            background: var(--primary);
             border-radius: 999px;
             transition: width .4s ease;
         }
@@ -202,8 +185,8 @@
             margin-top: 0.25rem;
             width: 100%;
             padding: 0.65rem 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
-            color: #fff;
+            background: var(--primary);
+            color: #faf7f2;
             border: none;
             border-radius: 10px;
             font-size: 0.9rem;
@@ -219,22 +202,20 @@
             background: var(--green-bg);
             border-radius: 10px;
             font-size: 0.875rem;
-            color: var(--green-dark);
+            color: var(--green);
             line-height: 1.55;
             border-left: 3px solid var(--green);
         }
         .confirm-msg code {
             font-family: monospace;
-            background: rgba(22,163,74,.12);
+            background: rgba(74,124,89,.12);
             padding: 0.1em 0.35em;
             border-radius: 4px;
         }
 
         footer {
-            text-align: center;
-            color: #94a3b8;
-            font-size: 0.72rem;
-            margin-top: 2rem;
+            text-align: center; color: var(--muted); font-size: 0.75rem;
+            margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border);
         }
     </style>
 </head>
@@ -251,7 +232,7 @@
     <!-- Meta de Hoje -->
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-amber">📖</span>
+            <span class="sec-icon">📖</span>
             <span class="sec-title">Meta de Hoje</span>
         </div>
         <p class="goal-text" id="goal-text">Carregando...</p>
@@ -268,7 +249,7 @@
     <!-- Plano de Leitura -->
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-amber">📚</span>
+            <span class="sec-icon">📚</span>
             <span class="sec-title">Plano de Leitura</span>
         </div>
         <table class="info-table">
@@ -283,7 +264,7 @@
     <!-- Próximo Livro -->
     <div class="card" id="next-book-card" style="display:none">
         <div class="sec-head">
-            <span class="sec-icon si-green">🎉</span>
+            <span class="sec-icon">🎉</span>
             <span class="sec-title">Próximo Livro</span>
         </div>
         <p class="next-book-intro">
