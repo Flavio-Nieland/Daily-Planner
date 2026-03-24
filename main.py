@@ -7,6 +7,7 @@
 #   4. Envia o e-mail
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -97,6 +98,7 @@ RUNNING_PLAN_PATH     = Path("running_plan.json")
 MUSIC_PLAN_PATH       = Path("music_plan.json")
 DIET_PLAN_PATH        = Path("diet_plan.json")
 ALBUM_SUGGESTION_PATH = Path("album_suggestion.json")
+PSALM_OF_DAY_PATH     = Path("psalm_of_day.json")
 
 
 def _parse_json_response(text: str) -> dict:
@@ -526,10 +528,43 @@ Retorne APENAS JSON válido, sem markdown:
     return suggestion
 
 
+def get_random_psalm(date_str: str) -> dict | None:
+    if PSALM_OF_DAY_PATH.exists():
+        cached = json.loads(PSALM_OF_DAY_PATH.read_text(encoding="utf-8"))
+        if cached.get("date") == date_str:
+            return cached
+
+    h = int(hashlib.md5(date_str.encode()).hexdigest(), 16)
+    num = h % 150 + 1
+
+    try:
+        import requests
+        resp = requests.get(
+            f"https://bible-api.com/salmos+{num}?translation=almeida",
+            timeout=10
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        raw_text = data.get("text", "").strip()
+        # Separa versículos por quebra de linha (a API usa \xa0 \xa0 como separador)
+        text = raw_text.replace("\xa0 \xa0", "\n").replace("\xa0", " ").strip()
+        result = {
+            "date": date_str,
+            "number": num,
+            "text": text,
+            "reference": data.get("reference", f"Salmos {num}"),
+        }
+        PSALM_OF_DAY_PATH.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+        return result
+    except Exception as e:
+        print(f"[psalm] Erro ao buscar salmo: {e}")
+        return None
+
+
 def generate_site(
     weather: dict, activities: list, day_name: str, date_str: str, workout, weekday: int,
     reading_plan=None, stretching_plan=None, programming_plan=None, running_plan=None, music_plan=None,
-    diet_plan=None, album_suggestion=None,
+    diet_plan=None, album_suggestion=None, psalm_of_day=None,
 ) -> None:
     """
     Gera docs/index.html e, se houver treino no dia, docs/treino.html.
@@ -556,6 +591,7 @@ def generate_site(
         music_plan=music_plan,
         diet_plan=diet_plan,
         album_suggestion=album_suggestion,
+        psalm_of_day=psalm_of_day,
     )
     (docs_dir / "index.html").write_text(html, encoding="utf-8")
     print(f"Site gerado em {docs_dir / 'index.html'}")
@@ -686,10 +722,15 @@ def main():
         except Exception as e:
             print(f"Aviso: sugestão de álbum indisponível ({e}). Seção desativada.")
             album_suggestion = None
+        try:
+            psalm_of_day = get_random_psalm(date_str)
+        except Exception as e:
+            print(f"Aviso: salmo indisponível ({e}). Seção desativada.")
+            psalm_of_day = None
         generate_site(mock_weather(manha, tarde, noite), activities, day_name, date_str, workout, weekday,
                       reading_plan=reading_plan, stretching_plan=stretching_plan, programming_plan=programming_plan,
                       running_plan=running_plan, music_plan=music_plan, diet_plan=diet_plan,
-                      album_suggestion=album_suggestion)
+                      album_suggestion=album_suggestion, psalm_of_day=psalm_of_day)
         print("HTML gerado. Execute: start docs\\index.html")
         return
 
@@ -744,13 +785,18 @@ def main():
     except Exception as e:
         print(f"Aviso: sugestão de álbum indisponível ({e}). Seção desativada.")
         album_suggestion = None
+    try:
+        psalm_of_day = get_random_psalm(date_str)
+    except Exception as e:
+        print(f"Aviso: salmo indisponível ({e}). Seção desativada.")
+        psalm_of_day = None
 
     # Passo 3: gerar o site
     print("Gerando site HTML...")
     generate_site(weather, activities, day_name, date_str, workout, weekday,
                   reading_plan=reading_plan, stretching_plan=stretching_plan, programming_plan=programming_plan,
                   running_plan=running_plan, music_plan=music_plan, diet_plan=diet_plan,
-                  album_suggestion=album_suggestion)
+                  album_suggestion=album_suggestion, psalm_of_day=psalm_of_day)
 
     # Passo 4: enviar e-mail
     # URL onde o GitHub Pages vai servir o site

@@ -520,6 +520,24 @@
         .album-meta   { font-size: 0.75rem; color: var(--muted); margin: 0.3rem 0 0.6rem; }
         .album-why    { font-size: 0.85rem; line-height: 1.55; color: var(--text); }
 
+        /* ── Salmo do Dia ─────────────────────────────────────────────── */
+        .si-gold { background: linear-gradient(135deg, #d4a017, #f0c040); }
+        .psalm-body { padding: 0.2rem 0; }
+        .psalm-text {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--text);
+            font-style: italic;
+            white-space: pre-line;
+        }
+        .psalm-ref {
+            margin-top: 0.7rem;
+            font-size: 0.78rem;
+            color: var(--muted);
+            font-weight: 600;
+            text-align: right;
+        }
+
         /* ── Footer ───────────────────────────────────────────────────── */
         footer {
             text-align: center;
@@ -830,6 +848,23 @@
                 <a href="spotify:album:{{ album_suggestion.spotify_id }}" class="btn-play">▶ Ouvir no Spotify</a>
                 {% endif %}
             </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if psalm_of_day and psalm_of_day.text %}
+    <!-- Salmo do Dia -->
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon si-gold">✝️</span>
+            <div class="sec-texts">
+                <span class="sec-title">Salmo do Dia</span>
+                <span class="sec-sub">{{ psalm_of_day.reference }}</span>
+            </div>
+        </div>
+        <div class="psalm-body">
+            <p class="psalm-text">{{ psalm_of_day.text }}</p>
+            <div class="psalm-ref">— {{ psalm_of_day.reference }}</div>
         </div>
     </div>
     {% endif %}
