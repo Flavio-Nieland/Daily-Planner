@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 27/03/2026</title>
+    <title>Seu Dia — 28/03/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -545,7 +545,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Sexta-feira &middot; 27/03/2026</p>
+        <p class="hero-sub">Sábado &middot; 28/03/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -558,23 +558,23 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-partly">
                 <div class="period-label">Manhã</div>
-                <div class="temp">22.1–29.2°C</div>
-                <div class="condition">Principalmente limpo</div>
+                <div class="temp">23.0–28.6°C</div>
+                <div class="condition">Parcialmente nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-partly">
                 <div class="period-label">Tarde</div>
-                <div class="temp">28.3–31.1°C</div>
+                <div class="temp">27.5–30.5°C</div>
                 <div class="condition">Parcialmente nublado</div>
-                <div class="rain">Chuva 63%</div>
+                <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-cloudy-night">
+            <div class="weather-period wx-partly-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">24.0–26.7°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 48%</div>
+                <div class="temp">22.0–26.1°C</div>
+                <div class="condition">Parcialmente nublado</div>
+                <div class="rain">Chuva 3%</div>
             </div>
         </div>
     </div>
@@ -594,12 +594,6 @@
                 </div>
                 <ul class="activity-list">
                     
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">trabalhar</span>
-                        
-                    </li>
-                    
                 </ul>
             </div>
             <div class="prio-col">
@@ -610,13 +604,19 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">xadrez</span>
+                            <span class="activity-name">alongar</span>
                         
                     </li>
                     
                     <li class="activity-item">
                         
-                            <a href="programacao.html" class="activity-link">programar</a>
+                            <a href="musica.html" class="activity-link">musica</a>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="leitura.html" class="activity-link">ler</a>
                         
                     </li>
                     
@@ -632,101 +632,7 @@
     </div>
 
     
-    <div class="card">
-        <div class="sec-head">
-            <span class="sec-icon">🥗</span>
-            <span class="sec-title">Dieta do Dia</span>
-        </div>
-        <div class="diet-nav">
-            <button class="diet-arrow" id="diet-prev" onclick="dietNav(-1)">&#8249;</button>
-            <span class="diet-day-label" id="diet-day-label">Hoje</span>
-            <button class="diet-arrow" id="diet-next" onclick="dietNav(1)">&#8250;</button>
-        </div>
-        <p class="diet-kcal-pill" id="diet-kcal-total"></p>
-        <div id="diet-meals"></div>
-    </div>
 
-    <script>
-        const DIET_DAYS = {"2026-03-26": {"date": "2026-03-26", "meals": [{"items": [{"food": "Tapioca", "qty": "2 unidades m\u00e9dias"}, {"food": "Ovo mexido", "qty": "3 unidades"}, {"food": "Caf\u00e9 sem a\u00e7\u00facar", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Mam\u00e3o papaia", "qty": "1/2 unidade m\u00e9dia"}, {"food": "Castanhas do Par\u00e1", "qty": "6 unidades"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "6 colheres de sopa"}, {"food": "Feij\u00e3o carioca", "qty": "3 conchas m\u00e9dias"}, {"food": "Frango grelhado", "qty": "1 fil\u00e9 grande (150g)"}, {"food": "Salada de tomate e pepino", "qty": "\u00c0 vontade"}, {"food": "Abacate", "qty": "1/4 unidade m\u00e9dia"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Iogurte natural desnatado", "qty": "200g"}, {"food": "Aveia em flocos", "qty": "3 colheres de sopa"}, {"food": "Banana prata", "qty": "1 unidade m\u00e9dia"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes com carne magra (patinho mo\u00eddo)", "qty": "2 pratos fundos"}, {"food": "P\u00e3o integral", "qty": "2 fatias"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-03-27": {"date": "2026-03-27", "meals": [{"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Queijo minas frescal", "qty": "2 fatias m\u00e9dias"}, {"food": "Omelete com espinafre", "qty": "2 ovos + 1 x\u00edcara de espinafre"}, {"food": "Caf\u00e9 sem a\u00e7\u00facar", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Melancia", "qty": "2 fatias m\u00e9dias"}, {"food": "Amendoim torrado sem sal", "qty": "30g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "5 colheres de sopa"}, {"food": "Lentilha", "qty": "3 conchas m\u00e9dias"}, {"food": "Peixe assado (til\u00e1pia)", "qty": "1 fil\u00e9 grande (150g)"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "1 x\u00edcara"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Vitamina de abacate com leite desnatado", "qty": "300ml"}, {"food": "Chia", "qty": "1 colher de sopa"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Pur\u00ea de batata doce", "qty": "2 conchas m\u00e9dias"}, {"food": "Carne mo\u00edda magra refogada com legumes (cenoura, abobrinha)", "qty": "200g"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-03-28": {"date": "2026-03-28", "meals": [{"items": [{"food": "Cuscuz", "qty": "1 x\u00edcara"}, {"food": "Ovos cozidos", "qty": "2 unidades"}, {"food": "Leite desnatado", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Manga", "qty": "1 unidade m\u00e9dia"}, {"food": "Castanha de caju", "qty": "10 unidades"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "6 colheres de sopa"}, {"food": "Feij\u00e3o preto", "qty": "3 conchas m\u00e9dias"}, {"food": "Bife grelhado", "qty": "1 fil\u00e9 m\u00e9dio (130g)"}, {"food": "Salada de alface e beterraba ralada", "qty": "\u00c0 vontade"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o de batata doce", "qty": "2 unidades pequenas"}, {"food": "Requeij\u00e3o light", "qty": "2 colheres de sopa"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Escondidinho de frango com pur\u00ea de mandioca", "qty": "1 por\u00e7\u00e3o generosa"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
-        const DAY_ORDER = Object.keys(DIET_DAYS).sort();
-        const TODAY_ISO = (function() {
-            const d = new Date();
-            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
-        })();
-        let dietIdx = DAY_ORDER.indexOf(TODAY_ISO);
-        if (dietIdx === -1) dietIdx = 1;
-
-        const MEAL_ICONS = {
-            'Café da Manhã': '☀️', 'Lanche da Manhã': '🍎',
-            'Almoço': '🍽️', 'Lanche da Tarde': '🥜', 'Jantar': '🌙'
-        };
-
-        function renderDiet() {
-            const key = DAY_ORDER[dietIdx];
-            const day = DIET_DAYS[key];
-            const labels = ['Ontem', 'Hoje', 'Amanhã'];
-            const [y, m, d] = key.split('-');
-
-            document.getElementById('diet-prev').disabled = dietIdx === 0;
-            document.getElementById('diet-next').disabled = dietIdx === DAY_ORDER.length - 1;
-            document.getElementById('diet-day-label').textContent = labels[dietIdx] + ' — ' + d + '/' + m;
-            document.getElementById('diet-kcal-total').textContent = 'Total: ' + day.total_kcal + ' kcal';
-
-            const container = document.getElementById('diet-meals');
-            container.innerHTML = '';
-            day.meals.forEach(meal => {
-                const icon = MEAL_ICONS[meal.name] || '🍴';
-                const card = document.createElement('div');
-                card.className = 'meal-card';
-                const itemsHtml = meal.items.map(i =>
-                    `<li class="meal-item"><span class="meal-item-name">${i.food}</span><span class="meal-qty">${i.qty}</span></li>`
-                ).join('');
-                card.innerHTML = `
-                    <div class="meal-header">
-                        <span class="meal-icon">${icon}</span>
-                        <span class="meal-name">${meal.name}</span>
-                        <span class="meal-time">${meal.time}</span>
-                        <span class="meal-kcal">${meal.kcal} kcal</span>
-                    </div>
-                    <ul class="meal-items">${itemsHtml}</ul>`;
-                container.appendChild(card);
-            });
-        }
-
-        function dietNav(dir) {
-            dietIdx = Math.max(0, Math.min(DAY_ORDER.length - 1, dietIdx + dir));
-            renderDiet();
-        }
-
-        document.addEventListener('DOMContentLoaded', renderDiet);
-    </script>
-    
-
-    
-    <!-- Album do Dia -->
-    <div class="card">
-        <div class="sec-head">
-            <span class="sec-icon">🎵</span>
-            <div class="sec-texts">
-                <span class="sec-title">Álbum do Dia</span>
-                <span class="sec-sub">Da sua biblioteca</span>
-            </div>
-        </div>
-        <div class="album-body">
-            
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273f2ec3b7fa68a883a2ec8ae8f" alt="Capa de Relax">
-            
-            <div class="album-info">
-                <div class="album-title">Relax</div>
-                <div class="album-artist">Various Artists</div>
-                <div class="album-meta">2008</div>
-                <p class="album-why">Flávio, mergulhe de novo nesse "Relax"! Essa coletânea é um abraço sonoro, perfeita pra desacelerar o ritmo e recarregar as energias. As faixas escolhidas a dedo criam uma atmosfera tão gostosa, que parece um spa particular no seu ouvido.</p>
-                
-                <a href="spotify:album:6PCQFjklDvRWq1iW7SW7ja" class="btn-play">▶ Ouvir no Spotify</a>
-                
-            </div>
-        </div>
-    </div>
     
 
     
@@ -736,28 +642,20 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 46</span>
+                <span class="sec-sub">Salmos 131</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Deus é o nosso refúgio e fortaleza, socorro bem presente na angústia.
-Pelo que não temeremos, ainda que a terra se mude, e ainda que os montes se projetem para o meio dos mares;
-ainda que as águas rujam e espumem, ainda que os montes se abalem pela sua braveza.
-Há um rio cujas correntes alegram a cidade de Deus, o lugar santo das moradas do Altíssimo.
-Deus está no meio dela; não será abalada; Deus a ajudará desde o raiar da alva.
-Bramam nações, reinos se abalam; ele levanta a sua voz, e a terra se derrete.
-O Senhor dos exércitos está conosco; o Deus de Jacó é o nosso refúgio.
-Vinde contemplai as obras do Senhor, as desolações que tem feito na terra.
-Ele faz cessar as guerras até os confins da terra; quebra o arco e corta a lança; queima os carros no fogo.
-Aquietai-vos, e sabei que eu sou Deus; sou exaltado entre as nações, sou exaltado na terra.
-O Senhor dos exércitos está conosco; o Deus de Jacó é o nosso refúgio.</p>
-            <div class="psalm-ref">— Salmos 46</div>
+            <p class="psalm-text">Senhor, o meu coração não é soberbo, nem os meus olhos são altivos; não me ocupo de assuntos grandes e maravilhosos demais para mim.
+Pelo contrário, tenho feito acalmar e sossegar a minha alma; qual criança desmamada sobre o seio de sua mãe, qual criança desmamada está a minha alma para comigo.
+Espera, ó Israel, no Senhor, desde agora e para sempre.</p>
+            <div class="psalm-ref">— Salmos 131</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 06:44 &middot; Daily Organizer
+        Gerado em 06:28 &middot; Daily Organizer
     </footer>
 
 </body>

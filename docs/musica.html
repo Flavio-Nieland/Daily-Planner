@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Música — 11/03/2026</title>
+    <title>Música — 28/03/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary:     #2563eb;
-            --bg:          #f1f5f9;
-            --card:        #ffffff;
-            --text:        #0f172a;
-            --muted:       #64748b;
-            --border:      #e2e8f0;
-            --shadow:      0 1px 3px rgba(15,23,42,.07), 0 4px 16px rgba(15,23,42,.05);
-            --radius:      18px;
-            --green:       #22c55e;
-            --green-dark:  #16a34a;
-            --green-bg:    #f0fdf4;
-            --violao:      #d97706;
-            --violao-bg:   #fef3c7;
-            --violao-dark: #92400e;
-            --piano:       #7c3aed;
-            --piano-bg:    #ede9fe;
-            --piano-dark:  #4c1d95;
+            --primary:     #c2683a;
+            --bg:          #faf7f2;
+            --card:        #f5f0e8;
+            --text:        #2c1810;
+            --muted:       #8c7b6e;
+            --border:      #e8e0d5;
+            --shadow:      0 1px 3px rgba(44,24,16,.06);
+            --radius:      10px;
+            --green:       #4a7c59;
+            --green-bg:    #f0f7f2;
+            --violao:      #c2683a;
+            --violao-bg:   #ede8df;
+            --violao-dark: #8a4020;
+            --piano:       #6b5b9b;
+            --piano-bg:    #f0eef8;
+            --piano-dark:  #4a3d70;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -39,51 +38,38 @@
         }
 
         .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--primary);
-            text-decoration: none;
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            border-radius: 999px;
-            padding: 0.35rem 0.9rem;
-            margin-bottom: 1rem;
-            transition: background .15s;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.82rem; font-weight: 600; color: var(--primary);
+            text-decoration: none; background: #ede8df;
+            border: 1px solid var(--border); border-radius: 999px;
+            padding: 0.35rem 0.9rem; margin-bottom: 1rem; transition: background .15s;
         }
-        .back-link:hover { background: #dbeafe; }
+        .back-link:hover { background: #e0d8ce; }
         .back-link::before { content: '←'; }
 
         .hero {
-            background: linear-gradient(135deg, #d97706 0%, #7c3aed 100%);
-            border-radius: var(--radius);
-            padding: 2rem 1.5rem 1.75rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            box-shadow: 0 6px 24px rgba(124,58,237,.2);
+            background: transparent; padding: 2rem 0 1.25rem; text-align: left;
+            margin-bottom: 1.5rem; border-bottom: 1.5px solid var(--border);
         }
-        .hero h1 { font-size: 1.7rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
-        .hero-sub { color: rgba(255,255,255,.75); margin-top: 0.35rem; font-size: 0.88rem; font-weight: 500; }
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem; font-weight: 700; color: var(--text);
+            letter-spacing: -0.01em; line-height: 1.15;
+        }
+        .hero-sub {
+            color: var(--primary); margin-top: 0.3rem; font-size: 0.78rem;
+            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        }
         .hero-badge {
-            display: inline-block;
-            margin-top: 0.75rem;
-            background: rgba(255,255,255,.18);
-            border: 1px solid rgba(255,255,255,.28);
-            color: #fff;
-            border-radius: 999px;
-            padding: 0.28rem 0.9rem;
-            font-size: 0.85rem;
-            font-weight: 600;
+            display: inline-block; margin-top: 0.6rem; background: #ede8df;
+            border: 1px solid var(--border); color: var(--text);
+            border-radius: 999px; padding: 0.28rem 0.875rem; font-size: 0.82rem; font-weight: 600;
         }
 
         .card {
-            background: var(--card);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow);
+            background: var(--card); border-radius: var(--radius);
+            padding: 1.5rem; margin-bottom: 0.75rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow);
         }
         .sec-head {
             display: flex;
@@ -104,16 +90,13 @@
             gap: 0.75rem;
         }
         .sec-icon {
-            width: 36px; height: 36px;
-            border-radius: 10px;
+            width: 32px; height: 32px;
+            border-radius: 8px;
             display: flex; align-items: center; justify-content: center;
             font-size: 1.05rem;
             flex-shrink: 0;
+            background: #ede8df;
         }
-        .si-violao { background: var(--violao-bg); }
-        .si-piano  { background: var(--piano-bg); }
-        .si-green  { background: var(--green-bg); }
-        .si-blue   { background: #eff6ff; }
         .sec-title { font-size: 0.92rem; font-weight: 700; color: var(--text); }
 
         /* Instrumento badge */
@@ -143,7 +126,7 @@
             line-height: 1.55;
             margin-bottom: 1.1rem;
             font-style: italic;
-            background: var(--bg);
+            background: #ede8df;
             border-radius: 10px;
             padding: 0.625rem 0.875rem;
             border-left: 3px solid var(--border);
@@ -151,7 +134,7 @@
 
         /* Steps */
         .step-card {
-            background: var(--bg);
+            background: #ede8df;
             border-radius: 12px;
             padding: 0.875rem 1rem;
             margin-bottom: 0.5rem;
@@ -165,19 +148,18 @@
         .step-num {
             width: 24px; height: 24px;
             border-radius: 50%;
-            color: #fff;
             font-size: 0.7rem;
             font-weight: 700;
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
         }
-        .violao-num { background: var(--violao); }
-        .piano-num  { background: var(--piano); }
+        .violao-num { background: var(--violao); color: #faf7f2; }
+        .piano-num  { background: var(--piano); color: #faf7f2; }
         .step-title { font-size: 0.88rem; font-weight: 600; flex: 1; color: var(--text); }
         .step-duration {
             font-size: 0.72rem;
             color: var(--muted);
-            background: #fff;
+            background: var(--card);
             border: 1px solid var(--border);
             border-radius: 999px;
             padding: 0.15rem 0.55rem;
@@ -192,7 +174,7 @@
             align-items: center;
             gap: 0.75rem;
             margin-bottom: 1.25rem;
-            background: var(--bg);
+            background: #ede8df;
             border-radius: 10px;
             padding: 0.75rem;
         }
@@ -221,7 +203,7 @@
         .progress-bar-wrap { background: var(--border); border-radius: 999px; height: 8px; overflow: hidden; }
         .progress-bar-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--primary) 0%, #818cf8 100%);
+            background: var(--primary);
             border-radius: 999px;
             transition: width .4s ease;
         }
@@ -232,13 +214,13 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            background: var(--bg);
+            background: #ede8df;
             border-radius: 12px;
             padding: 1rem;
         }
         .lock-icon { font-size: 1.5rem; flex-shrink: 0; opacity: .5; }
         .next-lock-title { font-size: 0.88rem; font-weight: 600; color: var(--muted); }
-        .next-lock-hint  { font-size: 0.78rem; color: #94a3b8; margin-top: 0.2rem; }
+        .next-lock-hint  { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
 
         .next-preview { display: flex; flex-direction: column; gap: 0.5rem; }
         .next-preview-topic { font-size: 1rem; font-weight: 600; color: var(--text); }
@@ -247,7 +229,7 @@
             display: inline-block;
             font-size: 0.7rem;
             font-weight: 700;
-            color: var(--green-dark);
+            color: var(--green);
             background: var(--green-bg);
             border-radius: 999px;
             padding: 0.2rem 0.65rem;
@@ -263,7 +245,7 @@
         .cal-nav-btn {
             width: 34px; height: 34px;
             border-radius: 50%;
-            background: var(--bg);
+            background: #ede8df;
             border: 1.5px solid var(--border);
             font-size: 1.2rem;
             cursor: pointer;
@@ -272,7 +254,7 @@
             transition: all .15s;
             line-height: 1;
         }
-        .cal-nav-btn:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+        .cal-nav-btn:hover { background: var(--primary); border-color: var(--primary); color: #faf7f2; }
         .cal-month-label { font-size: 0.95rem; font-weight: 700; color: var(--text); }
 
         .cal-legend {
@@ -304,12 +286,12 @@
             color: var(--muted);
             position: relative;
         }
-        .cal-cell.cal-future { color: #cbd5e1; }
-        .cal-cell.cal-today { background: var(--bg); border: 2px solid var(--primary); color: var(--primary); font-weight: 700; }
-        .cal-cell.cal-done-violao { background: var(--violao); color: #fff; font-weight: 700; cursor: pointer; }
-        .cal-cell.cal-done-violao:hover { background: #b45309; }
-        .cal-cell.cal-done-piano  { background: var(--piano); color: #fff; font-weight: 700; cursor: pointer; }
-        .cal-cell.cal-done-piano:hover { background: #6d28d9; }
+        .cal-cell.cal-future { color: #c9bfb4; }
+        .cal-cell.cal-today { background: #ede8df; border: 2px solid var(--primary); color: var(--primary); font-weight: 700; }
+        .cal-cell.cal-done-violao { background: var(--violao); color: #faf7f2; font-weight: 700; cursor: pointer; }
+        .cal-cell.cal-done-violao:hover { background: var(--violao-dark); }
+        .cal-cell.cal-done-piano  { background: var(--piano); color: #faf7f2; font-weight: 700; cursor: pointer; }
+        .cal-cell.cal-done-piano:hover { background: var(--piano-dark); }
         .cal-cell.cal-done-violao::after, .cal-cell.cal-done-piano::after {
             content: '';
             position: absolute;
@@ -318,15 +300,15 @@
             border-radius: 50%;
             background: rgba(255,255,255,.65);
         }
-        .cal-cell.cal-today.cal-done-violao { background: var(--violao); border-color: var(--violao-dark); color: #fff; }
-        .cal-cell.cal-today.cal-done-piano  { background: var(--piano);  border-color: var(--piano-dark);  color: #fff; }
+        .cal-cell.cal-today.cal-done-violao { background: var(--violao); border-color: var(--violao-dark); color: #faf7f2; }
+        .cal-cell.cal-today.cal-done-piano  { background: var(--piano);  border-color: var(--piano-dark);  color: #faf7f2; }
 
         .cal-detail {
             margin-top: 0.875rem;
             padding: 0.875rem 1rem;
             border-radius: 12px;
             border-left: 3px solid var(--primary);
-            background: #eff6ff;
+            background: #ede8df;
             display: none;
         }
         .cal-detail.violao-detail { background: var(--violao-bg); border-left-color: var(--violao); }
@@ -346,13 +328,11 @@
         .info-table td:first-child { color: var(--muted); width: 55%; }
         .info-table td:last-child { font-weight: 600; color: var(--text); text-align: right; }
 
-        .all-done-msg { text-align: center; padding: 1.5rem 0; font-size: 1.1rem; font-weight: 700; color: var(--green-dark); }
+        .all-done-msg { text-align: center; padding: 1.5rem 0; font-size: 1.1rem; font-weight: 700; color: var(--green); }
 
         footer {
-            text-align: center;
-            color: #94a3b8;
-            font-size: 0.72rem;
-            margin-top: 2rem;
+            text-align: center; color: var(--muted); font-size: 0.75rem;
+            margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border);
         }
     </style>
 </head>
@@ -362,7 +342,7 @@
 
     <div class="hero">
         <h1>Música de Hoje</h1>
-        <p class="hero-sub">Terça-feira &middot; 11/03/2026</p>
+        <p class="hero-sub">Sábado &middot; 28/03/2026</p>
         <span class="hero-badge">Técnica avançada em violão e piano elétrico</span>
     </div>
 
@@ -370,7 +350,7 @@
     <div class="card" id="current-card">
         <div class="sec-head-row">
             <div class="sec-left">
-                <span class="sec-icon si-violao">🎵</span>
+                <span class="sec-icon">🎵</span>
                 <span class="sec-title">Sessão de Hoje</span>
             </div>
             <span class="instr-badge" id="instr-badge"></span>
@@ -397,7 +377,7 @@
     <!-- Próxima Sessão -->
     <div class="card" id="next-card">
         <div class="sec-head">
-            <span class="sec-icon si-blue">⏭️</span>
+            <span class="sec-icon">⏭️</span>
             <span class="sec-title">Próxima Sessão</span>
         </div>
         <div id="next-content"></div>
@@ -406,7 +386,7 @@
     <!-- Histórico -->
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-green">📅</span>
+            <span class="sec-icon">📅</span>
             <span class="sec-title">Histórico de Sessões</span>
         </div>
         <div class="cal-nav">
@@ -430,7 +410,7 @@
     <!-- Plano -->
     <div class="card">
         <div class="sec-head">
-            <span class="sec-icon si-blue">📋</span>
+            <span class="sec-icon">📋</span>
             <span class="sec-title">Sobre o Plano</span>
         </div>
         <table class="info-table">
@@ -443,7 +423,7 @@
     </div>
 
     <footer>
-        Gerado em 23:51 &middot; Daily Organizer
+        Gerado em 06:28 &middot; Daily Organizer
     </footer>
 
     <script>
