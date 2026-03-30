@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 29/03/2026</title>
+    <title>Seu Dia — 30/03/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -545,7 +545,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Domingo &middot; 29/03/2026</p>
+        <p class="hero-sub">Segunda-feira &middot; 30/03/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -558,27 +558,132 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Manhã</div>
-                <div class="temp">19.7–28.3°C</div>
-                <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="temp">20.7–28.2°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 5%</div>
             </div>
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Tarde</div>
-                <div class="temp">29.0–31.4°C</div>
-                <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 43%</div>
+                <div class="temp">24.7–28.5°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 70%</div>
             </div>
             <div class="weather-period wx-cloudy-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">23.9–27.2°C</div>
+                <div class="temp">22.4–24.0°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 35%</div>
+                <div class="rain">Chuva 53%</div>
             </div>
         </div>
     </div>
 
+    
+    <!-- Peso Semanal (apenas segunda-feira) -->
+    <div class="card" id="weight-card">
+        <div class="sec-head">
+            <span class="sec-icon">⚖️</span>
+            <span class="sec-title">Peso Semanal</span>
+        </div>
+
+        <div id="weight-entry-section">
+            <p class="weight-question">Qual é o seu peso hoje?</p>
+            <div class="weight-input-row">
+                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
+                <span class="weight-unit">kg</span>
+                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
+            </div>
+        </div>
+
+        <div id="weight-saved-section" style="display:none">
+            <div class="weight-row">
+                <span class="weight-row-label">Hoje</span>
+                <span class="weight-row-value" id="today-weight-display">--</span>
+            </div>
+        </div>
+
+        <div class="weight-row">
+            <span class="weight-row-label">Semana passada</span>
+            <span class="weight-row-value" id="last-week-display">--</span>
+            <span id="weight-diff"></span>
+        </div>
+
+        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
+        <div id="chart-container" style="display:none">
+            <canvas id="weight-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script>
+        const WK = 'daily-organizer-weights';
+        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
+        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
+        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
+
+        function saveWeight() {
+            const input = document.getElementById('weight-input');
+            const val = parseFloat(input.value.replace(',', '.'));
+            if (isNaN(val) || val < 30 || val > 250) return;
+            const weights = getWeights();
+            weights[todayKey()] = val;
+            localStorage.setItem(WK, JSON.stringify(weights));
+            showSavedState(val);
+            updateLastWeek(val);
+        }
+
+        function showSavedState(todayVal) {
+            document.getElementById('weight-entry-section').style.display = 'none';
+            const saved = document.getElementById('weight-saved-section');
+            saved.style.display = 'block';
+            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
+        }
+
+        function updateLastWeek(todayVal) {
+            const weights = getWeights();
+            const last = weights[lastMondayKey()];
+            const el = document.getElementById('last-week-display');
+            const diffEl = document.getElementById('weight-diff');
+            if (last !== undefined) {
+                el.textContent = last + ' kg';
+                if (todayVal !== null && todayVal !== undefined) {
+                    const diff = (todayVal - last).toFixed(1);
+                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
+                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
+                    else               diffEl.textContent = '= igual';
+                }
+            } else { el.textContent = 'Sem registro'; }
+        }
+
+        function toggleChart() {
+            const container = document.getElementById('chart-container');
+            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
+            else { container.style.display = 'none'; }
+        }
+
+        function renderChart() {
+            const weights = getWeights();
+            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
+            if (entries.length === 0) return;
+            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
+            const data = entries.map(([,v]) => v);
+            const ctx = document.getElementById('weight-chart').getContext('2d');
+            if (window._wChart) window._wChart.destroy();
+            window._wChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
+                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const weights = getWeights();
+            const today = weights[todayKey()];
+            if (today !== undefined) showSavedState(today);
+            updateLastWeek(today ?? null);
+        });
+    </script>
     
 
     <!-- Atividades do Dia -->
@@ -593,6 +698,18 @@
                     <span class="prio-dot dot-high"></span> Alta
                 </div>
                 <ul class="activity-list">
+                    
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">trabalhar</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="treino.html" class="activity-link">treinar</a>
+                        
+                    </li>
                     
                 </ul>
             </div>
@@ -614,18 +731,6 @@
                         
                     </li>
                     
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">ingles</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">xadrez</span>
-                        
-                    </li>
-                    
                 </ul>
             </div>
         </div>
@@ -642,34 +747,30 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 45</span>
+                <span class="sec-sub">Salmos 140</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">O meu coração trasborda de boas palavras; dirijo os meus versos ao rei; a minha língua é qual pena de um hábil escriba.
-Tu és o mais formoso dos filhos dos homens; a graça se derramou nos teus lábios; por isso Deus te abençoou para sempre.
-Cinge a tua espada à coxa, ó valente, na tua glória e majestade.
-E em tua majestade cavalga vitoriosamente pela causa da verdade, da mansidão e da justiça, e a tua destra te ensina coisas terríveis.
-As tuas flechas são agudas no coração dos inimigos do rei; os povos caem debaixo de ti.
-O teu trono, ó Deus, subsiste pelos séculos dos séculos; cetro de eqüidade é o cetro do teu reino.
-Amaste a justiça e odiaste a iniqüidade; por isso Deus, o teu Deus, te ungiu com óleo de alegria, mais do que a teus companheiros.
-Todas as tuas vestes cheiram a mirra a aloés e a cássia; dos palácios de marfim os instrumentos de cordas e te alegram.
-Filhas de reis estão entre as tuas ilustres donzelas; à tua mão direita está a rainha, ornada de ouro de Ofir.
-Ouve, filha, e olha, e inclina teus ouvidos; esquece-te do teu povo e da casa de teu pai.
-Então o rei se afeiçoará à tua formosura. Ele é teu senhor, presta-lhe, pois, homenagem.
-A filha de Tiro estará ali com presentes; os ricos do povo suplicarão o teu favor.
-A filha do rei está esplendente lá dentro do palácio; as suas vestes são entretecidas de ouro.
-Em vestidos de cores brilhantes será conduzida ao rei; as virgens, suas companheiras que a seguem, serão trazidas à tua presença.
-Com alegria e regozijo serão trazidas; elas entrarão no palácio do rei.
-Em lugar de teus pais estarão teus filhos; tu os farás príncipes sobre toda a terra.
-Farei lembrado o teu nome de geração em geração; pelo que os povos te louvarão eternamente.</p>
-            <div class="psalm-ref">— Salmos 45</div>
+            <p class="psalm-text">Livra-me, ó Senhor, dos homens maus; guarda-me dos homens violentos,
+os quais maquinam maldades no coração; estão sempre projetando guerras.
+Aguçaram as línguas como a serpente; peçonha de áspides está debaixo dos seus lábios.
+Guarda-me, ó Senhor, das mãos dos ímpios; preserva-me dos homens violentos, os quais planejaram transtornar os meus passos.
+Os soberbos armaram-me laços e cordas; estenderam uma rede à beira do caminho; puseram-me armadilhas.
+Eu disse, ao Senhor: Tu és o meu Deus; dá ouvidos, ó Senhor, à voz das minhas súplicas.
+Ó Senhor, meu Senhor, meu forte libertador, tu cobriste a minha cabeça no dia da batalha.
+Não concedas, ó Senhor, aos ímpios os seus desejos; não deixes ir por diante o seu mau propósito.
+Não levantem a cabeça os que me cercam; cubra-os a maldade dos seus lábios.
+Caiam sobre eles brasas vivas; sejam lançados em covas profundas, para que não se tornem a levantar!
+Não se estabeleça na terra o caluniador; o mal persiga o homem violento com golpe sobre golpe.
+Sei que o Senhor manterá a causa do aflito, e o direito do necessitado.
+Decerto os justos louvarão o teu nome; os retos habitarão na tua presença.</p>
+            <div class="psalm-ref">— Salmos 140</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 06:27 &middot; Daily Organizer
+        Gerado em 07:07 &middot; Daily Organizer
     </footer>
 
 </body>
