@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 30/03/2026</title>
+    <title>Seu Dia — 31/03/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -545,7 +545,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 30/03/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 31/03/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -558,132 +558,27 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-cloudy">
+            <div class="weather-period wx-partly">
                 <div class="period-label">Manhã</div>
-                <div class="temp">20.7–28.2°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 8%</div>
+                <div class="temp">20.6–24.2°C</div>
+                <div class="condition">Parcialmente nublado</div>
+                <div class="rain">Chuva 15%</div>
             </div>
-            <div class="weather-period wx-light-rain">
+            <div class="weather-period wx-partly">
                 <div class="period-label">Tarde</div>
-                <div class="temp">25.1–28.1°C</div>
-                <div class="condition">Pancadas fracas</div>
-                <div class="rain">Chuva 65%</div>
+                <div class="temp">24.4–25.5°C</div>
+                <div class="condition">Parcialmente nublado</div>
+                <div class="rain">Chuva 5%</div>
             </div>
-            <div class="weather-period wx-cloudy-night">
+            <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">22.6–24.4°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 58%</div>
+                <div class="temp">18.8–23.1°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 5%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -707,6 +602,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -721,13 +622,7 @@
                     
                     <li class="activity-item">
                         
-                            <a href="leitura.html" class="activity-link">ler</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">alongar</span>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -747,30 +642,27 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 140</span>
+                <span class="sec-sub">Salmos 6</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Livra-me, ó Senhor, dos homens maus; guarda-me dos homens violentos,
-os quais maquinam maldades no coração; estão sempre projetando guerras.
-Aguçaram as línguas como a serpente; peçonha de áspides está debaixo dos seus lábios.
-Guarda-me, ó Senhor, das mãos dos ímpios; preserva-me dos homens violentos, os quais planejaram transtornar os meus passos.
-Os soberbos armaram-me laços e cordas; estenderam uma rede à beira do caminho; puseram-me armadilhas.
-Eu disse, ao Senhor: Tu és o meu Deus; dá ouvidos, ó Senhor, à voz das minhas súplicas.
-Ó Senhor, meu Senhor, meu forte libertador, tu cobriste a minha cabeça no dia da batalha.
-Não concedas, ó Senhor, aos ímpios os seus desejos; não deixes ir por diante o seu mau propósito.
-Não levantem a cabeça os que me cercam; cubra-os a maldade dos seus lábios.
-Caiam sobre eles brasas vivas; sejam lançados em covas profundas, para que não se tornem a levantar!
-Não se estabeleça na terra o caluniador; o mal persiga o homem violento com golpe sobre golpe.
-Sei que o Senhor manterá a causa do aflito, e o direito do necessitado.
-Decerto os justos louvarão o teu nome; os retos habitarão na tua presença.</p>
-            <div class="psalm-ref">— Salmos 140</div>
+            <p class="psalm-text">Senhor, não me repreendas na tua ira, nem me castigues no teu furor.
+Tem compaixão de mim, Senhor, porque sou fraco; sara-me, Senhor, porque os meus ossos estão perturbados.
+Também a minha alma está muito perturbada; mas tu, Senhor, até quando?...
+Volta-te, Senhor, livra a minha alma; salva-me por tua misericórdia.
+Pois na morte não há lembrança de ti; no Seol quem te louvará?
+Estou cansado do meu gemido; toda noite faço nadar em lágrimas a minha cama, inundo com elas o meu leito.
+Os meus olhos estão consumidos pela mágoa, e enfraquecem por causa de todos os meus inimigos.
+Apartai-vos de mim todos os que praticais a iniquidade; porque o Senhor já ouviu a voz do meu pranto.
+O Senhor já ouviu a minha súplica, o Senhor aceita a minha oração.
+Serão envergonhados e grandemente perturbados todos os meus inimigos; tornarão atrás e subitamente serão envergonhados.</p>
+            <div class="psalm-ref">— Salmos 6</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 15:59 &middot; Daily Organizer
+        Gerado em 06:55 &middot; Daily Organizer
     </footer>
 
 </body>
