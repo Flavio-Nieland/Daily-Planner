@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 05/04/2026</title>
+    <title>Seu Dia — 06/04/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -545,7 +545,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Domingo &middot; 05/04/2026</p>
+        <p class="hero-sub">Segunda-feira &middot; 06/04/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -558,27 +558,132 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Manhã</div>
-                <div class="temp">19.3–25.8°C</div>
-                <div class="condition">Principalmente limpo</div>
-                <div class="rain">Chuva 33%</div>
+                <div class="temp">20.7–22.5°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 13%</div>
             </div>
             <div class="weather-period wx-cloudy">
                 <div class="period-label">Tarde</div>
-                <div class="temp">23.0–25.9°C</div>
+                <div class="temp">21.9–22.6°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 70%</div>
+                <div class="rain">Chuva 45%</div>
             </div>
             <div class="weather-period wx-cloudy-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">21.3–22.3°C</div>
+                <div class="temp">21.4–21.6°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 45%</div>
+                <div class="rain">Chuva 13%</div>
             </div>
         </div>
     </div>
 
+    
+    <!-- Peso Semanal (apenas segunda-feira) -->
+    <div class="card" id="weight-card">
+        <div class="sec-head">
+            <span class="sec-icon">⚖️</span>
+            <span class="sec-title">Peso Semanal</span>
+        </div>
+
+        <div id="weight-entry-section">
+            <p class="weight-question">Qual é o seu peso hoje?</p>
+            <div class="weight-input-row">
+                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
+                <span class="weight-unit">kg</span>
+                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
+            </div>
+        </div>
+
+        <div id="weight-saved-section" style="display:none">
+            <div class="weight-row">
+                <span class="weight-row-label">Hoje</span>
+                <span class="weight-row-value" id="today-weight-display">--</span>
+            </div>
+        </div>
+
+        <div class="weight-row">
+            <span class="weight-row-label">Semana passada</span>
+            <span class="weight-row-value" id="last-week-display">--</span>
+            <span id="weight-diff"></span>
+        </div>
+
+        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
+        <div id="chart-container" style="display:none">
+            <canvas id="weight-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script>
+        const WK = 'daily-organizer-weights';
+        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
+        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
+        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
+
+        function saveWeight() {
+            const input = document.getElementById('weight-input');
+            const val = parseFloat(input.value.replace(',', '.'));
+            if (isNaN(val) || val < 30 || val > 250) return;
+            const weights = getWeights();
+            weights[todayKey()] = val;
+            localStorage.setItem(WK, JSON.stringify(weights));
+            showSavedState(val);
+            updateLastWeek(val);
+        }
+
+        function showSavedState(todayVal) {
+            document.getElementById('weight-entry-section').style.display = 'none';
+            const saved = document.getElementById('weight-saved-section');
+            saved.style.display = 'block';
+            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
+        }
+
+        function updateLastWeek(todayVal) {
+            const weights = getWeights();
+            const last = weights[lastMondayKey()];
+            const el = document.getElementById('last-week-display');
+            const diffEl = document.getElementById('weight-diff');
+            if (last !== undefined) {
+                el.textContent = last + ' kg';
+                if (todayVal !== null && todayVal !== undefined) {
+                    const diff = (todayVal - last).toFixed(1);
+                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
+                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
+                    else               diffEl.textContent = '= igual';
+                }
+            } else { el.textContent = 'Sem registro'; }
+        }
+
+        function toggleChart() {
+            const container = document.getElementById('chart-container');
+            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
+            else { container.style.display = 'none'; }
+        }
+
+        function renderChart() {
+            const weights = getWeights();
+            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
+            if (entries.length === 0) return;
+            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
+            const data = entries.map(([,v]) => v);
+            const ctx = document.getElementById('weight-chart').getContext('2d');
+            if (window._wChart) window._wChart.destroy();
+            window._wChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
+                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const weights = getWeights();
+            const today = weights[todayKey()];
+            if (today !== undefined) showSavedState(today);
+            updateLastWeek(today ?? null);
+        });
+    </script>
     
 
     <!-- Atividades do Dia -->
@@ -593,6 +698,18 @@
                     <span class="prio-dot dot-high"></span> Alta
                 </div>
                 <ul class="activity-list">
+                    
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">trabalhar</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="treino.html" class="activity-link">treinar</a>
+                        
+                    </li>
                     
                 </ul>
             </div>
@@ -611,18 +728,6 @@
                     <li class="activity-item">
                         
                             <a href="alongamento.html" class="activity-link">alongar</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">ingles</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">xadrez</span>
                         
                     </li>
                     
@@ -647,7 +752,7 @@
     </div>
 
     <script>
-        const DIET_DAYS = {"2026-04-04": {"date": "2026-04-04", "meals": [{"items": [{"food": "Omelete com 2 ovos e espinafre", "qty": "1 unidade"}, {"food": "Tapioca", "qty": "2 unidades m\u00e9dias"}, {"food": "Caf\u00e9 preto", "qty": "1 x\u00edcara"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Banana", "qty": "1 unidade m\u00e9dia"}, {"food": "Castanhas do Par\u00e1", "qty": "3 unidades"}, {"food": "Iogurte natural desnatado", "qty": "1 pote"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "6 colheres de sopa"}, {"food": "Feij\u00e3o carioca", "qty": "4 colheres de sopa"}, {"food": "Frango grelhado", "qty": "1 fil\u00e9 grande"}, {"food": "Salada de folhas verdes com tomate e pepino", "qty": "\u00c0 vontade"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Pasta de amendoim integral", "qty": "2 colheres de sopa"}, {"food": "Ma\u00e7\u00e3", "qty": "1 unidade m\u00e9dia"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Salm\u00e3o assado", "qty": "1 fil\u00e9 m\u00e9dio"}, {"food": "Pur\u00ea de batata doce", "qty": "1 x\u00edcara"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "1 x\u00edcara"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-05": {"date": "2026-04-05", "meals": [{"items": [{"food": "Vitamina de abacate com leite desnatado e aveia", "qty": "1 copo grande"}, {"food": "Torrada integral", "qty": "2 fatias"}, {"food": "Queijo cottage", "qty": "2 colheres de sopa"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Goiaba", "qty": "1 unidade grande"}, {"food": "Am\u00eandoas", "qty": "15 unidades"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Quinoa cozida", "qty": "6 colheres de sopa"}, {"food": "Lentilha", "qty": "4 colheres de sopa"}, {"food": "Carne mo\u00edda magra refogada", "qty": "150g"}, {"food": "Couve refogada", "qty": "1 x\u00edcara"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Iogurte natural integral", "qty": "1 unidade"}, {"food": "Granola", "qty": "3 colheres de sopa"}, {"food": "Morangos", "qty": "1 x\u00edcara"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes com frango desfiado", "qty": "2 pratos fundos"}, {"food": "P\u00e3o de centeio", "qty": "2 fatias pequenas"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-06": {"date": "2026-04-06", "meals": [{"items": [{"food": "Mingau de aveia com leite de coco", "qty": "1 tigela m\u00e9dia"}, {"food": "Ovo cozido", "qty": "2 unidades"}, {"food": "Mam\u00e3o papaya", "qty": "1/2 unidade"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Mix de frutas secas (damasco, ameixa, uva passa)", "qty": "1/4 x\u00edcara"}, {"food": "Castanha de caju", "qty": "10 unidades"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "6 colheres de sopa"}, {"food": "Feij\u00e3o preto", "qty": "4 colheres de sopa"}, {"food": "Bife grelhado", "qty": "1 bife m\u00e9dio"}, {"food": "Ab\u00f3bora caboti\u00e1 assada", "qty": "1 x\u00edcara"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Vitamina de banana com leite e pasta de amendoim", "qty": "1 copo"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Wrap integral com frango desfiado, tomate e alface", "qty": "2 unidades"}, {"food": "Cenoura baby", "qty": "1 x\u00edcara"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
+        const DIET_DAYS = {"2026-04-05": {"date": "2026-04-05", "meals": [{"items": [{"food": "Omelete com 2 ovos e espinafre", "qty": "1 unidade"}, {"food": "Tapioca", "qty": "2 unidades m\u00e9dias"}, {"food": "Caf\u00e9 preto sem a\u00e7\u00facar", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Banana", "qty": "1 unidade grande"}, {"food": "Castanhas do Par\u00e1", "qty": "3 unidades"}, {"food": "Iogurte natural desnatado", "qty": "1 pote (170g)"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "6 colheres de sopa"}, {"food": "Feij\u00e3o carioca", "qty": "4 colheres de sopa"}, {"food": "Frango grelhado", "qty": "1 fil\u00e9 grande (150g)"}, {"food": "Salada de alface, tomate e pepino", "qty": "\u00e0 vontade"}, {"food": "Ab\u00f3bora cozida", "qty": "1 x\u00edcara"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Pasta de amendoim integral", "qty": "2 colheres de sopa"}, {"food": "Ma\u00e7\u00e3", "qty": "1 unidade m\u00e9dia"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes com carne magra", "qty": "2 pratos fundos"}, {"food": "P\u00e3o integral", "qty": "1 fatia"}, {"food": "Laranja", "qty": "1 unidade"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-06": {"date": "2026-04-06", "meals": [{"items": [{"food": "Vitamina de abacate com leite desnatado e aveia", "qty": "1 copo grande (300ml)"}, {"food": "P\u00e3o franc\u00eas integral", "qty": "1 unidade"}, {"food": "Queijo branco", "qty": "2 fatias"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Goiaba", "qty": "2 unidades m\u00e9dias"}, {"food": "Am\u00eandoas", "qty": "15 unidades"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "5 colheres de sopa"}, {"food": "Lentilha", "qty": "4 colheres de sopa"}, {"food": "Peixe assado (til\u00e1pia)", "qty": "1 fil\u00e9 grande (150g)"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "1 x\u00edcara"}, {"food": "Cenoura ralada", "qty": "1/2 x\u00edcara"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Iogurte natural integral", "qty": "200g"}, {"food": "Granola sem a\u00e7\u00facar", "qty": "2 colheres de sopa"}, {"food": "Morango", "qty": "10 unidades"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Pur\u00ea de batata doce", "qty": "2 x\u00edcaras"}, {"food": "Carne mo\u00edda magra refogada com legumes (cenoura, abobrinha)", "qty": "150g"}, {"food": "Kiwi", "qty": "2 unidades"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-07": {"date": "2026-04-07", "meals": [{"items": [{"food": "Mingau de aveia com leite desnatado e canela", "qty": "1 tigela m\u00e9dia"}, {"food": "Ovo cozido", "qty": "2 unidades"}, {"food": "Mam\u00e3o", "qty": "1/2 unidade"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Uva", "qty": "1 x\u00edcara"}, {"food": "Nozes", "qty": "7 unidades"}, {"food": "Queijo Cottage", "qty": "100g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "6 colheres de sopa"}, {"food": "Gr\u00e3o de bico cozido", "qty": "4 colheres de sopa"}, {"food": "Carne de panela magra", "qty": "150g"}, {"food": "Couve refogada", "qty": "1 x\u00edcara"}, {"food": "Beterraba cozida", "qty": "1/2 x\u00edcara"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Vitamina de banana com leite vegetal", "qty": "1 copo m\u00e9dio"}, {"food": "Semente de chia", "qty": "1 colher de sopa"}, {"food": "P\u00e3o de Queijo (pequeno)", "qty": "2 unidades"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Cuscuz marroquino com legumes (abobrinha, berinjela, piment\u00e3o)", "qty": "2 x\u00edcaras"}, {"food": "Ovos mexidos", "qty": "3 unidades"}, {"food": "P\u00eara", "qty": "1 unidade"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
         const DAY_ORDER = Object.keys(DIET_DAYS).sort();
         const TODAY_ISO = (function() {
             const d = new Date();
@@ -709,20 +814,20 @@
             <span class="sec-icon">🎵</span>
             <div class="sec-texts">
                 <span class="sec-title">Álbum do Dia</span>
-                <span class="sec-sub">Da sua biblioteca</span>
+                <span class="sec-sub">Descoberta nova</span>
             </div>
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2734cfcc7a80d7a8da378f968b0" alt="Capa de Fake Love (feat. Duncan Mighty & WizKid)">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2735bb332941b7b3d33cf9e7a5e" alt="Capa de Cabeça Dinossauro">
             
             <div class="album-info">
-                <div class="album-title">Fake Love (feat. Duncan Mighty & WizKid)</div>
-                <div class="album-artist">StarBoy</div>
-                <div class="album-meta">2018</div>
-                <p class="album-why">Flávio, 'Fake Love' é puro ouro! A vibe afrobeat deliciosa, o flow inconfundível do WizKid e a participação do Duncan Mighty criam uma energia que te transporta direto para 2018, mas com gostinho de novidade. É o boost de good vibes que a gente precisa para hoje!</p>
+                <div class="album-title">Cabeça Dinossauro</div>
+                <div class="album-artist">Titãs</div>
+                <div class="album-meta">1986 · Brazilian Rock</div>
+                <p class="album-why">Considerado um dos álbuns mais importantes do rock brasileiro, 'Cabeça Dinossauro' dos Titãs combina letras inteligentes e críticas com uma sonoridade crua e enérgica. A energia punk e a atitude contestadora certamente agradarão um fã de Raul Seixas, Legião Urbana e rock em geral.</p>
                 
-                <a href="spotify:album:2hCyuqpTXNKYkEXyABXE9j" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:557bzwt1Yb2hUSGIZNrToj" class="btn-play">▶ Ouvir no Spotify</a>
                 
             </div>
         </div>
@@ -736,30 +841,26 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 79</span>
+                <span class="sec-sub">Salmos 52</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Ó Deus, as nações invadiram a tua herança; contaminaram o teu santo templo; reduziram Jerusalém a ruínas.
-Deram os cadáveres dos teus servos como pastos às aves dos céus, e a carne dos teus santos aos animais da terra.
-Derramaram o sangue deles como água ao redor de Jerusalém, e não houve quem os sepultasse.
-Somos feitos o opróbrio dos nossos vizinhos, o escárnio e a zombaria dos que estão em redor de nós.
-Até quando, Senhor? Indignar-te-ás para sempre? Arderá o teu zelo como fogo?
-Derrama o teu furor sobre as nações que não te conhecem, e sobre os reinos que não invocam o teu nome;
-porque eles devoraram a Jacó, e assolaram a sua morada.
-Não te lembres contra nós das iniqüidades de nossos pais; venha depressa ao nosso encontro a tua compaixão, pois estamos muito abatidos.
-Ajuda-nos, ó Deus da nossa salvação, pela glória do teu nome; livra-nos, e perdoa os nossos pecados, por amor do teu nome.
-Por que diriam as nações: Onde está o seu Deus? Torne-se manifesta entre as nações, à nossa vista, a vingança do sangue derramado dos teus servos.
-Chegue à tua presença o gemido dos presos; segundo a grandeza do teu braço, preserva aqueles que estão condenados à morte.
-E aos nossos vizinhos, deita-lhes no regaço, setuplicadamente, a injúria com que te injuriaram, Senhor.
-Assim nós, teu povo ovelhas de teu pasto, te louvaremos eternamente; de geração em geração publicaremos os teus louvores.</p>
-            <div class="psalm-ref">— Salmos 79</div>
+            <p class="psalm-text">Por que te glorias na malícia, ó homem poderoso? pois a bondade de Deus subsiste em todo o tempo.
+A tua língua maquina planos de destruição, como uma navalha afiada, ó tu que usas de dolo.
+Tu amas antes o mal do que o bem, e o mentir do que o falar a verdade.
+Amas todas as palavras devoradoras, ó língua fraudulenta.
+Também Deus te esmagará para sempre; arrebatar-te-á e arrancar-te-á da tua habitação, e desarraigar-te-á da terra dos viventes.
+Os justos o verão e temerão; e se rirão dele, dizendo:
+Eis aqui o homem que não tomou a Deus por sua fortaleza; antes confiava na abundância das suas riquezas, e se fortalecia na sua perversidade.
+Mas eu sou qual oliveira verde na casa de Deus; confio na bondade de Deus para sempre e eternamente.
+Para sempre te louvarei, porque tu isso fizeste, e proclamarei o teu nome, porque é bom diante de teus santos.</p>
+            <div class="psalm-ref">— Salmos 52</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 06:30 &middot; Daily Organizer
+        Gerado em 07:00 &middot; Daily Organizer
     </footer>
 
 </body>
