@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 08/04/2026</title>
+    <title>Programação — 10/04/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -154,9 +154,11 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Quarta-feira &middot; 08/04/2026</p>
+        <p class="hero-sub">Sexta-feira &middot; 10/04/2026</p>
         <div class="hero-pills">
-            <span class="hero-pill">Refatoração de Código Python com Design Patterns</span>
+            <span class="hero-pill">RAG com LangChain e ChromaDB</span>
+            
+            <span class="hero-pill hero-pill-secondary">LangChain</span>
             
         </div>
     </div>
@@ -174,61 +176,50 @@
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">1</span>
-                    <span class="step-title">Revisão de Código Legado</span>
+                    <span class="step-title">Revisão rápida de Embeddings</span>
                 </div>
-                <span class="step-duration">15 min</span>
+                <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Analise um trecho de código Python problemático (ex: classes longas com alta complexidade ciclomática). Identifique violações de princípios SOLID e code smells.</p>
+            <p class="step-description">Revisar o conceito de embeddings vetoriais e sua importância para a similaridade semântica. Consultar a documentação do LangChain para relembrar como usar embeddings.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">2</span>
-                    <span class="step-title">Introdução ao Pattern Strategy</span>
+                    <span class="step-title">Configuração do Ambiente ChromaDB</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Relembre o padrão Strategy. Leia um breve resumo e veja um diagrama UML simplificado para refrescar a memória.</p>
+            <p class="step-description">Instalar e configurar o ChromaDB localmente. Criar uma coleção vazia para armazenar os embeddings.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Implementação do Pattern Strategy</span>
+                    <span class="step-title">Ingestão de Dados de Exemplo</span>
                 </div>
                 <span class="step-duration">20 min</span>
             </div>
-            <p class="step-description">Refatore o código legado usando o padrão Strategy para desacoplar a lógica. Crie interfaces e classes concretas para diferentes estratégias.</p>
+            <p class="step-description">Carregar um pequeno conjunto de documentos de texto (ex: 3 parágrafos) e usar o LangChain para gerar embeddings e armazená-los no ChromaDB.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Testes Unitários</span>
+                    <span class="step-title">Consulta Semântica Básica</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Escreva testes unitários para as novas classes e estratégias. Garanta que a refatoração não introduziu regressões e que as estratégias funcionam corretamente.</p>
-        </div>
-        
-        <div class="step-item">
-            <div class="step-header">
-                <div class="step-num-title">
-                    <span class="step-num">5</span>
-                    <span class="step-title">Discussão e Próximos Passos</span>
-                </div>
-                <span class="step-duration">5 min</span>
-            </div>
-            <p class="step-description">Reflita sobre os benefícios da refatoração e planeje quais outros padrões podem ser aplicados no futuro. Considere o trade-off entre complexidade e flexibilidade.</p>
+            <p class="step-description">Implementar uma consulta básica ao ChromaDB usando o LangChain, buscando documentos similares a uma pergunta de exemplo. Imprimir os resultados.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 06:59 &middot; Daily Organizer
+        Gerado em 07:00 &middot; Daily Organizer
     </footer>
 
 </body>
