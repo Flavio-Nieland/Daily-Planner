@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 12/04/2026</title>
+    <title>Seu Dia — 13/04/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -545,7 +545,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Domingo &middot; 12/04/2026</p>
+        <p class="hero-sub">Segunda-feira &middot; 13/04/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -558,27 +558,132 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-cloudy">
+            <div class="weather-period wx-partly">
                 <div class="period-label">Manhã</div>
-                <div class="temp">19.3–23.6°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="temp">19.2–25.1°C</div>
+                <div class="condition">Parcialmente nublado</div>
+                <div class="rain">Chuva 3%</div>
             </div>
             <div class="weather-period wx-cloudy">
                 <div class="period-label">Tarde</div>
-                <div class="temp">23.1–25.0°C</div>
+                <div class="temp">23.5–26.4°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 35%</div>
+                <div class="rain">Chuva 23%</div>
             </div>
-            <div class="weather-period wx-cloudy-night">
+            <div class="weather-period wx-fog">
                 <div class="period-label">Noite</div>
-                <div class="temp">20.1–21.9°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 50%</div>
+                <div class="temp">19.4–22.5°C</div>
+                <div class="condition">Neblina</div>
+                <div class="rain">Chuva 13%</div>
             </div>
         </div>
     </div>
 
+    
+    <!-- Peso Semanal (apenas segunda-feira) -->
+    <div class="card" id="weight-card">
+        <div class="sec-head">
+            <span class="sec-icon">⚖️</span>
+            <span class="sec-title">Peso Semanal</span>
+        </div>
+
+        <div id="weight-entry-section">
+            <p class="weight-question">Qual é o seu peso hoje?</p>
+            <div class="weight-input-row">
+                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
+                <span class="weight-unit">kg</span>
+                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
+            </div>
+        </div>
+
+        <div id="weight-saved-section" style="display:none">
+            <div class="weight-row">
+                <span class="weight-row-label">Hoje</span>
+                <span class="weight-row-value" id="today-weight-display">--</span>
+            </div>
+        </div>
+
+        <div class="weight-row">
+            <span class="weight-row-label">Semana passada</span>
+            <span class="weight-row-value" id="last-week-display">--</span>
+            <span id="weight-diff"></span>
+        </div>
+
+        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
+        <div id="chart-container" style="display:none">
+            <canvas id="weight-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script>
+        const WK = 'daily-organizer-weights';
+        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
+        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
+        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
+
+        function saveWeight() {
+            const input = document.getElementById('weight-input');
+            const val = parseFloat(input.value.replace(',', '.'));
+            if (isNaN(val) || val < 30 || val > 250) return;
+            const weights = getWeights();
+            weights[todayKey()] = val;
+            localStorage.setItem(WK, JSON.stringify(weights));
+            showSavedState(val);
+            updateLastWeek(val);
+        }
+
+        function showSavedState(todayVal) {
+            document.getElementById('weight-entry-section').style.display = 'none';
+            const saved = document.getElementById('weight-saved-section');
+            saved.style.display = 'block';
+            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
+        }
+
+        function updateLastWeek(todayVal) {
+            const weights = getWeights();
+            const last = weights[lastMondayKey()];
+            const el = document.getElementById('last-week-display');
+            const diffEl = document.getElementById('weight-diff');
+            if (last !== undefined) {
+                el.textContent = last + ' kg';
+                if (todayVal !== null && todayVal !== undefined) {
+                    const diff = (todayVal - last).toFixed(1);
+                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
+                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
+                    else               diffEl.textContent = '= igual';
+                }
+            } else { el.textContent = 'Sem registro'; }
+        }
+
+        function toggleChart() {
+            const container = document.getElementById('chart-container');
+            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
+            else { container.style.display = 'none'; }
+        }
+
+        function renderChart() {
+            const weights = getWeights();
+            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
+            if (entries.length === 0) return;
+            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
+            const data = entries.map(([,v]) => v);
+            const ctx = document.getElementById('weight-chart').getContext('2d');
+            if (window._wChart) window._wChart.destroy();
+            window._wChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
+                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const weights = getWeights();
+            const today = weights[todayKey()];
+            if (today !== undefined) showSavedState(today);
+            updateLastWeek(today ?? null);
+        });
+    </script>
     
 
     <!-- Atividades do Dia -->
@@ -593,6 +698,18 @@
                     <span class="prio-dot dot-high"></span> Alta
                 </div>
                 <ul class="activity-list">
+                    
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">trabalhar</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="treino.html" class="activity-link">treinar</a>
+                        
+                    </li>
                     
                 </ul>
             </div>
@@ -611,18 +728,6 @@
                     <li class="activity-item">
                         
                             <a href="alongamento.html" class="activity-link">alongar</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">ingles</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">xadrez</span>
                         
                     </li>
                     
@@ -647,7 +752,7 @@
     </div>
 
     <script>
-        const DIET_DAYS = {"2026-04-11": {"date": "2026-04-11", "meals": [{"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Ovos mexidos", "qty": "2 unidades"}, {"food": "Queijo minas", "qty": "30g"}, {"food": "Caf\u00e9 sem a\u00e7\u00facar", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural desnatado", "qty": "200g"}, {"food": "Castanhas do par\u00e1", "qty": "6 unidades"}, {"food": "Morango", "qty": "100g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "150g"}, {"food": "Feij\u00e3o carioca", "qty": "100g"}, {"food": "Frango grelhado", "qty": "150g"}, {"food": "Salada de folhas verdes com tomate e pepino", "qty": "200g"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Vitamina de abacate", "qty": "300ml"}, {"food": "Aveia em flocos", "qty": "30g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes com carne magra", "qty": "400ml"}, {"food": "P\u00e3o franc\u00eas integral", "qty": "1 unidade"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-12": {"date": "2026-04-12", "meals": [{"items": [{"food": "Tapioca", "qty": "2 unidades pequenas"}, {"food": "Recheio de queijo coalho", "qty": "60g"}, {"food": "Banana", "qty": "1 unidade"}, {"food": "Caf\u00e9 com leite desnatado", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Ma\u00e7\u00e3", "qty": "1 unidade"}, {"food": "Pasta de amendoim integral", "qty": "2 colheres de sopa"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Pur\u00ea de batata doce", "qty": "200g"}, {"food": "Salm\u00e3o assado", "qty": "150g"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "200g"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Shake de prote\u00edna (whey)", "qty": "30g"}, {"food": "Leite de am\u00eandoas", "qty": "250ml"}, {"food": "Mam\u00e3o papaia", "qty": "150g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Omelete", "qty": "3 ovos"}, {"food": "Espinafre", "qty": "100g"}, {"food": "Tomate picado", "qty": "50g"}, {"food": "Queijo cottage", "qty": "50g"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-13": {"date": "2026-04-13", "meals": [{"items": [{"food": "Mingau de aveia", "qty": "250ml"}, {"food": "Leite desnatado", "qty": "150ml"}, {"food": "Banana prata", "qty": "1 unidade"}, {"food": "Canela em p\u00f3", "qty": "A gosto"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Mix de frutas secas", "qty": "50g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "100g"}, {"food": "Lentilha", "qty": "150g"}, {"food": "Carne mo\u00edda magra refogada", "qty": "120g"}, {"food": "Couve refogada", "qty": "150g"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o de forma integral", "qty": "2 fatias"}, {"food": "Atum em conserva light", "qty": "1 lata"}, {"food": "Requeij\u00e3o light", "qty": "2 colheres de sopa"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Salada de quinoa", "qty": "250g"}, {"food": "Gr\u00e3o de bico cozido", "qty": "100g"}, {"food": "Legumes variados (cenoura, beterraba, abobrinha)", "qty": "150g"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
+        const DIET_DAYS = {"2026-04-12": {"date": "2026-04-12", "meals": [{"items": [{"food": "Tapioca (2 unidades)", "qty": "140g"}, {"food": "Ovos mexidos", "qty": "2 unidades"}, {"food": "Queijo minas", "qty": "40g"}, {"food": "Caf\u00e9 sem a\u00e7\u00facar", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural integral", "qty": "200g"}, {"food": "Granola", "qty": "30g"}, {"food": "Banana prata", "qty": "1 unidade"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "150g"}, {"food": "Feij\u00e3o carioca", "qty": "120g"}, {"food": "Frango grelhado", "qty": "150g"}, {"food": "Ab\u00f3bora cozida", "qty": "150g"}, {"food": "Salada de folhas verdes", "qty": "\u00c0 vontade"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Pasta de amendoim integral", "qty": "2 colheres de sopa"}, {"food": "Ma\u00e7\u00e3", "qty": "1 unidade"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes com carne mo\u00edda magra", "qty": "500ml"}, {"food": "P\u00e3o integral", "qty": "1 fatia"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-13": {"date": "2026-04-13", "meals": [{"items": [{"food": "Mingau de aveia", "qty": "200g"}, {"food": "Leite desnatado", "qty": "200ml"}, {"food": "Amendoim", "qty": "30g"}, {"food": "Morango", "qty": "100g"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Vitamina de abacate com leite", "qty": "300ml"}, {"food": "Ado\u00e7ante (opcional)", "qty": "A gosto"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "150g"}, {"food": "Lentilha", "qty": "120g"}, {"food": "Peixe assado (til\u00e1pia)", "qty": "150g"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "150g"}, {"food": "Salada de tomate e pepino", "qty": "\u00c0 vontade"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Ovo cozido", "qty": "2 unidades"}, {"food": "Castanha de caju", "qty": "30g"}, {"food": "Goiaba", "qty": "1 unidade"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Pur\u00ea de batata doce", "qty": "200g"}, {"food": "Carne magra cozida (patinho)", "qty": "150g"}, {"food": "Couve refogada", "qty": "100g"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-14": {"date": "2026-04-14", "meals": [{"items": [{"food": "Cuscuz", "qty": "150g"}, {"food": "Ovos mexidos com tomate", "qty": "2 unidades"}, {"food": "Queijo coalho", "qty": "40g"}, {"food": "Caf\u00e9 sem a\u00e7\u00facar", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Mam\u00e3o papaia", "qty": "200g"}, {"food": "Semente de chia", "qty": "1 colher de sopa"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "150g"}, {"food": "Feij\u00e3o preto", "qty": "120g"}, {"food": "Bife grelhado (cox\u00e3o mole)", "qty": "150g"}, {"food": "Quiabo refogado", "qty": "150g"}, {"food": "Salada de alface e r\u00facula", "qty": "\u00c0 vontade"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Iogurte desnatado", "qty": "200g"}, {"food": "Mix de castanhas", "qty": "30g"}, {"food": "Laranja", "qty": "1 unidade"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Omelete com espinafre e queijo", "qty": "3 ovos, 100g espinafre, 40g queijo"}, {"food": "Salada mista (tomate, pepino, alface)", "qty": "\u00c0 vontade"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
         const DAY_ORDER = Object.keys(DIET_DAYS).sort();
         const TODAY_ISO = (function() {
             const d = new Date();
@@ -709,20 +814,20 @@
             <span class="sec-icon">🎵</span>
             <div class="sec-texts">
                 <span class="sec-title">Álbum do Dia</span>
-                <span class="sec-sub">Descoberta nova</span>
+                <span class="sec-sub">Da sua biblioteca</span>
             </div>
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2735bb332941b7b3d33cf9e7a5e" alt="Capa de Cabeça Dinossauro">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2739b2a28739fe356e1b632fa24" alt="Capa de Passado Presente Futuro">
             
             <div class="album-info">
-                <div class="album-title">Cabeça Dinossauro</div>
-                <div class="album-artist">Titãs</div>
-                <div class="album-meta">1986 · Brazilian Rock</div>
-                <p class="album-why">Este álbum é um clássico do rock brasileiro dos anos 80, com letras inteligentes e ácidas que combinam com o gosto de Flávio por Raul Seixas, Legião Urbana e Engenheiros do Hawaii. A energia e as experimentações sonoras também podem agradar quem curte Linkin Park e art rock.</p>
+                <div class="album-title">Passado Presente Futuro</div>
+                <div class="album-artist">Sa, Rodrix & Guarabyra</div>
+                <div class="album-meta">1972</div>
+                <p class="album-why">Flávio, que delícia revisitar esse disco! "Passado Presente Futuro" é um abraço musical que te transporta para um Brasil bucólico e cheio de poesia, com harmonias vocais impecáveis e letras que tocam a alma. É um daqueles álbuns que a gente escuta e sente o coração quentinho, sabe?</p>
                 
-                <a href="spotify:album:557bzwt1Yb2hUSGIZNrToj" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:78WaHJ6d5nNAhRDrzCUtUF" class="btn-play">▶ Ouvir no Spotify</a>
                 
             </div>
         </div>
@@ -736,193 +841,26 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 119</span>
+                <span class="sec-sub">Salmos 98</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Bem-aventurados os que trilham com integridade o seu caminho, os que andam na lei do Senhor!
-Bem-aventurados os que guardam os seus testemunhos, que o buscam de todo o coração,
-que não praticam iniqüidade, mas andam nos caminhos dele!
-Tu ordenaste os teus preceitos, para que fossem diligentemente observados.
-Oxalá sejam os meus caminhos dirigidos de maneira que eu observe os teus estatutos!
-Então não ficarei confundido, atentando para todos os teus mandamentos.
-Louvar-te-ei com retidão de coração, quando tiver aprendido as tuas retas ordenanças.
-Observarei os teus estatutos; não me desampares totalmente!
-Como purificará o jovem o seu caminho? Observando-o de acordo com a tua palavra.
-De todo o meu coração tenho te buscado; não me deixes desviar dos teus mandamentos.
-Escondi a tua palavra no meu coração, para não pecar contra ti.
-Bendito és tu, ó Senhor; ensina-me os teus estatutos.
-Com os meus lábios declaro todas as ordenanças da tua boca.
-Regozijo-me no caminho dos teus testemunhos, tanto como em todas as riquezas.
-Em teus preceitos medito, e observo os teus caminhos.
-Deleitar-me-ei nos teus estatutos; não me esquecerei da tua palavra.
-Faze bem ao teu servo, para que eu viva; assim observarei a tua palavra.
-Desvenda os meus olhos, para que eu veja as maravilhas da tua lei.
-Sou peregrino na terra; não escondas de mim os teus mandamentos.
-A minha alma se consome de anelos por tuas ordenanças em todo o tempo.
-Tu repreendeste os soberbos, os malditos, que se desviam dos teus mandamentos.
-Tira de sobre mim o opróbrio e o desprezo, pois tenho guardado os teus testemunhos.
-Príncipes sentaram-se e falavam contra mim, mas o teu servo meditava nos teus estatutos.
-Os teus testemunhos são o meu prazer e os meus conselheiros.
-A minha alma apega-se ao pó; vivifica-me segundo a tua palavra.
-Meus caminhos te descrevi, e tu me ouviste; ensina-me os teus estatutos.
-Faze-me entender o caminho dos teus preceitos; assim meditarei nas tuas maravilhas.
-A minha alma se consome de tristeza; fortalece-me segundo a tua palavra.
-Desvia de mim o caminho da falsidade, e ensina-me benignidade a tua lei.
-Escolhi o caminho da fidelidade; diante de mim pus as tuas ordenanças.
-Apego-me aos teus testemunhos, ó Senhor; não seja eu envergonhado.
-Percorrerei o caminho dos teus mandamentos, quando dilatares o meu coração.
-Ensina-me, ó Senhor, o caminho dos teus estatutos, e eu o guardarei até o fim.
-Dá-me entendimento, para que eu guarde a tua lei, e a observe de todo o meu coração.
-Faze-me andar na vereda dos teus mandamentos, porque nela me comprazo.
-Inclina o meu coração para os teus testemunhos, e não para a cobiça.
-Desvia os meus olhos de contemplarem a vaidade, e vivifica-me no teu caminho.
-Confirma a tua promessa ao teu servo, que se inclina ao teu temor.
-Desvia de mim o opróbrio que temo, pois as tuas ordenanças são boas.
-Eis que tenho anelado os teus preceitos; vivifica-me por tua justiça.
-Venha também sobre mim a tua benignidade, ó Senhor, e a tua salvação, segundo a tua palavra.
-Assim terei o que responder ao que me afronta, pois confio na tua palavra.
-De minha boca não tires totalmente a palavra da verdade, pois tenho esperado nos teus juízos.
-Assim observarei de contínuo a tua lei, para sempre e eternamente;
-e andarei em liberdade, pois tenho buscado os teus preceitos.
-Falarei dos teus testemunhos perante os reis, e não me envergonharei.
-Deleitar-me-ei em teus mandamentos, que eu amo.
-Também levantarei as minhas mãos para os teus mandamentos, que amo, e meditarei nos teus estatutos.
-Lembra-te da palavra dada ao teu servo, na qual me fizeste esperar.
-Isto é a minha consolação na minha angústia, que a tua promessa me vivifica.
-Os soberbos zombaram grandemente de mim; contudo não me desviei da tua lei.
-Lembro-me dos teus juízos antigos, ó Senhor, e assim me consolo.
-Grande indignação apoderou-se de mim, por causa dos ímpios que abandonam a tua lei.
-Os teus estatutos têm sido os meus cânticos na casa da minha peregrinação.
-De noite me lembrei do teu nome, ó Senhor, e observei a tua lei.
-Isto me sucedeu, porque tenho guardado os teus preceitos.
-O Senhor é o meu quinhão; prometo observar as tuas palavras.
-De todo o meu coração imploro o teu favor; tem piedade de mim, segundo a tua palavra.
-Quando considero os meus caminhos, volto os meus pés para os teus testemunhos.
-Apresso-me sem detença a observar os teus mandamentos.
-Enleiam-me os laços dos ímpios; mas eu não me esqueço da tua lei.
-Â meia-noite me levanto para dar-te graças, por causa dos teus retos juízos.
-Companheiro sou de todos os que te temem, e dos que guardam os teus preceitos.
-A terra, ó Senhor, está cheia da tua benignidade; ensina-me os teus estatutos.
-Tens usado de bondade para com o teu servo, Senhor, segundo a tua palavra.
-Ensina-me bom juízo e ciência, pois creio nos teus mandamentos.
-Antes de ser afligido, eu me extraviava; mas agora guardo a tua palavra.
-Tu és bom e fazes o bem; ensina-me os teus estatutos.
-Os soberbos forjam mentiras contra mim; mas eu de todo o coração guardo os teus preceitos.
-Torna-se-lhes insensível o coração como a gordura; mas eu me deleito na tua lei.
-Foi-me bom ter sido afligido, para que aprendesse os teus estatutos.
-Melhor é para mim a lei da tua boca do que milhares de ouro e prata.
-As tuas mãos me fizeram e me formaram; dá-me entendimento para que aprenda os teus mandamentos.
-Os que te temem me verão e se alegrarão, porque tenho esperado na tua palavra.
-Bem sei eu, ó Senhor, que os teus juízos são retos, e que em tua fidelidade me afligiste.
-Sirva, pois, a tua benignidade para me consolar, segundo a palavra que deste ao teu servo.
-Venham sobre mim as tuas ternas misericórdias, para que eu viva, pois a tua lei é o meu deleite.
-Envergonhados sejam os soberbos, por me haverem subvertido sem causa; mas eu meditarei nos teus preceitos.
-Voltem-se para mim os que te temem, para que conheçam os teus testemunhos.
-Seja perfeito o meu coração nos teus estatutos, para que eu não seja envergonhado.
-Desfalece a minha alma, aguardando a tua salvação; espero na tua palavra.
-Os meus olhos desfalecem, esperando por tua promessa, enquanto eu pergunto: Quando me consolarás tu?
-Pois tornei-me como odre na fumaça, mas não me esqueci dos teus estatutos.
-Quantos serão os dias do teu servo? Até quando não julgarás aqueles que me perseguem?
-Abriram covas para mim os soberbos, que não andam segundo a tua lei.
-Todos os teus mandamentos são fiéis. Sou perseguido injustamente; ajuda-me!
-Quase que me consumiram sobre a terra, mas eu não deixei os teus preceitos.
-Vivifica-me segundo a tua benignidade, para que eu guarde os testemunhos da tua boca.
-Para sempre, ó Senhor, a tua palavra está firmada nos céus.
-A tua fidelidade estende-se de geração a geração; tu firmaste a terra, e firme permanece.
-Conforme a tua ordenança, tudo se mantém até hoje, porque todas as coisas te obedecem.
-Se a tua lei não fora o meu deleite, então eu teria perecido na minha angústia.
-Nunca me esquecerei dos teus preceitos, pois por eles me tens vivificado.
-Sou teu, salva-me; pois tenho buscado os teus preceitos.
-Os ímpios me espreitam para me destruírem, mas eu atento para os teus testemunhos.
-A toda perfeição vi limite, mas o teu mandamento é ilimitado.
-Oh! quanto amo a tua lei! ela é a minha meditação o dia todo.
-O teu mandamento me faz mais sábio do que meus inimigos, pois está sempre comigo.
-Tenho mais entendimento do que todos os meus mestres, porque os teus testemunhos são a minha meditação.
-Sou mais entendido do que os velhos, porque tenho guardado os teus preceitos.
-Retenho os meus pés de todo caminho mau, a fim de observar a tua palavra.
-Não me aperto das tuas ordenanças, porque és tu quem me instrui.
-Oh! quão doces são as tuas palavras ao meu paladar! mais doces do que o mel à minha boca.
-Pelos teus preceitos alcanço entendimento, pelo que aborreço toda vereda de falsidade.
-Lâmpada para os meus pés é a tua palavra, e luz para o meu caminho.
-Fiz juramento, e o confirmei, de guardar as tuas justas ordenanças.
-Estou aflitíssimo; vivifica-me, ó Senhor, segundo a tua palavra.
-Aceita, Senhor, eu te rogo, as oferendas voluntárias da minha boca, e ensina-me as tuas ordenanças.
-Estou continuamente em perigo de vida; todavia não me esqueço da tua lei.
-Os ímpios me armaram laço, contudo não me desviei dos teus preceitos.
-Os teus testemunhos são a minha herança para sempre, pois são eles o gozo do meu coração.
-Inclino o meu coração a cumprir os teus estatutos, para sempre, até o fim.
-Aborreço a duplicidade, mas amo a tua lei.
-Tu és o meu refúgio e o meu escudo; espero na tua palavra.
-Apartai-vos de mim, malfeitores, para que eu guarde os mandamentos do meu Deus.
-Ampara-me conforme a tua palavra, para que eu viva; e não permitas que eu seja envergonhado na minha esperança.
-Sustenta-me, e serei salvo, e de contínuo terei respeito aos teus estatutos.
-Desprezas todos os que se desviam dos teus estatutos, pois a astúcia deles é falsidade.
-Deitas fora, como escória, todos os ímpios da terra; pelo que amo os teus testemunhos.
-Arrepia-se-me a carne com temor de ti, e tenho medo dos teus juízos.
-Tenho praticado a retidão e a justiça; não me abandones aos meus opressores.
-Fica por fiador do teu servo para o bem; não me oprimem os soberbos.
-Os meus olhos desfalecem à espera da tua salvação e da promessa da tua justiça.
-Trata com o teu servo segundo a tua benignidade, e ensina-me os teus estatutos.
-Sou teu servo; dá-me entendimento, para que eu conheça os teus testemunhos.
-É tempo de agires, ó Senhor, pois eles violaram a tua lei.
-Pelo que amo os teus mandamentos mais do que o ouro, sim, mais do que o ouro fino.
-Por isso dirijo os meus passos por todos os teus preceitos, e aborreço toda vereda de falsidade.
-Maravilhosos são os teus testemunhos, por isso a minha alma os guarda.
-A exposição das tuas palavras dá luz; dá entendimento aos simples.
-Abro a minha boca e arquejo, pois estou anelante pelos teus mandamentos.
-Volta-te para mim, e compadece-te de mim, conforme usas para com os que amam o teu nome.
-Firma os meus passos na tua palavra; e não se apodere de mim iniqüidade alguma.
-Resgata-me da opressão do homem; assim guardarei os teus preceitos.
-Faze resplandecer o teu rosto sobre o teu servo, e ensina-me os teus estatutos.
-Os meus olhos derramam rios de lágrimas, porque os homens não guardam a tua lei.
-Justo és, ó Senhor, e retos são os teus juízos.
-Ordenaste os teus testemunhos com retidão, e com toda a fidelidade.
-O meu zelo me consome, porque os meus inimigos se esquecem da tua palavra.
-A tua palavra é fiel a toda prova, por isso o teu servo a ama.
-Pequeno sou e desprezado, mas não me esqueço dos teus preceitos.
-A tua justiça é justiça eterna, e a tua lei é a verdade.
-Tribulação e angústia se apoderaram de mim; mas os teus mandamentos são o meu prazer.
-Justos são os teus testemunhos para sempre; dá-me entendimento, para que eu viva.
-Clamo de todo o meu coração; atende-me, Senhor! Eu guardarei os teus estatutos.
-A ti clamo; salva-me, para que guarde os teus testemunhos.
-Antecipo-me à alva da manhã e clamo; aguardo com esperança as tuas palavras.
-Os meus olhos se antecipam às vigílias da noite, para que eu medite na tua palavra.
-Ouve a minha voz, segundo a tua benignidade; vivifica-me, ó Senhor, segundo a tua justiça.
-Aproximam-se os que me perseguem maliciosamente; andam afastados da tua lei.
-Tu estás perto, Senhor, e todos os teus mandamentos são verdade.
-Há muito sei eu dos teus testemunhos que os fundaste para sempre.
-Olha para a minha aflição, e livra-me, pois não me esqueço da tua lei.
-Pleiteia a minha causa, e resgata-me; vivifica-me segundo a tua palavra.
-A salvação está longe dos ímpios, pois não buscam os teus estatutos.
-Muitas são, Senhor, as tuas misericórdias; vivifica-me segundo os teus juízos.
-Muitos são os meus perseguidores e os meus adversários, mas não me desvio dos teus testemunhos.
-Vi os pérfidos, e me afligi, porque não guardam a tua palavra.
-Considera como amo os teus preceitos; vivifica-me, Senhor, segundo a tua benignidade.
-A soma da tua palavra é a verdade, e cada uma das tuas justas ordenanças dura para sempre.
-Príncipes me perseguem sem causa, mas o meu coração teme as tuas palavras.
-Regozijo-me com a tua palavra, como quem acha grande despojo.
-Odeio e abomino a falsidade; amo, porém, a tua lei.
-Sete vezes no dia te louvo pelas tuas justas ordenanças.
-Muita paz têm os que amam a tua lei, e não há nada que os faça tropeçar.
-Espero, Senhor, na tua salvação, e cumpro os teus mandamentos.
-A minha alma observa os teus testemunhos; amo-os extremamente.
-Observo os teus preceitos e os teus testemunhos, pois todos os meus caminhos estão diante de ti.
-Chegue a ti o meu clamor, ó Senhor; dá-me entendimento conforme a tua palavra.
-Chegue à tua presença a minha súplica; livra-me segundo a tua palavra.
-Profiram louvor os meus lábios, pois me ensinas os teus estatutos.
-Celebre a minha língua a tua palavra, pois todos os teus mandamentos são justos.
-Esteja pronta a tua mão para me socorrer, pois escolhi os teus preceitos.
-Anelo por tua salvação, ó Senhor; a tua lei é o meu prazer.
-Que minha alma viva, para que te louve; ajudem-me as tuas ordenanças.
-Desgarrei-me como ovelha perdida; busca o teu servo, pois não me esqueço dos teus mandamentos.</p>
-            <div class="psalm-ref">— Salmos 119</div>
+            <p class="psalm-text">Cantai ao Senhor um cântico novo, porque ele tem feito maravilhas; a sua destra e o seu braço santo lhe alcançaram a vitória.
+O Senhor fez notória a sua salvação, manifestou a sua justiça perante os olhos das nações.
+Lembrou-se da sua misericórdia e da sua fidelidade para com a casa de Israel; todas as extremidades da terra viram a salvação do nosso Deus.
+Celebrai com júbilo ao Senhor, todos os habitantes da terra; dai brados de alegria, regozijai-vos, e cantai louvores.
+Louvai ao Senhor com a harpa; com a harpa e a voz de canto.
+Com trombetas, e ao som de buzinas, exultai diante do Rei, o Senhor.
+Brame o mar e a sua plenitude, o mundo e os que nele habitam;
+batam palmas os rios; à uma regozijem-se os montes
+diante do Senhor, porque vem julgar a terra; com justiça julgará o mundo, e os povos com eqüidade.</p>
+            <div class="psalm-ref">— Salmos 98</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 06:37 &middot; Daily Organizer
+        Gerado em 07:26 &middot; Daily Organizer
     </footer>
 
 </body>
