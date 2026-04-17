@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 15/04/2026</title>
+    <title>Programação — 17/04/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -154,11 +154,11 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Quarta-feira &middot; 15/04/2026</p>
+        <p class="hero-sub">Sexta-feira &middot; 17/04/2026</p>
         <div class="hero-pills">
-            <span class="hero-pill">RAG com LangChain e ChromaDB</span>
+            <span class="hero-pill">RAG com LangChain</span>
             
-            <span class="hero-pill hero-pill-secondary">LangChain, ChromaDB</span>
+            <span class="hero-pill hero-pill-secondary">LangChain</span>
             
         </div>
     </div>
@@ -180,57 +180,46 @@
                 </div>
                 <span class="step-duration">5 min</span>
             </div>
-            <p class="step-description">Revisar os conceitos de Retrieval Augmented Generation (RAG) e como embeddings textuais são usados para busca semântica.</p>
+            <p class="step-description">Recapitule o conceito de Recuperação Aumentada por Geração (RAG) e como embeddings são usados para busca semântica.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">2</span>
-                    <span class="step-title">Configuração do Ambiente: ChromaDB Local</span>
+                    <span class="step-title">Implementação Base do RAG com LangChain</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">25 min</span>
             </div>
-            <p class="step-description">Instalar ChromaDB localmente (se necessário) e configurar o cliente LangChain para conectar ao banco de dados.  Verificar conexão.</p>
+            <p class="step-description">Escreva um script Python que carrega um arquivo de texto simples, cria embeddings usando Hugging Face embeddings, armazena os embeddings em um índice FAISS e define uma cadeia RAG básica com um modelo LLM (ex: GPT-3.5).</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Criação do Pipeline RAG Básico</span>
+                    <span class="step-title">Teste e Avaliação da Resposta</span>
                 </div>
-                <span class="step-duration">30 min</span>
+                <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Escrever o código Python para criar um pipeline RAG simples usando LangChain e ChromaDB.  Carregar um pequeno conjunto de documentos (ex: artigos da Wikipedia) no ChromaDB e configurar o retriever.</p>
+            <p class="step-description">Formule algumas perguntas sobre o conteúdo do arquivo de texto e teste a precisão e relevância das respostas geradas pela cadeia RAG.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Testando o Pipeline com Perguntas</span>
+                    <span class="step-title">Otimização da Resposta: Prompt Engineering</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Formular perguntas sobre os documentos carregados e testar a precisão das respostas geradas pelo pipeline RAG.  Ajustar o prompt para melhorar a qualidade das respostas.</p>
-        </div>
-        
-        <div class="step-item">
-            <div class="step-header">
-                <div class="step-num-title">
-                    <span class="step-num">5</span>
-                    <span class="step-title">Considerações Finais e Próximos Passos</span>
-                </div>
-                <span class="step-duration">5 min</span>
-            </div>
-            <p class="step-description">Identificar possíveis otimizações no pipeline RAG (ex: chunking, estratégias de retrieval) e planejar os próximos passos para aprimoramento.</p>
+            <p class="step-description">Experimente diferentes prompts para a cadeia RAG. Modifique o prompt padrão para ver se a qualidade das respostas melhora. Analise como o contexto fornecido afeta a saída do modelo.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 07:08 &middot; Daily Organizer
+        Gerado em 07:05 &middot; Daily Organizer
     </footer>
 
 </body>
