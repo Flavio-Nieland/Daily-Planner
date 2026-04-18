@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 17/04/2026</title>
+    <title>Seu Dia — 18/04/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -545,7 +545,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Sexta-feira &middot; 17/04/2026</p>
+        <p class="hero-sub">Sábado &middot; 18/04/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -558,23 +558,23 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-partly">
+            <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">20.2–26.0°C</div>
-                <div class="condition">Parcialmente nublado</div>
-                <div class="rain">Chuva 8%</div>
+                <div class="temp">18.8–26.3°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-light-rain">
+            <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">25.0–27.6°C</div>
-                <div class="condition">Pancadas fracas</div>
-                <div class="rain">Chuva 10%</div>
+                <div class="temp">25.2–27.9°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-partly-night">
+            <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">20.7–24.0°C</div>
-                <div class="condition">Parcialmente nublado</div>
-                <div class="rain">Chuva 3%</div>
+                <div class="temp">18.5–22.8°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
@@ -594,12 +594,6 @@
                 </div>
                 <ul class="activity-list">
                     
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">trabalhar</span>
-                        
-                    </li>
-                    
                 </ul>
             </div>
             <div class="prio-col">
@@ -610,13 +604,19 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">xadrez</span>
+                            <a href="alongamento.html" class="activity-link">alongar</a>
                         
                     </li>
                     
                     <li class="activity-item">
                         
-                            <a href="programacao.html" class="activity-link">programar</a>
+                            <a href="musica.html" class="activity-link">musica</a>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="leitura.html" class="activity-link">ler</a>
                         
                     </li>
                     
@@ -632,75 +632,6 @@
     </div>
 
     
-    <div class="card">
-        <div class="sec-head">
-            <span class="sec-icon">🥗</span>
-            <span class="sec-title">Dieta do Dia</span>
-        </div>
-        <div class="diet-nav">
-            <button class="diet-arrow" id="diet-prev" onclick="dietNav(-1)">&#8249;</button>
-            <span class="diet-day-label" id="diet-day-label">Hoje</span>
-            <button class="diet-arrow" id="diet-next" onclick="dietNav(1)">&#8250;</button>
-        </div>
-        <p class="diet-kcal-pill" id="diet-kcal-total"></p>
-        <div id="diet-meals"></div>
-    </div>
-
-    <script>
-        const DIET_DAYS = {"2026-04-16": {"date": "2026-04-16", "meals": [{"items": [{"food": "Omelete com 2 ovos e espinafre", "qty": "1 por\u00e7\u00e3o"}, {"food": "Tapioca com 2 colheres de sopa de frango desfiado", "qty": "1 unidade"}, {"food": "Caf\u00e9 sem a\u00e7\u00facar", "qty": "1 x\u00edcara"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural desnatado", "qty": "200g"}, {"food": "Mix de castanhas (caju, am\u00eandoas, nozes)", "qty": "30g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "6 colheres de sopa"}, {"food": "Feij\u00e3o carioca", "qty": "2 conchas"}, {"food": "Fil\u00e9 de frango grelhado", "qty": "150g"}, {"food": "Salada de folhas verdes com tomate e cenoura ralada", "qty": "\u00c0 vontade"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Banana", "qty": "1 unidade m\u00e9dia"}, {"food": "Pasta de amendoim integral", "qty": "2 colheres de sopa"}, {"food": "Whey Protein", "qty": "30g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes com carne magra (ab\u00f3bora, chuchu, cenoura, batata doce)", "qty": "1 prato fundo"}, {"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-17": {"date": "2026-04-17", "meals": [{"items": [{"food": "Vitamina de abacate com leite desnatado e aveia", "qty": "1 copo grande"}, {"food": "Ovo cozido", "qty": "2 unidades"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Ma\u00e7\u00e3", "qty": "1 unidade m\u00e9dia"}, {"food": "Queijo branco", "qty": "50g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "5 colheres de sopa"}, {"food": "Lentilha", "qty": "2 conchas"}, {"food": "Peixe assado (til\u00e1pia ou merluza)", "qty": "150g"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "1 x\u00edcara"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Mam\u00e3o papaia", "qty": "1/2 unidade m\u00e9dia"}, {"food": "Granola sem a\u00e7\u00facar", "qty": "3 colheres de sopa"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Pur\u00ea de batata doce", "qty": "1 por\u00e7\u00e3o m\u00e9dia"}, {"food": "Carne mo\u00edda magra refogada com legumes (tomate, cebola, piment\u00e3o)", "qty": "150g"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-18": {"date": "2026-04-18", "meals": [{"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Requeij\u00e3o light", "qty": "2 colheres de sopa"}, {"food": "Peito de peru", "qty": "3 fatias"}, {"food": "Caf\u00e9 com leite desnatado", "qty": "1 x\u00edcara"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Laranja", "qty": "1 unidade grande"}, {"food": "Castanha do Brasil", "qty": "3 unidades"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "6 colheres de sopa"}, {"food": "Feij\u00e3o preto", "qty": "2 conchas"}, {"food": "Bife magro grelhado", "qty": "150g"}, {"food": "Couve refogada", "qty": "1 x\u00edcara"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Iogurte natural desnatado com morangos picados", "qty": "200g"}, {"food": "Chia", "qty": "1 colher de sopa"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Salada de quinoa com frango desfiado e legumes (pepino, tomate, piment\u00e3o)", "qty": "1 prato fundo"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
-        const DAY_ORDER = Object.keys(DIET_DAYS).sort();
-        const TODAY_ISO = (function() {
-            const d = new Date();
-            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
-        })();
-        let dietIdx = DAY_ORDER.indexOf(TODAY_ISO);
-        if (dietIdx === -1) dietIdx = 1;
-
-        const MEAL_ICONS = {
-            'Café da Manhã': '☀️', 'Lanche da Manhã': '🍎',
-            'Almoço': '🍽️', 'Lanche da Tarde': '🥜', 'Jantar': '🌙'
-        };
-
-        function renderDiet() {
-            const key = DAY_ORDER[dietIdx];
-            const day = DIET_DAYS[key];
-            const labels = ['Ontem', 'Hoje', 'Amanhã'];
-            const [y, m, d] = key.split('-');
-
-            document.getElementById('diet-prev').disabled = dietIdx === 0;
-            document.getElementById('diet-next').disabled = dietIdx === DAY_ORDER.length - 1;
-            document.getElementById('diet-day-label').textContent = labels[dietIdx] + ' — ' + d + '/' + m;
-            document.getElementById('diet-kcal-total').textContent = 'Total: ' + day.total_kcal + ' kcal';
-
-            const container = document.getElementById('diet-meals');
-            container.innerHTML = '';
-            day.meals.forEach(meal => {
-                const icon = MEAL_ICONS[meal.name] || '🍴';
-                const card = document.createElement('div');
-                card.className = 'meal-card';
-                const itemsHtml = meal.items.map(i =>
-                    `<li class="meal-item"><span class="meal-item-name">${i.food}</span><span class="meal-qty">${i.qty}</span></li>`
-                ).join('');
-                card.innerHTML = `
-                    <div class="meal-header">
-                        <span class="meal-icon">${icon}</span>
-                        <span class="meal-name">${meal.name}</span>
-                        <span class="meal-time">${meal.time}</span>
-                        <span class="meal-kcal">${meal.kcal} kcal</span>
-                    </div>
-                    <ul class="meal-items">${itemsHtml}</ul>`;
-                container.appendChild(card);
-            });
-        }
-
-        function dietNav(dir) {
-            dietIdx = Math.max(0, Math.min(DAY_ORDER.length - 1, dietIdx + dir));
-            renderDiet();
-        }
-
-        document.addEventListener('DOMContentLoaded', renderDiet);
-    </script>
-    
 
     
     <!-- Album do Dia -->
@@ -714,15 +645,15 @@
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2737e0ae8b9b7c47cb93e596a7a" alt="Capa de Ouroboros">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273892d166eaa02dfdd7c944e93" alt="Capa de El pueblo unido jamás será vencido (1973-1983) [Collection "L'art de..."]">
             
             <div class="album-info">
-                <div class="album-title">Ouroboros</div>
-                <div class="album-artist">Diomedes Chinaski</div>
-                <div class="album-meta">2016</div>
-                <p class="album-why">Flávio, hoje é dia de mergulhar de novo no 'Ouroboros'! As letras poéticas e a sonoridade crua desse disco continuam me arrepiando, me lembram da força da palavra e da beleza melancólica da vida. É um álbum pra sentir na alma, sabe? Bora se emocionar juntos mais uma vez!</p>
+                <div class="album-title">El pueblo unido jamás será vencido (1973-1983) [Collection "L'art de..."]</div>
+                <div class="album-artist">Quilapayún</div>
+                <div class="album-meta">1990</div>
+                <p class="album-why">Flávio, prepare-se para uma viagem no tempo! Esse álbum do Quilapayún é mais que música, é um documento histórico pulsante, um grito de esperança e resistência que ecoa forte até hoje. Reviver essas canções é se reconectar com a força da união e a beleza da luta por um mundo mais justo.</p>
                 
-                <a href="spotify:album:7z8KFiBQk1TVca1F46ygfY" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:0WdtE1ZqaKlx3lpzM0OApA" class="btn-play">▶ Ouvir no Spotify</a>
                 
             </div>
         </div>
@@ -736,32 +667,20 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 144</span>
+                <span class="sec-sub">Salmos 133</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Bendito seja o Senhor, minha rocha, que adestra as minhas mãos para a peleja e os meus dedos para a guerra;
-meu refúgio e minha fortaleza, meu alto retiro e meu e meu libertador, escudo meu, em quem me refugio; ele é quem me sujeita o meu povo.
-Ó Senhor, que é o homem, para que tomes conhecimento dele, e o filho do homem, para que o consideres?
-O homem é semelhante a um sopro; os seus dias são como a sombra que passa.
-Abaixa, ó Senhor, o teu céu, e desce! Toca os montes, para que fumeguem!
-Arremessa os teus raios, e dissipa-os; envia as tuas flechas, e desbarata-os!
-Estende as tuas mãos desde o alto; livra-me, e arrebata-me das poderosas águas e da mão do estrangeiro,
-cuja boca fala vaidade, e cuja mão direita é a destra da falsidade.
-A ti, ó Deus, cantarei um cântico novo; com a harpa de dez cordas te cantarei louvores,
-sim, a ti que dás a vitória aos reis, e que livras da espada maligna a teu servo Davi.
-Livra-me, e tira-me da mão do estrangeiro, cuja boca fala mentiras, e cuja mão direita é a destra da falsidade.
-Sejam os nossos filhos, na sua mocidade, como plantas bem desenvolvidas, e as nossas filhas como pedras angulares lavradas, como as de um palácio.
-Estejam repletos os nossos celeiros, fornecendo toda sorte de provisões; as nossas ovelhas produzam a milhares e a dezenas de milhares em nosos campos;
-os nossos bois levem ricas cargas; e não haja assaltos, nem sortidas, nem clamores em nossas ruas!
-Bem-aventurado o povo a quem assim sucede! Bem-aventurado o povo cujo Deus é o Senhor.</p>
-            <div class="psalm-ref">— Salmos 144</div>
+            <p class="psalm-text">Oh! quão bom e quão suave é que os irmãos vivam em união!
+É como o óleo precioso sobre a cabeça, que desceu sobre a barba, a barba de Arão, que desceu sobre a gola das suas vestes;
+como o orvalho de Hermom, que desce sobre os montes de Sião; porque ali o Senhor ordenou a bênção, a vida para sempre.</p>
+            <div class="psalm-ref">— Salmos 133</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:05 &middot; Daily Organizer
+        Gerado em 06:38 &middot; Daily Organizer
     </footer>
 
 </body>
