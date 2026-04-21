@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 20/04/2026</title>
+    <title>Seu Dia — 21/04/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -545,7 +545,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 20/04/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 21/04/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -560,130 +560,25 @@
         <div class="weather-grid">
             <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">15.4–24.2°C</div>
-                <div class="condition">Céu limpo</div>
+                <div class="temp">16.7–23.6°C</div>
+                <div class="condition">Principalmente limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Tarde</div>
-                <div class="temp">23.4–25.8°C</div>
-                <div class="condition">Principalmente limpo</div>
+                <div class="temp">23.2–25.1°C</div>
+                <div class="condition">Nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-cloudy-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">18.5–21.3°C</div>
+                <div class="temp">18.9–21.5°C</div>
                 <div class="condition">Nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -707,6 +602,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -721,13 +622,7 @@
                     
                     <li class="activity-item">
                         
-                            <a href="leitura.html" class="activity-link">ler</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">alongar</span>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -747,39 +642,22 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 38</span>
+                <span class="sec-sub">Salmos 127</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Ó Senhor, não me repreendas na tua ira, nem me castigues no teu furor.
-Porque as tuas flechas se cravaram em mim, e sobre mim a tua mão pesou.
-Não há coisa sã na minha carne, por causa da tua cólera; nem há saúde nos meus ossos, por causa do meu pecado.
-Pois já as minhas iniqüidades submergem a minha cabeça; como carga pesada excedem as minhas forças.
-As minhas chagas se tornam fétidas e purulentas, por causa da minha loucura.
-Estou encurvado, estou muito abatido, ando lamentando o dia todo.
-Pois os meus lombos estão cheios de ardor, e não há coisa sã na minha carne.
-Estou gasto e muito esmagado; dou rugidos por causa do desassossego do meu coração.
-Senhor, diante de ti está todo o meu desejo, e o meu suspirar não te é oculto.
-O meu coração está agitado; a minha força me falta; quanto à luz dos meus olhos, até essa me deixou.
-Os meus amigos e os meus companheiros afastaram-se da minha chaga; e os meus parentes se põem à distância.
-Também os que buscam a minha vida me armam laços, e os que procuram o meu mal dizem coisas perniciosas,
-Mas eu, como um surdo, não ouço; e sou qual um mudo que não abre a boca.
-Assim eu sou como homem que não ouve, e em cuja boca há com que replicar.
-Mas por ti, Senhor, espero; tu, Senhor meu Deus, responderás.
-Rogo, pois: Ouve-me, para que eles não se regozijem sobre mim e não se engrandeçam contra mim quando resvala o meu pé.
-Pois estou prestes a tropeçar; a minha dor está sempre comigo.
-Confesso a minha iniqüidade; entristeço-me por causa do meu pecado.
-Mas os meus inimigos são cheios de vida e são fortes, e muitos são os que sem causa me odeiam.
-Os que tornam o mal pelo bem são meus adversários, porque eu sigo o que é bom.
-Não me desampares, ó Senhor; Deus meu, não te alongues de mim.
-Apressa-te em meu auxílio, Senhor, minha salvação.</p>
-            <div class="psalm-ref">— Salmos 38</div>
+            <p class="psalm-text">Se o Senhor não edificar a casa, em vão trabalham os que a edificam; se o Senhor não guardar a cidade, em vão vigia a sentinela.
+Inútil vos será levantar de madrugada, repousar tarde, comer o pão de dores, pois ele supre aos seus amados enquanto dormem.
+Eis que os filhos são herança da parte do Senhor, e o fruto do ventre o seu galardão.
+Como flechas na mão dum homem valente, assim os filhos da mocidade.
+Bem-aventurado o homem que enche deles a sua aljava; não serão confundidos, quando falarem com os seus inimigos à porta.</p>
+            <div class="psalm-ref">— Salmos 127</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:27 &middot; Daily Organizer
+        Gerado em 07:11 &middot; Daily Organizer
     </footer>
 
 </body>
