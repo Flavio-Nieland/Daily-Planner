@@ -1,5 +1,22 @@
 [
-  {"date": "2026-03-21", "album": "Is This It", "artist": "The Strokes"},
-  {"date": "2026-03-23", "album": "Is This It", "artist": "The Strokes"},
-  {"date": "2026-03-23", "album": "Sobrevivendo no Inferno", "artist": "Racionais MC's"}
+  {
+    "date": "2026-03-21",
+    "album": "Is This It",
+    "artist": "The Strokes"
+  },
+  {
+    "date": "2026-03-23",
+    "album": "Is This It",
+    "artist": "The Strokes"
+  },
+  {
+    "date": "2026-03-23",
+    "album": "Sobrevivendo no Inferno",
+    "artist": "Racionais MC's"
+  },
+  {
+    "date": "23/04/2026",
+    "album": "Lonerism",
+    "artist": "Tame Impala"
+  }
 ]
