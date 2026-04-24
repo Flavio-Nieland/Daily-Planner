@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 23/04/2026</title>
+    <title>Seu Dia — 24/04/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -545,7 +545,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Quinta-feira &middot; 23/04/2026</p>
+        <p class="hero-sub">Sexta-feira &middot; 24/04/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -558,23 +558,23 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-partly">
                 <div class="period-label">Manhã</div>
-                <div class="temp">17.3–25.3°C</div>
-                <div class="condition">Céu limpo</div>
+                <div class="temp">17.9–24.0°C</div>
+                <div class="condition">Parcialmente nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-cloudy">
+            <div class="weather-period wx-partly">
                 <div class="period-label">Tarde</div>
-                <div class="temp">24.6–26.6°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 28%</div>
+                <div class="temp">23.4–25.7°C</div>
+                <div class="condition">Parcialmente nublado</div>
+                <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-cloudy-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">20.2–23.0°C</div>
+                <div class="temp">20.1–22.2°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 35%</div>
+                <div class="rain">Chuva 13%</div>
             </div>
         </div>
     </div>
@@ -600,18 +600,6 @@
                         
                     </li>
                     
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">TCC</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <a href="treino.html" class="activity-link">treinar</a>
-                        
-                    </li>
-                    
                 </ul>
             </div>
             <div class="prio-col">
@@ -622,7 +610,19 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">Inglês</span>
+                            <span class="activity-name">xadrez</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="programacao.html" class="activity-link">programar</a>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="corrida.html" class="activity-link">correr</a>
                         
                     </li>
                     
@@ -631,6 +631,75 @@
         </div>
     </div>
 
+    
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon">🥗</span>
+            <span class="sec-title">Dieta do Dia</span>
+        </div>
+        <div class="diet-nav">
+            <button class="diet-arrow" id="diet-prev" onclick="dietNav(-1)">&#8249;</button>
+            <span class="diet-day-label" id="diet-day-label">Hoje</span>
+            <button class="diet-arrow" id="diet-next" onclick="dietNav(1)">&#8250;</button>
+        </div>
+        <p class="diet-kcal-pill" id="diet-kcal-total"></p>
+        <div id="diet-meals"></div>
+    </div>
+
+    <script>
+        const DIET_DAYS = {"2026-04-23": {"date": "2026-04-23", "meals": [{"items": [{"food": "Tapioca", "qty": "2 unidades m\u00e9dias (140g)"}, {"food": "Ovos mexidos", "qty": "3 unidades"}, {"food": "Caf\u00e9 com leite desnatado", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural desnatado", "qty": "200g"}, {"food": "Castanhas do Par\u00e1", "qty": "3 unidades"}, {"food": "Goiaba", "qty": "1 unidade m\u00e9dia"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "150g"}, {"food": "Feij\u00e3o carioca", "qty": "100g"}, {"food": "Frango grelhado", "qty": "150g"}, {"food": "Ab\u00f3bora cozida", "qty": "150g"}, {"food": "Salada de folhas verdes com tomate e pepino", "qty": "\u00e0 vontade"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o integral", "qty": "2 fatias"}, {"food": "Pasta de amendoim integral", "qty": "2 colheres de sopa"}, {"food": "Banana", "qty": "1 unidade m\u00e9dia"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Sopa de legumes com carne magra (cenoura, abobrinha, chuchu, batata doce)", "qty": "400g"}, {"food": "P\u00e3o integral", "qty": "1 fatia"}, {"food": "Azeite extra virgem", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-24": {"date": "2026-04-24", "meals": [{"items": [{"food": "Mingau de aveia", "qty": "200g (5 colheres de sopa de aveia)"}, {"food": "Leite desnatado", "qty": "200ml"}, {"food": "Ma\u00e7\u00e3 picada", "qty": "1 unidade m\u00e9dia"}, {"food": "Canela em p\u00f3", "qty": "a gosto"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Ovo cozido", "qty": "2 unidades"}, {"food": "Laranja", "qty": "1 unidade m\u00e9dia"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Macarr\u00e3o integral", "qty": "150g"}, {"food": "Carne mo\u00edda magra refogada", "qty": "120g"}, {"food": "Molho de tomate caseiro", "qty": "150g"}, {"food": "Br\u00f3colis cozido no vapor", "qty": "150g"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Vitamina de abacate", "qty": "300ml"}, {"food": "Leite desnatado", "qty": "200ml"}, {"food": "Ado\u00e7ante", "qty": "a gosto"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Salm\u00e3o assado", "qty": "150g"}, {"food": "Pur\u00ea de batata doce", "qty": "200g"}, {"food": "Ervilha torta refogada", "qty": "100g"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-25": {"date": "2026-04-25", "meals": [{"items": [{"food": "Cuscuz", "qty": "150g"}, {"food": "Queijo branco", "qty": "50g"}, {"food": "Caf\u00e9 sem a\u00e7\u00facar", "qty": "200ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Mix de frutas (uva, kiwi)", "qty": "200g"}, {"food": "Am\u00eandoas", "qty": "15g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "100g"}, {"food": "Lentilha", "qty": "120g"}, {"food": "Carne de panela magra", "qty": "150g"}, {"food": "Couve refogada", "qty": "100g"}, {"food": "Salada de tomate", "qty": "100g"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Crepioca", "qty": "1 unidade m\u00e9dia"}, {"food": "Requeij\u00e3o light", "qty": "30g"}, {"food": "Frango desfiado", "qty": "50g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Omelete", "qty": "3 ovos"}, {"food": "Espinafre", "qty": "100g"}, {"food": "Tomate picado", "qty": "50g"}, {"food": "Salada de alface", "qty": "a vontade"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
+        const DAY_ORDER = Object.keys(DIET_DAYS).sort();
+        const TODAY_ISO = (function() {
+            const d = new Date();
+            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+        })();
+        let dietIdx = DAY_ORDER.indexOf(TODAY_ISO);
+        if (dietIdx === -1) dietIdx = 1;
+
+        const MEAL_ICONS = {
+            'Café da Manhã': '☀️', 'Lanche da Manhã': '🍎',
+            'Almoço': '🍽️', 'Lanche da Tarde': '🥜', 'Jantar': '🌙'
+        };
+
+        function renderDiet() {
+            const key = DAY_ORDER[dietIdx];
+            const day = DIET_DAYS[key];
+            const labels = ['Ontem', 'Hoje', 'Amanhã'];
+            const [y, m, d] = key.split('-');
+
+            document.getElementById('diet-prev').disabled = dietIdx === 0;
+            document.getElementById('diet-next').disabled = dietIdx === DAY_ORDER.length - 1;
+            document.getElementById('diet-day-label').textContent = labels[dietIdx] + ' — ' + d + '/' + m;
+            document.getElementById('diet-kcal-total').textContent = 'Total: ' + day.total_kcal + ' kcal';
+
+            const container = document.getElementById('diet-meals');
+            container.innerHTML = '';
+            day.meals.forEach(meal => {
+                const icon = MEAL_ICONS[meal.name] || '🍴';
+                const card = document.createElement('div');
+                card.className = 'meal-card';
+                const itemsHtml = meal.items.map(i =>
+                    `<li class="meal-item"><span class="meal-item-name">${i.food}</span><span class="meal-qty">${i.qty}</span></li>`
+                ).join('');
+                card.innerHTML = `
+                    <div class="meal-header">
+                        <span class="meal-icon">${icon}</span>
+                        <span class="meal-name">${meal.name}</span>
+                        <span class="meal-time">${meal.time}</span>
+                        <span class="meal-kcal">${meal.kcal} kcal</span>
+                    </div>
+                    <ul class="meal-items">${itemsHtml}</ul>`;
+                container.appendChild(card);
+            });
+        }
+
+        function dietNav(dir) {
+            dietIdx = Math.max(0, Math.min(DAY_ORDER.length - 1, dietIdx + dir));
+            renderDiet();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderDiet);
+    </script>
     
 
     
@@ -651,7 +720,7 @@
                 <div class="album-title">OK Computer</div>
                 <div class="album-artist">Radiohead</div>
                 <div class="album-meta">1997 · Alternative Rock</div>
-                <p class="album-why">Flávio já curte Radiohead e 'OK Computer' é considerado um dos melhores álbuns da banda e do gênero, com letras introspectivas e experimentação sonora. A atmosfera melancólica e as letras profundas devem agradar quem curte 'No Surprises' e a sonoridade de bandas como Pink Floyd e Car Seat Headrest.</p>
+                <p class="album-why">Considerando que Radiohead já está na lista de artistas favoritos e a música 'No Surprises' é uma das preferidas, 'OK Computer' é uma sugestão natural. É um álbum conceitual influente e aclamado pela crítica, explorando temas de alienação e tecnologia, que ressoam com o apreço de Flávio por bandas como Pink Floyd e Car Seat Headrest.</p>
                 
                 <a href="spotify:album:6dVIqQ8qmQ5GBnJ9shOYGE" class="btn-play">▶ Ouvir no Spotify</a>
                 
@@ -667,26 +736,29 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 122</span>
+                <span class="sec-sub">Salmos 5</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Alegrei-me quando me disseram: Vamos à casa do Senhor.
-Os nossos pés estão parados dentro das tuas portas, ó Jerusalém!
-Jerusalém, que és edificada como uma cidade compacta,
-aonde sobem as tribos, as tribos do Senhor, como testemunho para Israel, a fim de darem graças ao nome do Senhor.
-Pois ali estão postos os tronos de julgamento, os tronos da casa de Davi.
-Orai pela paz de Jerusalém; prosperem aqueles que te amam.
-Haja paz dentro de teus muros, e prosperidade dentro dos teus palácios.
-Por causa dos meus irmãos e amigos, direi: Haja paz dentro de ti.
-Por causa da casa do Senhor, nosso Deus, buscarei o teu bem.</p>
-            <div class="psalm-ref">— Salmos 122</div>
+            <p class="psalm-text">Dá ouvidos às minhas palavras, ó Senhor; atende aos meus gemidos.
+Atende à voz do meu clamor, Rei meu e Deus meu, pois é a ti que oro.
+Pela manhã ouves a minha voz, ó Senhor; pela manhã te apresento a minha oração, e vigio.
+Porque tu não és um Deus que tenha prazer na iniqüidade, nem contigo habitará o mal.
+Os arrogantes não subsistirão diante dos teus olhos; detestas a todos os que praticam a maldade.
+Destróis aqueles que proferem a mentira; ao sanguinário e ao fraudulento o Senhor abomina.
+Mas eu, pela grandeza da tua benignidade, entrarei em tua casa; e em teu temor me inclinarei para o teu santo templo.
+Guia-me, Senhor, na tua justiça, por causa dos meus inimigos; aplana diante de mim o teu caminho.
+Porque não há fidelidade na boca deles; as suas entranhas são verdadeiras maldades, a sua garganta é um sepulcro aberto; lisonjeiam com a sua língua.
+Declara-os culpados, ó Deus; que caiam por seus próprios conselhos; lança-os fora por causa da multidão de suas transgressões, pois se revoltaram contra ti.
+Mas alegrem-se todos os que confiam em ti; exultem eternamente, porquanto tu os defendes; sim, gloriem-se em ti os que amam o teu nome.
+Pois tu, Senhor, abençoas o justo; tu o circundas do teu favor como de um escudo.</p>
+            <div class="psalm-ref">— Salmos 5</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:15 &middot; Daily Organizer
+        Gerado em 07:16 &middot; Daily Organizer
     </footer>
 
 </body>
