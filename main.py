@@ -552,7 +552,13 @@ Retorne APENAS JSON válido, sem markdown:
 
     # Adiciona ao histórico se ainda não estiver registrado nesta data
     if not any(h.get("date") == date_str for h in history):
-        history.append({"date": date_str, "album": suggestion["album"], "artist": suggestion["artist"]})
+        history.append({
+            "date": date_str,
+            "album": suggestion["album"],
+            "artist": suggestion["artist"],
+            "cover_url": suggestion.get("cover_url"),
+            "spotify_id": suggestion.get("spotify_id"),
+        })
         ALBUM_HISTORY_PATH.write_text(
             json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
         )
@@ -591,6 +597,89 @@ def get_random_psalm(date_str: str) -> dict | None:
     except Exception as e:
         print(f"[psalm] Erro ao buscar salmo: {e}")
         return None
+
+
+def _normalize_date(date_str: str) -> str:
+    """Normaliza datas para o formato ISO YYYY-MM-DD."""
+    for fmt in ("%d/%m/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(date_str, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return date_str
+
+
+def _enrich_album_history():
+    """Backfill: busca cover_url e spotify_id para entradas antigas do histórico."""
+    if not ALBUM_HISTORY_PATH.exists():
+        return
+    history = json.loads(ALBUM_HISTORY_PATH.read_text(encoding="utf-8"))
+    changed = False
+    for entry in history:
+        if "cover_url" not in entry:
+            try:
+                info = search_album(entry.get("album", ""), entry.get("artist", ""))
+                entry["cover_url"] = info.get("cover_url")
+                entry["spotify_id"] = info.get("spotify_id")
+                changed = True
+            except Exception as e:
+                print(f"[history] Erro ao buscar álbum '{entry.get('album')}': {e}")
+                entry["cover_url"] = None
+                entry["spotify_id"] = None
+                changed = True
+    if changed:
+        ALBUM_HISTORY_PATH.write_text(
+            json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[history] Backfill concluído ({len(history)} entradas)")
+
+
+def _generate_album_history_pages(env, docs_dir, generated_at):
+    """Gera páginas estáticas paginadas do histórico de álbuns."""
+    if not ALBUM_HISTORY_PATH.exists():
+        return
+    history = json.loads(ALBUM_HISTORY_PATH.read_text(encoding="utf-8"))
+    if not history:
+        return
+
+    # Limpar páginas antigas
+    for old_file in docs_dir.glob("album-history*.html"):
+        old_file.unlink()
+
+    # Normalizar datas e ordenar (mais recente primeiro)
+    for entry in history:
+        entry["_sort_date"] = _normalize_date(entry.get("date", ""))
+    history.sort(key=lambda h: h["_sort_date"], reverse=True)
+
+    # Formatar datas para exibição
+    for entry in history:
+        iso = entry["_sort_date"]
+        if iso and len(iso) == 10:
+            parts = iso.split("-")
+            entry["display_date"] = f"{parts[2]}/{parts[1]}/{parts[0]}"
+        else:
+            entry["display_date"] = entry.get("date", "")
+
+    items_per_page = 10
+    total_pages = max(1, math.ceil(len(history) / items_per_page))
+    template = env.get_template("album_history.html")
+
+    for page in range(1, total_pages + 1):
+        start = (page - 1) * items_per_page
+        page_albums = history[start:start + items_per_page]
+
+        html = template.render(
+            albums=page_albums,
+            current_page=page,
+            total_pages=total_pages,
+            total_albums=len(history),
+            generated_at=generated_at,
+        )
+
+        filename = "album-history.html" if page == 1 else f"album-history-{page}.html"
+        (docs_dir / filename).write_text(html, encoding="utf-8")
+
+    print(f"Histórico de álbuns gerado ({len(history)} entradas, {total_pages} páginas)")
 
 
 def generate_site(
@@ -677,6 +766,13 @@ def generate_site(
         )
         (docs_dir / "musica.html").write_text(musica_html, encoding="utf-8")
         print(f"Música gerada em {docs_dir / 'musica.html'}")
+
+    # Histórico de álbuns (backfill + páginas paginadas)
+    try:
+        _enrich_album_history()
+    except Exception as e:
+        print(f"Aviso: backfill do histórico falhou ({e})")
+    _generate_album_history_pages(env, docs_dir, generated_at)
 
 
 def mock_weather(manha: str, tarde: str, noite: str) -> dict:

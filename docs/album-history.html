@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Álbuns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:    #c2683a;
+            --bg:         #faf7f2;
+            --card:       #f5f0e8;
+            --text:       #2c1810;
+            --muted:      #8c7b6e;
+            --border:     #e8e0d5;
+            --shadow:     0 1px 3px rgba(44,24,16,.06);
+            --radius:     10px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.82rem; font-weight: 600; color: var(--primary);
+            text-decoration: none; background: #ede8df;
+            border: 1px solid var(--border); border-radius: 999px;
+            padding: 0.35rem 0.9rem; margin-bottom: 1rem; transition: background .15s;
+        }
+        .back-link:hover { background: #e0d8ce; }
+        .back-link::before { content: '\2190'; }
+
+        .hero {
+            background: transparent; padding: 2rem 0 1.25rem; text-align: left;
+            margin-bottom: 1.5rem; border-bottom: 1.5px solid var(--border);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem; font-weight: 700; color: var(--text);
+            letter-spacing: -0.01em; line-height: 1.15;
+        }
+        .hero-sub {
+            color: var(--primary); margin-top: 0.3rem; font-size: 0.78rem;
+            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+
+        .card {
+            background: var(--card); border-radius: var(--radius);
+            padding: 1.25rem; margin-bottom: 0.75rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow);
+        }
+
+        .album-body {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .album-cover {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 2px 10px rgba(44,24,16,.12);
+        }
+        .album-cover-placeholder {
+            width: 80px; height: 80px;
+            border-radius: 10px;
+            background: #ede8df;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .album-info { flex: 1; min-width: 0; }
+        .album-title  { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+        .album-artist { font-size: 0.85rem; color: var(--muted); margin-top: 0.1rem; }
+        .album-date   {
+            font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem;
+            display: inline-flex; align-items: center; gap: 0.3rem;
+        }
+        .album-date::before { content: '\1F4C5'; font-size: 0.7rem; }
+
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.6rem;
+            padding: 0.35rem 0.9rem;
+            background: #1db954;
+            color: #fff;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity .15s;
+        }
+        .btn-play:hover { opacity: .85; }
+
+        /* Paginação */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        .page-arrow {
+            font-size: 0.82rem; font-weight: 600; color: var(--primary);
+            text-decoration: none; background: #ede8df;
+            border: 1px solid var(--border); border-radius: 999px;
+            padding: 0.35rem 0.9rem; transition: background .15s;
+        }
+        .page-arrow:hover { background: #e0d8ce; }
+        .page-arrow.disabled {
+            pointer-events: none; opacity: 0.4;
+        }
+        .page-indicator {
+            font-size: 0.78rem; color: var(--muted); font-weight: 600;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center; color: var(--muted); font-size: 0.75rem;
+            margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="hero">
+        <h1>Histórico de Álbuns</h1>
+        <div class="hero-sub">5 álbuns sugeridos</div>
+    </div>
+
+    
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273ef3238c3bc0ad084265e2cfc" alt="Capa de Keep On Running">
+            
+            <div class="album-info">
+                <div class="album-title">Keep On Running</div>
+                <div class="album-artist">Nico Saint</div>
+                <div class="album-date">26/04/2026</div>
+                
+                <a href="spotify:album:6VYUrotJr9tagqyJSRrgT8" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273370c12f82872c9cfaee80193" alt="Capa de Lonerism">
+            
+            <div class="album-info">
+                <div class="album-title">Lonerism</div>
+                <div class="album-artist">Tame Impala</div>
+                <div class="album-date">23/04/2026</div>
+                
+                <a href="spotify:album:3C2MFZ2iHotUQOSBzdSvM7" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273a388a3f20d1bf2123249cc79" alt="Capa de Is This It">
+            
+            <div class="album-info">
+                <div class="album-title">Is This It</div>
+                <div class="album-artist">The Strokes</div>
+                <div class="album-date">23/03/2026</div>
+                
+                <a href="spotify:album:2yNaksHgeMQM9Quse463b5" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273dc04f429698834d0736ddb0a" alt="Capa de Sobrevivendo no Inferno">
+            
+            <div class="album-info">
+                <div class="album-title">Sobrevivendo no Inferno</div>
+                <div class="album-artist">Racionais MC's</div>
+                <div class="album-date">23/03/2026</div>
+                
+                <a href="spotify:album:1UzrzuOmZfBgXyS3pgKD10" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273a388a3f20d1bf2123249cc79" alt="Capa de Is This It">
+            
+            <div class="album-info">
+                <div class="album-title">Is This It</div>
+                <div class="album-artist">The Strokes</div>
+                <div class="album-date">21/03/2026</div>
+                
+                <a href="spotify:album:2yNaksHgeMQM9Quse463b5" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    
+
+    <footer>
+        Gerado em 20:49 &middot; Daily Organizer
+    </footer>
+
+</body>
+</html>

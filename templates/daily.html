@@ -494,6 +494,23 @@
             transition: opacity .15s;
         }
         .btn-play:hover { opacity: .85; }
+        .btn-history {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.5rem;
+            margin-left: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: transparent;
+            color: var(--primary);
+            border: 1.5px solid var(--primary);
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity .15s;
+        }
+        .btn-history:hover { opacity: .7; }
         .album-body {
             display: flex;
             gap: 1rem;
@@ -841,6 +858,7 @@
                 {% if album_suggestion.spotify_id %}
                 <a href="spotify:album:{{ album_suggestion.spotify_id }}" class="btn-play">▶ Ouvir no Spotify</a>
                 {% endif %}
+                <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
         </div>
     </div>
