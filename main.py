@@ -22,7 +22,7 @@ if hasattr(sys.stdout, "reconfigure"):
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8")
 
-from google import genai                            # SDK da API do Gemini
+from openai import OpenAI                            # SDK OpenAI-compatible (hub.seazone.dev)
 from dotenv import load_dotenv                      # Lê o arquivo .env para variáveis de ambiente
 from jinja2 import Environment, FileSystemLoader    # Motor de templates HTML
 
@@ -41,7 +41,7 @@ BRT = timezone(timedelta(hours=-3))
 
 def generate_message_with_llm(day_name: str, date_str: str, weather: dict, activities: list) -> str:
     """
-    Usa a API do Claude para gerar uma mensagem de bom dia personalizada e criativa.
+    Usa a API do LLM para gerar uma mensagem de bom dia personalizada e criativa.
 
     Conceito: em vez de regras fixas ("se treinar, diga X"), passamos os dados
     reais do dia para o modelo e ele cria um texto natural e variado a cada execução.
@@ -75,7 +75,7 @@ Instruções:
 
 def build_daily_message(day_name: str, date_str: str, weather: dict, activities: list) -> str:
     """
-    Fallback: monta a mensagem com regras fixas caso a API do Claude esteja indisponível.
+    Fallback: monta a mensagem com regras fixas caso a API do LLM esteja indisponível.
     Garante que o e-mail seja enviado mesmo sem conexão com a API.
     """
     names = [a["name"] for a in activities]
@@ -106,14 +106,23 @@ def _parse_json_response(text: str) -> dict:
     """Remove markdown code fences e parseia JSON."""
     cleaned = re.sub(r"^```(?:json)?\s*", "", text.strip(), flags=re.IGNORECASE)
     cleaned = re.sub(r"\s*```$", "", cleaned.strip())
-    return json.loads(cleaned.strip())
+    return json.loads(cleaned.strip(), strict=False)
 
 
-def _generate(prompt: str) -> str:
-    """Chama o Gemini e retorna o texto da resposta."""
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-    response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
-    return response.text.strip()
+def _generate(prompt: str, json_mode: bool = False) -> str:
+    """Chama o LLM via hub.seazone.dev e retorna o texto da resposta."""
+    client = OpenAI(
+        api_key=os.environ["OPENROUTER_API_KEY"],
+        base_url="https://hub.seazone.dev/v1",
+    )
+    kwargs = dict(
+        model=os.environ.get("LLM_MODEL", "minimax-m2.7"),
+        messages=[{"role": "user", "content": prompt}],
+    )
+    if json_mode:
+        kwargs["response_format"] = {"type": "json_object"}
+    response = client.chat.completions.create(**kwargs)
+    return response.choices[0].message.content.strip()
 
 
 def get_reading_plan() -> dict:
@@ -198,7 +207,7 @@ Requisitos:
 - Entre 6 e 8 exercícios, duração total 15 minutos
 - Instruções em português, tom direto"""
 
-    plan = _parse_json_response(_generate(prompt))
+    plan = _parse_json_response(_generate(prompt, json_mode=True))
     STRETCHING_PLAN_PATH.write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
     return plan
 
@@ -246,7 +255,7 @@ Retorne APENAS JSON válido:
 
 Cada sessão: session (1-32), week (1-16), goal_description (instrução objetiva), duration_minutes OU distance_km."""
 
-    plan = _parse_json_response(_generate(prompt))
+    plan = _parse_json_response(_generate(prompt, json_mode=True))
     RUNNING_PLAN_PATH.write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
     return plan
 
@@ -309,7 +318,7 @@ Exemplos CORRETOS de description:
 
     sessions = []
     for s_start, s_end, w_start, w_end in [(1, 16, 1, 8), (17, 32, 9, 16)]:
-        raw = _generate(_batch_prompt(s_start, s_end, w_start, w_end))
+        raw = _generate(_batch_prompt(s_start, s_end, w_start, w_end), json_mode=True)
         batch = _parse_json_response(raw)
         sessions.extend(batch["sessions"])
 
@@ -356,7 +365,7 @@ Requisitos:
 - Conteúdo prático, nível intermediário, executável sem IDE especial
 - Português, tom técnico e direto"""
 
-    plan = _parse_json_response(_generate(prompt))
+    plan = _parse_json_response(_generate(prompt, json_mode=True))
     PROGRAMMING_PLAN_PATH.write_text(json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8")
     return plan
 
@@ -417,7 +426,7 @@ Retorne APENAS JSON válido com os dias solicitados:
 }}
 Nomes fixos das refeições: "Café da Manhã", "Lanche da Manhã", "Almoço", "Lanche da Tarde", "Jantar"."""
 
-        new_days = _parse_json_response(_generate(prompt))
+        new_days = _parse_json_response(_generate(prompt, json_mode=True))
         carried_days.update(new_days)
 
     plan = {
@@ -431,7 +440,7 @@ Nomes fixos das refeições: "Café da Manhã", "Lanche da Manhã", "Almoço", "
 
 def get_album_suggestion(taste_profile: dict, date_str: str) -> dict:
     """
-    Gera a sugestão de álbum do dia usando o perfil Spotify + Gemini.
+    Gera a sugestão de álbum do dia usando o perfil Spotify + LLM.
     - 75% dos dias: álbum novo (não está nos saved albums)
     - 25% dos dias: revisita um álbum da biblioteca
     Decisão determinística por data (hash MD5).
@@ -495,7 +504,7 @@ Retorne APENAS JSON válido, sem markdown:
   "why": "2-3 frases explicando por que combina com o gosto do Flávio e vale ouvir hoje"
 }}"""
 
-        data       = _parse_json_response(_generate(prompt))
+        data       = _parse_json_response(_generate(prompt, json_mode=True))
         album_info = search_album(data.get("album", ""), data.get("artist", ""))
         suggestion = {
             "date":       date_str,
@@ -524,7 +533,7 @@ Retorne APENAS JSON válido, sem markdown:
   "why": "2-3 frases motivando a revisita"
 }}"""
 
-        data = _parse_json_response(_generate(prompt))
+        data = _parse_json_response(_generate(prompt, json_mode=True))
         suggestion = {
             "date":       date_str,
             "type":       "revisit",
@@ -543,7 +552,13 @@ Retorne APENAS JSON válido, sem markdown:
 
     # Adiciona ao histórico se ainda não estiver registrado nesta data
     if not any(h.get("date") == date_str for h in history):
-        history.append({"date": date_str, "album": suggestion["album"], "artist": suggestion["artist"]})
+        history.append({
+            "date": date_str,
+            "album": suggestion["album"],
+            "artist": suggestion["artist"],
+            "cover_url": suggestion.get("cover_url"),
+            "spotify_id": suggestion.get("spotify_id"),
+        })
         ALBUM_HISTORY_PATH.write_text(
             json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
         )
@@ -582,6 +597,89 @@ def get_random_psalm(date_str: str) -> dict | None:
     except Exception as e:
         print(f"[psalm] Erro ao buscar salmo: {e}")
         return None
+
+
+def _normalize_date(date_str: str) -> str:
+    """Normaliza datas para o formato ISO YYYY-MM-DD."""
+    for fmt in ("%d/%m/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(date_str, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return date_str
+
+
+def _enrich_album_history():
+    """Backfill: busca cover_url e spotify_id para entradas antigas do histórico."""
+    if not ALBUM_HISTORY_PATH.exists():
+        return
+    history = json.loads(ALBUM_HISTORY_PATH.read_text(encoding="utf-8"))
+    changed = False
+    for entry in history:
+        if "cover_url" not in entry:
+            try:
+                info = search_album(entry.get("album", ""), entry.get("artist", ""))
+                entry["cover_url"] = info.get("cover_url")
+                entry["spotify_id"] = info.get("spotify_id")
+                changed = True
+            except Exception as e:
+                print(f"[history] Erro ao buscar álbum '{entry.get('album')}': {e}")
+                entry["cover_url"] = None
+                entry["spotify_id"] = None
+                changed = True
+    if changed:
+        ALBUM_HISTORY_PATH.write_text(
+            json.dumps(history, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+        print(f"[history] Backfill concluído ({len(history)} entradas)")
+
+
+def _generate_album_history_pages(env, docs_dir, generated_at):
+    """Gera páginas estáticas paginadas do histórico de álbuns."""
+    if not ALBUM_HISTORY_PATH.exists():
+        return
+    history = json.loads(ALBUM_HISTORY_PATH.read_text(encoding="utf-8"))
+    if not history:
+        return
+
+    # Limpar páginas antigas
+    for old_file in docs_dir.glob("album-history*.html"):
+        old_file.unlink()
+
+    # Normalizar datas e ordenar (mais recente primeiro)
+    for entry in history:
+        entry["_sort_date"] = _normalize_date(entry.get("date", ""))
+    history.sort(key=lambda h: h["_sort_date"], reverse=True)
+
+    # Formatar datas para exibição
+    for entry in history:
+        iso = entry["_sort_date"]
+        if iso and len(iso) == 10:
+            parts = iso.split("-")
+            entry["display_date"] = f"{parts[2]}/{parts[1]}/{parts[0]}"
+        else:
+            entry["display_date"] = entry.get("date", "")
+
+    items_per_page = 10
+    total_pages = max(1, math.ceil(len(history) / items_per_page))
+    template = env.get_template("album_history.html")
+
+    for page in range(1, total_pages + 1):
+        start = (page - 1) * items_per_page
+        page_albums = history[start:start + items_per_page]
+
+        html = template.render(
+            albums=page_albums,
+            current_page=page,
+            total_pages=total_pages,
+            total_albums=len(history),
+            generated_at=generated_at,
+        )
+
+        filename = "album-history.html" if page == 1 else f"album-history-{page}.html"
+        (docs_dir / filename).write_text(html, encoding="utf-8")
+
+    print(f"Histórico de álbuns gerado ({len(history)} entradas, {total_pages} páginas)")
 
 
 def generate_site(
@@ -668,6 +766,13 @@ def generate_site(
         )
         (docs_dir / "musica.html").write_text(musica_html, encoding="utf-8")
         print(f"Música gerada em {docs_dir / 'musica.html'}")
+
+    # Histórico de álbuns (backfill + páginas paginadas)
+    try:
+        _enrich_album_history()
+    except Exception as e:
+        print(f"Aviso: backfill do histórico falhou ({e})")
+    _generate_album_history_pages(env, docs_dir, generated_at)
 
 
 def mock_weather(manha: str, tarde: str, noite: str) -> dict:
@@ -827,13 +932,13 @@ def main():
     repo_name = os.environ.get("GITHUB_REPO_NAME", "daily-organizer")
     site_url = f"https://{repo_owner}.github.io/{repo_name}/"
 
-    # Gera a mensagem: tenta com Claude, cai no fallback se houver erro
-    print("Gerando mensagem com Claude...")
+    # Gera a mensagem: tenta com LLM, cai no fallback se houver erro
+    print("Gerando mensagem com LLM...")
     try:
         message = generate_message_with_llm(day_name, date_str, weather, activities)
-        print(f"Mensagem (Claude): {message}")
+        print(f"Mensagem (LLM): {message}")
     except Exception as e:
-        print(f"Aviso: API do Claude indisponível ({e}). Usando fallback.")
+        print(f"Aviso: API do LLM indisponível ({e}). Usando fallback.")
         message = build_daily_message(day_name, date_str, weather, activities)
         print(f"Mensagem (fallback): {message}")
 

@@ -48,7 +48,8 @@ jobs:
           GMAIL_TO: ${{ secrets.GMAIL_TO }}
           GITHUB_REPO_OWNER: ${{ secrets.REPO_OWNER }}
           GITHUB_REPO_NAME: ${{ secrets.REPO_NAME }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          LLM_MODEL: ${{ secrets.LLM_MODEL }}
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
@@ -62,6 +63,6 @@ jobs:
           git config user.email "bot@daily-organizer"
           git fetch origin main
           git rebase --autostash origin/main
-          git add docs/
+          git add docs/ album_history.json
           git diff --cached --quiet || git commit -m "chore: site do dia $(date +'%Y-%m-%d')"
           git push
