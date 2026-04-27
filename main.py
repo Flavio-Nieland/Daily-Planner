@@ -146,7 +146,12 @@ def get_reading_plan() -> dict:
         f'de {book["author"]} na edição {book.get("edition", "edição padrão")}? '
         f'Responda APENAS com um número inteiro. Exemplo: 250'
     )
-    total_units = int(_generate(prompt))
+    raw = _generate(prompt)
+    # Extrair primeiro número inteiro da resposta (MiniMax pode incluir texto extra)
+    match = re.search(r"\d+", raw)
+    if not match:
+        raise ValueError(f"LLM não retornou número de páginas: {raw[:100]}")
+    total_units = int(match.group())
 
     readings_per_week = count_reading_days()      # 3
     total_sessions    = readings_per_week * 4     # 12
@@ -410,24 +415,35 @@ def get_diet_plan(date_str: str, now: datetime) -> dict:
     days_to_generate = [d for d in [yesterday_iso, today_iso, tomorrow_iso] if d not in carried_days]
 
     if days_to_generate:
-        carried_json = json.dumps(carried_days, ensure_ascii=False) if carried_days else "{}"
-        prompt = f"""Monte refeições para os seguintes dias: {', '.join(days_to_generate)}.
-Cada dia: 2800kcal, alimentos tipicamente brasileiros, saudáveis, custo barato ou médio.
-5 refeições por dia. Equilíbrio para disposição, saúde e hipertrofia muscular.
-Varie os alimentos entre os dias e em relação aos dias já existentes abaixo.
-Use frutas e legumes da estação atual no Brasil ({estacao}).
+        # Gerar cada dia individualmente para evitar timeout no LLM
+        for day in days_to_generate:
+            carried_json = json.dumps(
+                {k: v for k, v in carried_days.items()},
+                ensure_ascii=False,
+            ) if carried_days else "{}"
 
-Dias já definidos (NÃO alterar, apenas para evitar repetição):
-{carried_json}
+            prompt = f"""Monte um plano alimentar para {day}. Meta: 2800 kcal.
+Alimentos tipicamente brasileiros, saudáveis, baratos, da estação ({estacao}).
+5 refeições. Equilíbrio para disposição, saúde e hipertrofia.
+Varie em relação aos dias já gerados: {carried_json}
 
-Retorne APENAS JSON válido com os dias solicitados:
+Retorne APENAS JSON válido (sem markdown, sem ```):
 {{
-  {', '.join(f'"{d}": {{"date": "{d}", "total_kcal": 2800, "meals": [{{"name": "Café da Manhã", "time": "07:00", "kcal": 550, "items": [{{"food": "...", "qty": "..."}}]}}, {{"name": "Lanche da Manhã", "time": "10:00", "kcal": 300, "items": [...]}}, {{"name": "Almoço", "time": "12:30", "kcal": 800, "items": [...]}}, {{"name": "Lanche da Tarde", "time": "16:00", "kcal": 350, "items": [...]}}, {{"name": "Jantar", "time": "19:30", "kcal": 800, "items": [...]}}]}}' for d in days_to_generate)}
-}}
-Nomes fixos das refeições: "Café da Manhã", "Lanche da Manhã", "Almoço", "Lanche da Tarde", "Jantar"."""
+  "{day}": {{
+    "date": "{day}",
+    "total_kcal": 2800,
+    "meals": [
+      {{"name": "Café da Manhã", "time": "07:00", "kcal": 550, "items": [{{"food": "...", "qty": "..."}}]}},
+      {{"name": "Lanche da Manhã", "time": "10:00", "kcal": 300, "items": [{{"food": "...", "qty": "..."}}]}},
+      {{"name": "Almoço", "time": "12:30", "kcal": 800, "items": [{{"food": "...", "qty": "..."}}]}},
+      {{"name": "Lanche da Tarde", "time": "16:00", "kcal": 350, "items": [{{"food": "...", "qty": "..."}}]}},
+      {{"name": "Jantar", "time": "19:30", "kcal": 800, "items": [{{"food": "...", "qty": "..."}}]}}
+    ]
+  }}
+}}"""
 
-        new_days = _parse_json_response(_generate(prompt, json_mode=True))
-        carried_days.update(new_days)
+            new_day = _parse_json_response(_generate(prompt))
+            carried_days.update(new_day)
 
     plan = {
         "reference_date": today_iso,
