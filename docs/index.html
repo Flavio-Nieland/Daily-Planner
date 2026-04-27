@@ -649,6 +649,75 @@
     </div>
 
     
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon">🥗</span>
+            <span class="sec-title">Dieta do Dia</span>
+        </div>
+        <div class="diet-nav">
+            <button class="diet-arrow" id="diet-prev" onclick="dietNav(-1)">&#8249;</button>
+            <span class="diet-day-label" id="diet-day-label">Hoje</span>
+            <button class="diet-arrow" id="diet-next" onclick="dietNav(1)">&#8250;</button>
+        </div>
+        <p class="diet-kcal-pill" id="diet-kcal-total"></p>
+        <div id="diet-meals"></div>
+    </div>
+
+    <script>
+        const DIET_DAYS = {"2026-04-25": {"date": "2026-04-25", "meals": [{"items": [{"food": "Tapioca goma hidratada", "qty": "60g"}, {"food": "Banana-prata amassada", "qty": "2 unidades"}, {"food": "Pasta de amendoim", "qty": "1 colher de sopa"}, {"food": "Caf\u00e9 com leite integral", "qty": "1 x\u00edcara"}, {"food": "Ovo cozido", "qty": "2 unidades"}], "kcal": 520, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural integral", "qty": "170g"}, {"food": "Granola caseira (aveia, castanha)", "qty": "40g"}, {"food": "Goiaba vermelha fatiada", "qty": "1 unidade m\u00e9dia"}], "kcal": 310, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "150g (cozido)"}, {"food": "Feij\u00e3o Carioca cozido", "qty": "200g"}, {"food": "Peito de frango grelhado", "qty": "180g"}, {"food": "Molho de tomate caseiro (tomate, cebola, alho)", "qty": "100g"}, {"food": "Salada de alface, r\u00facula e cenoura ralada", "qty": "80g"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa"}], "kcal": 820, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Batata-doce assada", "qty": "200g"}, {"food": "Queijo Minas frescal", "qty": "100g"}, {"food": "Castanha-do-Brasil", "qty": "15g (5 unidades)"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz integral cozido", "qty": "150g"}, {"food": "Feij\u00e3o preto cozido", "qty": "180g"}, {"food": "Carne mo\u00edda magra refogada com ab\u00f3bora e vagem", "qty": "200g"}, {"food": "Salada de tomate, pepino e cebola", "qty": "100g"}, {"food": "\u00d3leo de soja", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-04-26": {"date": "2026-04-26", "meals": [{"items": [{"food": "P\u00e3o integral", "qty": "60g (1,5 fatias)"}, {"food": "Pasta de amendoim", "qty": "1/2 colher de sopa (8g)"}, {"food": "Ovo mexido", "qty": "2 unidades"}, {"food": "Leite integral", "qty": "150ml"}, {"food": "Mam\u00e3o papaia amassado", "qty": "100g"}, {"food": "Banana-prata amassada", "qty": "1/2 unidade (45g)"}], "kcal": 548, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural integral", "qty": "170g"}, {"food": "Sementes de chia", "qty": "1 colher de sopa (10g)"}, {"food": "Granola caseira", "qty": "10g"}, {"food": "Amendoim torrado sem sal", "qty": "10g"}, {"food": "Laranja fatiada", "qty": "50g"}], "kcal": 288, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "100g (cozido)"}, {"food": "Feij\u00e3o preto cozido", "qty": "150g"}, {"food": "Peito de frango grelhado", "qty": "150g"}, {"food": "Batata-doce assada", "qty": "150g"}, {"food": "Salada de alface, r\u00facula e cenoura", "qty": "80g"}, {"food": "Azeite de oliva", "qty": "1 colher de ch\u00e1 (5g)"}, {"food": "Tomate em rodelas", "qty": "100g"}, {"food": "Farofa de mandioca", "qty": "30g"}], "kcal": 810, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Abacate amassado", "qty": "100g"}, {"food": "Granola caseira", "qty": "25g"}, {"food": "Sementes de girassol", "qty": "10g"}, {"food": "Iogurte natural integral", "qty": "50g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz integral cozido", "qty": "150g"}, {"food": "Feij\u00e3o preto cozido", "qty": "130g"}, {"food": "Carne mo\u00edda magra refogada com ab\u00f3bora e vagem", "qty": "200g"}, {"food": "Salada de tomate, pepino e cebola", "qty": "100g"}, {"food": "Couve refogada", "qty": "80g"}, {"food": "Batata-doce assada", "qty": "50g"}, {"food": "Azeite de oliva", "qty": "1 colher de ch\u00e1 (5g)"}, {"food": "Queijo Minas frescal", "qty": "20g"}], "kcal": 803, "name": "Jantar", "time": "19:30"}], "total_kcal": 2799}, "2026-04-27": {"date": "2026-04-27", "meals": [{"items": [{"food": "Tapioca goma hidratada", "qty": "80g"}, {"food": "Queijo Minas frescal ralado", "qty": "50g"}, {"food": "Ovos mexidos", "qty": "2 unidades"}, {"food": "Mam\u00e3o papaia amassado", "qty": "100g"}, {"food": "Caf\u00e9 com leite integral", "qty": "1 x\u00edcara"}], "kcal": 540, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural integral", "qty": "170g"}, {"food": "Granola caseira (aveia, castanha, linha\u00e7a)", "qty": "30g"}, {"food": "Tangerina fatiada", "qty": "1 unidade m\u00e9dia"}], "kcal": 230, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "120g (cozido)"}, {"food": "Feij\u00e3o Carioca cozido", "qty": "150g"}, {"food": "Lombo su\u00edno grelhado", "qty": "180g"}, {"food": "Mandioquinha cozida", "qty": "150g"}, {"food": "Salada de alface, r\u00facula e tomate", "qty": "100g"}, {"food": "Farofa de mandioca", "qty": "30g"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa"}], "kcal": 840, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Ab\u00f3bora assada", "qty": "150g"}, {"food": "Queijo Minas frescal", "qty": "80g"}, {"food": "Amendoim torrado sem sal", "qty": "30g"}], "kcal": 340, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Macarr\u00e3o integral cozido", "qty": "150g"}, {"food": "Feij\u00e3o branco cozido", "qty": "150g"}, {"food": "Fil\u00e9 de frango grelhado", "qty": "180g"}, {"food": "Batata-doce assada", "qty": "100g"}, {"food": "Couve refogada no alho", "qty": "100g"}, {"food": "Salada de tomate e pepino", "qty": "80g"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa"}], "kcal": 860, "name": "Jantar", "time": "19:30"}], "total_kcal": 2810}};
+        const DAY_ORDER = Object.keys(DIET_DAYS).sort();
+        const TODAY_ISO = (function() {
+            const d = new Date();
+            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+        })();
+        let dietIdx = DAY_ORDER.indexOf(TODAY_ISO);
+        if (dietIdx === -1) dietIdx = 1;
+
+        const MEAL_ICONS = {
+            'Café da Manhã': '☀️', 'Lanche da Manhã': '🍎',
+            'Almoço': '🍽️', 'Lanche da Tarde': '🥜', 'Jantar': '🌙'
+        };
+
+        function renderDiet() {
+            const key = DAY_ORDER[dietIdx];
+            const day = DIET_DAYS[key];
+            const labels = ['Ontem', 'Hoje', 'Amanhã'];
+            const [y, m, d] = key.split('-');
+
+            document.getElementById('diet-prev').disabled = dietIdx === 0;
+            document.getElementById('diet-next').disabled = dietIdx === DAY_ORDER.length - 1;
+            document.getElementById('diet-day-label').textContent = labels[dietIdx] + ' — ' + d + '/' + m;
+            document.getElementById('diet-kcal-total').textContent = 'Total: ' + day.total_kcal + ' kcal';
+
+            const container = document.getElementById('diet-meals');
+            container.innerHTML = '';
+            day.meals.forEach(meal => {
+                const icon = MEAL_ICONS[meal.name] || '🍴';
+                const card = document.createElement('div');
+                card.className = 'meal-card';
+                const itemsHtml = meal.items.map(i =>
+                    `<li class="meal-item"><span class="meal-item-name">${i.food}</span><span class="meal-qty">${i.qty}</span></li>`
+                ).join('');
+                card.innerHTML = `
+                    <div class="meal-header">
+                        <span class="meal-icon">${icon}</span>
+                        <span class="meal-name">${meal.name}</span>
+                        <span class="meal-time">${meal.time}</span>
+                        <span class="meal-kcal">${meal.kcal} kcal</span>
+                    </div>
+                    <ul class="meal-items">${itemsHtml}</ul>`;
+                container.appendChild(card);
+            });
+        }
+
+        function dietNav(dir) {
+            dietIdx = Math.max(0, Math.min(DAY_ORDER.length - 1, dietIdx + dir));
+            renderDiet();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderDiet);
+    </script>
+    
 
     
     <!-- Album do Dia -->
@@ -668,7 +737,7 @@
                 <div class="album-title">Keep On Running</div>
                 <div class="album-artist">Nico Saint</div>
                 <div class="album-meta">2025</div>
-                <p class="album-why">Flávio, hoje é o dia perfeito para mergulhar novamente em 'Keep On Running' — Nico Saint criou uma trilha sonora que pulsa com energia e sinceridade, e a cada audição você vai descobrir camadas novas nas letras que parecem feitas sob medida para os seus momentos. Esse álbum tem o poder de transformar qualquer manhã comum numa jornada épica, então aperte play e permite que ele renove a sua motivação.</p>
+                <p class="album-why">Flávio, hoje é o dia perfeito para revisitar Keep On Running e sentir aquela energia que só Nico Saint sabe transmitir; cada faixa é um convite a superar desafios com melodias brilhantes e batidas envolventes. O álbum brilha pela fusão de indie e pop eletrônico, criando paisagens sonoras que upliftam o espírito e fazem você querer continuar correndo em direção aos seus sonhos. Relaxe, aprecie os detalhes dos arranjos e deixe a música reacender sua motivação.</p>
                 
                 <a href="spotify:album:6VYUrotJr9tagqyJSRrgT8" class="btn-play">▶ Ouvir no Spotify</a>
                 
@@ -704,7 +773,7 @@ para executarem neles o juízo escrito; esta honra será para todos os santos. L
     
 
     <footer>
-        Gerado em 21:28 &middot; Daily Organizer
+        Gerado em 21:55 &middot; Daily Organizer
     </footer>
 
 </body>
