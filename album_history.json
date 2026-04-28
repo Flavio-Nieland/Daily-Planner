@@ -40,5 +40,12 @@
     "artist": "Radiohead",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856",
     "spotify_id": "6dVIqQ8qmQ5GBnJ9shOYGE"
+  },
+  {
+    "date": "28/04/2026",
+    "album": "The Dark Side of the Moon",
+    "artist": "Pink Floyd",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b273db216ca805faf5fe35df4ee6",
+    "spotify_id": "4LH4d3cOWNNsVw41Gqt2kv"
   }
 ]

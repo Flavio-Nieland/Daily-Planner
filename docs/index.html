@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 27/04/2026</title>
+    <title>Seu Dia — 28/04/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 27/04/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 28/04/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -577,130 +577,25 @@
         <div class="weather-grid">
             <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">18.2–25.9°C</div>
+                <div class="temp">14.7–21.0°C</div>
                 <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="rain">Chuva 2%</div>
             </div>
             <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">21.9–27.0°C</div>
+                <div class="temp">21.0–22.7°C</div>
                 <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="rain">Chuva 2%</div>
             </div>
             <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">18.5–21.1°C</div>
+                <div class="temp">18.2–20.3°C</div>
                 <div class="condition">Principalmente limpo</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="rain">Chuva 12%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -724,6 +619,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -738,13 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <a href="leitura.html" class="activity-link">ler</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <a href="alongamento.html" class="activity-link">alongar</a>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -767,15 +662,15 @@
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856" alt="Capa de OK Computer">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273db216ca805faf5fe35df4ee6" alt="Capa de The Dark Side of the Moon">
             
             <div class="album-info">
-                <div class="album-title">OK Computer</div>
-                <div class="album-artist">Radiohead</div>
-                <div class="album-meta">1997 · Alternative Rock / Art Rock</div>
-                <p class="album-why">O álbum que consolida o DNA do Radiohead que o Flavinho já curte em No Surprises e End of Beginning, misturando a atmosfera melancólica de Pink Floyd com a angústia moderna de Linkin Park. As camadas de produção de Nigel Godrich criam texturas que apaixonam tanto fãs de Car Seat Headrest quanto de Legião Urbana. Um disco denso e imersivo, perfeito para ouvir hoje e descobrir nuances que passam despercebidas em audições anteriores.</p>
+                <div class="album-title">The Dark Side of the Moon</div>
+                <div class="album-artist">Pink Floyd</div>
+                <div class="album-meta">1973 · Progressivo / Rock Experimental</div>
+                <p class="album-why">Esse álbum é uma obra-prima que combina perfeitamente com o gosto de Flavío — especialmente a harmonia entre camadas instrumentais e momentos de intensidade emocional, algo que ele claramente valoriza em Linkin Park, Radiohead e Pink Floyd. Cada faixa funciona como um capítulo de um todo coeso, exatamente o tipo de experiência narrativa que faz a discografia de Legião Urbana e Raul Seixas brilhar. É o tipo de álbum que recompensa ouvir do início ao fim em uma única sessão, permitindo que Flavío mergulhe completamente na atmosfera creada.</p>
                 
-                <a href="spotify:album:6dVIqQ8qmQ5GBnJ9shOYGE" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:4LH4d3cOWNNsVw41Gqt2kv" class="btn-play">▶ Ouvir no Spotify</a>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -790,29 +685,37 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 60</span>
+                <span class="sec-sub">Salmos 77</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Ó Deus, tu nos rejeitaste, tu nos esmagaste, tu tens estado indignado; oh, restabelece-nos.
-Abalaste a terra, e a fendeste; sara as suas fendas, pois ela treme.
-Ao teu povo fizeste ver duras coisas; fizeste-nos beber o vinho de aturdimento.
-Deste um estandarte aos que te temem, para o qual possam fugir de diante do arco.
-Para que os teus amados sejam livres, salva-nos com a tua destra, e responde-nos.
-Deus falou na sua santidade: Eu exultarei; repartirei Siquém e medirei o vale de Sucote.
-Meu é Gileade, e meu é Manassés; Efraim é o meu capacete; Judá é o meu cetro.
-Moabe é a minha bacia de lavar; sobre Edom lançarei o meu sapato; sobre a Filístia darei o brado de vitória.
-Quem me conduzirá à cidade forte? Quem me guiará até Edom?
-Não nos rejeitaste, ó Deus? e tu, ó Deus, não deixaste de sair com os nossos exércitos?
-Dá-nos auxílio contra o adversário, pois vão é o socorro da parte do homem.
-Em Deus faremos proezas; porque é ele quem calcará aos pés os nossos inimigos.</p>
-            <div class="psalm-ref">— Salmos 60</div>
+            <p class="psalm-text">Levanto a Deus a minha voz; a Deus levanto a minha voz, para que ele me ouça.
+No dia da minha angústia busco ao Senhor; de noite a minha mão fica estendida e não se cansa; a minha alma recusa ser consolada.
+Lembro-me de Deus, e me lamento; queixo-me, e o meu espírito desfalece.
+Conservas vigilantes os meus olhos; estou tão perturbado que não posso falar.
+Considero os dias da antigüidade, os anos dos tempos passados.
+De noite lembro-me do meu cântico; consulto com o meu coração, e examino o meu espírito.
+Rejeitará o Senhor para sempre e não tornará a ser favorável?
+Cessou para sempre a sua benignidade? Acabou-se a sua promessa para todas as gerações
+Esqueceu-se Deus de ser compassivo? Ou na sua ira encerrou ele as suas ternas misericórdias?
+E eu digo: Isto é minha enfermidade; acaso se mudou a destra do Altíssimo?
+Recordarei os feitos do Senhor; sim, me lembrarei das tuas maravilhas da antigüidade.
+Meditarei também em todas as tuas obras, e ponderarei os teus feitos poderosos
+O teu caminho, ó Deus, é em santidade; que deus é grande como o nosso Deus?
+Tu és o Deus que fazes maravilhas; tu tens feito notória a tua força entre os povos.
+Com o teu braço remiste o teu povo, os filhos de Jacó e de José.
+As águas te viram, ó Deus, as águas te viram, e tremeram; os abismos também se abalaram.
+As nuvens desfizeram-se em água; os céus retumbaram; as tuas flechas também correram de uma para outra parte.
+A voz do teu trovão estava no redemoinho; os relâmpagos alumiaram o mundo; a terra se abalou e tremeu.
+Pelo mar foi teu caminho, e tuas veredas pelas grandes águas; e as tuas pegadas não foram conhecidas.
+Guiaste o teu povo, como a um rebanho, pela mão de Moisés e de Arão.</p>
+            <div class="psalm-ref">— Salmos 77</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:59 &middot; Daily Organizer
+        Gerado em 08:00 &middot; Daily Organizer
     </footer>
 
 </body>
