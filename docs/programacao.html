@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 29/04/2026</title>
+    <title>Programação — 01/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -154,9 +154,9 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Quarta-feira &middot; 29/04/2026</p>
+        <p class="hero-sub">Sexta-feira &middot; 01/05/2026</p>
         <div class="hero-pills">
-            <span class="hero-pill">Pipeline RAG com LangChain e Chroma</span>
+            <span class="hero-pill">RAG com LangChain para Questionamento de Documentos</span>
             
             <span class="hero-pill hero-pill-secondary">LangChain</span>
             
@@ -176,61 +176,61 @@
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">1</span>
-                    <span class="step-title">Revisão conceitual de RAG</span>
+                    <span class="step-title">Revisão de Conceitos RAG</span>
                 </div>
                 <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Ler os conceitos de Retrieval-Augmented Generation: embedding, vetorização, busca por similaridade. Resuma em 5 pontos-chave.</p>
+            <p class="step-description">Revisar o que é Retrieval-Augmented Generation: separação entre retrieval (busca vetorial) e generation (geração com LLM). Definir o fluxo: documento → chunking → embeddings → armazenamento → query → busca → contexto → resposta. Sem código ainda.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">2</span>
-                    <span class="step-title">Configurar ambiente e instalar dependências</span>
+                    <span class="step-title">Setup do Ambiente</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">5 min</span>
             </div>
-            <p class="step-description">Criar um diretório, ambiente virtual Python, instalar langchain, langchain-community, chromadb e openai (ou huggingface). Verificar importações.</p>
+            <p class="step-description">Instalar dependências: pip install langchain langchain-community langchain-openai chromadb. Verificar versões compatíveis. Confirmar acesso à API key do OpenAI ou alternativa (Ollama).</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Implementar geração de embeddings e armazenamento no Chroma</span>
+                    <span class="step-title">Implementar Pipeline RAG Completo</span>
                 </div>
-                <span class="step-duration">15 min</span>
+                <span class="step-duration">25 min</span>
             </div>
-            <p class="step-description">Usar um texto de exemplo (ex: documentação). Gerar embeddings com OpenAIEmbeddings (ou HuggingFace) e armazenar em coleção Chroma.</p>
+            <p class="step-description">Escrever script Python: 1) Carregar documento PDF/TXT com TextLoader; 2) Fazer chunking com RecursiveCharacterTextSplitter (chunk_size=500, overlap=50); 3) Criar embeddings com OpenAIEmbeddings; 4) Armazenar no Chroma vector store; 5) Montar chain com RetrievalQA usando ChatOpenAI. Testar com uma pergunta simples.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Criar retrieval e prompting com LangChain</span>
+                    <span class="step-title">Otimizar e Testar</span>
                 </div>
                 <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Escrever um RetrievalQA chain que recebe uma query, busca os 3 documentos mais similares e monta um prompt com contexto para o LLM.</p>
+            <p class="step-description">Ajustar parâmetros de retrieval (top_k, score threshold). Testar 3 queries diferentes para avaliar qualidade das respostas. Implementar fallback se confiança baixa. Medir latência aproximada de cada etapa.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">5</span>
-                    <span class="step-title">Testar pipeline com uma query prática</span>
+                    <span class="step-title">Revisão e Próximos Passos</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">5 min</span>
             </div>
-            <p class="step-description">Executar o pipeline com uma pergunta real (ex: 'Qual a vantagem do RAG sobre fine-tuning?') e verificar a resposta gerada.</p>
+            <p class="step-description">Resumo do que funcionou e gargalos identificados. Documentar 2 melhorias possíveis: multi-query retrieval, re-ranking, ou integração com memória conversacional. Próxima sessão: agentes LangChain.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 07:54 &middot; Daily Organizer
+        Gerado em 07:23 &middot; Daily Organizer
     </footer>
 
 </body>

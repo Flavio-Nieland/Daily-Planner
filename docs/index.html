@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 30/04/2026</title>
+    <title>Seu Dia — 01/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Quinta-feira &middot; 30/04/2026</p>
+        <p class="hero-sub">Sexta-feira &middot; 01/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -577,21 +577,21 @@
         <div class="weather-grid">
             <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">15.3–23.0°C</div>
-                <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 6%</div>
+                <div class="temp">16.4–25.6°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 2%</div>
             </div>
             <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">22.0–24.6°C</div>
+                <div class="temp">23.4–26.8°C</div>
                 <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 2%</div>
+                <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-cloudy-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">17.5–20.5°C</div>
+                <div class="temp">20.2–21.9°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="rain">Chuva 1%</div>
             </div>
         </div>
     </div>
@@ -617,18 +617,6 @@
                         
                     </li>
                     
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">TCC</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <a href="treino.html" class="activity-link">treinar</a>
-                        
-                    </li>
-                    
                 </ul>
             </div>
             <div class="prio-col">
@@ -639,7 +627,19 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">Inglês</span>
+                            <span class="activity-name">xadrez</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="programacao.html" class="activity-link">programar</a>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="corrida.html" class="activity-link">correr</a>
                         
                     </li>
                     
@@ -649,6 +649,75 @@
     </div>
 
     
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon">🥗</span>
+            <span class="sec-title">Dieta do Dia</span>
+        </div>
+        <div class="diet-nav">
+            <button class="diet-arrow" id="diet-prev" onclick="dietNav(-1)">&#8249;</button>
+            <span class="diet-day-label" id="diet-day-label">Hoje</span>
+            <button class="diet-arrow" id="diet-next" onclick="dietNav(1)">&#8250;</button>
+        </div>
+        <p class="diet-kcal-pill" id="diet-kcal-total"></p>
+        <div id="diet-meals"></div>
+    </div>
+
+    <script>
+        const DIET_DAYS = {"2026-04-30": {"date": "2026-04-30", "meals": [{"items": [{"food": "Tapioca m\u00e9dia com frango desfiado e queijo branco", "qty": "60g tapioca, 100g frango, 40g queijo"}, {"food": "P\u00e3o integral com manteiga", "qty": "40g p\u00e3o, 1 colher de ch\u00e1"}, {"food": "Caf\u00e9 com leite", "qty": "200ml"}], "kcal": 565, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Banana com aveia e pasta de amendoim", "qty": "1 banana m\u00e9dia, 50g aveia, 25g pasta"}, {"food": "Laranja", "qty": "1 unidade m\u00e9dia"}], "kcal": 460, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "180g"}, {"food": "Feij\u00e3o Carioca", "qty": "100g"}, {"food": "Frango grelhado ao molho de tomate", "qty": "180g"}, {"food": "Batata-doce assada", "qty": "150g"}, {"food": "Salada de folhas com tomate e cenoura", "qty": "200g"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa"}], "kcal": 795, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Iogurte natural integral com granola e manga", "qty": "170g iogurte, 50g granola, 100g manga"}, {"food": "Chia", "qty": "10g"}], "kcal": 415, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz branco com lentilha", "qty": "150g arroz, 120g lentilha"}, {"food": "Ovos mexidos com legumes", "qty": "2 ovos, 100g br\u00f3colis, 50g cenoura"}, {"food": "Salada de pepino e tomate", "qty": "150g"}, {"food": "Azeite", "qty": "1 colher de sopa"}], "kcal": 565, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-05-01": {"date": "2026-05-01", "meals": [{"items": [{"food": "Mingau de aveia com banana e pasta de amendoim", "qty": "80g aveia, 1 banana m\u00e9dia, 30g pasta de amendoim, 200ml leite integral"}, {"food": "Caf\u00e9 com leite", "qty": "150ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Tapioca m\u00e9dia com ovo mexido e queijo Minas", "qty": "50g goma, 1 ovo, 30g queijo"}, {"food": "Goiana", "qty": "1 unidade m\u00e9dia"}], "kcal": 320, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "180g"}, {"food": "Feij\u00e3o Carioca", "qty": "120g"}, {"food": "Carne mo\u00edda refogada com tomate e cebola", "qty": "180g"}, {"food": "Macarr\u00e3o integral ao alho e \u00f3leo", "qty": "100g"}, {"food": "Salada de alface, tomate e cenoura ralada", "qty": "200g"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o integral com abacate amassado e ovo", "qty": "2 fatias p\u00e3o, 80g abacate, 1 ovo"}, {"food": "Suco de manga natural", "qty": "200ml"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz integral com legumes", "qty": "150g arroz, 80g vagem, 60g cenoura"}, {"food": "Feij\u00e3o branco", "qty": "100g"}, {"food": "Peixe empanado na farinha de mandioca", "qty": "180g"}, {"food": "Pur\u00ea de batatas", "qty": "150g"}, {"food": "Salada de pepino e rabanete", "qty": "120g"}, {"food": "Azeite", "qty": "1 colher de sopa"}], "kcal": 780, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-05-02": {"date": "2026-05-02", "meals": [{"items": [{"food": "P\u00e3o franc\u00eas com manteiga", "qty": "60g p\u00e3o, 1 colher de ch\u00e1"}, {"food": "Ovos mexidos com queijo Minas", "qty": "2 ovos, 30g queijo"}, {"food": "Banana prata", "qty": "1 unidade m\u00e9dia"}, {"food": "Caf\u00e9 com leite", "qty": "200ml"}], "kcal": 560, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Mam\u00e3o papaya", "qty": "150g"}, {"food": "Castanha de caju", "qty": "20g"}, {"food": "Granola", "qty": "30g"}], "kcal": 340, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "180g"}, {"food": "Feij\u00e3o preto", "qty": "100g"}, {"food": "Carne ensopada com quiabo", "qty": "180g"}, {"food": "Mandioca cozida", "qty": "120g"}, {"food": "Salada de alface, tomate e pepino", "qty": "150g"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o de queijo", "qty": "4 unidades pequenas (60g)"}, {"food": "Suco de maracuj\u00e1 natural", "qty": "200ml"}], "kcal": 320, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz integral com lentilha", "qty": "150g arroz, 100g lentilha"}, {"food": "Peixe polvillo assado", "qty": "180g"}, {"food": "Batata-doce assada", "qty": "120g"}, {"food": "Salada de folhas com tomate e espinafre", "qty": "150g"}, {"food": "Azeite", "qty": "1 colher de sopa"}], "kcal": 780, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
+        const DAY_ORDER = Object.keys(DIET_DAYS).sort();
+        const TODAY_ISO = (function() {
+            const d = new Date();
+            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+        })();
+        let dietIdx = DAY_ORDER.indexOf(TODAY_ISO);
+        if (dietIdx === -1) dietIdx = 1;
+
+        const MEAL_ICONS = {
+            'Café da Manhã': '☀️', 'Lanche da Manhã': '🍎',
+            'Almoço': '🍽️', 'Lanche da Tarde': '🥜', 'Jantar': '🌙'
+        };
+
+        function renderDiet() {
+            const key = DAY_ORDER[dietIdx];
+            const day = DIET_DAYS[key];
+            const labels = ['Ontem', 'Hoje', 'Amanhã'];
+            const [y, m, d] = key.split('-');
+
+            document.getElementById('diet-prev').disabled = dietIdx === 0;
+            document.getElementById('diet-next').disabled = dietIdx === DAY_ORDER.length - 1;
+            document.getElementById('diet-day-label').textContent = labels[dietIdx] + ' — ' + d + '/' + m;
+            document.getElementById('diet-kcal-total').textContent = 'Total: ' + day.total_kcal + ' kcal';
+
+            const container = document.getElementById('diet-meals');
+            container.innerHTML = '';
+            day.meals.forEach(meal => {
+                const icon = MEAL_ICONS[meal.name] || '🍴';
+                const card = document.createElement('div');
+                card.className = 'meal-card';
+                const itemsHtml = meal.items.map(i =>
+                    `<li class="meal-item"><span class="meal-item-name">${i.food}</span><span class="meal-qty">${i.qty}</span></li>`
+                ).join('');
+                card.innerHTML = `
+                    <div class="meal-header">
+                        <span class="meal-icon">${icon}</span>
+                        <span class="meal-name">${meal.name}</span>
+                        <span class="meal-time">${meal.time}</span>
+                        <span class="meal-kcal">${meal.kcal} kcal</span>
+                    </div>
+                    <ul class="meal-items">${itemsHtml}</ul>`;
+                container.appendChild(card);
+            });
+        }
+
+        function dietNav(dir) {
+            dietIdx = Math.max(0, Math.min(DAY_ORDER.length - 1, dietIdx + dir));
+            renderDiet();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderDiet);
+    </script>
+    
 
     
     <!-- Album do Dia -->
@@ -657,16 +726,20 @@
             <span class="sec-icon">🎵</span>
             <div class="sec-texts">
                 <span class="sec-title">Álbum do Dia</span>
-                <span class="sec-sub">Descoberta nova</span>
+                <span class="sec-sub">Da sua biblioteca</span>
             </div>
         </div>
         <div class="album-body">
             
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273e08c3c088bd8b494eb43dbcd" alt="Capa de Lo-Fi Hip Hop Chill Wave Radio Beats to Study and Relax to 24/7">
+            
             <div class="album-info">
-                <div class="album-title">Demon(s)</div>
-                <div class="album-artist">Dartagnan's</div>
-                <div class="album-meta">2015 · Indie Rock / Rock Progressivo</div>
-                <p class="album-why">Álbuns conceituais e intensos combinam muito com o perfil de quem curte Pink Floyd, Radiohead e Legião Urbana — e este é uma obra-prima negligenciada do indie rock brasileiro. A grandiosidade cinematográfica e a profundidade emocional das composições fazem dele algo que o Flavió provavelmente vai querer ouvir inteiro de uma vez. Oferece algo que ele ainda não tem: um álbum progressivo, visceral e moderno, em português.</p>
+                <div class="album-title">Lo-Fi Hip Hop Chill Wave Radio Beats to Study and Relax to 24/7</div>
+                <div class="album-artist">Various Artists</div>
+                <div class="album-meta">2018</div>
+                <p class="album-why">Esse álbum é como aquele abraço de boas-vindas de um amigo antigo — perfeito para background musical enquanto você mergulha no trabalho ou nos estudos. Os beats lo-fi têm esse poder único de transformar qualquer ambiente em um refúgio acolhedor, exatamente como uma sessão de radio日数 que nunca termina. Revisitar essa tape é recordar que, às vezes, a melhor companhia para o dia é simplesmente uma batida suave e honesta.</p>
+                
+                <a href="spotify:album:2EmIIHbojdSlOj8ulSFlBX" class="btn-play">▶ Ouvir no Spotify</a>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -681,23 +754,25 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 1</span>
+                <span class="sec-sub">Salmos 130</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Bem-aventurado o homem que não anda segundo o conselho dos ímpios, nem se detém no caminho dos pecadores, nem se assenta na roda dos escarnecedores;
-antes tem seu prazer na lei do Senhor, e na sua lei medita de dia e noite.
-Pois será como a árvore plantada junto às correntes de águas, a qual dá o seu fruto na estação própria, e cuja folha não cai; e tudo quanto fizer prosperará.
-Não são assim os ímpios, mas são semelhantes à moinha que o vento espalha.
-Pelo que os ímpios não subsistirão no juízo, nem os pecadores na congregação dos justos;
-porque o Senhor conhece o caminho dos justos, mas o caminho dos ímpios conduz à ruína.</p>
-            <div class="psalm-ref">— Salmos 1</div>
+            <p class="psalm-text">Das profundezas clamo a ti, ó Senhor.
+Senhor, escuta a minha voz; estejam os teus ouvidos atentos à voz das minhas súplicas.
+Se tu, Senhor, observares as iniqüidades, Senhor, quem subsistirá?
+Mas contigo está o perdão, para que sejas temido.
+Aguardo ao Senhor; a minha alma o aguarda, e espero na sua palavra.
+A minha alma anseia pelo Senhor, mais do que os guardas pelo romper da manhã, sim, mais do que os guardas pela manhã.
+Espera, ó Israel, no Senhor! pois com o Senhor há benignidade, e com ele há copiosa redenção;
+e ele remirá a Israel de todas as suas iniqüidades.</p>
+            <div class="psalm-ref">— Salmos 130</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:52 &middot; Daily Organizer
+        Gerado em 07:23 &middot; Daily Organizer
     </footer>
 
 </body>
