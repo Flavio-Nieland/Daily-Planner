@@ -82,5 +82,12 @@
     "artist": "Pink Floyd",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b273472f3fa4fa9c696f7ef8f037",
     "spotify_id": "3b4E89rxzZQ9zkhgKpj8N4"
+  },
+  {
+    "date": "04/05/2026",
+    "album": "In Rainbows",
+    "artist": "Radiohead",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b273de3c04b5fc750b68899b20a9",
+    "spotify_id": "5vkqYmiPBYLaalcmjujWxK"
   }
 ]
