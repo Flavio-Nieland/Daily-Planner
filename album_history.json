@@ -89,5 +89,12 @@
     "artist": "Radiohead",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b273de3c04b5fc750b68899b20a9",
     "spotify_id": "5vkqYmiPBYLaalcmjujWxK"
+  },
+  {
+    "date": "05/05/2026",
+    "album": "The Fragile",
+    "artist": "Nine Inch Nails",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b273237a21c8ba1bfc2d85a83585",
+    "spotify_id": "4uiVwLbTzE6VMkXpaDAwB8"
   }
 ]

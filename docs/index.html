@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 04/05/2026</title>
+    <title>Seu Dia — 05/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 04/05/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 05/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -577,130 +577,25 @@
         <div class="weather-grid">
             <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">13.1–22.7°C</div>
+                <div class="temp">16.3–26.0°C</div>
                 <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 2%</div>
+                <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-cloudy">
                 <div class="period-label">Tarde</div>
-                <div class="temp">22.0–23.6°C</div>
+                <div class="temp">24.6–28.4°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 10%</div>
+                <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-drizzle">
+            <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">18.5–21.0°C</div>
-                <div class="condition">Garoa fraca</div>
-                <div class="rain">Chuva 13%</div>
+                <div class="temp">19.6–22.8°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -724,6 +619,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -738,13 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <a href="leitura.html" class="activity-link">ler</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <a href="alongamento.html" class="activity-link">alongar</a>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -767,15 +662,15 @@
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273de3c04b5fc750b68899b20a9" alt="Capa de In Rainbows">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273237a21c8ba1bfc2d85a83585" alt="Capa de The Fragile">
             
             <div class="album-info">
-                <div class="album-title">In Rainbows</div>
-                <div class="album-artist">Radiohead</div>
-                <div class="album-meta">2007 · Alternative Rock / Art Rock</div>
-                <p class="album-why">Flávio já demonstrou amor por Radiohead com OK Computer e 'No Surprises', e In Rainbows é o contraponto mais emocional e melódico da banda — faixas como 'Reckoner' e 'House of Cards' combinam a atmosfera progressiva que ele curte em Pink Floyd com a sensibilidade moderna de bandas como Car Seat Headrest. É um álbum acessível, mas riquíssimo em camadas sonoras, perfeito para um dia de audição atenta.</p>
+                <div class="album-title">The Fragile</div>
+                <div class="album-artist">Nine Inch Nails</div>
+                <div class="album-meta">1999 · Alternative Rock / Industrial Rock</div>
+                <p class="album-why">The Fragile combina a intensidade emocional e a agressividade instrumental que Flavinho claramente curte (veja Linkin Park e Alice in Chains), mas com uma complexidade atmosférica e progressiva que dialoga diretamente com seu amor por Radiohead e Pink Floyd. É um álbum gigante em camadas — desde brilhantes baladas melancólicas até rampagens bruitistas — que recompensa ouvir do início ao fim, exatamente o tipo de experiência completa que ele valoriza.</p>
                 
-                <a href="spotify:album:5vkqYmiPBYLaalcmjujWxK" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:4uiVwLbTzE6VMkXpaDAwB8" class="btn-play">▶ Ouvir no Spotify</a>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -790,31 +685,36 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 19</span>
+                <span class="sec-sub">Salmos 116</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Os céus proclamam a glória de Deus e o firmamento anuncia a obra das suas mãos.
-Um dia faz declaração a outro dia, e uma noite revela conhecimento a outra noite.
-Não há fala, nem palavras; não se lhes ouve a voz.
-Por toda a terra estende-se a sua linha, e as suas palavras até os consfins do mundo. Neles pôs uma tenda para o sol,
-que é qual noivo que sai do seu tálamo, e se alegra, como um herói, a correr a sua carreira.
-A sua saída é desde uma extremidade dos céus, e o seu curso até a outra extremidade deles; e nada se esconde ao seu calor.
-A lei do Senhor é perfeita, e refrigera a alma; o testemunho do Senhor é fiel, e dá sabedoria aos simples.
-Os preceitos do Senhor são retos, e alegram o coração; o mandamento do Senhor é puro, e alumia os olhos.
-O temor do Senhor é limpo, e permanece para sempre; os juízos do Senhor são verdadeiros e inteiramente justos.
-Mais desejáveis são do que o ouro, sim, do que muito ouro fino; e mais doces do que o mel e o que goteja dos favos.
-Também por eles o teu servo é advertido; e em os guardar há grande recompensa.
-Quem pode discernir os próprios erros? Purifica-me tu dos que me são ocultos.
-Também de pecados de presunção guarda o teu servo, para que não se assenhoreiem de mim; então serei perfeito, e ficarei limpo de grande transgressão.
-Sejam agradáveis as palavras da minha boca e a meditação do meu coração perante a tua face, Senhor, Rocha minha e Redentor meu!</p>
-            <div class="psalm-ref">— Salmos 19</div>
+            <p class="psalm-text">Amo ao Senhor, porque ele ouve a minha voz e a minha súplica.
+Porque inclina para mim o seu ouvido, invocá-lo-ei enquanto viver.
+Os laços da morte me cercaram; as angústias do Seol se apoderaram de mim; sofri tribulação e tristeza.
+Então invoquei o nome do Senhor, dizendo:Ó Senhor, eu te rogo, livra-me.
+Compassivo é o Senhor, e justo; sim, misericordioso é o nosso Deus.
+O Senhor guarda os simples; quando me acho abatido, ele me salva.
+Volta, minha alma, ao teu repouso, pois o Senhor te fez bem.
+Pois livraste a minha alma da morte, os meus olhos das lágrimas, e os meus pés de tropeçar.
+Andarei perante o Senhor, na terra dos viventes.
+Cri, por isso falei; estive muito aflito.
+Eu dizia na minha precipitação: Todos os homens são mentirosos.
+Que darei eu ao Senhor por todos os benefícios que me tem feito?
+Tomarei o cálice da salvação, e invocarei o nome do Senhor.
+Pagarei os meus votos ao Senhor, na presença de todo o seu povo.
+Preciosa é à vista do Senhor a morte dos seus santos.
+Ó Senhor, deveras sou teu servo; sou teu servo, filho da tua serva; soltaste as minhas cadeias.
+Oferecer-te-ei sacrifícios de ação de graças, e invocarei o nome do Senhor.
+Pagarei os meus votos ao Senhor, na presença de todo o seu povo,
+nos átrios da casa do Senhor, no meio de ti, ó Jerusalém! Louvai ao Senhor.</p>
+            <div class="psalm-ref">— Salmos 116</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 08:09 &middot; Daily Organizer
+        Gerado em 07:35 &middot; Daily Organizer
     </footer>
 
 </body>
