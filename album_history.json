@@ -96,5 +96,12 @@
     "artist": "Nine Inch Nails",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b273237a21c8ba1bfc2d85a83585",
     "spotify_id": "4uiVwLbTzE6VMkXpaDAwB8"
+  },
+  {
+    "date": "06/05/2026",
+    "album": "Funeral",
+    "artist": "Arcade Fire",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b2737870762a58313ad6f981d664",
+    "spotify_id": "6ZB8qaR9JNuS0Q0bG1nbcH"
   }
 ]
