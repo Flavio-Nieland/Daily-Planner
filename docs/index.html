@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 06/05/2026</title>
+    <title>Seu Dia — 07/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Quarta-feira &middot; 06/05/2026</p>
+        <p class="hero-sub">Quinta-feira &middot; 07/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,21 +575,21 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-partly">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Manhã</div>
-                <div class="temp">18.3–27.2°C</div>
-                <div class="condition">Parcialmente nublado</div>
+                <div class="temp">19.9–26.2°C</div>
+                <div class="condition">Nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Tarde</div>
-                <div class="temp">24.9–29.3°C</div>
-                <div class="condition">Céu limpo</div>
+                <div class="temp">24.2–27.2°C</div>
+                <div class="condition">Nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-cloudy-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">21.3–23.2°C</div>
+                <div class="temp">21.7–22.9°C</div>
                 <div class="condition">Nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
@@ -639,7 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <a href="programacao.html" class="activity-link">programação</a>
+                            <span class="activity-name">Inglês</span>
                         
                     </li>
                     
@@ -648,6 +648,75 @@
         </div>
     </div>
 
+    
+    <div class="card">
+        <div class="sec-head">
+            <span class="sec-icon">🥗</span>
+            <span class="sec-title">Dieta do Dia</span>
+        </div>
+        <div class="diet-nav">
+            <button class="diet-arrow" id="diet-prev" onclick="dietNav(-1)">&#8249;</button>
+            <span class="diet-day-label" id="diet-day-label">Hoje</span>
+            <button class="diet-arrow" id="diet-next" onclick="dietNav(1)">&#8250;</button>
+        </div>
+        <p class="diet-kcal-pill" id="diet-kcal-total"></p>
+        <div id="diet-meals"></div>
+    </div>
+
+    <script>
+        const DIET_DAYS = {"2026-05-06": {"date": "2026-05-06", "meals": [{"items": [{"food": "Ovos mexidos (3 unidades)", "qty": "150g"}, {"food": "P\u00e3o integral", "qty": "2 fatias (80g)"}, {"food": "Mam\u00e3o papaya", "qty": "1 fatia m\u00e9dia (150g)"}, {"food": "Banana-prata", "qty": "1 unidade m\u00e9dia (75g)"}, {"food": "Caf\u00e9 com leite", "qty": "1 x\u00edcara (200ml)"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural integral", "qty": "1 pote (170g)"}, {"food": "Aveia em flocos", "qty": "2 colheres de sopa (30g)"}, {"food": "Melado de cana", "qty": "1 colher de ch\u00e1 (7g)"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz branco", "qty": "4 colheres de sopa (100g)"}, {"food": "Feij\u00e3o preto", "qty": "2 conchas (160g)"}, {"food": "Fil\u00e9 de frango grelhado", "qty": "150g"}, {"food": "Ab\u00f3bora cozida", "qty": "3 colheres de sopa (90g)"}, {"food": "Batata-doce cozida", "qty": "1 unidade m\u00e9dia (120g)"}, {"food": "Salada de alface e tomate", "qty": "1 prato (100g)"}, {"food": "\u00d3leo de soja", "qty": "1 colher de sopa (10ml)"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Tapioca com queijo mu\u00e7arela", "qty": "2 unidades m\u00e9dias (100g)"}, {"food": "Manga espada", "qty": "1 fruta m\u00e9dia (200g)"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz integral", "qty": "4 colheres de sopa (100g)"}, {"food": "Feij\u00e3o Carioca", "qty": "2 conchas (160g)"}, {"food": "Carne bovina mo\u00edda refogada", "qty": "150g"}, {"food": "Mandioca cozida", "qty": "3 colheres de sopa (90g)"}, {"food": "Couve refogada", "qty": "2 colheres de sopa (60g)"}, {"food": "Laranja ba\u00eda", "qty": "1 unidade m\u00e9dia (150g)"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa (10ml)"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-05-07": {"date": "2026-05-07", "meals": [{"items": [{"food": "Mingau de aveia com banana", "qty": "1 tigela (250g)"}, {"food": "Pasta de amendoim", "qty": "1 colher de sopa (20g)"}, {"food": "P\u00e3o integral", "qty": "2 fatias (60g)"}, {"food": "Caf\u00e9 com leite", "qty": "1 x\u00edcara (200ml)"}], "kcal": 600, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural integral", "qty": "1 pote (170g)"}, {"food": "Morango", "qty": "1 x\u00edcara (150g)"}, {"food": "Castanha-do-par\u00e1", "qty": "1 por\u00e7\u00e3o (20g)"}], "kcal": 280, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "5 colheres de sopa (120g)"}, {"food": "Feij\u00e3o preto", "qty": "2 conchas (160g)"}, {"food": "Fil\u00e9 bovino grelhado", "qty": "180g"}, {"food": "Batata-doce assada", "qty": "1 unidade m\u00e9dia (150g)"}, {"food": "Abobrinha refogada", "qty": "3 colheres de sopa (90g)"}, {"food": "Salada de pepino e tomate", "qty": "1 prato (100g)"}, {"food": "\u00d3leo de soja", "qty": "1 colher de sopa (10ml)"}], "kcal": 820, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Tapioca simples", "qty": "2 unidades m\u00e9dias (80g)"}, {"food": "Queijo mu\u00e7arela", "qty": "2 fatias (60g)"}, {"food": "Ma\u00e7\u00e3", "qty": "1 unidade m\u00e9dia (180g)"}], "kcal": 400, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz branco", "qty": "4 colheres de sopa (100g)"}, {"food": "Feij\u00e3o Carioca", "qty": "2 conchas (160g)"}, {"food": "Carne bovina mo\u00edda ao molho", "qty": "150g"}, {"food": "Mandioquinha cozida", "qty": "3 unidades m\u00e9dias (90g)"}, {"food": "Couve refogada com alho", "qty": "2 colheres de sopa (60g)"}, {"food": "Laranja", "qty": "1 unidade m\u00e9dia (150g)"}], "kcal": 700, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-05-08": {"date": "2026-05-08", "meals": [{"items": [{"food": "Ovos mexidos (3 unidades)", "qty": "150g"}, {"food": "P\u00e3o integral", "qty": "1 fatia (40g)"}, {"food": "Abacate", "qty": "1/2 unidade pequena (50g)"}, {"food": "Banana-prata", "qty": "1 unidade m\u00e9dia (75g)"}, {"food": "Caf\u00e9 com leite", "qty": "1 x\u00edcara (200ml)"}], "kcal": 561, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural integral", "qty": "1 pote (170g)"}, {"food": "Aveia em flocos", "qty": "2 colheres de sopa (30g)"}, {"food": "Morango", "qty": "1 x\u00edcara (150g)"}, {"food": "Mel", "qty": "1 colher de ch\u00e1 (7g)"}], "kcal": 319, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral", "qty": "150g (cozido)"}, {"food": "Feij\u00e3o preto", "qty": "2 conchas (160g)"}, {"food": "Fil\u00e9 de til\u00e1pia grelhado", "qty": "150g"}, {"food": "Ab\u00f3bora cozida", "qty": "90g"}, {"food": "Mandioca cozida", "qty": "90g"}, {"food": "Salada de alface e tomate", "qty": "100g"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa (10ml)"}, {"food": "Mel", "qty": "1 colher de ch\u00e1 (7g)"}], "kcal": 808, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Cuscuz de milho", "qty": "100g"}, {"food": "Queijo mu\u00e7arela", "qty": "30g"}, {"food": "Tomate", "qty": "50g"}, {"food": "Ovo mexido", "qty": "1 unidade (50g)"}, {"food": "Azeite de dend\u00ea", "qty": "1 colher de ch\u00e1 (5ml)"}], "kcal": 338, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz integral", "qty": "100g (cozido)"}, {"food": "Feij\u00e3o Carioca", "qty": "1,5 conchas (120g)"}, {"food": "Fil\u00e9 de frango grelhado", "qty": "140g"}, {"food": "Batata-doce cozida", "qty": "150g"}, {"food": "Couve refogada", "qty": "60g"}, {"food": "Laranja ba\u00eda", "qty": "1 unidade m\u00e9dia (150g)"}, {"food": "Azeite de oliva", "qty": "1 colher de sopa (10ml)"}], "kcal": 774, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
+        const DAY_ORDER = Object.keys(DIET_DAYS).sort();
+        const TODAY_ISO = (function() {
+            const d = new Date();
+            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+        })();
+        let dietIdx = DAY_ORDER.indexOf(TODAY_ISO);
+        if (dietIdx === -1) dietIdx = 1;
+
+        const MEAL_ICONS = {
+            'Café da Manhã': '☀️', 'Lanche da Manhã': '🍎',
+            'Almoço': '🍽️', 'Lanche da Tarde': '🥜', 'Jantar': '🌙'
+        };
+
+        function renderDiet() {
+            const key = DAY_ORDER[dietIdx];
+            const day = DIET_DAYS[key];
+            const labels = ['Ontem', 'Hoje', 'Amanhã'];
+            const [y, m, d] = key.split('-');
+
+            document.getElementById('diet-prev').disabled = dietIdx === 0;
+            document.getElementById('diet-next').disabled = dietIdx === DAY_ORDER.length - 1;
+            document.getElementById('diet-day-label').textContent = labels[dietIdx] + ' — ' + d + '/' + m;
+            document.getElementById('diet-kcal-total').textContent = 'Total: ' + day.total_kcal + ' kcal';
+
+            const container = document.getElementById('diet-meals');
+            container.innerHTML = '';
+            day.meals.forEach(meal => {
+                const icon = MEAL_ICONS[meal.name] || '🍴';
+                const card = document.createElement('div');
+                card.className = 'meal-card';
+                const itemsHtml = meal.items.map(i =>
+                    `<li class="meal-item"><span class="meal-item-name">${i.food}</span><span class="meal-qty">${i.qty}</span></li>`
+                ).join('');
+                card.innerHTML = `
+                    <div class="meal-header">
+                        <span class="meal-icon">${icon}</span>
+                        <span class="meal-name">${meal.name}</span>
+                        <span class="meal-time">${meal.time}</span>
+                        <span class="meal-kcal">${meal.kcal} kcal</span>
+                    </div>
+                    <ul class="meal-items">${itemsHtml}</ul>`;
+                container.appendChild(card);
+            });
+        }
+
+        function dietNav(dir) {
+            dietIdx = Math.max(0, Math.min(DAY_ORDER.length - 1, dietIdx + dir));
+            renderDiet();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderDiet);
+    </script>
     
 
     
@@ -662,15 +731,11 @@
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2737870762a58313ad6f981d664" alt="Capa de Funeral">
-            
             <div class="album-info">
-                <div class="album-title">Funeral</div>
-                <div class="album-artist">Arcade Fire</div>
-                <div class="album-meta">2004 · Indie Rock / Post-Punk Revival</div>
-                <p class="album-why">Este álbum combina perfeitamente com o gosto de Flavinho por bandas alternativas e experimentais, oferecendo uma mistura de rock emocional com elementos orquestrais que lembram a grandiosidade de Pink Floyd, mas com a energia moderna do indie rock. As letras introspectivas e a produção imersiva vão proporcionar uma experiência completa, perfeita para ouvir hoje.</p>
-                
-                <a href="spotify:album:6ZB8qaR9JNuS0Q0bG1nbcH" class="btn-play">▶ Ouvir no Spotify</a>
+                <div class="album-title">O Descobrimento do Brasil</div>
+                <div class="album-artist">Tropicália</div>
+                <div class="album-meta">1995 · MPB / Rock Brasileiro</div>
+                <p class="album-why">O álbum mescla folk, rock eMPB de forma atmosférica, algo que deve ressoar em quem curte Sá & Rodrix & Guarabyra e Raul Seixas. A sonoridade experimental e osarranjos elaborados criam uma experiência imersiva, conectando-se também com o lado maisprog de Pink Floyd e Radiohead que ele valoriza.</p>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -685,21 +750,30 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 75</span>
+                <span class="sec-sub">Salmos 116</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Damos-te graças, ó Deus, damos-te graças, pois o teu nome está perto; os que invocam o teu nome anunciam as tuas maravilhas.
-Quando chegar o tempo determinado, julgarei retamente.
-Dissolve-se a terra e todos os seus moradores, mas eu lhe fortaleci as colunas.
-Digo eu aos arrogantes: Não sejais arrogantes; e aos ímpios: Não levanteis a fronte;
-não levanteis ao alto a vossa fronte, nem faleis com arrogância.
-Porque nem do oriente, nem do ocidente, nem do deserto vem a exaltação.
-Mas Deus é o que julga; a um abate, e a outro exalta.
-Porque na mão do Senhor há um cálice, cujo vinho espuma, cheio de mistura, do qual ele dá a beber; certamente todos os ímpios da terra sorverão e beberão as suas fezes.
-Mas, quanto a mim, exultarei para sempre, cantarei louvores ao Deus de Jacó.
-E quebrantarei todas as forças dos ímpios, mas as forças dos justos serão exaltadas.</p>
-            <div class="psalm-ref">— Salmos 75</div>
+            <p class="psalm-text">Amo ao Senhor, porque ele ouve a minha voz e a minha súplica.
+Porque inclina para mim o seu ouvido, invocá-lo-ei enquanto viver.
+Os laços da morte me cercaram; as angústias do Seol se apoderaram de mim; sofri tribulação e tristeza.
+Então invoquei o nome do Senhor, dizendo:Ó Senhor, eu te rogo, livra-me.
+Compassivo é o Senhor, e justo; sim, misericordioso é o nosso Deus.
+O Senhor guarda os simples; quando me acho abatido, ele me salva.
+Volta, minha alma, ao teu repouso, pois o Senhor te fez bem.
+Pois livraste a minha alma da morte, os meus olhos das lágrimas, e os meus pés de tropeçar.
+Andarei perante o Senhor, na terra dos viventes.
+Cri, por isso falei; estive muito aflito.
+Eu dizia na minha precipitação: Todos os homens são mentirosos.
+Que darei eu ao Senhor por todos os benefícios que me tem feito?
+Tomarei o cálice da salvação, e invocarei o nome do Senhor.
+Pagarei os meus votos ao Senhor, na presença de todo o seu povo.
+Preciosa é à vista do Senhor a morte dos seus santos.
+Ó Senhor, deveras sou teu servo; sou teu servo, filho da tua serva; soltaste as minhas cadeias.
+Oferecer-te-ei sacrifícios de ação de graças, e invocarei o nome do Senhor.
+Pagarei os meus votos ao Senhor, na presença de todo o seu povo,
+nos átrios da casa do Senhor, no meio de ti, ó Jerusalém! Louvai ao Senhor.</p>
+            <div class="psalm-ref">— Salmos 116</div>
         </div>
     </div>
     
