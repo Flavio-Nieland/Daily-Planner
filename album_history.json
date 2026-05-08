@@ -110,5 +110,12 @@
     "artist": "Tropicália",
     "cover_url": null,
     "spotify_id": null
+  },
+  {
+    "date": "08/05/2026",
+    "album": "Fake Love (feat. Duncan Mighty & WizKid)",
+    "artist": "StarBoy",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b2734cfcc7a80d7a8da378f968b0",
+    "spotify_id": "2hCyuqpTXNKYkEXyABXE9j"
   }
 ]
