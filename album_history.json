@@ -124,5 +124,12 @@
     "artist": "Daft Punk",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b2731e81bff9807a9e629fce5ade",
     "spotify_id": "2noRn2Aes5aoNVsU6iWThc"
+  },
+  {
+    "date": "10/05/2026",
+    "album": "Pantanal Music",
+    "artist": "Almir Sater",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b273c34b85995acaa23f04462145",
+    "spotify_id": "6e8MHVTp5HEUZiqqGg2Eo3"
   }
 ]
