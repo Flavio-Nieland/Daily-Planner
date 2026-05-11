@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 10/05/2026</title>
+    <title>Seu Dia — 11/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Domingo &middot; 10/05/2026</p>
+        <p class="hero-sub">Segunda-feira &middot; 11/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,27 +575,132 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-cloudy">
+            <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">10.9–16.8°C</div>
-                <div class="condition">Nublado</div>
+                <div class="temp">7.7–17.3°C</div>
+                <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">16.3–18.3°C</div>
+                <div class="temp">18.0–19.5°C</div>
                 <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">10.9–15.0°C</div>
+                <div class="temp">11.4–15.8°C</div>
                 <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
 
+    
+    <!-- Peso Semanal (apenas segunda-feira) -->
+    <div class="card" id="weight-card">
+        <div class="sec-head">
+            <span class="sec-icon">⚖️</span>
+            <span class="sec-title">Peso Semanal</span>
+        </div>
+
+        <div id="weight-entry-section">
+            <p class="weight-question">Qual é o seu peso hoje?</p>
+            <div class="weight-input-row">
+                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
+                <span class="weight-unit">kg</span>
+                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
+            </div>
+        </div>
+
+        <div id="weight-saved-section" style="display:none">
+            <div class="weight-row">
+                <span class="weight-row-label">Hoje</span>
+                <span class="weight-row-value" id="today-weight-display">--</span>
+            </div>
+        </div>
+
+        <div class="weight-row">
+            <span class="weight-row-label">Semana passada</span>
+            <span class="weight-row-value" id="last-week-display">--</span>
+            <span id="weight-diff"></span>
+        </div>
+
+        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
+        <div id="chart-container" style="display:none">
+            <canvas id="weight-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script>
+        const WK = 'daily-organizer-weights';
+        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
+        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
+        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
+
+        function saveWeight() {
+            const input = document.getElementById('weight-input');
+            const val = parseFloat(input.value.replace(',', '.'));
+            if (isNaN(val) || val < 30 || val > 250) return;
+            const weights = getWeights();
+            weights[todayKey()] = val;
+            localStorage.setItem(WK, JSON.stringify(weights));
+            showSavedState(val);
+            updateLastWeek(val);
+        }
+
+        function showSavedState(todayVal) {
+            document.getElementById('weight-entry-section').style.display = 'none';
+            const saved = document.getElementById('weight-saved-section');
+            saved.style.display = 'block';
+            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
+        }
+
+        function updateLastWeek(todayVal) {
+            const weights = getWeights();
+            const last = weights[lastMondayKey()];
+            const el = document.getElementById('last-week-display');
+            const diffEl = document.getElementById('weight-diff');
+            if (last !== undefined) {
+                el.textContent = last + ' kg';
+                if (todayVal !== null && todayVal !== undefined) {
+                    const diff = (todayVal - last).toFixed(1);
+                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
+                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
+                    else               diffEl.textContent = '= igual';
+                }
+            } else { el.textContent = 'Sem registro'; }
+        }
+
+        function toggleChart() {
+            const container = document.getElementById('chart-container');
+            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
+            else { container.style.display = 'none'; }
+        }
+
+        function renderChart() {
+            const weights = getWeights();
+            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
+            if (entries.length === 0) return;
+            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
+            const data = entries.map(([,v]) => v);
+            const ctx = document.getElementById('weight-chart').getContext('2d');
+            if (window._wChart) window._wChart.destroy();
+            window._wChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
+                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const weights = getWeights();
+            const today = weights[todayKey()];
+            if (today !== undefined) showSavedState(today);
+            updateLastWeek(today ?? null);
+        });
+    </script>
     
 
     <!-- Atividades do Dia -->
@@ -611,6 +716,18 @@
                 </div>
                 <ul class="activity-list">
                     
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">trabalhar</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="treino.html" class="activity-link">treinar</a>
+                        
+                    </li>
+                    
                 </ul>
             </div>
             <div class="prio-col">
@@ -621,25 +738,13 @@
                     
                     <li class="activity-item">
                         
-                            <a href="leitura.html" class="activity-link">ler</a>
+                            <span class="activity-name">ler</span>
                         
                     </li>
                     
                     <li class="activity-item">
                         
                             <a href="alongamento.html" class="activity-link">alongar</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">ingles</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">xadrez</span>
                         
                     </li>
                     
@@ -657,20 +762,20 @@
             <span class="sec-icon">🎵</span>
             <div class="sec-texts">
                 <span class="sec-title">Álbum do Dia</span>
-                <span class="sec-sub">Da sua biblioteca</span>
+                <span class="sec-sub">Descoberta nova</span>
             </div>
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273c34b85995acaa23f04462145" alt="Capa de Pantanal Music">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273828e52cfb7bf22869349799e" alt="Capa de Wish You Were Here">
             
             <div class="album-info">
-                <div class="album-title">Pantanal Music</div>
-                <div class="album-artist">Almir Sater</div>
-                <div class="album-meta">1997</div>
-                <p class="album-why">Pantanal Music é um convite para embarcar numa viagem pelas paisagens sonoras do Pantanal, onde cada faixa pulsa com a alma da música sertaneja e a delicadeza do violão de Almir Sater. Este álbum mistura influências regionais e toques contemporâneos, criando uma trilha sonora atemporal que renova a conexão com a natureza e a cultura do Brasil Central. Relembrar essas melodias hoje é como reencontrar um velho amigo, aquecendo o coração com memórias e inspirando novos sonhos.</p>
+                <div class="album-title">Wish You Were Here</div>
+                <div class="album-artist">Pink Floyd</div>
+                <div class="album-meta">1975 · Progressivo Rock / Art Rock</div>
+                <p class="album-why">Flávio claramente aprecia a capacidade do Pink Floyd de criar atmosferas profundas e emocionais, como evidencia os outros álbuns já ouvidos; Wish You Were Here é uma obra-prima melancólica e imersiva que complementa perfeitamente o gosto por Radiohead e pelos Strokes. O álbum traz a genialidade conceitual e as texturas sonoras que combinam com quem valoriza tanto a intensidade do rock quanto a sensibilidade poética de Raul Seixas e da Legião Urbana.</p>
                 
-                <a href="spotify:album:6e8MHVTp5HEUZiqqGg2Eo3" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:0bCAjiUamIFqKJsekOYuRw" class="btn-play">▶ Ouvir no Spotify</a>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -685,31 +790,35 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 48</span>
+                <span class="sec-sub">Salmos 115</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Grande é o Senhor e mui digno de ser louvado, na cidade do nosso Deus, no seu monte santo.
-De bela e alta situação, alegria de toda terra é o monte Sião aos lados do norte, a cidade do grande Rei.
-Nos palácios dela Deus se fez conhecer como alto refúgio.
-Pois eis que os reis conspiraram; juntos vieram chegando.
-Viram-na, e então ficaram maravilhados; ficaram assombrados e se apressaram em fugir.
-Aí se apoderou deles o tremor, sentiram dores como as de uma parturiente.
-Com um vento oriental quebraste as naus de Társis.
-Como temos ouvido, assim vimos na cidade do Senhor dos exércitos, na cidade do nosso Deus; Deus a estabelece para sempre.
-Temos meditado, ó Deus, na tua benignidade no meio do teu templo.
-Como é o teu nome, ó Deus, assim é o teu louvor até os confins da terra; de retidão está cheia a tua destra.
-Alegre-se o monte Sião, regozijem-se as filhas de Judá, por causa dos teus juízos.
-Dai voltas a Sião, ide ao redor dela; contai as suas torres.
-Notai bem os seus antemuros, percorrei os seus palácios, para que tudo narreis à geração seguinte.
-Porque este Deus é o nosso Deus para todo o sempre; ele será nosso guia até a morte.</p>
-            <div class="psalm-ref">— Salmos 48</div>
+            <p class="psalm-text">Não a nós, Senhor, não a nós, mas ao teu nome dá glória, por amor da tua benignidade e da tua verdade.
+Por que perguntariam as nações: Onde está o seu Deus?
+Mas o nosso Deus está nos céus; ele faz tudo o que lhe apraz.
+Os ídolos deles são prata e ouro, obra das mãos do homem.
+Têm boca, mas não falam; têm olhos, mas não vêem;
+têm ouvidos, mas não ouvem; têm nariz, mas não cheiram;
+têm mãos, mas não apalpam; têm pés, mas não andam; nem som algum sai da sua garganta.
+Semelhantes a eles sejam os que fazem, e todos os que neles confiam.
+Confia, ó Israel, no Senhor; ele é seu auxílio e seu escudo.
+Casa de Arão, confia no Senhor; ele é seu auxílio e seu escudo.
+Vós, os que temeis ao Senhor, confiai no Senhor; ele é seu auxílio e seu escudo.
+O Senhor tem-se lembrado de nós, abençoar-nos-á; abençoará a casa de Israel; abençoará a casa de Arão;
+abençoará os que temem ao Senhor, tanto pequenos como grandes.
+Aumente-vos o Senhor cada vez mais, a vós e a vossos filhos.
+Sede vós benditos do Senhor, que fez os céus e a terra.
+Os céus são os céus do Senhor, mas a terra, deu-a ele aos filhos dos homens.
+Os mortos não louvam ao Senhor, nem os que descem ao silêncio;
+nós, porém, bendiremos ao Senhor, desde agora e para sempre. Louvai ao Senhor.</p>
+            <div class="psalm-ref">— Salmos 115</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:17 &middot; Daily Organizer
+        Gerado em 09:06 &middot; Daily Organizer
     </footer>
 
 </body>
