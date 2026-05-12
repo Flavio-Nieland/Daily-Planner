@@ -138,5 +138,12 @@
     "artist": "Pink Floyd",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b273828e52cfb7bf22869349799e",
     "spotify_id": "0bCAjiUamIFqKJsekOYuRw"
+  },
+  {
+    "date": "12/05/2026",
+    "album": "Parachutes",
+    "artist": "Coldplay",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b2739164bafe9aaa168d93f4816a",
+    "spotify_id": "6ZG5lRT77aJ3btmArcykra"
   }
 ]

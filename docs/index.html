@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 11/05/2026</title>
+    <title>Seu Dia — 12/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 11/05/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 12/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -577,130 +577,25 @@
         <div class="weather-grid">
             <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">7.7–17.3°C</div>
+                <div class="temp">8.9–19.5°C</div>
                 <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">18.0–19.5°C</div>
+                <div class="temp">19.0–21.5°C</div>
                 <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">11.4–15.8°C</div>
+                <div class="temp">10.7–16.5°C</div>
                 <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -724,6 +619,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -738,13 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">ler</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <a href="alongamento.html" class="activity-link">alongar</a>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -767,15 +662,15 @@
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273828e52cfb7bf22869349799e" alt="Capa de Wish You Were Here">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2739164bafe9aaa168d93f4816a" alt="Capa de Parachutes">
             
             <div class="album-info">
-                <div class="album-title">Wish You Were Here</div>
-                <div class="album-artist">Pink Floyd</div>
-                <div class="album-meta">1975 · Progressivo Rock / Art Rock</div>
-                <p class="album-why">Flávio claramente aprecia a capacidade do Pink Floyd de criar atmosferas profundas e emocionais, como evidencia os outros álbuns já ouvidos; Wish You Were Here é uma obra-prima melancólica e imersiva que complementa perfeitamente o gosto por Radiohead e pelos Strokes. O álbum traz a genialidade conceitual e as texturas sonoras que combinam com quem valoriza tanto a intensidade do rock quanto a sensibilidade poética de Raul Seixas e da Legião Urbana.</p>
+                <div class="album-title">Parachutes</div>
+                <div class="album-artist">Coldplay</div>
+                <div class="album-meta">2000 · Alternative Rock / Britpop</div>
+                <p class="album-why">Combina com o gosto de Flávio por álbuns atmosféricos e melancólicos como 'No Surprises' e 'Nutshell'. Tem a mesma suavidade melódica e introspecção dos Strokes e Radiohead, mas com uma vibe mais íntima e emocional que funciona perfeitamente para um dia de audição casual.</p>
                 
-                <a href="spotify:album:0bCAjiUamIFqKJsekOYuRw" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:6ZG5lRT77aJ3btmArcykra" class="btn-play">▶ Ouvir no Spotify</a>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -790,35 +685,52 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 115</span>
+                <span class="sec-sub">Salmos 104</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Não a nós, Senhor, não a nós, mas ao teu nome dá glória, por amor da tua benignidade e da tua verdade.
-Por que perguntariam as nações: Onde está o seu Deus?
-Mas o nosso Deus está nos céus; ele faz tudo o que lhe apraz.
-Os ídolos deles são prata e ouro, obra das mãos do homem.
-Têm boca, mas não falam; têm olhos, mas não vêem;
-têm ouvidos, mas não ouvem; têm nariz, mas não cheiram;
-têm mãos, mas não apalpam; têm pés, mas não andam; nem som algum sai da sua garganta.
-Semelhantes a eles sejam os que fazem, e todos os que neles confiam.
-Confia, ó Israel, no Senhor; ele é seu auxílio e seu escudo.
-Casa de Arão, confia no Senhor; ele é seu auxílio e seu escudo.
-Vós, os que temeis ao Senhor, confiai no Senhor; ele é seu auxílio e seu escudo.
-O Senhor tem-se lembrado de nós, abençoar-nos-á; abençoará a casa de Israel; abençoará a casa de Arão;
-abençoará os que temem ao Senhor, tanto pequenos como grandes.
-Aumente-vos o Senhor cada vez mais, a vós e a vossos filhos.
-Sede vós benditos do Senhor, que fez os céus e a terra.
-Os céus são os céus do Senhor, mas a terra, deu-a ele aos filhos dos homens.
-Os mortos não louvam ao Senhor, nem os que descem ao silêncio;
-nós, porém, bendiremos ao Senhor, desde agora e para sempre. Louvai ao Senhor.</p>
-            <div class="psalm-ref">— Salmos 115</div>
+            <p class="psalm-text">Bendize, ó minha alma, ao Senhor! Senhor, Deus meu, tu és magnificentíssimo! Estás vestido de honra e de majestade,
+tu que te cobres de luz como de um manto, que estendes os céus como uma cortina.
+És tu que pões nas águas os vigamentos da tua morada, que fazes das nuvens o teu carro, que andas sobre as asas do vento;
+que fazes dos ventos teus mensageiros, dum fogo abrasador os teus ministros.
+Lançaste os fundamentos da terra, para que ela não fosse abalada em tempo algum.
+Tu a cobriste do abismo, como dum vestido; as águas estavam sobre as montanhas.
+Â tua repreensão fugiram; à voz do teu trovão puseram-se em fuga.
+Elevaram-se as montanhas, desceram os vales, até o lugar que lhes determinaste.
+Limite lhes traçaste, que não haviam de ultrapassar, para que não tornassem a cobrir a terra.
+És tu que nos vales fazes rebentar nascentes, que correm entre as colinas.
+Dão de beber a todos os animais do campo; ali os asnos monteses matam a sua sede.
+Junto delas habitam as aves dos céus; dentre a ramagem fazem ouvir o seu canto.
+Da tua alta morada regas os montes; a terra se farta do fruto das tuas obras.
+Fazes crescer erva para os animais, e a verdura para uso do homem, de sorte que da terra tire o alimento,
+o vinho que alegra o seu coração, o azeite que faz reluzir o seu rosto, e o pão que lhe fortalece o coração.
+Saciam-se as árvores do Senhor, os cedros do Líbano que ele plantou,
+nos quais as aves se aninham, e a cegonha, cuja casa está nos ciprestes.
+Os altos montes são um refúgio para as cabras montesas, e as rochas para os querogrilos.
+Designou a lua para marcar as estações; o sol sabe a hora do seu ocaso.
+Fazes as trevas, e vem a noite, na qual saem todos os animais da selva.
+Os leões novos os animais bramam pela presa, e de Deus buscam o seu sustento.
+Quando nasce o sol, logo se recolhem e se deitam nos seus covis.
+Então sai o homem para a sua lida e para o seu trabalho, até a tarde.
+Ó Senhor, quão multiformes são as tuas obras! Todas elas as fizeste com sabedoria; a terra está cheia das tuas riquezas.
+Eis também o vasto e espaçoso mar, no qual se movem seres inumeráveis, animais pequenos e grandes.
+Ali andam os navios, e o leviatã que formaste para nele folgar.
+Todos esperam de ti que lhes dês o sustento a seu tempo.
+Tu lho dás, e eles o recolhem; abres a tua mão, e eles se fartam de bens.
+Escondes o teu rosto, e ficam perturbados; se lhes tiras a respiração, morrem, e voltam para o seu pó.
+Envias o teu fôlego, e são criados; e assim renovas a face da terra.
+Permaneça para sempre a glória do Senhor; regozije-se o Senhor nas suas obras;
+ele olha para a terra, e ela treme; ele toca nas montanhas, e elas fumegam.
+Cantarei ao Senhor enquanto eu viver; cantarei louvores ao meu Deus enquanto eu existir.
+Seja-lhe agradável a minha meditação; eu me regozijarei no Senhor.
+Sejam extirpados da terra os pecadores, e não subsistam mais os ímpios. Bendize, ó minha alma, ao Senhor. Louvai ao Senhor.</p>
+            <div class="psalm-ref">— Salmos 104</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 09:06 &middot; Daily Organizer
+        Gerado em 08:19 &middot; Daily Organizer
     </footer>
 
 </body>
