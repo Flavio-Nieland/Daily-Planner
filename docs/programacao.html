@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 08/05/2026</title>
+    <title>Programação — 13/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -154,11 +154,11 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Sexta-feira &middot; 08/05/2026</p>
+        <p class="hero-sub">Quarta-feira &middot; 13/05/2026</p>
         <div class="hero-pills">
-            <span class="hero-pill">Pipeline de RAG com LangChain e Chroma</span>
+            <span class="hero-pill">RAG com LangChain</span>
             
-            <span class="hero-pill hero-pill-secondary">LangChain, Chroma</span>
+            <span class="hero-pill hero-pill-secondary">LangChain</span>
             
         </div>
     </div>
@@ -176,50 +176,61 @@
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">1</span>
-                    <span class="step-title">Revisão conceitual de RAG</span>
+                    <span class="step-title">Configuração do ambiente e instalação de dependências</span>
                 </div>
                 <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Revise o conceito de RAG: recuperação de documentos, augmentação do prompt e geração. Liste os componentes principais (retriever, vectorstore, LLM) e o fluxo de dados.</p>
+            <p class="step-description">Criar um diretório de projeto, criar um ambiente virtual Python, instalar langchain, openai, chromadb e python-dotenv. Verificar instalação com um import rápido.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">2</span>
-                    <span class="step-title">Configurar ambiente e instalar dependências</span>
+                    <span class="step-title">Conceito de embeddings e armazenamento vetorial</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Crie um ambiente virtual, instale langchain, chromadb, openai e python-dotenv. Configure a variável OPENAI_API_KEY (ou use um modelo local).</p>
+            <p class="step-description">Revisar o que são embeddings de texto e como um vector store (Chroma) indexa documentos. Criar um script que gera embeddings para 5 textos curtos e os persiste localmente, exemplificando o processo.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Implementar pipeline básico de RAG</span>
+                    <span class="step-title">Construção da cadeia RAG (retrieve->generate)</span>
                 </div>
-                <span class="step-duration">25 min</span>
+                <span class="step-duration">20 min</span>
             </div>
-            <p class="step-description">Escreva um script que: 1) carrega documentos de texto (ex: .txt), 2) divide em chunks com RecursiveCharacterTextSplitter, 3) gera embeddings com OpenAIEmbeddings, 4) armazena no Chroma vectorstore, 5) cria um retriever e um chain de QA com RetrievalQA. Execute uma query de teste.</p>
+            <p class="step-description">Implementar um RetrievalQA chain usando LangChain que carrega o vector store, define um retriever, conecta um LLM (pode usar a API da OpenAI com variáveis de ambiente) e executa uma consulta de exemplo via método invoke.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Testar e ajustar o pipeline</span>
+                    <span class="step-title">Avaliação e ajuste de prompts e retrieval</span>
                 </div>
-                <span class="step-duration">15 min</span>
+                <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Realize 3 queries diferentes, avalie relevância das respostas. Ajuste parâmetros como chunk_size, chunk_overlap e top_k. Registre observações e otimize a configuração para melhor desempenho.</p>
+            <p class="step-description">Testar o chain com 3 perguntas diferentes, observar a qualidade das respostas e do retrieved context. Ajustar o prompt do sistema e o parâmetro top_k do retriever para melhorar os resultados.</p>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-header">
+                <div class="step-num-title">
+                    <span class="step-num">5</span>
+                    <span class="step-title">Exposição do chain como API com FastAPI</span>
+                </div>
+                <span class="step-duration">5 min</span>
+            </div>
+            <p class="step-description">Criar um endpoint POST /rag que receba JSON com "question", execute a cadeia e retorne "answer". Utilizar uvicorn para rodar localmente e testar com curl ou Postman.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 07:22 &middot; Daily Organizer
+        Gerado em 08:34 &middot; Daily Organizer
     </footer>
 
 </body>
