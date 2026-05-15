@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 13/05/2026</title>
+    <title>Programação — 15/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -154,11 +154,11 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Quarta-feira &middot; 13/05/2026</p>
+        <p class="hero-sub">Sexta-feira &middot; 15/05/2026</p>
         <div class="hero-pills">
-            <span class="hero-pill">RAG com LangChain</span>
+            <span class="hero-pill">Pipeline RAG com LangChain e Chroma</span>
             
-            <span class="hero-pill hero-pill-secondary">LangChain</span>
+            <span class="hero-pill hero-pill-secondary">LangChain, Chroma, OpenAI</span>
             
         </div>
     </div>
@@ -176,61 +176,61 @@
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">1</span>
-                    <span class="step-title">Configuração do ambiente e instalação de dependências</span>
+                    <span class="step-title">Revisão de conceitos de RAG</span>
                 </div>
                 <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Criar um diretório de projeto, criar um ambiente virtual Python, instalar langchain, openai, chromadb e python-dotenv. Verificar instalação com um import rápido.</p>
+            <p class="step-description">Ler 5‑10 min sobre Retrieval‑Augmented Generation: o que é, quando usar e os componentes (retrieval, generation, augmentation). Resuma em 3 bullet points no caderno.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">2</span>
-                    <span class="step-title">Conceito de embeddings e armazenamento vetorial</span>
+                    <span class="step-title">Configurar ambiente e instalar dependências</span>
                 </div>
-                <span class="step-duration">15 min</span>
+                <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Revisar o que são embeddings de texto e como um vector store (Chroma) indexa documentos. Criar um script que gera embeddings para 5 textos curtos e os persiste localmente, exemplificando o processo.</p>
+            <p class="step-description">Criar um ambiente virtual (python -m venv rag_env), ativar, instalar pip install langchain langchain-openai langchain-community chromadb tiktoken. Verificar com python -c "import langchain; print(langchain.__version__)".</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Construção da cadeia RAG (retrieve->generate)</span>
+                    <span class="step-title">Implementar pipeline RAG end‑to‑end</span>
                 </div>
-                <span class="step-duration">20 min</span>
+                <span class="step-duration">25 min</span>
             </div>
-            <p class="step-description">Implementar um RetrievalQA chain usando LangChain que carrega o vector store, define um retriever, conecta um LLM (pode usar a API da OpenAI com variáveis de ambiente) e executa uma consulta de exemplo via método invoke.</p>
+            <p class="step-description">Escrever script rag_pipeline.py: (1) carregar PDF ou texto com LangChain DocumentLoaders, (2) chunkar com RecursiveCharacterTextSplitter (chunk_size=500, overlap=50), (3) criar embeddings via OpenAIEmbeddings, (4) indexar em Chroma vectorstore, (5) montar RetrievalQA chain com ChatOpenAI. Incluir tratamento de exceções e prints de status.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Avaliação e ajuste de prompts e retrieval</span>
+                    <span class="step-title">Testar pipeline com uma pergunta de exemplo</span>
                 </div>
                 <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Testar o chain com 3 perguntas diferentes, observar a qualidade das respostas e do retrieved context. Ajustar o prompt do sistema e o parâmetro top_k do retriever para melhorar os resultados.</p>
+            <p class="step-description">Executar o script passando uma pergunta como 'Qual o resumo do documento?' e capturar a resposta. Comparar resultado com e sem retrieval (i.e., apenas generation) e notar diferenças.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">5</span>
-                    <span class="step-title">Exposição do chain como API com FastAPI</span>
+                    <span class="step-title">Documentar e criar snippet reutilizável</span>
                 </div>
                 <span class="step-duration">5 min</span>
             </div>
-            <p class="step-description">Criar um endpoint POST /rag que receba JSON com "question", execute a cadeia e retorne "answer". Utilizar uvicorn para rodar localmente e testar com curl ou Postman.</p>
+            <p class="step-description">Adicionar docstrings e comentários ao código, criar função build_rag_chain(persist_dir) que retorna a chain. Salvar como rag_utils.py para uso futuro.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 08:34 &middot; Daily Organizer
+        Gerado em 08:20 &middot; Daily Organizer
     </footer>
 
 </body>
