@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 16/05/2026</title>
+    <title>Seu Dia — 17/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Sábado &middot; 16/05/2026</p>
+        <p class="hero-sub">Domingo &middot; 17/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,23 +575,23 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Manhã</div>
-                <div class="temp">16.2–19.5°C</div>
-                <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 27%</div>
+                <div class="temp">15.9–22.3°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 13%</div>
             </div>
-            <div class="weather-period wx-partly">
+            <div class="weather-period wx-drizzle">
                 <div class="period-label">Tarde</div>
-                <div class="temp">20.5–22.0°C</div>
-                <div class="condition">Parcialmente nublado</div>
-                <div class="rain">Chuva 4%</div>
+                <div class="temp">20.7–23.5°C</div>
+                <div class="condition">Garoa fraca</div>
+                <div class="rain">Chuva 24%</div>
             </div>
-            <div class="weather-period wx-clear-night">
+            <div class="weather-period wx-drizzle">
                 <div class="period-label">Noite</div>
-                <div class="temp">16.2–19.5°C</div>
-                <div class="condition">Principalmente limpo</div>
-                <div class="rain">Chuva 7%</div>
+                <div class="temp">19.0–19.9°C</div>
+                <div class="condition">Garoa fraca</div>
+                <div class="rain">Chuva 51%</div>
             </div>
         </div>
     </div>
@@ -621,25 +621,25 @@
                     
                     <li class="activity-item">
                         
-                            <a href="alongamento.html" class="activity-link">alongar</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <a href="musica.html" class="activity-link">musica</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
                             <a href="leitura.html" class="activity-link">ler</a>
                         
                     </li>
                     
                     <li class="activity-item">
                         
-                            <a href="corrida.html" class="activity-link">correr</a>
+                            <a href="alongamento.html" class="activity-link">alongar</a>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">ingles</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">xadrez</span>
                         
                     </li>
                     
@@ -649,75 +649,6 @@
     </div>
 
     
-    <div class="card">
-        <div class="sec-head">
-            <span class="sec-icon">🥗</span>
-            <span class="sec-title">Dieta do Dia</span>
-        </div>
-        <div class="diet-nav">
-            <button class="diet-arrow" id="diet-prev" onclick="dietNav(-1)">&#8249;</button>
-            <span class="diet-day-label" id="diet-day-label">Hoje</span>
-            <button class="diet-arrow" id="diet-next" onclick="dietNav(1)">&#8250;</button>
-        </div>
-        <p class="diet-kcal-pill" id="diet-kcal-total"></p>
-        <div id="diet-meals"></div>
-    </div>
-
-    <script>
-        const DIET_DAYS = {"2026-05-15": {"date": "2026-05-15", "meals": [{"items": [{"food": "2 fatias de p\u00e3o integral (60g)", "qty": "60g"}, {"food": "2 ovos mexidos (100g)", "qty": "100g"}, {"food": "1 fatia de queijo Minas frescal (30g)", "qty": "30g"}, {"food": "1 banana prata (80g)", "qty": "80g"}, {"food": "1 colher de sopa de pasta de amendoim (16g)", "qty": "16g"}, {"food": "1 caf\u00e9 preto (150ml)", "qty": "150ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "1 iogurte natural (170g)", "qty": "170g"}, {"food": "1 por\u00e7\u00e3o de granola (30g)", "qty": "30g"}, {"food": "1 ma\u00e7\u00e3 (150g)", "qty": "150g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "100g arroz integral cozido", "qty": "100g"}, {"food": "80g feij\u00e3o preto cozido", "qty": "80g"}, {"food": "130g peito de frango grelhado", "qty": "130g"}, {"food": "150g legumes refogados (ab\u00f3bora, cenoura, vagem)", "qty": "150g"}, {"food": "20g salada verde (alface, r\u00facula)", "qty": "20g"}, {"food": "1 colher de ch\u00e1 de azeite de oliva (5g)", "qty": "5g"}, {"food": "150g pur\u00ea de batata-doce", "qty": "150g"}, {"food": "30g queijo cottage", "qty": "30g"}, {"food": "15g farofa de mandioca", "qty": "15g"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "45g cuscuz (farinha de milho)", "qty": "45g"}, {"food": "1 ovo cozido (50g)", "qty": "50g"}, {"food": "1 fatia de queijo branco (20g)", "qty": "20g"}, {"food": "1/2 banana (50g)", "qty": "50g"}, {"food": "1 colher de ch\u00e1 de a\u00e7\u00facar mascavo (5g)", "qty": "5g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "100g arroz branco cozido", "qty": "100g"}, {"food": "80g feij\u00e3o Carioca cozido", "qty": "80g"}, {"food": "150g fil\u00e9 de til\u00e1pia grelhado", "qty": "150g"}, {"food": "100g batata-doce assada", "qty": "100g"}, {"food": "100g couve refogada", "qty": "100g"}, {"food": "20g alface", "qty": "20g"}, {"food": "1 colher de ch\u00e1 de margarina (5g)", "qty": "5g"}, {"food": "100g pur\u00ea de ab\u00f3bora", "qty": "100g"}, {"food": "1 fatia de p\u00e3o integral (15g)", "qty": "15g"}, {"food": "30g queijo cottage", "qty": "30g"}, {"food": "1 colher de ch\u00e1 de a\u00e7\u00facar mascavo (5g)", "qty": "5g"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-05-16": {"date": "2026-05-16", "meals": [{"items": [{"food": "2 fatias de p\u00e3o integral", "qty": "60g"}, {"food": "2 ovos mexidos", "qty": "100g"}, {"food": "1 fatia de queijo Minas", "qty": "30g"}, {"food": "1 pera", "qty": "100g"}, {"food": "1 colher de sopa de granola", "qty": "15g"}, {"food": "1 colher de sopa de requeij\u00e3o", "qty": "20g"}, {"food": "1 colher de ch\u00e1 de a\u00e7\u00facar mascavo", "qty": "5g"}, {"food": "1 caf\u00e9 preto", "qty": "150ml"}], "kcal": 550, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "1 iogurte natural", "qty": "170g"}, {"food": "1 por\u00e7\u00e3o de granola", "qty": "30g"}, {"food": "1 banana", "qty": "80g"}, {"food": "1 colher de sopa de coco ralado", "qty": "10g"}, {"food": "1 colher de sopa de requeij\u00e3o", "qty": "20g"}], "kcal": 300, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "100g arroz integral cozido", "qty": "100g"}, {"food": "80g feij\u00e3o preto cozido", "qty": "80g"}, {"food": "150g fil\u00e9 de til\u00e1pia grelhado", "qty": "150g"}, {"food": "150g batata-doce assada", "qty": "150g"}, {"food": "100g couve-flor refogada", "qty": "100g"}, {"food": "20g alface (salada verde)", "qty": "20g"}, {"food": "1 colher de ch\u00e1 de azeite de oliva", "qty": "5g"}, {"food": "30g queijo cottage", "qty": "30g"}, {"food": "15g farofa de mandioca", "qty": "15g"}, {"food": "1 colher de sopa de requeij\u00e3o", "qty": "20g"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "200g batata-doce cozida", "qty": "200g"}, {"food": "1 ovo cozido", "qty": "50g"}, {"food": "30g queijo cottage", "qty": "30g"}, {"food": "1 colher de sopa de granola", "qty": "15g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "100g arroz integral cozido", "qty": "100g"}, {"food": "80g feij\u00e3o Carioca cozido", "qty": "80g"}, {"food": "150g frango grelhado (peito)", "qty": "150g"}, {"food": "100g pur\u00ea de mandioquinha", "qty": "100g"}, {"food": "100g br\u00f3colis refogado", "qty": "100g"}, {"food": "20g alface (salada)", "qty": "20g"}, {"food": "1 colher de ch\u00e1 de azeite de oliva", "qty": "5g"}, {"food": "30g queijo cottage", "qty": "30g"}, {"food": "15g farofa de mandioca", "qty": "15g"}, {"food": "1 fatia de p\u00e3o integral", "qty": "30g"}, {"food": "1 pera", "qty": "100g"}, {"food": "1 colher de ch\u00e1 de margarina", "qty": "5g"}], "kcal": 800, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-05-17": {"date": "2026-05-17", "meals": [{"items": [{"food": "1 bowl de Mingau de Aveia com Mandioca (50g aveia, 100g mandioca cozida)", "qty": "150g"}, {"food": "1 banana prata amassada (100g)", "qty": "100g"}, {"food": "1 colher de sopa de pasta de amendoim (16g)", "qty": "16g"}, {"food": "1 fatia de queijo Minas frescal (30g)", "qty": "30g"}, {"food": "1 caf\u00e9 preto (200ml)", "qty": "200ml"}], "kcal": 600, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "1 iogurte natural (170g)", "qty": "170g"}, {"food": "1 por\u00e7\u00e3o de granola caseira (30g - aveia, castanha)", "qty": "30g"}, {"food": "1 pera (120g)", "qty": "120g"}], "kcal": 350, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "100g arroz integral cozido", "qty": "100g"}, {"food": "80g feij\u00e3o preto cozido", "qty": "80g"}, {"food": "150g peito de frango grelhado", "qty": "150g"}, {"food": "150g batata-doce assada", "qty": "150g"}, {"food": "100g couve refogada (alho e azeite)", "qty": "100g"}, {"food": "20g alface", "qty": "20g"}, {"food": "1 colher de ch\u00e1 de azeite de oliva (5g)", "qty": "5g"}, {"food": "30g queijo cottage", "qty": "30g"}, {"food": "15g farofa de mandioca", "qty": "15g"}, {"food": "1 laranja pequena (100g)", "qty": "100g"}], "kcal": 800, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "45g pipoca estourada (sem \u00f3leo, temperada com sal)", "qty": "45g"}, {"food": "1 ovo cozido (50g)", "qty": "50g"}, {"food": "1 fatia de queijo branco (20g)", "qty": "20g"}, {"food": "1 colher de sopa de pasta de amendoim (16g)", "qty": "16g"}, {"food": "1/2 banana (50g)", "qty": "50g"}], "kcal": 350, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "100g arroz branco cozido", "qty": "100g"}, {"food": "80g feij\u00e3o Carioca cozido", "qty": "80g"}, {"food": "150g fil\u00e9 de til\u00e1pia grelhado", "qty": "150g"}, {"food": "100g pur\u00ea de ab\u00f3bora", "qty": "100g"}, {"food": "100g couve-manteiga refogada", "qty": "100g"}, {"food": "20g alface", "qty": "20g"}, {"food": "1 colher de ch\u00e1 de azeite de oliva (5g)", "qty": "5g"}, {"food": "100g batata-doce cozida", "qty": "100g"}, {"food": "1 fatia de p\u00e3o integral (30g)", "qty": "30g"}, {"food": "30g queijo cottage", "qty": "30g"}, {"food": "1 colher de ch\u00e1 de margarina (5g)", "qty": "5g"}], "kcal": 700, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
-        const DAY_ORDER = Object.keys(DIET_DAYS).sort();
-        const TODAY_ISO = (function() {
-            const d = new Date();
-            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
-        })();
-        let dietIdx = DAY_ORDER.indexOf(TODAY_ISO);
-        if (dietIdx === -1) dietIdx = 1;
-
-        const MEAL_ICONS = {
-            'Café da Manhã': '☀️', 'Lanche da Manhã': '🍎',
-            'Almoço': '🍽️', 'Lanche da Tarde': '🥜', 'Jantar': '🌙'
-        };
-
-        function renderDiet() {
-            const key = DAY_ORDER[dietIdx];
-            const day = DIET_DAYS[key];
-            const labels = ['Ontem', 'Hoje', 'Amanhã'];
-            const [y, m, d] = key.split('-');
-
-            document.getElementById('diet-prev').disabled = dietIdx === 0;
-            document.getElementById('diet-next').disabled = dietIdx === DAY_ORDER.length - 1;
-            document.getElementById('diet-day-label').textContent = labels[dietIdx] + ' — ' + d + '/' + m;
-            document.getElementById('diet-kcal-total').textContent = 'Total: ' + day.total_kcal + ' kcal';
-
-            const container = document.getElementById('diet-meals');
-            container.innerHTML = '';
-            day.meals.forEach(meal => {
-                const icon = MEAL_ICONS[meal.name] || '🍴';
-                const card = document.createElement('div');
-                card.className = 'meal-card';
-                const itemsHtml = meal.items.map(i =>
-                    `<li class="meal-item"><span class="meal-item-name">${i.food}</span><span class="meal-qty">${i.qty}</span></li>`
-                ).join('');
-                card.innerHTML = `
-                    <div class="meal-header">
-                        <span class="meal-icon">${icon}</span>
-                        <span class="meal-name">${meal.name}</span>
-                        <span class="meal-time">${meal.time}</span>
-                        <span class="meal-kcal">${meal.kcal} kcal</span>
-                    </div>
-                    <ul class="meal-items">${itemsHtml}</ul>`;
-                container.appendChild(card);
-            });
-        }
-
-        function dietNav(dir) {
-            dietIdx = Math.max(0, Math.min(DAY_ORDER.length - 1, dietIdx + dir));
-            renderDiet();
-        }
-
-        document.addEventListener('DOMContentLoaded', renderDiet);
-    </script>
-    
 
     
     <!-- Album do Dia -->
@@ -726,20 +657,20 @@
             <span class="sec-icon">🎵</span>
             <div class="sec-texts">
                 <span class="sec-title">Álbum do Dia</span>
-                <span class="sec-sub">Da sua biblioteca</span>
+                <span class="sec-sub">Descoberta nova</span>
             </div>
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273892d166eaa02dfdd7c944e93" alt="Capa de El pueblo unido jamás será vencido (1973-1983) [Collection "L'art de..."]">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2731dda5f57ba5c203f775ea2dd" alt="Capa de The Head on the Door">
             
             <div class="album-info">
-                <div class="album-title">El pueblo unido jamás será vencido (1973-1983) [Collection "L'art de..."]</div>
-                <div class="album-artist">Quilapayún</div>
-                <div class="album-meta">1990</div>
-                <p class="album-why">Hoje, voltar a ouvir 'El pueblo unido jamás será vencido' é como reencontrar um velho amigo que nunca perde a força: a voz vibrante dos Quilapayún e suas harmonias corais traduzem a esperança e a luta de um povo inteiro, tornando cada acorde um convite à reflexão e à resistência. Esse registro de uma década de história chilena, com arranjos que mesclam folk e compromisso político, continua sendo um farol de coragem e união que nos inspira a manter viva a chama da justiça.</p>
+                <div class="album-title">The Head on the Door</div>
+                <div class="album-artist">The Cure</div>
+                <div class="album-meta">1985 · Alternative Rock / Post-Punk</div>
+                <p class="album-why">O álbum combina a profundidade atmosférica que Flavinho curte no Pink Floyd e Radiohead com melodias pop acessíveis — faixas como 'In Between Days' e 'A Forest' têm ganchos imediatos que lembram a energia de Linkin Park e The Strokes, enquanto o mood melancólico e introspectivo casa perfeitamente com o estilo de 'No Surprises' e 'Nutshell' que ele ama. É um clássico dos anos 80 que raramente aparece nas playlists brasileiras e vai surpreender.</p>
                 
-                <a href="spotify:album:0WdtE1ZqaKlx3lpzM0OApA" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:7zJzNs8eVgbkVVSQSwKRtx" class="btn-play">▶ Ouvir no Spotify</a>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -754,34 +685,62 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 45</span>
+                <span class="sec-sub">Salmos 105</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">O meu coração trasborda de boas palavras; dirijo os meus versos ao rei; a minha língua é qual pena de um hábil escriba.
-Tu és o mais formoso dos filhos dos homens; a graça se derramou nos teus lábios; por isso Deus te abençoou para sempre.
-Cinge a tua espada à coxa, ó valente, na tua glória e majestade.
-E em tua majestade cavalga vitoriosamente pela causa da verdade, da mansidão e da justiça, e a tua destra te ensina coisas terríveis.
-As tuas flechas são agudas no coração dos inimigos do rei; os povos caem debaixo de ti.
-O teu trono, ó Deus, subsiste pelos séculos dos séculos; cetro de eqüidade é o cetro do teu reino.
-Amaste a justiça e odiaste a iniqüidade; por isso Deus, o teu Deus, te ungiu com óleo de alegria, mais do que a teus companheiros.
-Todas as tuas vestes cheiram a mirra a aloés e a cássia; dos palácios de marfim os instrumentos de cordas e te alegram.
-Filhas de reis estão entre as tuas ilustres donzelas; à tua mão direita está a rainha, ornada de ouro de Ofir.
-Ouve, filha, e olha, e inclina teus ouvidos; esquece-te do teu povo e da casa de teu pai.
-Então o rei se afeiçoará à tua formosura. Ele é teu senhor, presta-lhe, pois, homenagem.
-A filha de Tiro estará ali com presentes; os ricos do povo suplicarão o teu favor.
-A filha do rei está esplendente lá dentro do palácio; as suas vestes são entretecidas de ouro.
-Em vestidos de cores brilhantes será conduzida ao rei; as virgens, suas companheiras que a seguem, serão trazidas à tua presença.
-Com alegria e regozijo serão trazidas; elas entrarão no palácio do rei.
-Em lugar de teus pais estarão teus filhos; tu os farás príncipes sobre toda a terra.
-Farei lembrado o teu nome de geração em geração; pelo que os povos te louvarão eternamente.</p>
-            <div class="psalm-ref">— Salmos 45</div>
+            <p class="psalm-text">Dai graças ao Senhor; invocai o seu nome; fazei conhecidos os seus feitos entre os povos.
+Cantai-lhe, cantai-lhe louvores; falai de todas as suas maravilhas.
+Gloriai-vos no seu santo nome; regozije-se o coração daqueles que buscam ao Senhor.
+Buscai ao Senhor e a sua força; buscai a sua face continuamente.
+Lembrai-vos das maravilhas que ele tem feito, dos seus prodígios e dos juízos da sua boca,
+vós, descendência de Abraão, seu servo, vós, filhos de Jacó, seus escolhidos.
+Ele é o Senhor nosso Deus; os seus juízos estão em toda a terra.
+Lembra-se perpetuamente do seu pacto, da palavra que ordenou para mil gerações;
+do pacto que fez com Abraão, e do seu juramento a Isaque;
+o qual ele confirmou a Jacó por estatuto, e a Israel por pacto eterno,
+dizendo: A ti darei a terra de Canaã, como porção da vossa herança.
+Quando eles eram ainda poucos em número, de pouca importância, e forasteiros nela,
+andando de nação em nação, dum reino para outro povo,
+não permitiu que ninguém os oprimisse, e por amor deles repreendeu reis, dizendo:
+Não toqueis nos meus ungidos, e não maltrateis os meus profetas.
+Chamou a fome sobre a terra; retirou-lhes todo o sustento do pão.
+Enviou adiante deles um varão; José foi vendido como escravo;
+feriram-lhe os pés com grilhões; puseram-no a ferro,
+até o tempo em que a sua palavra se cumpriu; a palavra do Senhor o provou.
+O rei mandou, e fez soltá-lo; o governador dos povos o libertou.
+Fê-lo senhor da sua casa, e governador de toda a sua fazenda,
+para, a seu gosto, dar ordens aos príncipes, e ensinar aos anciãos a sabedoria.
+Então Israel entrou no Egito, e Jacó peregrinou na terra de Cão.
+E o Senhor multiplicou sobremodo o seu povo, e o fez mais poderoso do que os seus inimigos.
+Mudou o coração destes para que odiassem o seu povo, e tratassem astutamente aos seus servos.
+Enviou Moisés, seu servo, e Arão, a quem escolhera,
+os quais executaram entre eles os seus sinais e prodígios na terra de Cão.
+Mandou à escuridão que a escurecesse; e foram rebeldes à sua palavra.
+Converteu-lhes as águas em sangue, e fez morrer os seus peixes.
+A terra deles produziu rãs em abundância, até nas câmaras dos seus reis.
+Ele falou, e vieram enxames de moscas em todo o seu têrmo.
+Deu-lhes saraiva por chuva, e fogo abrasador na sua terra.
+Feriu-lhes também as vinhas e os figueirais, e quebrou as árvores da sua terra.
+Ele falou, e vieram gafanhotos, e pulgões em quantidade inumerável,
+que comeram toda a erva da sua terra, e devoraram o fruto dos seus campos.
+Feriu também todos os primogênitos da terra deles, as primícias de toda a sua força.
+E fez sair os israelitas com prata e ouro, e entre as suas tribos não havia quem tropeçasse.
+O Egito alegrou-se quando eles saíram, porque o temor deles o dominara.
+Estendeu uma nuvem para os cobrir, e um fogo para os alumiar de noite.
+Eles pediram, e ele fez vir codornizes, e os saciou com pão do céu.
+Fendeu a rocha, e dela brotaram águas, que correram pelos lugares áridos como um rio.
+Porque se lembrou da sua santa palavra, e de Abraão, seu servo.
+Fez sair com alegria o seu povo, e com cânticos de júbilo os seus escolhidos.
+Deu-lhes as terras das nações, e eles herdaram o fruto do trabalho dos povos,
+para que guardassem os seus preceitos, e observassem as suas leis. Louvai ao Senhor</p>
+            <div class="psalm-ref">— Salmos 105</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:21 &middot; Daily Organizer
+        Gerado em 07:26 &middot; Daily Organizer
     </footer>
 
 </body>
