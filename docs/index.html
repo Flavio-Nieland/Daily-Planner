@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 17/05/2026</title>
+    <title>Seu Dia — 18/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Domingo &middot; 17/05/2026</p>
+        <p class="hero-sub">Segunda-feira &middot; 18/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -577,25 +577,130 @@
         <div class="weather-grid">
             <div class="weather-period wx-cloudy">
                 <div class="period-label">Manhã</div>
-                <div class="temp">15.9–22.3°C</div>
+                <div class="temp">17.0–18.1°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 13%</div>
+                <div class="rain">Chuva 90%</div>
             </div>
             <div class="weather-period wx-drizzle">
                 <div class="period-label">Tarde</div>
-                <div class="temp">20.7–23.5°C</div>
+                <div class="temp">16.1–17.4°C</div>
                 <div class="condition">Garoa fraca</div>
-                <div class="rain">Chuva 24%</div>
+                <div class="rain">Chuva 80%</div>
             </div>
             <div class="weather-period wx-drizzle">
                 <div class="period-label">Noite</div>
-                <div class="temp">19.0–19.9°C</div>
+                <div class="temp">14.8–15.6°C</div>
                 <div class="condition">Garoa fraca</div>
-                <div class="rain">Chuva 51%</div>
+                <div class="rain">Chuva 76%</div>
             </div>
         </div>
     </div>
 
+    
+    <!-- Peso Semanal (apenas segunda-feira) -->
+    <div class="card" id="weight-card">
+        <div class="sec-head">
+            <span class="sec-icon">⚖️</span>
+            <span class="sec-title">Peso Semanal</span>
+        </div>
+
+        <div id="weight-entry-section">
+            <p class="weight-question">Qual é o seu peso hoje?</p>
+            <div class="weight-input-row">
+                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
+                <span class="weight-unit">kg</span>
+                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
+            </div>
+        </div>
+
+        <div id="weight-saved-section" style="display:none">
+            <div class="weight-row">
+                <span class="weight-row-label">Hoje</span>
+                <span class="weight-row-value" id="today-weight-display">--</span>
+            </div>
+        </div>
+
+        <div class="weight-row">
+            <span class="weight-row-label">Semana passada</span>
+            <span class="weight-row-value" id="last-week-display">--</span>
+            <span id="weight-diff"></span>
+        </div>
+
+        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
+        <div id="chart-container" style="display:none">
+            <canvas id="weight-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script>
+        const WK = 'daily-organizer-weights';
+        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
+        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
+        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
+
+        function saveWeight() {
+            const input = document.getElementById('weight-input');
+            const val = parseFloat(input.value.replace(',', '.'));
+            if (isNaN(val) || val < 30 || val > 250) return;
+            const weights = getWeights();
+            weights[todayKey()] = val;
+            localStorage.setItem(WK, JSON.stringify(weights));
+            showSavedState(val);
+            updateLastWeek(val);
+        }
+
+        function showSavedState(todayVal) {
+            document.getElementById('weight-entry-section').style.display = 'none';
+            const saved = document.getElementById('weight-saved-section');
+            saved.style.display = 'block';
+            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
+        }
+
+        function updateLastWeek(todayVal) {
+            const weights = getWeights();
+            const last = weights[lastMondayKey()];
+            const el = document.getElementById('last-week-display');
+            const diffEl = document.getElementById('weight-diff');
+            if (last !== undefined) {
+                el.textContent = last + ' kg';
+                if (todayVal !== null && todayVal !== undefined) {
+                    const diff = (todayVal - last).toFixed(1);
+                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
+                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
+                    else               diffEl.textContent = '= igual';
+                }
+            } else { el.textContent = 'Sem registro'; }
+        }
+
+        function toggleChart() {
+            const container = document.getElementById('chart-container');
+            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
+            else { container.style.display = 'none'; }
+        }
+
+        function renderChart() {
+            const weights = getWeights();
+            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
+            if (entries.length === 0) return;
+            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
+            const data = entries.map(([,v]) => v);
+            const ctx = document.getElementById('weight-chart').getContext('2d');
+            if (window._wChart) window._wChart.destroy();
+            window._wChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
+                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const weights = getWeights();
+            const today = weights[todayKey()];
+            if (today !== undefined) showSavedState(today);
+            updateLastWeek(today ?? null);
+        });
+    </script>
     
 
     <!-- Atividades do Dia -->
@@ -610,6 +715,18 @@
                     <span class="prio-dot dot-high"></span> Alta
                 </div>
                 <ul class="activity-list">
+                    
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">trabalhar</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="treino.html" class="activity-link">treinar</a>
+                        
+                    </li>
                     
                 </ul>
             </div>
@@ -628,18 +745,6 @@
                     <li class="activity-item">
                         
                             <a href="alongamento.html" class="activity-link">alongar</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">ingles</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">xadrez</span>
                         
                     </li>
                     
@@ -662,15 +767,15 @@
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2731dda5f57ba5c203f775ea2dd" alt="Capa de The Head on the Door">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2736857335ec8283c2363853ddb" alt="Capa de Sá, Rodrix & Guarabyra">
             
             <div class="album-info">
-                <div class="album-title">The Head on the Door</div>
-                <div class="album-artist">The Cure</div>
-                <div class="album-meta">1985 · Alternative Rock / Post-Punk</div>
-                <p class="album-why">O álbum combina a profundidade atmosférica que Flavinho curte no Pink Floyd e Radiohead com melodias pop acessíveis — faixas como 'In Between Days' e 'A Forest' têm ganchos imediatos que lembram a energia de Linkin Park e The Strokes, enquanto o mood melancólico e introspectivo casa perfeitamente com o estilo de 'No Surprises' e 'Nutshell' que ele ama. É um clássico dos anos 80 que raramente aparece nas playlists brasileiras e vai surpreender.</p>
+                <div class="album-title">Sá, Rodrix & Guarabyra</div>
+                <div class="album-artist">Sá, Rodrix & Guarabyra</div>
+                <div class="album-meta">1979 · Brazilian Rock / Folk / Progressive</div>
+                <p class="album-why">Esse álbum marca a estreia da trio com um som que mistura rock brasileiro, folk e progressivo, direto nas raízes que o Flavío curte nas faixas de Passado Presente Futuro. As composições são mais cruas e experimentais, oferecendo uma experiência nova mesmo para quem já conhece a dupla. É uma ótima pedida para descobrir um lado menos explorado da música popular brasileira.</p>
                 
-                <a href="spotify:album:7zJzNs8eVgbkVVSQSwKRtx" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:4McHj0JZB0z9cwd4zRJk7R" class="btn-play">▶ Ouvir no Spotify</a>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -685,62 +790,34 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 105</span>
+                <span class="sec-sub">Salmos 7</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Dai graças ao Senhor; invocai o seu nome; fazei conhecidos os seus feitos entre os povos.
-Cantai-lhe, cantai-lhe louvores; falai de todas as suas maravilhas.
-Gloriai-vos no seu santo nome; regozije-se o coração daqueles que buscam ao Senhor.
-Buscai ao Senhor e a sua força; buscai a sua face continuamente.
-Lembrai-vos das maravilhas que ele tem feito, dos seus prodígios e dos juízos da sua boca,
-vós, descendência de Abraão, seu servo, vós, filhos de Jacó, seus escolhidos.
-Ele é o Senhor nosso Deus; os seus juízos estão em toda a terra.
-Lembra-se perpetuamente do seu pacto, da palavra que ordenou para mil gerações;
-do pacto que fez com Abraão, e do seu juramento a Isaque;
-o qual ele confirmou a Jacó por estatuto, e a Israel por pacto eterno,
-dizendo: A ti darei a terra de Canaã, como porção da vossa herança.
-Quando eles eram ainda poucos em número, de pouca importância, e forasteiros nela,
-andando de nação em nação, dum reino para outro povo,
-não permitiu que ninguém os oprimisse, e por amor deles repreendeu reis, dizendo:
-Não toqueis nos meus ungidos, e não maltrateis os meus profetas.
-Chamou a fome sobre a terra; retirou-lhes todo o sustento do pão.
-Enviou adiante deles um varão; José foi vendido como escravo;
-feriram-lhe os pés com grilhões; puseram-no a ferro,
-até o tempo em que a sua palavra se cumpriu; a palavra do Senhor o provou.
-O rei mandou, e fez soltá-lo; o governador dos povos o libertou.
-Fê-lo senhor da sua casa, e governador de toda a sua fazenda,
-para, a seu gosto, dar ordens aos príncipes, e ensinar aos anciãos a sabedoria.
-Então Israel entrou no Egito, e Jacó peregrinou na terra de Cão.
-E o Senhor multiplicou sobremodo o seu povo, e o fez mais poderoso do que os seus inimigos.
-Mudou o coração destes para que odiassem o seu povo, e tratassem astutamente aos seus servos.
-Enviou Moisés, seu servo, e Arão, a quem escolhera,
-os quais executaram entre eles os seus sinais e prodígios na terra de Cão.
-Mandou à escuridão que a escurecesse; e foram rebeldes à sua palavra.
-Converteu-lhes as águas em sangue, e fez morrer os seus peixes.
-A terra deles produziu rãs em abundância, até nas câmaras dos seus reis.
-Ele falou, e vieram enxames de moscas em todo o seu têrmo.
-Deu-lhes saraiva por chuva, e fogo abrasador na sua terra.
-Feriu-lhes também as vinhas e os figueirais, e quebrou as árvores da sua terra.
-Ele falou, e vieram gafanhotos, e pulgões em quantidade inumerável,
-que comeram toda a erva da sua terra, e devoraram o fruto dos seus campos.
-Feriu também todos os primogênitos da terra deles, as primícias de toda a sua força.
-E fez sair os israelitas com prata e ouro, e entre as suas tribos não havia quem tropeçasse.
-O Egito alegrou-se quando eles saíram, porque o temor deles o dominara.
-Estendeu uma nuvem para os cobrir, e um fogo para os alumiar de noite.
-Eles pediram, e ele fez vir codornizes, e os saciou com pão do céu.
-Fendeu a rocha, e dela brotaram águas, que correram pelos lugares áridos como um rio.
-Porque se lembrou da sua santa palavra, e de Abraão, seu servo.
-Fez sair com alegria o seu povo, e com cânticos de júbilo os seus escolhidos.
-Deu-lhes as terras das nações, e eles herdaram o fruto do trabalho dos povos,
-para que guardassem os seus preceitos, e observassem as suas leis. Louvai ao Senhor</p>
-            <div class="psalm-ref">— Salmos 105</div>
+            <p class="psalm-text">Senhor, Deus meu, confio, salva-me de todo o que me persegue, e livra-me;
+para que ele não me arrebate, qual leão, despedaçando-me, sem que haja quem acuda.
+Senhor, Deus meu, se eu fiz isto, se há perversidade nas minhas mãos,
+se paguei com o mal àquele que tinha paz comigo, ou se despojei o meu inimigo sem causa.
+persiga-me o inimigo e alcance-me; calque aos pés a minha vida no chão, e deite no pó a minha glória.
+Ergue-te, Senhor, na tua ira; levanta-te contra o furor dos meus inimigos; desperta-te, meu Deus, pois tens ordenado o juízo.
+Reúna-se ao redor de ti a assembléia dos povos, e por cima dela remonta-te ao alto.
+O Senhor julga os povos; julga-me, Senhor, de acordo com a minha justiça e conforme a integridade que há em mim.
+Cesse a maldade dos ímpios, mas estabeleça-se o justo; pois tu, ó justo Deus, provas o coração e os rins.
+O meu escudo está em Deus, que salva os retos de coração.
+Deus é um juiz justo, um Deus que sente indignação todos os dias.
+Se o homem não se arrepender, Deus afiará a sua espada; armado e teso está o seu arco;
+já preparou armas mortíferas, fazendo suas setas inflamadas.
+Eis que o mau está com dores de perversidade; concedeu a malvadez, e dará à luz a falsidade.
+Abre uma cova, aprofundando-a, e cai na cova que fez.
+A sua malvadez recairá sobre a sua cabeça, e a sua violência descerá sobre o seu crânio.
+Eu louvarei ao Senhor segundo a sua justiça, e cantarei louvores ao nome do Senhor, o Altíssimo.</p>
+            <div class="psalm-ref">— Salmos 7</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:26 &middot; Daily Organizer
+        Gerado em 09:36 &middot; Daily Organizer
     </footer>
 
 </body>
