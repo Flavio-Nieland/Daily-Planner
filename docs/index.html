@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 18/05/2026</title>
+    <title>Seu Dia — 19/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 18/05/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 19/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,132 +575,27 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-cloudy">
+            <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">17.0–18.1°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 90%</div>
+                <div class="temp">14.0–18.5°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 14%</div>
             </div>
-            <div class="weather-period wx-drizzle">
+            <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">16.1–17.4°C</div>
-                <div class="condition">Garoa fraca</div>
-                <div class="rain">Chuva 80%</div>
+                <div class="temp">17.1–19.1°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 5%</div>
             </div>
-            <div class="weather-period wx-drizzle">
+            <div class="weather-period wx-cloudy-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">14.8–15.6°C</div>
-                <div class="condition">Garoa fraca</div>
-                <div class="rain">Chuva 76%</div>
+                <div class="temp">15.2–16.4°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 6%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -724,6 +619,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -738,13 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <a href="leitura.html" class="activity-link">ler</a>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <a href="alongamento.html" class="activity-link">alongar</a>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -767,15 +662,15 @@
         </div>
         <div class="album-body">
             
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2736857335ec8283c2363853ddb" alt="Capa de Sá, Rodrix & Guarabyra">
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2738b5b6fa1326d996181e71dd7" alt="Capa de Meteora">
             
             <div class="album-info">
-                <div class="album-title">Sá, Rodrix & Guarabyra</div>
-                <div class="album-artist">Sá, Rodrix & Guarabyra</div>
-                <div class="album-meta">1979 · Brazilian Rock / Folk / Progressive</div>
-                <p class="album-why">Esse álbum marca a estreia da trio com um som que mistura rock brasileiro, folk e progressivo, direto nas raízes que o Flavío curte nas faixas de Passado Presente Futuro. As composições são mais cruas e experimentais, oferecendo uma experiência nova mesmo para quem já conhece a dupla. É uma ótima pedida para descobrir um lado menos explorado da música popular brasileira.</p>
+                <div class="album-title">Meteora</div>
+                <div class="album-artist">Linkin Park</div>
+                <div class="album-meta">2003 · Nu Metal / Alternative Rock</div>
+                <p class="album-why">Flávio já tem álbuns do Linkin Park na biblioteca e claramente valoriza a band's energia emocional — 'Somewhere I Belong' é uma das favoritas dele. 'Meteora' é ainda mais acessível e coeso que o 'Hybrid Theory', combinando a ferocidade do nu metal com melodias memoráveis e produções ricas em camadas, o que agrada tanto ao lado mais pesado quanto ao mais acessível do gosto dele.</p>
                 
-                <a href="spotify:album:4McHj0JZB0z9cwd4zRJk7R" class="btn-play">▶ Ouvir no Spotify</a>
+                <a href="spotify:album:0f7R0jf0pcTb6K6IVVPcMD" class="btn-play">▶ Ouvir no Spotify</a>
                 
                 <a href="album-history.html" class="btn-history">Ver histórico</a>
             </div>
@@ -790,34 +685,24 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 7</span>
+                <span class="sec-sub">Salmos 110</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Senhor, Deus meu, confio, salva-me de todo o que me persegue, e livra-me;
-para que ele não me arrebate, qual leão, despedaçando-me, sem que haja quem acuda.
-Senhor, Deus meu, se eu fiz isto, se há perversidade nas minhas mãos,
-se paguei com o mal àquele que tinha paz comigo, ou se despojei o meu inimigo sem causa.
-persiga-me o inimigo e alcance-me; calque aos pés a minha vida no chão, e deite no pó a minha glória.
-Ergue-te, Senhor, na tua ira; levanta-te contra o furor dos meus inimigos; desperta-te, meu Deus, pois tens ordenado o juízo.
-Reúna-se ao redor de ti a assembléia dos povos, e por cima dela remonta-te ao alto.
-O Senhor julga os povos; julga-me, Senhor, de acordo com a minha justiça e conforme a integridade que há em mim.
-Cesse a maldade dos ímpios, mas estabeleça-se o justo; pois tu, ó justo Deus, provas o coração e os rins.
-O meu escudo está em Deus, que salva os retos de coração.
-Deus é um juiz justo, um Deus que sente indignação todos os dias.
-Se o homem não se arrepender, Deus afiará a sua espada; armado e teso está o seu arco;
-já preparou armas mortíferas, fazendo suas setas inflamadas.
-Eis que o mau está com dores de perversidade; concedeu a malvadez, e dará à luz a falsidade.
-Abre uma cova, aprofundando-a, e cai na cova que fez.
-A sua malvadez recairá sobre a sua cabeça, e a sua violência descerá sobre o seu crânio.
-Eu louvarei ao Senhor segundo a sua justiça, e cantarei louvores ao nome do Senhor, o Altíssimo.</p>
-            <div class="psalm-ref">— Salmos 7</div>
+            <p class="psalm-text">Disse o Senhor ao meu Senhor: Assenta-te à minha direita, até que eu ponha os teus inimigos por escabelo dos teus pés.
+O Senhor enviará de Sião o cetro do teu poder. Domina no meio dos teus inimigos.
+O teu povo apresentar-se-á voluntariamente no dia do teu poder, em trajes santos; como vindo do próprio seio da alva, será o orvalho da tua mocidade.
+Jurou o Senhor, e não se arrependerá: Tu és sacerdote para sempre, segundo a ordem de Melquisedeque.
+O Senhor, à tua direita, quebrantará reis no dia da sua ira.
+Julgará entre as nações; enchê-las-á de cadáveres; quebrantará os cabeças por toda a terra.
+Pelo caminho beberá da corrente, e prosseguirá de cabeça erguida.</p>
+            <div class="psalm-ref">— Salmos 110</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 09:36 &middot; Daily Organizer
+        Gerado em 08:59 &middot; Daily Organizer
     </footer>
 
 </body>
