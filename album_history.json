@@ -194,5 +194,12 @@
     "artist": "Linkin Park",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b2738b5b6fa1326d996181e71dd7",
     "spotify_id": "0f7R0jf0pcTb6K6IVVPcMD"
+  },
+  {
+    "date": "20/05/2026",
+    "album": "Aja",
+    "artist": "Steely Dan",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b273cf39e4261576717ff4737bb6",
+    "spotify_id": "1hOK2ey9W76x9GnftSRgrw"
   }
 ]

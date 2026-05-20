@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 15/05/2026</title>
+    <title>Programação — 20/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -154,11 +154,11 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Sexta-feira &middot; 15/05/2026</p>
+        <p class="hero-sub">Quarta-feira &middot; 20/05/2026</p>
         <div class="hero-pills">
-            <span class="hero-pill">Pipeline RAG com LangChain e Chroma</span>
+            <span class="hero-pill">RAG com LangChain e Chroma</span>
             
-            <span class="hero-pill hero-pill-secondary">LangChain, Chroma, OpenAI</span>
+            <span class="hero-pill hero-pill-secondary">LangChain</span>
             
         </div>
     </div>
@@ -176,11 +176,11 @@
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">1</span>
-                    <span class="step-title">Revisão de conceitos de RAG</span>
+                    <span class="step-title">Revisão teórica de RAG e embeddings</span>
                 </div>
                 <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Ler 5‑10 min sobre Retrieval‑Augmented Generation: o que é, quando usar e os componentes (retrieval, generation, augmentation). Resuma em 3 bullet points no caderno.</p>
+            <p class="step-description">Ler conceitos de Retrieval-Augmented Generation, vetorização e embeddings. Resuma pontos-chave em suas próprias palavras.</p>
         </div>
         
         <div class="step-item">
@@ -191,46 +191,35 @@
                 </div>
                 <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Criar um ambiente virtual (python -m venv rag_env), ativar, instalar pip install langchain langchain-openai langchain-community chromadb tiktoken. Verificar com python -c "import langchain; print(langchain.__version__)".</p>
+            <p class="step-description">Criar ambiente virtual (venv), instalar langchain, langchain-community, chromadb e openai (ou usar simulação com HuggingFace). Verificar importação.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Implementar pipeline RAG end‑to‑end</span>
+                    <span class="step-title">Implementar pipeline RAG</span>
                 </div>
-                <span class="step-duration">25 min</span>
+                <span class="step-duration">30 min</span>
             </div>
-            <p class="step-description">Escrever script rag_pipeline.py: (1) carregar PDF ou texto com LangChain DocumentLoaders, (2) chunkar com RecursiveCharacterTextSplitter (chunk_size=500, overlap=50), (3) criar embeddings via OpenAIEmbeddings, (4) indexar em Chroma vectorstore, (5) montar RetrievalQA chain com ChatOpenAI. Incluir tratamento de exceções e prints de status.</p>
+            <p class="step-description">Escrever script Python que: 1) Carrega documentos de texto (ex: 3 arquivos .txt); 2) Quebra em chunks; 3) Gera embeddings via OpenAI ou HuggingFace; 4) Armazena no Chroma; 5) Implementa função de retrieval que busca os k documentos mais similares a uma query.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Testar pipeline com uma pergunta de exemplo</span>
+                    <span class="step-title">Testar retrieval e observar resultados</span>
                 </div>
                 <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Executar o script passando uma pergunta como 'Qual o resumo do documento?' e capturar a resposta. Comparar resultado com e sem retrieval (i.e., apenas generation) e notar diferenças.</p>
-        </div>
-        
-        <div class="step-item">
-            <div class="step-header">
-                <div class="step-num-title">
-                    <span class="step-num">5</span>
-                    <span class="step-title">Documentar e criar snippet reutilizável</span>
-                </div>
-                <span class="step-duration">5 min</span>
-            </div>
-            <p class="step-description">Adicionar docstrings e comentários ao código, criar função build_rag_chain(persist_dir) que retorna a chain. Salvar como rag_utils.py para uso futuro.</p>
+            <p class="step-description">Executar o script com queries variadas, analisar os documentos retornados e ajustar parâmetros de chunk size e top-k. Documentar observações.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 08:20 &middot; Daily Organizer
+        Gerado em 08:49 &middot; Daily Organizer
     </footer>
 
 </body>
