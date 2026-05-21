@@ -201,5 +201,12 @@
     "artist": "Steely Dan",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b273cf39e4261576717ff4737bb6",
     "spotify_id": "1hOK2ey9W76x9GnftSRgrw"
+  },
+  {
+    "date": "21/05/2026",
+    "album": "Ænima",
+    "artist": "Tool",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b27347daa44983fa6079910ed295",
+    "spotify_id": "6yWMN087PgSimbcVmHLEwG"
   }
 ]
