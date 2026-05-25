@@ -229,5 +229,12 @@
     "artist": "Almir Sater",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b273c34b85995acaa23f04462145",
     "spotify_id": "6e8MHVTp5HEUZiqqGg2Eo3"
+  },
+  {
+    "date": "25/05/2026",
+    "album": "Os Graces",
+    "artist": "Os Graces",
+    "cover_url": null,
+    "spotify_id": null
   }
 ]
