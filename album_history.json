@@ -236,5 +236,12 @@
     "artist": "Os Graces",
     "cover_url": null,
     "spotify_id": null
+  },
+  {
+    "date": "27/05/2026",
+    "album": "Passado Presente Futuro",
+    "artist": "Sa, Rodrix & Guarabyra",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b2739b2a28739fe356e1b632fa24",
+    "spotify_id": "78WaHJ6d5nNAhRDrzCUtUF"
   }
 ]
