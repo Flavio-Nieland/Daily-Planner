@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 27/05/2026</title>
+    <title>Seu Dia — 28/05/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Quarta-feira &middot; 27/05/2026</p>
+        <p class="hero-sub">Quinta-feira &middot; 28/05/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -577,20 +577,20 @@
         <div class="weather-grid">
             <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">13.4–20.6°C</div>
+                <div class="temp">11.6–20.1°C</div>
                 <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">19.3–22.5°C</div>
-                <div class="condition">Céu limpo</div>
+                <div class="temp">18.1–21.5°C</div>
+                <div class="condition">Principalmente limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">12.8–18.0°C</div>
-                <div class="condition">Céu limpo</div>
+                <div class="temp">15.6–17.1°C</div>
+                <div class="condition">Principalmente limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
         </div>
@@ -639,7 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <a href="programacao.html" class="activity-link">programação</a>
+                            <span class="activity-name">Inglês</span>
                         
                     </li>
                     
@@ -649,102 +649,7 @@
     </div>
 
     
-    <div class="card">
-        <div class="sec-head">
-            <span class="sec-icon">🥗</span>
-            <span class="sec-title">Dieta do Dia</span>
-        </div>
-        <div class="diet-nav">
-            <button class="diet-arrow" id="diet-prev" onclick="dietNav(-1)">&#8249;</button>
-            <span class="diet-day-label" id="diet-day-label">Hoje</span>
-            <button class="diet-arrow" id="diet-next" onclick="dietNav(1)">&#8250;</button>
-        </div>
-        <p class="diet-kcal-pill" id="diet-kcal-total"></p>
-        <div id="diet-meals"></div>
-    </div>
 
-    <script>
-        const DIET_DAYS = {"2026-05-26": {"date": "2026-05-26", "meals": [{"items": [{"food": "P\u00e3o integral (1 fatia)", "qty": "30g"}, {"food": "Ovos mexidos", "qty": "100g (2 ovos m\u00e9dios)"}, {"food": "Azeite de oliva", "qty": "2,5ml (\u00bd colher de ch\u00e1)"}, {"food": "Banana", "qty": "100g (1 m\u00e9dia)"}, {"food": "Leite integral", "qty": "200ml (1 x\u00edcara)"}, {"food": "Laranja pequena", "qty": "80g (1 unidade)"}, {"food": "Mel", "qty": "7g (1 colher de ch\u00e1)"}], "kcal": 536, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Ma\u00e7\u00e3", "qty": "150g (1 m\u00e9dia)"}, {"food": "Am\u00eandoas", "qty": "25g"}, {"food": "Iogurte natural desnatado", "qty": "100g (1 pote)"}], "kcal": 301, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral cozido", "qty": "150g (1 por\u00e7\u00e3o)"}, {"food": "Feij\u00e3o preto cozido", "qty": "130g (\u00bd x\u00edcara)"}, {"food": "Peito de frango grelhado", "qty": "130g"}, {"food": "Couve refogada com alho e azeite", "qty": "150g (com 1 colher de ch\u00e1 de azeite)"}, {"food": "Cenoura assada", "qty": "100g"}, {"food": "Ab\u00f3bora assada", "qty": "100g"}, {"food": "Laranja m\u00e9dia", "qty": "130g (1 unidade)"}, {"food": "Ma\u00e7\u00e3 pequena", "qty": "80g (1 unidade)"}, {"food": "Azeite extra", "qty": "1g (\u2248 9 kcal)"}], "kcal": 806, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Wrap integral pequeno", "qty": "50g (1 unidade)"}, {"food": "Peito de frango grelhado em tiras", "qty": "80g"}, {"food": "Alface", "qty": "20g"}, {"food": "Tomate", "qty": "30g"}, {"food": "Mostarda", "qty": "5g (1 colher de ch\u00e1)"}, {"food": "Ma\u00e7\u00e3 pequena", "qty": "80g (1 unidade)"}, {"food": "Mel", "qty": "14g (2 colheres de ch\u00e1)"}], "kcal": 375, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz integral cozido", "qty": "150g (1 por\u00e7\u00e3o)"}, {"food": "Feij\u00e3o preto cozido", "qty": "100g (\u00bd x\u00edcara)"}, {"food": "Til\u00e1pia assada", "qty": "150g"}, {"food": "Br\u00f3colis refogado com alho e azeite", "qty": "150g (com 1 colher de ch\u00e1 de azeite)"}, {"food": "Cenoura assada", "qty": "100g"}, {"food": "Batata-doce assada", "qty": "100g"}, {"food": "Laranja m\u00e9dia", "qty": "130g (1 unidade)"}, {"food": "Ma\u00e7\u00e3 pequena", "qty": "80g (1 unidade)"}, {"food": "Mel", "qty": "7g (1 colher de ch\u00e1)"}, {"food": "Azeite de oliva", "qty": "2,5ml (\u00bd colher de ch\u00e1)"}], "kcal": 782, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}, "2026-05-27": {"date": "2026-05-27", "meals": [{"items": [{"food": "Tapioca (goma)", "qty": "50g"}, {"food": "Frango desfiado", "qty": "100g"}, {"food": "Tomate", "qty": "30g"}, {"food": "Azeite de oliva", "qty": "5ml (1 colher de ch\u00e1)"}, {"food": "Banana", "qty": "100g (1 m\u00e9dia)"}, {"food": "Leite integral", "qty": "200ml (1 x\u00edcara)"}], "kcal": 570, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural desnatado", "qty": "170g (1 pote)"}, {"food": "Granola", "qty": "30g"}, {"food": "Ma\u00e7\u00e3", "qty": "150g (1 m\u00e9dia)"}], "kcal": 298, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral cozido", "qty": "100g (1 por\u00e7\u00e3o)"}, {"food": "Feij\u00e3o preto cozido", "qty": "100g (\u00bd x\u00edcara)"}, {"food": "Bife de boi (patinho) grelhado", "qty": "130g"}, {"food": "Couve refogada com alho e azeite", "qty": "150g (com 1 colher de ch\u00e1 de azeite)"}, {"food": "Batata-doce assada", "qty": "100g"}, {"food": "Laranja m\u00e9dia", "qty": "130g (1 unidade)"}, {"food": "Azeite de oliva", "qty": "5ml (1 colher de ch\u00e1)"}, {"food": "Abacate", "qty": "30g"}], "kcal": 775, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "P\u00e3o integral", "qty": "40g (2 fatias)"}, {"food": "Pasta de amendoim", "qty": "20g (1 colher de sopa)"}, {"food": "Banana", "qty": "100g (1 m\u00e9dia)"}], "kcal": 322, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz branco cozido", "qty": "150g (1 por\u00e7\u00e3o)"}, {"food": "Feij\u00e3o mulatinho cozido", "qty": "70g (\u00bc x\u00edcara)"}, {"food": "Til\u00e1pia grelhada", "qty": "130g"}, {"food": "Br\u00f3colis refogado com alho e azeite", "qty": "150g (com 1 colher de ch\u00e1 de azeite)"}, {"food": "Cenoura assada", "qty": "100g"}, {"food": "Ab\u00f3bora assada", "qty": "100g"}, {"food": "Azeite de oliva", "qty": "5ml (1 colher de ch\u00e1)"}, {"food": "Laranja m\u00e9dia", "qty": "130g (1 unidade)"}, {"food": "Batata-doce assada", "qty": "100g"}, {"food": "Abacate", "qty": "30g"}], "kcal": 815, "name": "Jantar", "time": "19:30"}], "total_kcal": 2780}, "2026-05-28": {"date": "2026-05-28", "meals": [{"items": [{"food": "Aveia (flocos)", "qty": "40g"}, {"food": "Leite integral", "qty": "200ml"}, {"food": "Banana m\u00e9dia", "qty": "100g"}, {"food": "Chia (sementes)", "qty": "10g"}, {"food": "Mel", "qty": "5g"}, {"food": "Ovo cozido", "qty": "50g (1 unidade)"}, {"food": "Azeite de oliva", "qty": "5ml (1 colher de ch\u00e1)"}], "kcal": 557, "name": "Caf\u00e9 da Manh\u00e3", "time": "07:00"}, {"items": [{"food": "Iogurte natural desnatado", "qty": "170g (1 pote)"}, {"food": "Granola", "qty": "30g"}, {"food": "Amendoim torrado", "qty": "20g"}, {"food": "Ma\u00e7\u00e3 pequena", "qty": "80g (1 unidade)"}], "kcal": 370, "name": "Lanche da Manh\u00e3", "time": "10:00"}, {"items": [{"food": "Arroz integral cozido", "qty": "150g (1 por\u00e7\u00e3o)"}, {"food": "Feij\u00e3o preto cozido", "qty": "130g (\u00bd x\u00edcara)"}, {"food": "Frango grelhado", "qty": "110g"}, {"food": "Br\u00f3colis refogado com alho e azeite", "qty": "150g (com 1 colher de ch\u00e1 de azeite)"}, {"food": "Batata doce assada", "qty": "100g"}, {"food": "Beterraba assada", "qty": "100g"}, {"food": "Laranja m\u00e9dia", "qty": "130g (1 unidade)"}, {"food": "Queijo branco", "qty": "15g (1 fatia)"}, {"food": "Azeite extra", "qty": "5ml (1 colher de ch\u00e1)"}], "kcal": 786, "name": "Almo\u00e7o", "time": "12:30"}, {"items": [{"food": "Wrap integral", "qty": "50g (1 unidade)"}, {"food": "Peito de peru", "qty": "50g"}, {"food": "Alface", "qty": "20g"}, {"food": "Tomate", "qty": "30g"}, {"food": "Mostarda", "qty": "5g (1 colher de ch\u00e1)"}, {"food": "Ma\u00e7\u00e3 pequena", "qty": "80g (1 unidade)"}, {"food": "Mel", "qty": "7g (1 colher de ch\u00e1)"}, {"food": "Queijo branco", "qty": "10g (\u00bd fatia)"}], "kcal": 295, "name": "Lanche da Tarde", "time": "16:00"}, {"items": [{"food": "Arroz branco cozido", "qty": "150g (1 por\u00e7\u00e3o)"}, {"food": "Feij\u00e3o Carioca cozido", "qty": "100g (\u00bd x\u00edcara)"}, {"food": "Sardinha assada", "qty": "100g (1 por\u00e7\u00e3o)"}, {"food": "Couve refogada com alho e azeite", "qty": "150g (com 1 colher de ch\u00e1 de azeite)"}, {"food": "Cenoura assada", "qty": "100g"}, {"food": "Ab\u00f3bora assada", "qty": "100g"}, {"food": "Laranja m\u00e9dia", "qty": "130g (1 unidade)"}, {"food": "Azeite extra", "qty": "4ml (\u2248 1 colher de ch\u00e1)"}, {"food": "Queijo branco", "qty": "20g (1 fatia)"}], "kcal": 792, "name": "Jantar", "time": "19:30"}], "total_kcal": 2800}};
-        const DAY_ORDER = Object.keys(DIET_DAYS).sort();
-        const TODAY_ISO = (function() {
-            const d = new Date();
-            return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
-        })();
-        let dietIdx = DAY_ORDER.indexOf(TODAY_ISO);
-        if (dietIdx === -1) dietIdx = 1;
-
-        const MEAL_ICONS = {
-            'Café da Manhã': '☀️', 'Lanche da Manhã': '🍎',
-            'Almoço': '🍽️', 'Lanche da Tarde': '🥜', 'Jantar': '🌙'
-        };
-
-        function renderDiet() {
-            const key = DAY_ORDER[dietIdx];
-            const day = DIET_DAYS[key];
-            const labels = ['Ontem', 'Hoje', 'Amanhã'];
-            const [y, m, d] = key.split('-');
-
-            document.getElementById('diet-prev').disabled = dietIdx === 0;
-            document.getElementById('diet-next').disabled = dietIdx === DAY_ORDER.length - 1;
-            document.getElementById('diet-day-label').textContent = labels[dietIdx] + ' — ' + d + '/' + m;
-            document.getElementById('diet-kcal-total').textContent = 'Total: ' + day.total_kcal + ' kcal';
-
-            const container = document.getElementById('diet-meals');
-            container.innerHTML = '';
-            day.meals.forEach(meal => {
-                const icon = MEAL_ICONS[meal.name] || '🍴';
-                const card = document.createElement('div');
-                card.className = 'meal-card';
-                const itemsHtml = meal.items.map(i =>
-                    `<li class="meal-item"><span class="meal-item-name">${i.food}</span><span class="meal-qty">${i.qty}</span></li>`
-                ).join('');
-                card.innerHTML = `
-                    <div class="meal-header">
-                        <span class="meal-icon">${icon}</span>
-                        <span class="meal-name">${meal.name}</span>
-                        <span class="meal-time">${meal.time}</span>
-                        <span class="meal-kcal">${meal.kcal} kcal</span>
-                    </div>
-                    <ul class="meal-items">${itemsHtml}</ul>`;
-                container.appendChild(card);
-            });
-        }
-
-        function dietNav(dir) {
-            dietIdx = Math.max(0, Math.min(DAY_ORDER.length - 1, dietIdx + dir));
-            renderDiet();
-        }
-
-        document.addEventListener('DOMContentLoaded', renderDiet);
-    </script>
-    
-
-    
-    <!-- Album do Dia -->
-    <div class="card">
-        <div class="sec-head">
-            <span class="sec-icon">🎵</span>
-            <div class="sec-texts">
-                <span class="sec-title">Álbum do Dia</span>
-                <span class="sec-sub">Da sua biblioteca</span>
-            </div>
-        </div>
-        <div class="album-body">
-            
-            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2739b2a28739fe356e1b632fa24" alt="Capa de Passado Presente Futuro">
-            
-            <div class="album-info">
-                <div class="album-title">Passado Presente Futuro</div>
-                <div class="album-artist">Sa, Rodrix & Guarabyra</div>
-                <div class="album-meta">1972</div>
-                <p class="album-why">‘Passado Presente Futuro’ é um álbum que parece atravessar o tempo com a energia de uma conversa entre amigos, mesclando rock brasileiro, folk e MPB com uma vitalidade que ainda hoje nos empolga. Cada faixa carrega a marca inconfundível da amizade entre Sá, Rodrix e Guarabyra, criando um clima de celebração e reflexão que torna a escuta perfeita para qualquer momento do dia. Relembrar esse disco hoje é como reencontrar um velho companheiro que sempre tem algo novo para contar.</p>
-                
-                <a href="spotify:album:78WaHJ6d5nNAhRDrzCUtUF" class="btn-play">▶ Ouvir no Spotify</a>
-                
-                <a href="album-history.html" class="btn-history">Ver histórico</a>
-            </div>
-        </div>
-    </div>
     
 
     
@@ -754,26 +659,22 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 47</span>
+                <span class="sec-sub">Salmos 15</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Batei palmas, todos os povos; aclamai a Deus com voz de júbilo.
-Porque o Senhor Altíssimo é tremendo; é grande Rei sobre toda a terra.
-Ele nos sujeitou povos e nações sob os nossos pés.
-Escolheu para nós a nossa herança, a glória de Jacó, a quem amou.
-Deus subiu entre aplausos, o Senhor subiu ao som de trombeta.
-Cantai louvores a Deus, cantai louvores; cantai louvores ao nosso Rei, cantai louvores.
-Pois Deus é o Rei de toda a terra; cantai louvores com salmo.
-Deus reina sobre as nações; Deus está sentado sobre o seu santo trono.
-Os príncipes dos povos se reúnem como povo do Deus de Abraão, porque a Deus pertencem os escudos da terra; ele é sumamente exaltado.</p>
-            <div class="psalm-ref">— Salmos 47</div>
+            <p class="psalm-text">Quem, Senhor, habitará na tua tenda? quem morará no teu santo monte?
+Aquele que anda irrepreensivelmente e pratica a justiça, e do coração fala a verdade;
+que não difama com a sua língua, nem faz o mal ao seu próximo, nem contra ele aceita nenhuma afronta;
+aquele a cujos olhos o réprobo é desprezado, mas que honra os que temem ao Senhor; aquele que, embora jure com dano seu, não muda;
+que não empresta o seu dinheiro a juros, nem recebe peitas contra o inocente. Aquele que assim procede nunca será abalado.</p>
+            <div class="psalm-ref">— Salmos 15</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 09:26 &middot; Daily Organizer
+        Gerado em 09:24 &middot; Daily Organizer
     </footer>
 
 </body>
