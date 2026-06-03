@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 27/05/2026</title>
+    <title>Programação — 03/06/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -154,11 +154,11 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Quarta-feira &middot; 27/05/2026</p>
+        <p class="hero-sub">Quarta-feira &middot; 03/06/2026</p>
         <div class="hero-pills">
-            <span class="hero-pill">FastAPI: API REST com autenticação JWT</span>
+            <span class="hero-pill">Pipeline RAG básico com LangChain</span>
             
-            <span class="hero-pill hero-pill-secondary">FastAPI</span>
+            <span class="hero-pill hero-pill-secondary">LangChain, FAISS</span>
             
         </div>
     </div>
@@ -176,50 +176,50 @@
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">1</span>
-                    <span class="step-title">Configuração do ambiente virtual e instalação de dependências</span>
+                    <span class="step-title">Conceitos fundamentais de RAG</span>
                 </div>
-                <span class="step-duration">10 min</span>
+                <span class="step-duration">12 min</span>
             </div>
-            <p class="step-description">Criar ambiente virtual com venv, instalar fastapi, uvicorn, pydantic, python-jose e passlib. Verificar instalação com import rápido.</p>
+            <p class="step-description">Revisar o que é Retrieval-Augmented Generation: chunks, embeddings, vector store, query retrieval. Entender o fluxo: documento → chunk → embedding → armazenamento → recuperação → prompt → LLM.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">2</span>
-                    <span class="step-title">Definição de modelos Pydantic e lógica de autenticação</span>
+                    <span class="step-title">Configurar ambiente e instalar dependências</span>
                 </div>
-                <span class="step-duration">15 min</span>
+                <span class="step-duration">8 min</span>
             </div>
-            <p class="step-description">Escrever modelos de requisição/resposta (UserCreate, Token) e funções para hash de senha e criação de token JWT usando python-jose.</p>
+            <p class="step-description">Criar ambiente virtual com python -m venv rag_env && source rag_env/bin/activate. Instalar: pip install langchain langchain-openai faiss-cpu python-dotenv. Definir OPENAI_API_KEY no .env.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Implementação dos endpoints e proteção com OAuth2</span>
+                    <span class="step-title">Implementar pipeline RAG completo</span>
                 </div>
-                <span class="step-duration">20 min</span>
+                <span class="step-duration">25 min</span>
             </div>
-            <p class="step-description">Criar router com POST /users e GET /users/me, usar Depends para proteger rotas com OAuth2PasswordBearer. Testar fluxo de login via POST /token.</p>
+            <p class="step-description">Escrever script completo: 1) Carregar documento (TextLoader) 2) Chunkar com RecursiveCharacterTextSplitter (chunk_size=500, overlap=50) 3) Gerar embeddings com OpenAIEmbeddings 4) Indexar no FAISS 5) Criar RetrievalQA chain comstuff chain type 6) Testar com 3 perguntas diferentes sobre o documento.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Documentação Swagger e teste da API com curl</span>
+                    <span class="step-title">Avaliar e otimizar retrieval</span>
                 </div>
                 <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Acessar /docs para interagir com a API, executar curl ou httpie para chamar endpoints e validar resposta 200 OK e Bearer token.</p>
+            <p class="step-description">Testar relevância dos chunks recuperados. Ajustar chunk_size e k (número de docs retrieved). Medir tempo de resposta. Salvar script final como rag_pipeline.py.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 09:26 &middot; Daily Organizer
+        Gerado em 10:12 &middot; Daily Organizer
     </footer>
 
 </body>
