@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programação — 03/06/2026</title>
+    <title>Programação — 05/06/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -154,11 +154,11 @@
 
     <div class="hero">
         <h1>Programação de Hoje</h1>
-        <p class="hero-sub">Quarta-feira &middot; 03/06/2026</p>
+        <p class="hero-sub">Sexta-feira &middot; 05/06/2026</p>
         <div class="hero-pills">
-            <span class="hero-pill">Pipeline RAG básico com LangChain</span>
+            <span class="hero-pill">Agentes LLM com LangChain</span>
             
-            <span class="hero-pill hero-pill-secondary">LangChain, FAISS</span>
+            <span class="hero-pill hero-pill-secondary">LangChain</span>
             
         </div>
     </div>
@@ -176,50 +176,61 @@
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">1</span>
-                    <span class="step-title">Conceitos fundamentais de RAG</span>
+                    <span class="step-title">Revisar conceitos de agentes LLM</span>
                 </div>
-                <span class="step-duration">12 min</span>
+                <span class="step-duration">10 min</span>
             </div>
-            <p class="step-description">Revisar o que é Retrieval-Augmented Generation: chunks, embeddings, vector store, query retrieval. Entender o fluxo: documento → chunk → embedding → armazenamento → recuperação → prompt → LLM.</p>
+            <p class="step-description">Estudar o padrão de agentes: tool calling, reasoning loops, reAct. Ver documentação oficial sobre LCEL e AgentExecutor. Entender diferença entre zero-shot e conversational agents.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">2</span>
-                    <span class="step-title">Configurar ambiente e instalar dependências</span>
+                    <span class="step-title">Configurar ambiente</span>
                 </div>
-                <span class="step-duration">8 min</span>
+                <span class="step-duration">5 min</span>
             </div>
-            <p class="step-description">Criar ambiente virtual com python -m venv rag_env && source rag_env/bin/activate. Instalar: pip install langchain langchain-openai faiss-cpu python-dotenv. Definir OPENAI_API_KEY no .env.</p>
+            <p class="step-description">Criar arquivo agent.py. Instalar langchain-openai, langchain-community. Configurar OPENAI_API_KEY no .env. Testar conexão básica com ChatOpenAI.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">3</span>
-                    <span class="step-title">Implementar pipeline RAG completo</span>
+                    <span class="step-title">Implementar agente com tools</span>
                 </div>
                 <span class="step-duration">25 min</span>
             </div>
-            <p class="step-description">Escrever script completo: 1) Carregar documento (TextLoader) 2) Chunkar com RecursiveCharacterTextSplitter (chunk_size=500, overlap=50) 3) Gerar embeddings com OpenAIEmbeddings 4) Indexar no FAISS 5) Criar RetrievalQA chain comstuff chain type 6) Testar com 3 perguntas diferentes sobre o documento.</p>
+            <p class="step-description">Escrever agente que usa SearchAPI e Calculator como tools. Definir prompt do sistema com instruções claras. Implementar loop de execução mostrando reasoning steps no terminal.</p>
         </div>
         
         <div class="step-item">
             <div class="step-header">
                 <div class="step-num-title">
                     <span class="step-num">4</span>
-                    <span class="step-title">Avaliar e otimizar retrieval</span>
+                    <span class="step-title">Testar agente com cenário prático</span>
                 </div>
                 <span class="step-duration">15 min</span>
             </div>
-            <p class="step-description">Testar relevância dos chunks recuperados. Ajustar chunk_size e k (número de docs retrieved). Medir tempo de resposta. Salvar script final como rag_pipeline.py.</p>
+            <p class="step-description">Criar cenário: agente recebe pergunta complexa que requer busca + cálculo. Testar 3 queries diferentes. Debugar edge cases onde o modelo não调用a tool correta.</p>
+        </div>
+        
+        <div class="step-item">
+            <div class="step-header">
+                <div class="step-num-title">
+                    <span class="step-num">5</span>
+                    <span class="step-title">Refatorar e documentar</span>
+                </div>
+                <span class="step-duration">5 min</span>
+            </div>
+            <p class="step-description">Revisar código, adicionar type hints, docstrings. Salvar versão final em agent_final.py com comments explicando decisões de design.</p>
         </div>
         
     </div>
 
     <footer>
-        Gerado em 10:12 &middot; Daily Organizer
+        Gerado em 09:06 &middot; Daily Organizer
     </footer>
 
 </body>
