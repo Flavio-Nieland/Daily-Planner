@@ -264,5 +264,12 @@
     "artist": "Nirvana",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b273fbc71c99f9c1296c56dd51b6",
     "spotify_id": "2UJcKiJxNryhL050F5Z1Fk"
+  },
+  {
+    "date": "08/06/2026",
+    "album": "Dirt",
+    "artist": "Alice in Chains",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b2732d1447994ec24301429681cb",
+    "spotify_id": "58NXIEYqmq5dQHg9nV9duM"
   }
 ]
