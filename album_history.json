@@ -271,5 +271,12 @@
     "artist": "Alice in Chains",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b2732d1447994ec24301429681cb",
     "spotify_id": "58NXIEYqmq5dQHg9nV9duM"
+  },
+  {
+    "date": "09/06/2026",
+    "album": "Kid A",
+    "artist": "Radiohead",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b2736c7112082b63beefffe40151",
+    "spotify_id": "6GjwtEZcfenmOf6l18N7T7"
   }
 ]
