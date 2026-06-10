@@ -278,5 +278,12 @@
     "artist": "Radiohead",
     "cover_url": "https://i.scdn.co/image/ab67616d0000b2736c7112082b63beefffe40151",
     "spotify_id": "6GjwtEZcfenmOf6l18N7T7"
+  },
+  {
+    "date": "10/06/2026",
+    "album": "In the Aeroplane Over the Sea",
+    "artist": "Neutral Milk Hotel",
+    "cover_url": "https://i.scdn.co/image/ab67616d0000b273bc1e41eed3ddbdfff6f2d74b",
+    "spotify_id": "17q5eeNk3HAjX1gzQnkTX7"
   }
 ]
