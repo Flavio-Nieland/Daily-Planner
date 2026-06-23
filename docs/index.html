@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 22/06/2026</title>
+    <title>Seu Dia — 23/06/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 22/06/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 23/06/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,132 +575,27 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-cloudy">
+            <div class="weather-period wx-drizzle">
                 <div class="period-label">Manhã</div>
-                <div class="temp">14.5–18.3°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="temp">12.0–15.4°C</div>
+                <div class="condition">Garoa fraca</div>
+                <div class="rain">Chuva 1%</div>
             </div>
             <div class="weather-period wx-cloudy">
                 <div class="period-label">Tarde</div>
-                <div class="temp">18.6–20.1°C</div>
+                <div class="temp">14.1–16.7°C</div>
                 <div class="condition">Nublado</div>
-                <div class="rain">Chuva 10%</div>
+                <div class="rain">Chuva 4%</div>
             </div>
-            <div class="weather-period wx-cloudy-night">
+            <div class="weather-period wx-partly-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">16.2–17.6°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 98%</div>
+                <div class="temp">8.7–12.8°C</div>
+                <div class="condition">Parcialmente nublado</div>
+                <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -724,6 +619,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -738,13 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">ler</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">alongar</span>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -764,26 +659,25 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 28</span>
+                <span class="sec-sub">Salmos 3</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">A ti clamo, ó Senhor; rocha minha, não emudeças para comigo; não suceda que, calando-te a meu respeito, eu me torne semelhante aos que descem à cova.
-Ouve a voz das minhas súplicas, quando a ti clamo, quando levanto as minhas mãos para o teu santo templo.
-Não me arrastes juntamente com os ímpios e com os que praticam a iniqüidade, que falam de paz ao seu próximo, mas têm o mal no seu coração.
-Retribui-lhes segundo as suas obras e segundo a malícia dos seus feitos; dá-lhes conforme o que fizeram as suas mãos; retribui-lhes o que eles merecem.
-Porquanto eles não atentam para as obras do Senhor, nem para o que as suas mãos têm feito, ele os derrubará e não os reedificará
-Bendito seja o Senhor, porque ouviu a voz das minhas súplicas.
-O Senhor é a minha força e o meu escudo; nele confiou o meu coração, e fui socorrido; pelo que o meu coração salta de prazer, e com o meu cântico o louvarei.
-O Senhor é a força do seu povo; ele é a fortaleza salvadora para o seu ungido.
-Salva o teu povo, e abençoa a tua herança; apascenta-os e exalta-os para sempre.</p>
-            <div class="psalm-ref">— Salmos 28</div>
+            <p class="psalm-text">Senhor, como se têm multiplicado os meus adversários! Muitos se levantam contra mim.
+Muitos são os que dizem de mim: Não há socorro para ele em Deus.
+Mas tu, Senhor, és um escudo ao redor de mim, a minha glória, e aquele que exulta a minha cabeça.
+Com a minha voz clamo ao Senhor, e ele do seu santo monte me responde.
+Eu me deito e durmo; acordo, pois o Senhor me sustenta.
+Não tenho medo dos dez milhares de pessoas que se puseram contra mim ao meu redor.
+Levanta-te, Senhor! salva-me, Deus meu! pois tu feres no queixo todos os meus inimigos; quebras os dentes aos ímpios.
+A salvação vem do Senhor; sobre o teu povo seja a tua bênção.</p>
+            <div class="psalm-ref">— Salmos 3</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 11:24 &middot; Daily Organizer
+        Gerado em 08:51 &middot; Daily Organizer
     </footer>
 
 </body>
