@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 29/06/2026</title>
+    <title>Seu Dia — 30/06/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 29/06/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 30/06/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,132 +575,27 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-cloudy">
+            <div class="weather-period wx-storm">
                 <div class="period-label">Manhã</div>
-                <div class="temp">15.7–18.6°C</div>
-                <div class="condition">Nublado</div>
+                <div class="temp">14.8–18.4°C</div>
+                <div class="condition">Tempestade com granizo</div>
+                <div class="rain">Chuva 100%</div>
+            </div>
+            <div class="weather-period wx-partly">
+                <div class="period-label">Tarde</div>
+                <div class="temp">16.5–21.2°C</div>
+                <div class="condition">Parcialmente nublado</div>
+                <div class="rain">Chuva 44%</div>
+            </div>
+            <div class="weather-period wx-light-rain">
+                <div class="period-label">Noite</div>
+                <div class="temp">15.1–15.7°C</div>
+                <div class="condition">Pancadas fracas</div>
                 <div class="rain">Chuva 94%</div>
             </div>
-            <div class="weather-period wx-cloudy">
-                <div class="period-label">Tarde</div>
-                <div class="temp">16.7–19.0°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 16%</div>
-            </div>
-            <div class="weather-period wx-cloudy-night">
-                <div class="period-label">Noite</div>
-                <div class="temp">15.1–16.2°C</div>
-                <div class="condition">Nublado</div>
-                <div class="rain">Chuva 51%</div>
-            </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -724,6 +619,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -738,13 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">ler</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">alongar</span>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -764,26 +659,39 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 52</span>
+                <span class="sec-sub">Salmos 25</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Por que te glorias na malícia, ó homem poderoso? pois a bondade de Deus subsiste em todo o tempo.
-A tua língua maquina planos de destruição, como uma navalha afiada, ó tu que usas de dolo.
-Tu amas antes o mal do que o bem, e o mentir do que o falar a verdade.
-Amas todas as palavras devoradoras, ó língua fraudulenta.
-Também Deus te esmagará para sempre; arrebatar-te-á e arrancar-te-á da tua habitação, e desarraigar-te-á da terra dos viventes.
-Os justos o verão e temerão; e se rirão dele, dizendo:
-Eis aqui o homem que não tomou a Deus por sua fortaleza; antes confiava na abundância das suas riquezas, e se fortalecia na sua perversidade.
-Mas eu sou qual oliveira verde na casa de Deus; confio na bondade de Deus para sempre e eternamente.
-Para sempre te louvarei, porque tu isso fizeste, e proclamarei o teu nome, porque é bom diante de teus santos.</p>
-            <div class="psalm-ref">— Salmos 52</div>
+            <p class="psalm-text">A ti, Senhor, elevo a minha alma.
+Deus meu, em ti confio; não seja eu envergonhado; não triunfem sobre mim os meus inimigos.
+Não seja envergonhado nenhum dos que em ti esperam; envergonhados sejam os que sem causa procedem traiçoeiramente.
+Faze-me saber os teus caminhos, Senhor; ensina-me as tuas veredas.
+Guia-me na tua verdade, e ensina-me; pois tu és o Deus da minha salvação; por ti espero o dia todo.
+Lembra-te, Senhor, da tua compaixão e da tua benignidade, porque elas são eternas.
+Não te lembres dos pecado da minha mocidade, nem das minhas transgressões; mas, segundo a tua misericórdia, lembra-te de mim, pela tua bondade, ó Senhor.
+Bom e reto é o Senhor; pelo que ensina o caminho aos pecadores.
+Guia os mansos no que é reto, e lhes ensina o seu caminho.
+Todas as veredas do Senhor são misericórdia e verdade para aqueles que guardam o seu pacto e os seus testemunhos.
+Por amor do teu nome, Senhor, perdoa a minha iniqüidade, pois é grande.
+Qual é o homem que teme ao Senhor? Este lhe ensinará o caminho que deve escolher.
+Ele permanecerá em prosperidade, e a sua descendência herdará a terra.
+O conselho do Senhor é para aqueles que o temem, e ele lhes faz saber o seu pacto.
+Os meus olhos estão postos continuamente no Senhor, pois ele tirará do laço os meus pés.
+Olha para mim, e tem misericórdia de mim, porque estou desamparado e aflito.
+Alivia as tribulações do meu coração; tira-me das minhas angústias.
+Olha para a minha aflição e para a minha dor, e perdoa todos os meus pecados.
+Olha para os meus inimigos, porque são muitos e me odeiam com ódio cruel.
+Guarda a minha alma, e livra-me; não seja eu envergonhado, porque em ti me refúgio.
+A integridade e a retidão me protejam, porque em ti espero.
+Redime, ó Deus, a Israel de todas as suas angústias.</p>
+            <div class="psalm-ref">— Salmos 25</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 09:57 &middot; Daily Organizer
+        Gerado em 08:38 &middot; Daily Organizer
     </footer>
 
 </body>
