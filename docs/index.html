@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 06/07/2026</title>
+    <title>Seu Dia — 07/07/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 06/07/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 07/07/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,132 +575,27 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-partly">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Manhã</div>
-                <div class="temp">11.3–18.9°C</div>
-                <div class="condition">Parcialmente nublado</div>
+                <div class="temp">13.0–14.6°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 25%</div>
+            </div>
+            <div class="weather-period wx-cloudy">
+                <div class="period-label">Tarde</div>
+                <div class="temp">13.9–15.1°C</div>
+                <div class="condition">Nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-light-rain">
-                <div class="period-label">Tarde</div>
-                <div class="temp">17.3–19.9°C</div>
-                <div class="condition">Pancadas fracas</div>
-                <div class="rain">Chuva 89%</div>
-            </div>
-            <div class="weather-period wx-drizzle">
+            <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">14.6–16.5°C</div>
-                <div class="condition">Garoa fraca</div>
-                <div class="rain">Chuva 100%</div>
+                <div class="temp">8.9–12.6°C</div>
+                <div class="condition">Céu limpo</div>
+                <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -724,6 +619,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -738,13 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">ler</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">alongar</span>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -764,30 +659,41 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 56</span>
+                <span class="sec-sub">Salmos 139</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Compadece-te de mim, ó Deus, pois homens me calcam aos pés e, pelejando, me aflingem o dia todo.
-Os meus inimigos me calcam aos pés o dia todo, pois são muitos os que insolentemente pelejam contra mim.
-No dia em que eu temer, hei de confiar em ti.
-Em Deus, cuja palavra eu lovo, em Deus ponho a minha confiança e não terei medo;
-Todos os dias torcem as minhas palavras; todos os seus pensamentos são contra mim para o mal.
-Ajuntam-se, escondem-se, espiam os meus passos, como que aguardando a minha morte.
-Escaparão eles por meio da sua iniqüidade? Ó Deus, derruba os povos na tua ira!
-Tu contaste as minhas aflições; põe as minhas lágrimas no teu odre; não estão elas no teu livro?
-No dia em que eu te invocar retrocederão os meus inimigos; isto eu sei, que Deus está comigo.
-Em Deus, cuja palavra eu louvo, no Senhor, cuja palavra eu louvo,
-em Deus ponho a minha confiança, e não terei medo; que me pode fazer o homem?
-Sobre mim estão os votos que te fiz, ó Deus; eu te oferecerei ações de graças;
-pois tu livraste a minha alma da morte. Não livraste também os meus pés de tropeçarem, para que eu ande diante de Deus na luz da vida?</p>
-            <div class="psalm-ref">— Salmos 56</div>
+            <p class="psalm-text">Senhor, tu me sondas, e me conheces.
+Tu conheces o meu sentar e o meu levantar; de longe entendes o meu pensamento.
+Esquadrinhas o meu andar, e o meu deitar, e conheces todos os meus caminhos.
+Sem que haja uma palavra na minha língua, eis que, ó Senhor, tudo conheces.
+Tu me cercaste em volta, e puseste sobre mim a tua mão.
+Tal conhecimento é maravilhoso demais para mim; elevado é, não o posso atingir.
+Para onde me irei do teu Espírito, ou para onde fugirei da tua presença?
+Se subir ao céu, tu aí estás; se fizer no Seol a minha cama, eis que tu ali estás também.
+Se tomar as asas da alva, se habitar nas extremidades do mar,
+ainda ali a tua mão me guiará e a tua destra me susterá.
+Se eu disser: Ocultem-me as trevas; torne-se em noite a luz que me circunda;
+nem ainda as trevas são escuras para ti, mas a noite resplandece como o dia; as trevas e a luz são para ti a mesma coisa.
+Pois tu formaste os meus rins; entreteceste-me no ventre de minha mãe.
+Eu te louvarei, porque de um modo tão admirável e maravilhoso fui formado; maravilhosas são as tuas obras, e a minha alma o sabe muito bem.
+Os meus ossos não te foram encobertos, quando no oculto fui formado, e esmeradamente tecido nas profundezas da terra.
+Os teus olhos viram a minha substância ainda informe, e no teu livro foram escritos os dias, sim, todos os dias que foram ordenados para mim, quando ainda não havia nem um deles.
+E quão preciosos me são, ó Deus, os teus pensamentos! Quão grande é a soma deles!
+Se eu os contasse, seriam mais numerosos do que a areia; quando acordo ainda estou contigo.
+Oxalá que matasses o perverso, ó Deus, e que os homens sanguinários se apartassem de mim,
+homens que se rebelam contra ti, e contra ti se levantam para o mal.
+Não odeio eu, ó Senhor, aqueles que te odeiam? e não me aflijo por causa dos que se levantam contra ti?
+Odeio-os com ódio completo; tenho-os por inimigos.
+Sonda-me, ó Deus, e conhece o meu coração; prova-me, e conhece os meus pensamentos;
+vê se há em mim algum caminho perverso, e guia-me pelo caminho eterno.</p>
+            <div class="psalm-ref">— Salmos 139</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 09:36 &middot; Daily Organizer
+        Gerado em 08:37 &middot; Daily Organizer
     </footer>
 
 </body>
