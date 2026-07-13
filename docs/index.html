@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 12/07/2026</title>
+    <title>Seu Dia — 13/07/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Domingo &middot; 12/07/2026</p>
+        <p class="hero-sub">Segunda-feira &middot; 13/07/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,27 +575,132 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-drizzle">
+            <div class="weather-period wx-sunny">
                 <div class="period-label">Manhã</div>
-                <div class="temp">13.0–18.2°C</div>
-                <div class="condition">Garoa fraca</div>
-                <div class="rain">Chuva 2%</div>
+                <div class="temp">8.4–15.6°C</div>
+                <div class="condition">Céu limpo</div>
+                <div class="rain">Chuva 0%</div>
             </div>
-            <div class="weather-period wx-drizzle">
+            <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">16.0–18.5°C</div>
-                <div class="condition">Garoa fraca</div>
-                <div class="rain">Chuva 27%</div>
+                <div class="temp">15.1–17.9°C</div>
+                <div class="condition">Céu limpo</div>
+                <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">12.8–15.0°C</div>
-                <div class="condition">Principalmente limpo</div>
+                <div class="temp">10.0–13.6°C</div>
+                <div class="condition">Céu limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
 
+    
+    <!-- Peso Semanal (apenas segunda-feira) -->
+    <div class="card" id="weight-card">
+        <div class="sec-head">
+            <span class="sec-icon">⚖️</span>
+            <span class="sec-title">Peso Semanal</span>
+        </div>
+
+        <div id="weight-entry-section">
+            <p class="weight-question">Qual é o seu peso hoje?</p>
+            <div class="weight-input-row">
+                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
+                <span class="weight-unit">kg</span>
+                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
+            </div>
+        </div>
+
+        <div id="weight-saved-section" style="display:none">
+            <div class="weight-row">
+                <span class="weight-row-label">Hoje</span>
+                <span class="weight-row-value" id="today-weight-display">--</span>
+            </div>
+        </div>
+
+        <div class="weight-row">
+            <span class="weight-row-label">Semana passada</span>
+            <span class="weight-row-value" id="last-week-display">--</span>
+            <span id="weight-diff"></span>
+        </div>
+
+        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
+        <div id="chart-container" style="display:none">
+            <canvas id="weight-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script>
+        const WK = 'daily-organizer-weights';
+        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
+        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
+        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
+
+        function saveWeight() {
+            const input = document.getElementById('weight-input');
+            const val = parseFloat(input.value.replace(',', '.'));
+            if (isNaN(val) || val < 30 || val > 250) return;
+            const weights = getWeights();
+            weights[todayKey()] = val;
+            localStorage.setItem(WK, JSON.stringify(weights));
+            showSavedState(val);
+            updateLastWeek(val);
+        }
+
+        function showSavedState(todayVal) {
+            document.getElementById('weight-entry-section').style.display = 'none';
+            const saved = document.getElementById('weight-saved-section');
+            saved.style.display = 'block';
+            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
+        }
+
+        function updateLastWeek(todayVal) {
+            const weights = getWeights();
+            const last = weights[lastMondayKey()];
+            const el = document.getElementById('last-week-display');
+            const diffEl = document.getElementById('weight-diff');
+            if (last !== undefined) {
+                el.textContent = last + ' kg';
+                if (todayVal !== null && todayVal !== undefined) {
+                    const diff = (todayVal - last).toFixed(1);
+                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
+                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
+                    else               diffEl.textContent = '= igual';
+                }
+            } else { el.textContent = 'Sem registro'; }
+        }
+
+        function toggleChart() {
+            const container = document.getElementById('chart-container');
+            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
+            else { container.style.display = 'none'; }
+        }
+
+        function renderChart() {
+            const weights = getWeights();
+            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
+            if (entries.length === 0) return;
+            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
+            const data = entries.map(([,v]) => v);
+            const ctx = document.getElementById('weight-chart').getContext('2d');
+            if (window._wChart) window._wChart.destroy();
+            window._wChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
+                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const weights = getWeights();
+            const today = weights[todayKey()];
+            if (today !== undefined) showSavedState(today);
+            updateLastWeek(today ?? null);
+        });
+    </script>
     
 
     <!-- Atividades do Dia -->
@@ -610,6 +715,18 @@
                     <span class="prio-dot dot-high"></span> Alta
                 </div>
                 <ul class="activity-list">
+                    
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">trabalhar</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="treino.html" class="activity-link">treinar</a>
+                        
+                    </li>
                     
                 </ul>
             </div>
@@ -631,18 +748,6 @@
                         
                     </li>
                     
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">ingles</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">xadrez</span>
-                        
-                    </li>
-                    
                 </ul>
             </div>
         </div>
@@ -659,33 +764,43 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 91</span>
+                <span class="sec-sub">Salmos 44</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Aquele que habita no esconderijo do Altíssimo, à sombra do Todo-Poderoso descansará.
-Direi do Senhor: Ele é o meu refúgio e a minha fortaleza, o meu Deus, em quem confio.
-Porque ele te livra do laço do passarinho, e da peste perniciosa.
-Ele te cobre com as suas penas, e debaixo das suas asas encontras refúgio; a sua verdade é escudo e broquel.
-Não temerás os terrores da noite, nem a seta que voe de dia,
-nem peste que anda na escuridão, nem mortandade que assole ao meio-dia.
-Mil poderão cair ao teu lado, e dez mil à tua direita; mas tu não serás atingido.
-Somente com os teus olhos contemplarás, e verás a recompensa dos ímpios.
-Porquanto fizeste do Senhor o teu refúgio, e do Altíssimo a tua habitação,
-nenhum mal te sucederá, nem praga alguma chegará à tua tenda.
-Porque aos seus anjos dará ordem a teu respeito, para te guardarem em todos os teus caminhos.
-Eles te susterão nas suas mãos, para que não tropeces em alguma pedra.
-Pisarás o leão e a áspide; calcarás aos pés o filho do leão e a serpente.
-Pois que tanto me amou, eu o livrarei; pô-lo-ei num alto retiro, porque ele conhece o meu nome.
-Quando ele me invocar, eu lhe responderei; estarei com ele na angústia, livrá-lo-ei, e o honrarei.
-Com longura de dias fartá-lo-ei, e lhe mostrarei a minha salvação.</p>
-            <div class="psalm-ref">— Salmos 91</div>
+            <p class="psalm-text">Ó Deus, nós ouvimos com os nossos ouvidos, nossos pais nos têm contado os feitos que realizaste em seus dias, nos tempos da antigüidade.
+Tu expeliste as nações com a tua mão, mas a eles plantaste; afligiste os povos, mas a eles estendes-te largamente.
+Pois não foi pela sua espada que conquistaram a terra, nem foi o seu braço que os salvou, mas a tua destra e o teu braço, e a luz do teu rosto, porquanto te agradaste deles.
+Tu és o meu Rei, ó Deus; ordena livramento para Jacó.
+Por ti derrubamos os nossos adversários; pelo teu nome pisamos os que se levantam contra nós.
+Pois não confio no meu arco, nem a minha espada me pode salvar.
+Mas tu nos salvaste dos nossos adversários, e confundiste os que nos odeiam.
+Em Deus é que nos temos gloriado o dia todo, e sempre louvaremos o teu nome.
+Mas agora nos rejeitaste e nos humilhaste, e não sais com os nossos exércitos.
+Fizeste-nos voltar as costas ao inimigo e aqueles que nos odeiam nos despojam à vontade.
+Entregaste-nos como ovelhas para alimento, e nos espalhaste entre as nações.
+Vendeste por nada o teu povo, e não lucraste com o seu preço.
+Puseste-nos por opróbrio aos nossos vizinhos, por escárnio e zombaria àqueles que estão à roda de nós.
+Puseste-nos por provérbio entre as nações, por ludíbrio entre os povos.
+A minha ignomínia está sempre diante de mim, e a vergonha do meu rosto me cobre,
+à voz daquele que afronta e blasfema, à vista do inimigo e do vingador.
+Tudo isto nos sobreveio; todavia não nos esquecemos de ti, nem nos houvemos falsamente contra o teu pacto.
+O nosso coração não voltou atrás, nem os nossos passos se desviaram das tuas veredas,
+para nos teres esmagado onde habitam os chacais, e nos teres coberto de trevas profundas.
+Se nos tivéssemos esquecido do nome do nosso Deus, e estendido as nossas mãos para um deus estranho,
+porventura Deus não haveria de esquadrinhar isso? pois ele conhece os segredos do coração.
+Mas por amor de ti somos entregues à morte o dia todo; somos considerados como ovelhas para o matadouro.
+Desperta! por que dormes, Senhor? Acorda! não nos rejeites para sempre.
+Por que escondes o teu rosto, e te esqueces da nossa tribulação e da nossa angústia?
+Pois a nossa alma está abatida até o pó; o nosso corpo pegado ao chão.
+Levanta-te em nosso auxílio, e resgata-nos por tua benignidade.</p>
+            <div class="psalm-ref">— Salmos 44</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:17 &middot; Daily Organizer
+        Gerado em 08:51 &middot; Daily Organizer
     </footer>
 
 </body>
