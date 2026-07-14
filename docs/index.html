@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 13/07/2026</title>
+    <title>Seu Dia — 14/07/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Segunda-feira &middot; 13/07/2026</p>
+        <p class="hero-sub">Terça-feira &middot; 14/07/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,132 +575,27 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Manhã</div>
-                <div class="temp">8.4–15.6°C</div>
-                <div class="condition">Céu limpo</div>
+                <div class="temp">9.0–17.2°C</div>
+                <div class="condition">Nublado</div>
                 <div class="rain">Chuva 0%</div>
             </div>
             <div class="weather-period wx-sunny">
                 <div class="period-label">Tarde</div>
-                <div class="temp">15.1–17.9°C</div>
-                <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="temp">17.6–19.1°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 6%</div>
             </div>
             <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">10.0–13.6°C</div>
-                <div class="condition">Céu limpo</div>
+                <div class="temp">11.3–15.5°C</div>
+                <div class="condition">Principalmente limpo</div>
                 <div class="rain">Chuva 0%</div>
             </div>
         </div>
     </div>
 
-    
-    <!-- Peso Semanal (apenas segunda-feira) -->
-    <div class="card" id="weight-card">
-        <div class="sec-head">
-            <span class="sec-icon">⚖️</span>
-            <span class="sec-title">Peso Semanal</span>
-        </div>
-
-        <div id="weight-entry-section">
-            <p class="weight-question">Qual é o seu peso hoje?</p>
-            <div class="weight-input-row">
-                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
-                <span class="weight-unit">kg</span>
-                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
-            </div>
-        </div>
-
-        <div id="weight-saved-section" style="display:none">
-            <div class="weight-row">
-                <span class="weight-row-label">Hoje</span>
-                <span class="weight-row-value" id="today-weight-display">--</span>
-            </div>
-        </div>
-
-        <div class="weight-row">
-            <span class="weight-row-label">Semana passada</span>
-            <span class="weight-row-value" id="last-week-display">--</span>
-            <span id="weight-diff"></span>
-        </div>
-
-        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
-        <div id="chart-container" style="display:none">
-            <canvas id="weight-chart"></canvas>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-    <script>
-        const WK = 'daily-organizer-weights';
-        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
-        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
-        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
-
-        function saveWeight() {
-            const input = document.getElementById('weight-input');
-            const val = parseFloat(input.value.replace(',', '.'));
-            if (isNaN(val) || val < 30 || val > 250) return;
-            const weights = getWeights();
-            weights[todayKey()] = val;
-            localStorage.setItem(WK, JSON.stringify(weights));
-            showSavedState(val);
-            updateLastWeek(val);
-        }
-
-        function showSavedState(todayVal) {
-            document.getElementById('weight-entry-section').style.display = 'none';
-            const saved = document.getElementById('weight-saved-section');
-            saved.style.display = 'block';
-            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
-        }
-
-        function updateLastWeek(todayVal) {
-            const weights = getWeights();
-            const last = weights[lastMondayKey()];
-            const el = document.getElementById('last-week-display');
-            const diffEl = document.getElementById('weight-diff');
-            if (last !== undefined) {
-                el.textContent = last + ' kg';
-                if (todayVal !== null && todayVal !== undefined) {
-                    const diff = (todayVal - last).toFixed(1);
-                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
-                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
-                    else               diffEl.textContent = '= igual';
-                }
-            } else { el.textContent = 'Sem registro'; }
-        }
-
-        function toggleChart() {
-            const container = document.getElementById('chart-container');
-            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
-            else { container.style.display = 'none'; }
-        }
-
-        function renderChart() {
-            const weights = getWeights();
-            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
-            if (entries.length === 0) return;
-            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
-            const data = entries.map(([,v]) => v);
-            const ctx = document.getElementById('weight-chart').getContext('2d');
-            if (window._wChart) window._wChart.destroy();
-            window._wChart = new Chart(ctx, {
-                type: 'line',
-                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
-                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const weights = getWeights();
-            const today = weights[todayKey()];
-            if (today !== undefined) showSavedState(today);
-            updateLastWeek(today ?? null);
-        });
-    </script>
     
 
     <!-- Atividades do Dia -->
@@ -724,6 +619,12 @@
                     
                     <li class="activity-item">
                         
+                            <span class="activity-name">TCC</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
                             <a href="treino.html" class="activity-link">treinar</a>
                         
                     </li>
@@ -738,13 +639,7 @@
                     
                     <li class="activity-item">
                         
-                            <span class="activity-name">ler</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">alongar</span>
+                            <a href="musica.html" class="activity-link">musica</a>
                         
                     </li>
                     
@@ -764,43 +659,28 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 44</span>
+                <span class="sec-sub">Salmos 42</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Ó Deus, nós ouvimos com os nossos ouvidos, nossos pais nos têm contado os feitos que realizaste em seus dias, nos tempos da antigüidade.
-Tu expeliste as nações com a tua mão, mas a eles plantaste; afligiste os povos, mas a eles estendes-te largamente.
-Pois não foi pela sua espada que conquistaram a terra, nem foi o seu braço que os salvou, mas a tua destra e o teu braço, e a luz do teu rosto, porquanto te agradaste deles.
-Tu és o meu Rei, ó Deus; ordena livramento para Jacó.
-Por ti derrubamos os nossos adversários; pelo teu nome pisamos os que se levantam contra nós.
-Pois não confio no meu arco, nem a minha espada me pode salvar.
-Mas tu nos salvaste dos nossos adversários, e confundiste os que nos odeiam.
-Em Deus é que nos temos gloriado o dia todo, e sempre louvaremos o teu nome.
-Mas agora nos rejeitaste e nos humilhaste, e não sais com os nossos exércitos.
-Fizeste-nos voltar as costas ao inimigo e aqueles que nos odeiam nos despojam à vontade.
-Entregaste-nos como ovelhas para alimento, e nos espalhaste entre as nações.
-Vendeste por nada o teu povo, e não lucraste com o seu preço.
-Puseste-nos por opróbrio aos nossos vizinhos, por escárnio e zombaria àqueles que estão à roda de nós.
-Puseste-nos por provérbio entre as nações, por ludíbrio entre os povos.
-A minha ignomínia está sempre diante de mim, e a vergonha do meu rosto me cobre,
-à voz daquele que afronta e blasfema, à vista do inimigo e do vingador.
-Tudo isto nos sobreveio; todavia não nos esquecemos de ti, nem nos houvemos falsamente contra o teu pacto.
-O nosso coração não voltou atrás, nem os nossos passos se desviaram das tuas veredas,
-para nos teres esmagado onde habitam os chacais, e nos teres coberto de trevas profundas.
-Se nos tivéssemos esquecido do nome do nosso Deus, e estendido as nossas mãos para um deus estranho,
-porventura Deus não haveria de esquadrinhar isso? pois ele conhece os segredos do coração.
-Mas por amor de ti somos entregues à morte o dia todo; somos considerados como ovelhas para o matadouro.
-Desperta! por que dormes, Senhor? Acorda! não nos rejeites para sempre.
-Por que escondes o teu rosto, e te esqueces da nossa tribulação e da nossa angústia?
-Pois a nossa alma está abatida até o pó; o nosso corpo pegado ao chão.
-Levanta-te em nosso auxílio, e resgata-nos por tua benignidade.</p>
-            <div class="psalm-ref">— Salmos 44</div>
+            <p class="psalm-text">Como o cervo anseia pelas correntes das águas, assim a minha alma anseia por ti, ó Deus!
+A minha alma tem sede de Deus, do Deus vivo; quando entrarei e verei a face de Deus?
+As minhas lágrimas têm sido o meu alimento de dia e de noite, porquanto se me diz constantemente: Onde está o teu Deus?
+Dentro de mim derramo a minha alma ao lembrar-me de como eu ia com a multidão, guiando-a em procissão à casa de Deus, com brados de júbilo e louvor, uma multidão que festejava.
+Por que estás abatida, ó minha alma, e por que te perturbas dentro de mim? Espera em Deus, pois ainda o louvarei pela salvação que há na sua presença.
+Ó Deus meu, dentro de mim a minha alma está abatida; porquanto me lembrarei de ti desde a terra do Jordão, e desde o Hermom, desde o monte Mizar.
+Um abismo chama outro abismo ao ruído das tuas catadupas; todas as tuas tuas ondas e vagas têm passado sobre mim.
+Contudo, de dia o Senhor ordena a sua bondade, e de noite a sua canção está comigo, uma oração ao Deus da minha vida.
+A Deus, a minha rocha, digo: Por que te esqueceste de mim? por que ando em pranto por causa da opressão do inimigo?
+Como com ferida mortal nos meus ossos me afrontam os meus adversários, dizendo-me continuamente: Onde está o teu Deus?
+Por que estás abatida, ó minha alma, e por que te perturbas dentro de mim? Espera em Deus, pois ainda o louvarei, a ele que é o meu socorro, e o meu Deus.</p>
+            <div class="psalm-ref">— Salmos 42</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 08:51 &middot; Daily Organizer
+        Gerado em 07:28 &middot; Daily Organizer
     </footer>
 
 </body>
