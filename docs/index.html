@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Dia — 19/07/2026</title>
+    <title>Seu Dia — 20/07/2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -562,7 +562,7 @@
 
     <div class="hero">
         <h1>Bom dia, Flávio!</h1>
-        <p class="hero-sub">Domingo &middot; 19/07/2026</p>
+        <p class="hero-sub">Segunda-feira &middot; 20/07/2026</p>
     </div>
 
     <!-- Previsão do Tempo -->
@@ -575,27 +575,132 @@
             </div>
         </div>
         <div class="weather-grid">
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-cloudy">
                 <div class="period-label">Manhã</div>
-                <div class="temp">13.7–25.8°C</div>
-                <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="temp">16.1–22.7°C</div>
+                <div class="condition">Nublado</div>
+                <div class="rain">Chuva 4%</div>
             </div>
-            <div class="weather-period wx-sunny">
+            <div class="weather-period wx-partly">
                 <div class="period-label">Tarde</div>
-                <div class="temp">20.8–27.9°C</div>
-                <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="temp">22.4–26.0°C</div>
+                <div class="condition">Parcialmente nublado</div>
+                <div class="rain">Chuva 13%</div>
             </div>
             <div class="weather-period wx-clear-night">
                 <div class="period-label">Noite</div>
-                <div class="temp">16.1–19.0°C</div>
-                <div class="condition">Céu limpo</div>
-                <div class="rain">Chuva 0%</div>
+                <div class="temp">17.4–20.7°C</div>
+                <div class="condition">Principalmente limpo</div>
+                <div class="rain">Chuva 16%</div>
             </div>
         </div>
     </div>
 
+    
+    <!-- Peso Semanal (apenas segunda-feira) -->
+    <div class="card" id="weight-card">
+        <div class="sec-head">
+            <span class="sec-icon">⚖️</span>
+            <span class="sec-title">Peso Semanal</span>
+        </div>
+
+        <div id="weight-entry-section">
+            <p class="weight-question">Qual é o seu peso hoje?</p>
+            <div class="weight-input-row">
+                <input type="number" id="weight-input" step="0.1" min="30" max="250" placeholder="Ex: 80.5">
+                <span class="weight-unit">kg</span>
+                <button class="btn-primary" onclick="saveWeight()">Salvar</button>
+            </div>
+        </div>
+
+        <div id="weight-saved-section" style="display:none">
+            <div class="weight-row">
+                <span class="weight-row-label">Hoje</span>
+                <span class="weight-row-value" id="today-weight-display">--</span>
+            </div>
+        </div>
+
+        <div class="weight-row">
+            <span class="weight-row-label">Semana passada</span>
+            <span class="weight-row-value" id="last-week-display">--</span>
+            <span id="weight-diff"></span>
+        </div>
+
+        <button class="btn-chart btn-outline" onclick="toggleChart()">Ver progressão</button>
+        <div id="chart-container" style="display:none">
+            <canvas id="weight-chart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script>
+        const WK = 'daily-organizer-weights';
+        function getWeights() { return JSON.parse(localStorage.getItem(WK) || '{}'); }
+        function todayKey() { const d = new Date(); return d.toISOString().split('T')[0]; }
+        function lastMondayKey() { const d = new Date(); d.setDate(d.getDate() - 7); return d.toISOString().split('T')[0]; }
+
+        function saveWeight() {
+            const input = document.getElementById('weight-input');
+            const val = parseFloat(input.value.replace(',', '.'));
+            if (isNaN(val) || val < 30 || val > 250) return;
+            const weights = getWeights();
+            weights[todayKey()] = val;
+            localStorage.setItem(WK, JSON.stringify(weights));
+            showSavedState(val);
+            updateLastWeek(val);
+        }
+
+        function showSavedState(todayVal) {
+            document.getElementById('weight-entry-section').style.display = 'none';
+            const saved = document.getElementById('weight-saved-section');
+            saved.style.display = 'block';
+            document.getElementById('today-weight-display').textContent = todayVal + ' kg';
+        }
+
+        function updateLastWeek(todayVal) {
+            const weights = getWeights();
+            const last = weights[lastMondayKey()];
+            const el = document.getElementById('last-week-display');
+            const diffEl = document.getElementById('weight-diff');
+            if (last !== undefined) {
+                el.textContent = last + ' kg';
+                if (todayVal !== null && todayVal !== undefined) {
+                    const diff = (todayVal - last).toFixed(1);
+                    if (diff > 0)      diffEl.innerHTML = '<span class="weight-diff-pos">+' + diff + ' kg</span>';
+                    else if (diff < 0) diffEl.innerHTML = '<span class="weight-diff-neg">' + diff + ' kg</span>';
+                    else               diffEl.textContent = '= igual';
+                }
+            } else { el.textContent = 'Sem registro'; }
+        }
+
+        function toggleChart() {
+            const container = document.getElementById('chart-container');
+            if (container.style.display === 'none') { container.style.display = 'block'; renderChart(); }
+            else { container.style.display = 'none'; }
+        }
+
+        function renderChart() {
+            const weights = getWeights();
+            const entries = Object.entries(weights).sort(([a],[b]) => a.localeCompare(b));
+            if (entries.length === 0) return;
+            const labels = entries.map(([date]) => { const [y,m,d] = date.split('-'); return d+'/'+m; });
+            const data = entries.map(([,v]) => v);
+            const ctx = document.getElementById('weight-chart').getContext('2d');
+            if (window._wChart) window._wChart.destroy();
+            window._wChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels, datasets: [{ label: 'Peso', data, borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,.08)', tension: .35, pointRadius: 5, pointBackgroundColor: '#2563eb', fill: true }] },
+                options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, ticks: { callback: v => v + ' kg' } } } }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const weights = getWeights();
+            const today = weights[todayKey()];
+            if (today !== undefined) showSavedState(today);
+            updateLastWeek(today ?? null);
+        });
+    </script>
     
 
     <!-- Atividades do Dia -->
@@ -610,6 +715,18 @@
                     <span class="prio-dot dot-high"></span> Alta
                 </div>
                 <ul class="activity-list">
+                    
+                    <li class="activity-item">
+                        
+                            <span class="activity-name">trabalhar</span>
+                        
+                    </li>
+                    
+                    <li class="activity-item">
+                        
+                            <a href="treino.html" class="activity-link">treinar</a>
+                        
+                    </li>
                     
                 </ul>
             </div>
@@ -631,18 +748,6 @@
                         
                     </li>
                     
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">ingles</span>
-                        
-                    </li>
-                    
-                    <li class="activity-item">
-                        
-                            <span class="activity-name">xadrez</span>
-                        
-                    </li>
-                    
                 </ul>
             </div>
         </div>
@@ -659,26 +764,37 @@
             <span class="sec-icon">✝️</span>
             <div class="sec-texts">
                 <span class="sec-title">Salmo do Dia</span>
-                <span class="sec-sub">Salmos 137</span>
+                <span class="sec-sub">Salmos 147</span>
             </div>
         </div>
         <div class="psalm-body">
-            <p class="psalm-text">Junto aos rios de Babilônia, ali nos assentamos e nos pusemos a chorar, recordando-nos de Sião.
-Nos salgueiros que há no meio dela penduramos as nossas harpas,
-pois ali aqueles que nos levaram cativos nos pediam canções; e os que nos atormentavam, que os alegrássemos, dizendo: Cantai-nos um dos cânticos de Sião.
-Mas como entoaremos o cântico do Senhor em terra estrangeira?
-Se eu me esquecer de ti, ó Jerusalém, esqueça-se a minha destra da sua destreza.
-Apegue-se-me a língua ao céu da boca, se não me lembrar de ti, se eu não preferir Jerusalém à minha maior alegria.
-Lembra-te, Senhor, contra os edomitas, do dia de Jerusalém, porque eles diziam: Arrasai-a, arrasai-a até os seus alicerces.
-Ah! filha de Babilônia, devastadora; feliz aquele que te retribuir consoante nos fizeste a nós;
-feliz aquele que pegar em teus pequeninos e der com eles nas pedra.</p>
-            <div class="psalm-ref">— Salmos 137</div>
+            <p class="psalm-text">Louvai ao Senhor; porque é bom cantar louvores ao nosso Deus; pois isso é agradável, e decoroso é o louvor.
+O Senhor edifica Jerusalém, congrega os dispersos de Israel;
+sara os quebrantados de coração, e cura-lhes as feridas;
+conta o número das estrelas, chamando-as a todas pelos seus nomes.
+Grande é o nosso Senhor, e de grande poder; não há limite ao seu entendimento.
+O Senhor eleva os humildes, e humilha os perversos até a terra.
+Cantai ao Senhor em ação de graças; com a harpa cantai louvores ao nosso Deus.
+Ele é que cobre o céu de nuvens, que prepara a chuva para a terra, e que faz produzir erva sobre os montes;
+que dá aos animais o seu alimento, e aos filhos dos corvos quando clamam.
+Não se deleita na força do cavalo, nem se compraz nas pernas do homem.
+O Senhor se compraz nos que o temem, nos que esperam na sua benignidade.
+Louva, ó Jerusalém, ao Senhor; louva, ó Sião, ao teu Deus.
+Porque ele fortalece as trancas das tuas portas; abençoa aos teus filhos dentro de ti.
+Ele é quem estabelece a paz nas tuas fronteiras; quem do mais fino trigo te farta;
+quem envia o seu mandamento pela terra; a sua palavra corre mui velozmente.
+Ele dá a neve como lã, esparge a geada como cinza,
+e lança o seu gelo em pedaços; quem pode resistir ao seu frio?
+Manda a sua palavra, e os derrete; faz soprar o vento, e correm as águas;
+ele revela a sua palavra a Jacó, os seus estatutos e as suas ordenanças a Israel.
+Não fez assim a nenhuma das outras nações; e, quanto às suas ordenanças, elas não as conhecem. Louvai ao Senhor!</p>
+            <div class="psalm-ref">— Salmos 147</div>
         </div>
     </div>
     
 
     <footer>
-        Gerado em 07:18 &middot; Daily Organizer
+        Gerado em 08:36 &middot; Daily Organizer
     </footer>
 
 </body>
