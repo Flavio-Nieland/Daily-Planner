@@ -45,7 +45,7 @@ def _sessao(plano: dict, numero: int) -> dict:
 def _detalhe(numero: int, total: int, instrucao: str) -> dict:
     def gerar():
         bruto = llm.gerar_json(
-            PROMPT.format(numero=numero, total=total, instrucao=instrucao), max_tokens=700
+            PROMPT.format(numero=numero, total=total, instrucao=instrucao), max_tokens=3000
         )
         return {
             "aquecimento": llm.texto(llm.campo(bruto, "aquecimento", "warmup", "aquecer")),

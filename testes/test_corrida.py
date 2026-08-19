@@ -120,3 +120,23 @@ def test_campo_alternativo_do_modelo_nao_quebra_a_folha(monkeypatch):
     blocos = "".join(corrida.blocos(QUINTA, {}))
     assert "conversar sim, cantar não" in blocos
     assert "olhar no horizonte" in blocos
+
+
+def test_resposta_truncada_vira_erro_com_pista(monkeypatch):
+    """Sem isto, o truncamento chega como JSONDecodeError e não se acha a causa."""
+    from planner import llm
+
+    class _Escolha:
+        finish_reason = "length"
+        message = type("m", (), {"content": '{"aquecimento": "cami'})()
+
+    class _Cliente:
+        class chat:
+            class completions:
+                @staticmethod
+                def create(**k):
+                    return type("r", (), {"choices": [_Escolha()]})()
+
+    monkeypatch.setattr(llm, "_cliente", lambda: _Cliente())
+    with pytest.raises(RuntimeError, match="truncada"):
+        llm.gerar_json("qualquer", max_tokens=10)

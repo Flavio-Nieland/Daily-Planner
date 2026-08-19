@@ -38,7 +38,7 @@ Sem markdown e sem texto fora do JSON."""
 
 def _esqueleto() -> list[dict]:
     def gerar():
-        bruto = llm.gerar_json(PROMPT_ESQUELETO, max_tokens=1600)
+        bruto = llm.gerar_json(PROMPT_ESQUELETO, max_tokens=6000)
         itens = llm.campo(bruto, "itens", "pratos", "lista")
         return [{"titulo": llm.texto(llm.campo(i, "titulo", "nome", "prato")),
                  "tecnica": llm.texto(llm.campo(i, "tecnica", "técnica", "technique", padrao=""))}
@@ -54,7 +54,7 @@ def _receita(numero: int, item: dict, dominados: list[str]) -> dict:
         bruto = llm.gerar_json(
             PROMPT_RECEITA.format(titulo=item["titulo"], tecnica=item.get("tecnica", ""),
                                   dominados=contexto),
-            max_tokens=1400)
+            max_tokens=4000)
         return {
             "ingredientes": [llm.texto(x) for x in llm.campo(bruto, "ingredientes", "ingredients")],
             "preparo": [llm.texto(x) for x in llm.campo(bruto, "preparo", "modo_preparo", "passos", "steps")],

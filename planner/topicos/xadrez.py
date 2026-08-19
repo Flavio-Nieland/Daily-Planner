@@ -62,7 +62,7 @@ PRESCRICOES = [
 
 def _esqueleto(trilha: str) -> list[dict]:
     def gerar():
-        bruto = llm.gerar_json(PROMPT_ESQUELETO[trilha], max_tokens=1400)
+        bruto = llm.gerar_json(PROMPT_ESQUELETO[trilha], max_tokens=6000)
         itens = llm.campo(bruto, "itens", "lista", "linhas", "fundamentos")
         return [{"titulo": llm.texto(llm.campo(i, "titulo", "nome", "title")),
                  "extra": llm.texto(llm.campo(i, "cor", "tipo", padrao=""))}
@@ -75,7 +75,7 @@ def _conteudo(trilha: str, numero: int, item: dict) -> dict:
     def gerar():
         bruto = llm.gerar_json(
             PROMPT_ITEM[trilha].format(titulo=item["titulo"], cor=item.get("extra", "")),
-            max_tokens=800)
+            max_tokens=3000)
         if trilha == "abertura":
             return {"lances": llm.texto(llm.campo(bruto, "lances", "sequencia", "moves")),
                     "ideia": llm.texto(llm.campo(bruto, "ideia", "idea", "plano")),

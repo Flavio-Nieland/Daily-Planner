@@ -32,14 +32,22 @@ def _limpar(texto: str) -> str:
     return re.sub(r"\s*```$", "", sem_cerca.strip()).strip()
 
 
-def gerar_json(prompt: str, max_tokens: int = 1200) -> dict:
+def gerar_json(prompt: str, max_tokens: int = 2000) -> dict:
     resposta = _cliente().chat.completions.create(
         model=MODELO,
         messages=[{"role": "user", "content": prompt}],
         response_format={"type": "json_object"},
         max_tokens=max_tokens,
     )
-    texto = _limpar(resposta.choices[0].message.content or "")
+    escolha = resposta.choices[0]
+
+    # Resposta longa trunca o JSON, e o erro que chega é um JSONDecodeError sem pista
+    # nenhuma. O modelo ainda gasta tokens de raciocínio dentro deste mesmo limite, então
+    # o teto precisa de folga — dizer isso aqui é o que evita caçar o problema no escuro.
+    if getattr(escolha, "finish_reason", None) == "length":
+        raise RuntimeError(f"resposta truncada no limite de {max_tokens} tokens")
+
+    texto = _limpar(escolha.message.content or "")
     if not texto:
         raise ValueError("o modelo devolveu resposta vazia")
     return json.loads(texto, strict=False)
