@@ -1,0 +1,242 @@
+[
+  {
+    "titulo": "Definir o escopo mínimo jogável",
+    "precisa": ""
+  },
+  {
+    "titulo": "Escolher um gênero compatível com o tempo disponível",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar uma lista priorizada de conteúdos",
+    "precisa": ""
+  },
+  {
+    "titulo": "Organizar o projeto em cenas reutilizáveis",
+    "precisa": ""
+  },
+  {
+    "titulo": "Separar dados de lógica usando Resources",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar uma estrutura de pastas consistente",
+    "precisa": ""
+  },
+  {
+    "titulo": "Estabelecer um padrão de nomes para arquivos e nós",
+    "precisa": ""
+  },
+  {
+    "titulo": "Configurar o controle de versão desde o início",
+    "precisa": ""
+  },
+  {
+    "titulo": "Fazer backups automáticos do projeto",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar uma cena principal de teste",
+    "precisa": ""
+  },
+  {
+    "titulo": "Construir um protótipo jogável antes da arte final",
+    "precisa": ""
+  },
+  {
+    "titulo": "Implementar o loop principal do jogo",
+    "precisa": ""
+  },
+  {
+    "titulo": "Definir uma resolução e proporção de tela",
+    "precisa": ""
+  },
+  {
+    "titulo": "Configurar entrada de teclado, controle e mouse",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar um sistema de pausa",
+    "precisa": ""
+  },
+  {
+    "titulo": "Implementar salvamento e carregamento cedo",
+    "precisa": ""
+  },
+  {
+    "titulo": "Planejar a progressão do jogador",
+    "precisa": ""
+  },
+  {
+    "titulo": "Definir uma unidade de medida para o mundo",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar prefabs por meio de cenas reutilizáveis",
+    "precisa": ""
+  },
+  {
+    "titulo": "Usar sinais para reduzir acoplamento entre sistemas",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar componentes pequenos e independentes",
+    "precisa": ""
+  },
+  {
+    "titulo": "Centralizar configurações globais com Autoload",
+    "precisa": ""
+  },
+  {
+    "titulo": "Evitar scripts excessivamente grandes",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar um sistema de estados para personagens",
+    "precisa": ""
+  },
+  {
+    "titulo": "Separar dados de conteúdo em arquivos editáveis",
+    "precisa": ""
+  },
+  {
+    "titulo": "Definir uma convenção para camadas de colisão",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar ferramentas internas para acelerar a produção",
+    "precisa": ""
+  },
+  {
+    "titulo": "Usar cenas de teste para cada sistema importante",
+    "precisa": ""
+  },
+  {
+    "titulo": "Implementar feedback visual para todas as ações",
+    "precisa": ""
+  },
+  {
+    "titulo": "Implementar feedback sonoro para ações relevantes",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar uma hierarquia clara de interface",
+    "precisa": ""
+  },
+  {
+    "titulo": "Usar temas e estilos globais na UI",
+    "precisa": ""
+  },
+  {
+    "titulo": "Planejar textos e traduções desde o começo",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar um sistema centralizado de mensagens",
+    "precisa": ""
+  },
+  {
+    "titulo": "Padronizar animações e transições",
+    "precisa": ""
+  },
+  {
+    "titulo": "Usar AnimationPlayer para eventos e sequências",
+    "precisa": ""
+  },
+  {
+    "titulo": "Configurar câmeras com limites adequados",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar um sistema de spawn configurável",
+    "precisa": ""
+  },
+  {
+    "titulo": "Organizar inimigos por comportamentos reutilizáveis",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar tabelas de balanceamento editáveis",
+    "precisa": ""
+  },
+  {
+    "titulo": "Adicionar pontos de debug e ferramentas de inspeção",
+    "precisa": ""
+  },
+  {
+    "titulo": "Testar cada nova mecânica isoladamente",
+    "precisa": ""
+  },
+  {
+    "titulo": "Jogar uma versão funcional diariamente",
+    "precisa": ""
+  },
+  {
+    "titulo": "Corrigir bugs bloqueadores antes de adicionar conteúdo",
+    "precisa": ""
+  },
+  {
+    "titulo": "Registrar bugs com passos para reproduzi-los",
+    "precisa": ""
+  },
+  {
+    "titulo": "Usar nomes e descrições claros para recursos",
+    "precisa": ""
+  },
+  {
+    "titulo": "Otimizar o tamanho e o formato dos assets",
+    "precisa": ""
+  },
+  {
+    "titulo": "Definir uma direção visual consistente",
+    "precisa": ""
+  },
+  {
+    "titulo": "Limitar a quantidade de variações artísticas",
+    "precisa": ""
+  },
+  {
+    "titulo": "Reutilizar elementos visuais sem parecer repetitivo",
+    "precisa": ""
+  },
+  {
+    "titulo": "Criar uma biblioteca de efeitos sonoros",
+    "precisa": ""
+  },
+  {
+    "titulo": "Comprimir e organizar arquivos de áudio",
+    "precisa": ""
+  },
+  {
+    "titulo": "Controlar o volume por categorias",
+    "precisa": ""
+  },
+  {
+    "titulo": "Adicionar opções de acessibilidade essenciais",
+    "precisa": ""
+  },
+  {
+    "titulo": "Garantir legibilidade em diferentes telas",
+    "precisa": ""
+  },
+  {
+    "titulo": "Testar com jogadores externos regularmente",
+    "precisa": ""
+  },
+  {
+    "titulo": "Observar jogadores sem explicar o funcionamento",
+    "precisa": ""
+  },
+  {
+    "titulo": "Medir o tempo necessário para concluir cada etapa",
+    "precisa": ""
+  },
+  {
+    "titulo": "Reduzir conteúdo que não melhora a experiência",
+    "precisa": ""
+  },
+  {
+    "titulo": "Fazer cópias jogáveis em marcos importantes",
+    "precisa": ""
+  }
+]
