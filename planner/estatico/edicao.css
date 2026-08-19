@@ -85,3 +85,12 @@ table.horas td:last-child{color:var(--ink2);font-size:.94em;text-align:right}
 .campo button:hover{background:rgba(20,18,9,.08)}
 .campo button:disabled{opacity:.4;cursor:default}
 .curva{width:100%;height:auto;display:block;margin:4px 0 2px;color:var(--ink)}
+.destaque-texto{font-size:1.25em;line-height:1.35;margin-top:2px}
+.barra{height:7px;border:1.3px solid var(--ink);margin:6px 0 5px}
+.barra i{display:block;height:100%;background:var(--ink)}
+.feito{font-weight:700;letter-spacing:.06em}
+.marcar{font:inherit;font-size:.85em;letter-spacing:.12em;text-transform:uppercase;
+  border:1.2px solid var(--ink);border-radius:4px;background:none;color:inherit;
+  padding:5px 12px;cursor:pointer}
+.marcar:hover{background:rgba(20,18,9,.08)}
+.marcar:disabled{opacity:.4;cursor:default}

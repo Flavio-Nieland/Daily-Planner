@@ -49,3 +49,22 @@ document.addEventListener("click", async (ev) => {
     botao.disabled = false;
   }
 });
+
+/* Marcar um tópico como feito. É isto que avança o plano — nunca o calendário.
+   O navegador só registra o dia; quem decide a sessão da vez é o build. */
+document.addEventListener("click", async (ev) => {
+  const botao = ev.target.closest(".marcar");
+  if (!botao) return;
+  const topico = botao.dataset.topico;
+  const aviso = document.getElementById(topico + "-aviso");
+  botao.disabled = true;
+  if (aviso) aviso.textContent = "marcando…";
+  try {
+    await gravarNoWorker("feito", topico + ":" + botao.dataset.dia, true);
+    botao.outerHTML = '<span class="feito">✓ feito hoje</span>';
+    if (aviso) aviso.textContent = "Avança na edição de amanhã.";
+  } catch (erro) {
+    botao.disabled = false;
+    if (aviso) aviso.textContent = "Não marcou: " + erro.message;
+  }
+});

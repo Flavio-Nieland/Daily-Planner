@@ -4,7 +4,7 @@
    segundo. Peso usa a data como chave, então registrar duas vezes no mesmo dia deixa o
    último valor — sem duplicar ponto no gráfico. */
 
-export const SECOES = ["peso"];          // cresce a cada tópico com estado
+export const SECOES = ["peso", "feito"];   // cresce a cada tópico com estado
 
 export function valido(corpo) {
   return !!corpo && SECOES.includes(corpo.secao)

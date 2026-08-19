@@ -143,3 +143,34 @@ def test_o_html_publicado_nao_carrega_o_token(folha, pagina):
     _abrir(pagina, folha, token=None)
     conteudo = pagina.content()
     assert TOKEN not in conteudo
+
+
+def test_marcar_como_feito_chega_ao_worker(tmp_path, worker, monkeypatch, pagina):
+    """O navegador registra o dia; quem decide a sessão da vez é o build."""
+    _, url = worker
+    monkeypatch.setenv("WORKER_URL", url)
+    dia = date(2026, 8, 20)
+    marcador = ('<div class="bloco"><p class="campo">'
+                '<button type="button" class="marcar" data-topico="corrida" '
+                f'data-dia="{dia.isoformat()}" id="corrida-marca">fiz hoje</button></p>'
+                '<p class="miudo" id="corrida-aviso">…</p></div>')
+    destino = tmp_path / "corrida.html"
+    destino.write_text(render.montar(dia, [{"id": "corrida", "nome": "Corrida",
+                                            "chapeu": "Rumo aos 10 km",
+                                            "blocos": [marcador], "falhou": False}]),
+                       encoding="utf-8")
+
+    from http.server import SimpleHTTPRequestHandler
+    from functools import partial
+    sítio = HTTPServer(("127.0.0.1", 0), partial(SimpleHTTPRequestHandler, directory=str(tmp_path)))
+    sítio.RequestHandlerClass.log_message = lambda *_: None
+    threading.Thread(target=sítio.serve_forever, daemon=True).start()
+    try:
+        pagina.goto(f"http://127.0.0.1:{sítio.server_port}/corrida.html")
+        pagina.evaluate("t => localStorage.setItem('diario.token', t)", TOKEN)
+        pagina.click(".marcar")
+        pagina.wait_for_selector("span.feito")
+        assert _Worker.recebidos == [{"secao": "feito", "chave": "corrida:2026-08-20", "valor": True}]
+        assert "amanhã" in pagina.text_content("#corrida-aviso")
+    finally:
+        sítio.shutdown()
