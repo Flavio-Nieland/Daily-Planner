@@ -117,3 +117,5 @@ ul.lista li,ol.lista li{padding:1px 0}
 .posicao .desenho svg{width:100%;height:auto;display:block;color:var(--ink)}
 .posicao .dose{font-size:.85em;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
   margin:2px 0 3px}
+.exercicio .campo input{width:3.4em;font-size:1em}
+.exercicio .aviso-carga:empty{display:none}

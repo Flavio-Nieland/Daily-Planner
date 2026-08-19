@@ -161,3 +161,26 @@ document.addEventListener("click", async (ev) => {
     botao.disabled = false;
   }
 });
+
+/* Treino: carga e reps por exercício, numa gravação só. */
+document.addEventListener("click", async (ev) => {
+  const botao = ev.target.closest(".anotar-carga");
+  if (!botao) return;
+  const bloco = botao.closest(".exercicio");
+  const aviso = bloco.querySelector(".aviso-carga");
+  const kg = parseFloat((bloco.querySelector(".carga-kg").value || "").replace(",", "."));
+  const reps = parseInt(bloco.querySelector(".carga-reps").value, 10);
+  if (!isFinite(kg) || kg <= 0 || kg > 700 || !isFinite(reps) || reps <= 0 || reps > 100) {
+    aviso.textContent = "Carga ou reps inválidos.";
+    return;
+  }
+  botao.disabled = true;
+  aviso.textContent = "gravando…";
+  try {
+    await gravarNoWorker("carga", botao.dataset.exercicio + ":" + botao.dataset.dia, { kg, reps });
+    aviso.textContent = `${kg} kg × ${reps} anotado.`;
+  } catch (erro) {
+    botao.disabled = false;
+    aviso.textContent = "Não gravou: " + erro.message;
+  }
+});
