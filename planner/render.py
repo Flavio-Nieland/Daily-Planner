@@ -1,6 +1,7 @@
 """Monta o HTML da edição a partir dos tópicos e das folhas medidas."""
 
 import json
+import os
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -21,6 +22,7 @@ def montar(data, topicos: list[dict], folhas: list[dict] | None = None) -> str:
     )
     dados = {
         "jornal": JORNAL,
+        "worker": (os.environ.get("WORKER_URL") or "").rstrip("/"),
         "data": data.strftime("%d/%m/%Y"),
         "dia": DIAS[data.weekday()],
         "numero": data.strftime("%Y%m%d"),
@@ -32,6 +34,7 @@ def montar(data, topicos: list[dict], folhas: list[dict] | None = None) -> str:
         data=dados["data"],
         textura=(RAIZ / "assets" / "papel-textura.b64").read_text(encoding="utf-8").strip(),
         css=(ESTATICO / "edicao.css").read_text(encoding="utf-8"),
-        script=(ESTATICO / "paginar.js").read_text(encoding="utf-8"),
+        script="\n".join((ESTATICO / nome).read_text(encoding="utf-8")
+                         for nome in ("paginar.js", "peso.js")),
         dados=json.dumps(dados, ensure_ascii=False),
     )

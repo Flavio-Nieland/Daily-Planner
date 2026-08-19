@@ -74,3 +74,14 @@ table.horas td:last-child{color:var(--ink2);font-size:.94em;text-align:right}
   font-family:"Bodoni MT",Georgia,serif}
 .bloco.falhou{border:1.5px solid var(--accent);padding:9px 11px}
 .bloco.falhou h4{color:var(--accent);border-bottom-color:var(--accent)}
+.campo{display:flex;gap:7px;align-items:center;margin:6px 0 4px}
+.campo input{font:inherit;font-size:1.3em;width:4.6em;padding:2px 6px;text-align:center;
+  border:0;border-bottom:1.5px solid var(--ink);background:transparent;color:inherit;
+  font-variant-numeric:tabular-nums}
+.campo input:focus{outline:none;background:rgba(20,18,9,.05)}
+.campo button{font:inherit;font-size:.85em;letter-spacing:.12em;text-transform:uppercase;
+  border:1.2px solid var(--ink);border-radius:4px;background:none;color:inherit;
+  padding:4px 10px;cursor:pointer}
+.campo button:hover{background:rgba(20,18,9,.08)}
+.campo button:disabled{opacity:.4;cursor:default}
+.curva{width:100%;height:auto;display:block;margin:4px 0 2px;color:var(--ink)}

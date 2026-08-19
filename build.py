@@ -10,20 +10,22 @@ import sys
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
-from planner import acervo, falha, render
+from planner import acervo, estado, falha, render
 from planner.agenda import NOMES, topicos_do_dia
 from planner.paginacao import medir
-from planner.topicos import resumo, tempo
+from planner.topicos import peso, resumo, tempo
 
 BRT = timezone(timedelta(hours=-3))
 DOCS = Path(__file__).resolve().parent / "docs"
 
 # Chapéu (kicker) de cada folha. Tópico sem gerador ainda não entra na edição.
-CHAPEUS = {"resumo": "Edição de hoje", "tempo": "Previsão para São José"}
+CHAPEUS = {"resumo": "Edição de hoje", "tempo": "Previsão para São José",
+           "peso": "Sua curva"}
 
 # O Resumo fica de fora: ele fala das outras folhas, então é montado depois delas.
 GERADORES = {
-    "tempo": lambda dia: tempo.blocos(),
+    "tempo": lambda dia, est: tempo.blocos(),
+    "peso": lambda dia, est: peso.blocos(dia, estado.serie(est, "peso")),
 }
 
 
@@ -32,17 +34,18 @@ def _folha(tid: str, blocos: list[str], falhou: bool = False) -> dict:
             "blocos": blocos, "falhou": falhou}
 
 
-def montar_topicos(dia: date) -> tuple[list[dict], list[dict]]:
+def montar_topicos(dia: date, est: dict | None = None) -> tuple[list[dict], list[dict]]:
     """As folhas da edição, na ordem da agenda, mais a lista do que falhou.
 
     Folha que falha continua na edição dizendo o que faltou — nunca desaparece.
     """
+    est = {} if est is None else est
     folhas, falhas = [], []
     for tid in topicos_do_dia(dia):
         if tid not in GERADORES:
             continue                     # tópico ainda não implementado nesta fatia
         try:
-            folhas.append(_folha(tid, GERADORES[tid](dia)))
+            folhas.append(_folha(tid, GERADORES[tid](dia, est)))
         except Exception as erro:        # noqa: BLE001 — qualquer fonte pode falhar
             print(f"  falhou: {tid} — {erro.__class__.__name__}: {erro}", file=sys.stderr)
             falhas.append({"topico": tid, "erro": f"{erro.__class__.__name__}: {erro}"})
@@ -69,7 +72,8 @@ def main() -> int:
     args = ap.parse_args()
 
     dia = date.fromisoformat(args.data) if args.data else datetime.now(BRT).date()
-    topicos, falhas = montar_topicos(dia)
+    est = estado.consolidar()
+    topicos, falhas = montar_topicos(dia, est)
     print(f"edição de {dia:%d/%m/%Y}: {len(topicos)} tópicos "
           f"({sum(len(t['blocos']) for t in topicos)} blocos)")
 
