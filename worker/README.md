@@ -3,7 +3,16 @@
 Recebe o que o Flávio escreve na edição e guarda no KV. O build do dia seguinte lê tudo e
 consolida no `estado.json` versionado no git — o KV é buffer, não fonte da verdade.
 
-## Deploy (uma vez)
+## No ar
+
+- Worker: **https://estado.diario-flavio-nieland.workers.dev**
+- Conta: `flavionieland1@gmail.com` · KV `ESTADO` = `e2b625570e5c49258ae77b5637e30b15`
+- Secrets `WORKER_URL` e `WORKER_TOKEN` já criados no repositório.
+- O token está em `~/.config/diario-token.txt` (fora do repositório, 600) — é o que se cola
+  no navegador na primeira gravação. Para trocar: `wrangler secret put TOKEN --name estado`
+  e `gh secret set WORKER_TOKEN`.
+
+## Deploy (como foi feito)
 
 ```bash
 npm install -g wrangler
@@ -11,11 +20,12 @@ wrangler login
 
 cd worker
 wrangler kv namespace create ESTADO      # cole o id devolvido no wrangler.toml
-wrangler secret put TOKEN                # invente uma senha longa; é a que você digita no navegador
+wrangler secret put TOKEN                # a senha que você digita no navegador
 wrangler deploy
 ```
 
-O `wrangler deploy` imprime a URL (algo como `https://diario-estado.SEU-SUBDOMINIO.workers.dev`).
+O `wrangler deploy` imprime a URL. Uma conta nova precisa registrar antes o subdomínio
+`workers.dev` — o certificado dele leva alguns minutos para começar a responder.
 
 ## Depois do deploy
 

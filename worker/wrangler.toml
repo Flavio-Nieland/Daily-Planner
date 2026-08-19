@@ -1,4 +1,4 @@
-name = "diario-estado"
+name = "estado"
 main = "index.js"
 compatibility_date = "2026-08-01"
 
@@ -6,7 +6,7 @@ compatibility_date = "2026-08-01"
 # Cole o id devolvido aqui.
 [[kv_namespaces]]
 binding = "ESTADO"
-id = "PREENCHER"
+id = "e2b625570e5c49258ae77b5637e30b15"
 
 [vars]
 # Origem que pode chamar o Worker pelo navegador. Deixe a URL do GitHub Pages.
