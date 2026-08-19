@@ -111,3 +111,27 @@ document.addEventListener("click", async (ev) => {
     aviso.textContent = "Não gravou: " + erro.message;
   }
 });
+
+/* Álbum: o estilo pedido vale a partir da edição de amanhã. */
+document.addEventListener("click", async (ev) => {
+  const botao = ev.target.closest("#estilo-gravar");
+  if (!botao) return;
+  const campo = document.getElementById("estilo-valor");
+  const aviso = document.getElementById("estilo-aviso");
+  const estilo = (campo.value || "").trim();
+  if (estilo.length < 2) {
+    aviso.textContent = "Escreva um estilo.";
+    return;
+  }
+  botao.disabled = true;
+  aviso.textContent = "gravando…";
+  try {
+    await gravarNoWorker("estilo", "pedido", { dia: campo.dataset.dia, estilo });
+    aviso.textContent = `"${estilo}" anotado. A sugestão muda na edição de amanhã.`;
+    campo.value = "";
+  } catch (erro) {
+    aviso.textContent = "Não gravou: " + erro.message;
+  } finally {
+    botao.disabled = false;
+  }
+});

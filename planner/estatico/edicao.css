@@ -98,3 +98,8 @@ table.horas td:last-child{color:var(--ink2);font-size:.94em;text-align:right}
 .lances{font-family:"Courier New",monospace;font-size:.95em;line-height:1.5}
 ul.lista,ol.lista{margin:2px 0 0;padding-left:1.15em;font-size:.97em}
 ul.lista li,ol.lista li{padding:1px 0}
+.disco .capa{width:100%;height:auto;display:block;border:1px solid var(--ink);margin-bottom:6px;
+  filter:grayscale(.35) contrast(1.05)}
+.disco .artista{font-style:italic;color:var(--ink2);margin-top:1px}
+.disco .ouvir{display:inline-block;font-size:.78em;letter-spacing:.1em;text-transform:uppercase;
+  border-bottom:1px solid var(--ink);color:inherit;text-decoration:none;margin-bottom:5px}
