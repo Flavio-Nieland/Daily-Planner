@@ -1,0 +1,406 @@
+{
+  "2026-08-19": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 649,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade de 50 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "150 ml"
+          },
+          {
+            "alimento": "Café com açúcar",
+            "qtd": "1 xícara com 10 g de açúcar"
+          }
+        ],
+        "kcal": 345,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Repolho cru em salada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo para o preparo",
+            "qtd": "8 g"
+          },
+          {
+            "alimento": "Farofa simples",
+            "qtd": "10 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 860,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 403,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Ovos cozidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Salada de alface e tomate",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 557,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2814
+  },
+  "2026-08-20": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Iogurte natural desnatado",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Tapioca preparada",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "25 g"
+          }
+        ],
+        "kcal": 646,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "180 g"
+          }
+        ],
+        "kcal": 335,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "140 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 801,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "40 g"
+          }
+        ],
+        "kcal": 421,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta cozida",
+            "qtd": "300 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Feijão preto cozido",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 597,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
+  },
+  "2026-08-21": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Ovo de galinha",
+            "qtd": "2 unidades mexidas"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Açúcar",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Sardinha em conserva",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Chuchu cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "7 g, usado no preparo"
+          }
+        ],
+        "kcal": 850,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce assada",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Café coado com açúcar",
+            "qtd": "200 ml de café e 5 g de açúcar"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão de trigo cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Carne bovina moída refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Repolho fatiado",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 600,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
+  }
+}
