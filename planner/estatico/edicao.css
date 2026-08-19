@@ -103,3 +103,17 @@ ul.lista li,ol.lista li{padding:1px 0}
 .disco .artista{font-style:italic;color:var(--ink2);margin-top:1px}
 .disco .ouvir{display:inline-block;font-size:.78em;letter-spacing:.1em;text-transform:uppercase;
   border-bottom:1px solid var(--ink);color:inherit;text-decoration:none;margin-bottom:5px}
+.verso{font-size:1.02em;line-height:1.5;text-indent:1.2em}
+.verso:first-of-type{text-indent:0}
+.citacao{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:8px 0;
+  text-align:center;font-style:italic;font-size:1.08em;line-height:1.35}
+.refeicao h4{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+.refeicao .hora{font-size:.9em;color:var(--ink2);font-weight:400;letter-spacing:0;text-transform:none}
+.refeicao .kcal{margin-left:auto;font-weight:400;letter-spacing:.04em}
+.bloco ul{list-style:none;padding:0;margin:.35em 0 0;font-size:.96em}
+.bloco ul li{padding:2px 0;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.bloco .qtd{color:var(--ink2);font-style:italic;font-size:.9em;text-align:right;max-width:55%}
+.posicao .desenho{border:1px solid var(--rule);padding:2px;margin:3px 0 5px;background:rgba(255,255,255,.35)}
+.posicao .desenho svg{width:100%;height:auto;display:block;color:var(--ink)}
+.posicao .dose{font-size:.85em;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+  margin:2px 0 3px}

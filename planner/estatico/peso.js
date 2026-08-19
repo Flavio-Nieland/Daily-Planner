@@ -135,3 +135,29 @@ document.addEventListener("click", async (ev) => {
     botao.disabled = false;
   }
 });
+
+/* Alongamento: mão–chão em cm e dor de 0 a 10, na mesma seção "medida". */
+document.addEventListener("click", async (ev) => {
+  const botao = ev.target.closest(".medir");
+  if (!botao) return;
+  const qual = botao.dataset.medida;
+  const campo = document.getElementById(qual + "-valor");
+  const aviso = document.getElementById("medida-aviso");
+  const valor = parseFloat((campo.value || "").replace(",", "."));
+  const limite = qual === "dor" ? 10 : 100;
+  if (!isFinite(valor) || valor < -50 || valor > limite) {
+    aviso.textContent = "Valor inválido.";
+    return;
+  }
+  botao.disabled = true;
+  aviso.textContent = "gravando…";
+  try {
+    await gravarNoWorker("medida", qual + ":" + campo.dataset.dia, valor);
+    aviso.textContent = "Anotado. Entra na comparação amanhã.";
+    campo.value = "";
+  } catch (erro) {
+    aviso.textContent = "Não gravou: " + erro.message;
+  } finally {
+    botao.disabled = false;
+  }
+});

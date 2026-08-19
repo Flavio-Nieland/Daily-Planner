@@ -1,0 +1,188 @@
+[
+  {
+    "titulo": "Núcleo lombar — todos os dias",
+    "meta": "6 posições · ~9 min · abre toda sessão",
+    "itens": [
+      {
+        "id": "N1 · Descompressão lombar",
+        "nome": "Respiração 90/90 com pernas apoiadas",
+        "dose": "120s",
+        "como": "Deitado de costas, panturrilhas apoiadas no assento da cadeira, quadril e joelhos a 90°. Mão na barriga. Inspire 4s pelo nariz enchendo a barriga, expire 6s pela boca deixando as costelas caírem. A lombar aproxima do chão sozinha na expiração.",
+        "erro": "Erro comum: Forçar a lombar contra o chão com o abdômen. O relaxamento tem que vir da respiração, não da contração.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><line class=\"prop\" x1=\"96\" y1=\"66\" x2=\"182\" y2=\"66\"/><line class=\"prop\" x1=\"102\" y1=\"66\" x2=\"102\" y2=\"118\"/><line class=\"prop\" x1=\"176\" y1=\"66\" x2=\"176\" y2=\"118\"/><circle cx=\"32\" cy=\"104\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M43 110 L100 112\"/><path d=\"M100 112 L108 72\"/><path d=\"M108 72 L164 68\"/><path d=\"M164 68 L170 60\"/><path d=\"M62 110 L76 100\"/></svg>"
+      },
+      {
+        "id": "N2 · Mobilidade segmentar",
+        "nome": "Gato-camelo",
+        "dose": "60s",
+        "como": "Quatro apoios, mãos sob os ombros e joelhos sob o quadril. Enrole a coluna pra cima vértebra por vértebra soltando o ar; depois deixe cair em arco puxando o ar. Movimento lento, 3s em cada direção.",
+        "erro": "Erro comum: Fazer rápido e só na lombar. O peito e o pescoço acompanham — é a coluna inteira.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><path d=\"M65 118 L65 82\"/><path d=\"M150 118 L150 82\"/><path d=\"M65 82 Q108 54 150 82\"/><circle cx=\"52\" cy=\"92\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path class=\"accent\" d=\"M96 44 Q108 34 120 44\" stroke-width=\"3\"/><path class=\"accent\" d=\"M120 44 l-6 -6 M120 44 l-7 2\" stroke-width=\"3\"/></svg>"
+      },
+      {
+        "id": "N3 · Lombar e glúteo",
+        "nome": "Joelho ao peito, uma perna por vez",
+        "dose": "45s · cada lado",
+        "como": "Deitado, puxe um joelho na direção do peito com as duas mãos na coxa (não na canela). A outra perna fica estendida no chão, com a lombar relaxada. Respire fundo 3 vezes na posição.",
+        "erro": "Erro comum: Deixar a perna estendida subir do chão — isso tira o alongamento do flexor de quadril, que é metade do efeito.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><circle cx=\"30\" cy=\"104\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M41 110 L98 112\"/><path d=\"M98 112 L178 116\"/><path d=\"M178 116 L182 106\"/><path d=\"M98 112 L86 70\"/><path d=\"M86 70 L112 58\"/><path d=\"M58 108 L82 74\"/><path d=\"M64 112 L88 80\"/></svg>"
+      },
+      {
+        "id": "N4 · Rotação lombar",
+        "nome": "Rotação de joelhos deitado",
+        "dose": "60s",
+        "como": "Deitado, joelhos dobrados e juntos, pés no chão, braços abertos em cruz. Deixe os dois joelhos caírem devagar pra um lado até onde o ombro oposto ainda ficar colado no chão. Volte e alterne.",
+        "erro": "Erro comum: Ir até o fim e deixar o ombro descolar. O limite é o ombro, não o joelho.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><circle cx=\"28\" cy=\"84\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M39 90 L104 92\"/><path d=\"M60 90 L56 58\"/><path d=\"M60 92 L56 116\"/><path d=\"M104 92 L132 106\"/><path d=\"M132 106 L158 96\"/><path class=\"accent\" d=\"M108 72 Q126 70 136 82\" stroke-width=\"3\"/><path class=\"accent\" d=\"M136 82 l1 -8 M136 82 l-7 -2\" stroke-width=\"3\"/></svg>"
+      },
+      {
+        "id": "N5 · Torácica — descarrega a lombar",
+        "nome": "Abertura torácica deitado de lado",
+        "dose": "45s · cada lado",
+        "como": "Deitado de lado, joelhos dobrados a 90° empilhados (pode travar com uma toalha entre eles), braços estendidos à frente, palmas juntas. Abra o braço de cima em arco amplo até o chão do outro lado, acompanhando com o olhar. Joelhos não saem do lugar.",
+        "erro": "Erro comum: Deixar o quadril rodar junto. Se o joelho de cima levanta, você está movendo a lombar em vez do tórax.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><circle cx=\"152\" cy=\"96\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M142 102 L86 104\"/><path d=\"M86 104 L70 84\"/><path d=\"M70 84 L46 92\"/><path d=\"M132 102 L96 90\"/><path class=\"accent\" d=\"M96 90 Q100 62 118 50\" stroke-width=\"3\" stroke-dasharray=\"7 5\"/><path class=\"accent\" d=\"M118 50 l-8 1 M118 50 l-2 8\" stroke-width=\"3\"/></svg>"
+      },
+      {
+        "id": "N6 · Descompressão lombar",
+        "nome": "Postura da criança",
+        "dose": "60s",
+        "como": "Ajoelhado, joelhos afastados na largura do quadril, sente o quadril nos calcanhares e estenda os braços à frente. Deixe o peso do tronco puxar a coluna pra fora. Respire fundo e sinta a lombar abrir a cada expiração.",
+        "erro": "Erro comum: Contrair pra \"chegar mais longe\". Aqui é entrega: se doer joelho, ponha uma toalha dobrada atrás dele.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><path d=\"M152 96 L146 118\"/><path d=\"M146 118 L172 116\"/><path d=\"M152 96 L82 108\"/><circle cx=\"72\" cy=\"110\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M98 105 L44 114\"/></svg>"
+      }
+    ]
+  },
+  {
+    "titulo": "Bloco A — PERNAS",
+    "meta": "Seg · Qua · Sex · 8 posições · ~20 min",
+    "itens": [
+      {
+        "id": "A1 · Isquiotibiais — PNF",
+        "nome": "Isquiotibial deitado com faixa",
+        "dose": "3× PNF · 6s contrai / 20s solta · cada lado",
+        "como": "Deitado, faixa (ou toalha) na sola do pé, perna elevada o mais reta possível, a outra estendida no chão. CONTRAIA: empurre o pé contra a faixa como se fosse baixar a perna, sem deixá-la ceder — 6s. SOLTE: relaxe e puxe a perna um pouco mais perto do rosto — 20s. Repita 3 ciclos.",
+        "erro": "Erro comum: Dobrar o joelho pra ganhar amplitude falsa. Perna reta com menos altura vale mais que perna dobrada alta.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><circle cx=\"30\" cy=\"104\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M41 110 L100 112\"/><path d=\"M100 112 L180 116\"/><path d=\"M180 116 L184 106\"/><path d=\"M100 112 L106 42\"/><path d=\"M106 42 L96 34\"/><path class=\"accent\" d=\"M106 46 L64 98\"/><path class=\"accent\" d=\"M100 44 L58 100\"/><path d=\"M64 108 L62 100\"/></svg>"
+      },
+      {
+        "id": "A2 · Isquiotibiais em carga",
+        "nome": "Isquiotibial no degrau, coluna neutra",
+        "dose": "75s · cada lado",
+        "como": "Calcanhar num degrau ou no assento da cadeira, perna reta e pé relaxado. Incline o tronco pra frente girando pelo QUADRIL, mantendo o peito aberto e a lombar reta. Pare quando sentir puxar atrás da coxa.",
+        "erro": "Erro comum: Curvar as costas pra encostar a mão no pé. Se a lombar arredondou, o alongamento saiu do isquiotibial e foi pra sua dor.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><line class=\"prop\" x1=\"146\" y1=\"88\" x2=\"208\" y2=\"88\"/><line class=\"prop\" x1=\"146\" y1=\"88\" x2=\"146\" y2=\"118\"/><path d=\"M104 118 L108 68\"/><path d=\"M108 68 L172 86\"/><path d=\"M172 86 L178 78\"/><path d=\"M108 68 L128 44\"/><circle cx=\"138\" cy=\"36\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M128 46 L162 70\"/></svg>"
+      },
+      {
+        "id": "A3 · Gastrocnêmio",
+        "nome": "Panturrilha na parede — joelho reto",
+        "dose": "60s · cada lado",
+        "como": "Mãos na parede, uma perna atrás bem esticada, calcanhar colado no chão e pé apontado pra frente. Empurre o quadril na direção da parede mantendo o joelho de trás travado reto.",
+        "erro": "Erro comum: Deixar o calcanhar levantar ou o pé girar pra fora. Se levantou, aproxime o pé da parede.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><line class=\"prop\" x1=\"40\" y1=\"18\" x2=\"40\" y2=\"118\"/><line class=\"prop\" x1=\"40\" y1=\"26\" x2=\"30\" y2=\"34\"/><line class=\"prop\" x1=\"40\" y1=\"44\" x2=\"30\" y2=\"52\"/><line class=\"prop\" x1=\"40\" y1=\"62\" x2=\"30\" y2=\"70\"/><line class=\"prop\" x1=\"40\" y1=\"80\" x2=\"30\" y2=\"88\"/><line class=\"prop\" x1=\"40\" y1=\"98\" x2=\"30\" y2=\"106\"/><circle cx=\"74\" cy=\"50\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M82 60 L120 88\"/><path d=\"M82 60 L46 58\"/><path d=\"M120 88 L100 104\"/><path d=\"M100 104 L96 118\"/><path class=\"accent\" d=\"M120 88 L174 116\"/><path class=\"accent\" d=\"M174 116 L184 114\"/></svg>"
+      },
+      {
+        "id": "A4 · Sóleo (panturrilha profunda)",
+        "nome": "Sóleo na parede — joelho dobrado",
+        "dose": "60s · cada lado",
+        "como": "Mesma posição, mas agora dobre o joelho de trás mantendo o calcanhar colado no chão. O alongamento desce pra parte baixa da panturrilha, perto do tendão.",
+        "erro": "Erro comum: Pular esta por achar repetida. Sóleo curto limita o agachamento e joga a lombar em compensação.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><line class=\"prop\" x1=\"40\" y1=\"18\" x2=\"40\" y2=\"118\"/><line class=\"prop\" x1=\"40\" y1=\"26\" x2=\"30\" y2=\"34\"/><line class=\"prop\" x1=\"40\" y1=\"44\" x2=\"30\" y2=\"52\"/><line class=\"prop\" x1=\"40\" y1=\"62\" x2=\"30\" y2=\"70\"/><line class=\"prop\" x1=\"40\" y1=\"80\" x2=\"30\" y2=\"88\"/><line class=\"prop\" x1=\"40\" y1=\"98\" x2=\"30\" y2=\"106\"/><circle cx=\"74\" cy=\"50\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M82 60 L120 88\"/><path d=\"M82 60 L46 58\"/><path d=\"M120 88 L100 104\"/><path d=\"M100 104 L96 118\"/><path class=\"accent\" d=\"M120 88 L156 100\"/><path class=\"accent\" d=\"M156 100 L152 118\"/></svg>"
+      },
+      {
+        "id": "A5 · Face interna da coxa",
+        "nome": "Adutor deitado com faixa",
+        "dose": "70s · cada lado",
+        "como": "Deitado, faixa no pé, perna reta pro alto e depois aberta lentamente pro lado, controlada pela faixa. Quadril oposto continua colado no chão. Segure onde puxa a virilha.",
+        "erro": "Erro comum: Deixar o outro lado do quadril descolar do chão pra abrir mais. Ancore o quadril e aceite menos amplitude.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"110\" cy=\"26\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M110 36 L110 72\"/><path d=\"M110 72 L94 116\"/><path d=\"M94 116 L84 114\"/><path class=\"accent\" d=\"M110 72 L182 92\"/><path class=\"accent\" d=\"M182 92 L188 82\"/><path class=\"accent\" d=\"M182 92 L142 46\" stroke-dasharray=\"7 5\"/><path d=\"M110 44 L140 44\"/></svg>"
+      },
+      {
+        "id": "A6 · Glúteo profundo",
+        "nome": "Figure-4 deitado (glúteo/piriforme)",
+        "dose": "75s · cada lado",
+        "como": "Deitado, tornozelo direito apoiado acima do joelho esquerdo formando um \"4\". Puxe a coxa esquerda em direção ao peito com as mãos entrelaçadas atrás dela. Cabeça e ombros relaxados no chão.",
+        "erro": "Erro comum: Levantar a cabeça e travar a respiração. Glúteo só solta quando o pescoço está solto.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><circle cx=\"30\" cy=\"104\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M41 110 L98 112\"/><path d=\"M98 112 L84 70\"/><path d=\"M84 70 L108 54\"/><path class=\"accent\" d=\"M98 112 L52 78\"/><path class=\"accent\" d=\"M52 78 L88 88\"/><path class=\"accent\" d=\"M88 88 L96 80\"/><path d=\"M60 108 L80 76\"/></svg>"
+      },
+      {
+        "id": "A7 · Quadríceps e reto femoral",
+        "nome": "Quadríceps deitado de lado",
+        "dose": "60s · cada lado",
+        "como": "Deitado de lado, segure o tornozelo de cima e leve o calcanhar ao glúteo mantendo os joelhos juntos. Empurre o quadril levemente à frente. Alonga também o flexor de quadril.",
+        "erro": "Erro comum: Deixar a lombar arquear pra \"alongar mais\". Contraia o glúteo do lado de cima para travar a pelve antes de puxar.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><circle cx=\"34\" cy=\"96\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M45 102 L106 104\"/><path d=\"M106 104 L176 112\"/><path d=\"M176 112 L182 104\"/><path class=\"accent\" d=\"M106 104 L114 100\"/><path class=\"accent\" d=\"M114 100 L154 78\"/><path class=\"accent\" d=\"M154 78 L162 82\"/><path d=\"M90 100 L150 80\"/></svg>"
+      },
+      {
+        "id": "A8 · Cadeia posterior inteira",
+        "nome": "Flexão à frente, joelhos macios (teste + solta)",
+        "dose": "90s",
+        "como": "Em pé, joelhos levemente destravados, deixe o tronco cair à frente pelo peso, pescoço solto. Não puxe: apenas respire e deixe descer a cada expiração. Meça a distância das pontas dos dedos ao chão no primeiro e no último dia da semana.",
+        "erro": "Erro comum: Travar os joelhos e forçar com impulso. Balanço não alonga, irrita.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><path d=\"M104 118 L100 96\"/><path d=\"M100 96 L110 68\"/><path d=\"M110 68 L78 86\"/><circle cx=\"68\" cy=\"94\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M80 88 L72 110\"/><path class=\"accent\" d=\"M72 112 L72 118\" stroke-dasharray=\"4 3\" stroke-width=\"3\"/><text x=\"80\" y=\"116\" font-size=\"11\" font-weight=\"700\" fill=\"#c9663a\" stroke=\"none\">? cm</text></svg>"
+      }
+    ]
+  },
+  {
+    "titulo": "Bloco B — QUADRIL",
+    "meta": "Ter · Qui · 7 posições · ~19 min",
+    "itens": [
+      {
+        "id": "B1 · Psoas — PNF",
+        "nome": "Flexor de quadril meio-ajoelhado",
+        "dose": "3× PNF · 6s contrai / 20s solta · cada lado",
+        "como": "Um joelho no chão (toalha embaixo), o outro pé à frente a 90°. Encaixe a pelve: contraia o glúteo do lado ajoelhado até sentir a lombar achatar. CONTRAIA: pressione o joelho de trás contra o chão como se fosse arrastá-lo pra frente — 6s. SOLTE: avance o quadril 2 cm — 20s. 3 ciclos.",
+        "erro": "Erro comum: Avançar o joelho da frente e arquear a lombar. Se a lombar arqueou, você trocou o alongamento do psoas por compressão lombar — exatamente o que dói.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><path class=\"accent\" d=\"M112 88 L142 118\"/><path class=\"accent\" d=\"M142 118 L168 116\"/><path d=\"M112 88 L74 94\"/><path d=\"M74 94 L72 118\"/><path d=\"M112 88 L118 50\"/><circle cx=\"120\" cy=\"40\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M116 60 L128 82\"/></svg>"
+      },
+      {
+        "id": "B2 · Reto femoral + psoas",
+        "nome": "Couch stretch (pé apoiado no sofá)",
+        "dose": "90s · cada lado",
+        "como": "Joelho de trás no chão junto à base do sofá, canela e pé apoiados na vertical contra ele. Pé da frente firme no chão. Suba o tronco e encaixe a pelve contraindo o glúteo de trás. Versão intensa — entre devagar.",
+        "erro": "Erro comum: Subir o tronco antes de encaixar a pelve. Encaixa primeiro, sobe depois; senão vira extensão lombar pura.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><line class=\"prop\" x1=\"150\" y1=\"84\" x2=\"212\" y2=\"84\"/><line class=\"prop\" x1=\"150\" y1=\"84\" x2=\"150\" y2=\"118\"/><path class=\"accent\" d=\"M118 88 L146 116\"/><path class=\"accent\" d=\"M146 116 L152 80\"/><path class=\"accent\" d=\"M152 80 L160 76\"/><path d=\"M118 88 L84 94\"/><path d=\"M84 94 L82 118\"/><path d=\"M118 88 L124 50\"/><circle cx=\"126\" cy=\"40\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M122 60 L134 82\"/></svg>"
+      },
+      {
+        "id": "B3 · Rotadores do quadril",
+        "nome": "90/90 sentado",
+        "dose": "90s · cada lado",
+        "como": "Sentado no chão, perna da frente a 90° e a de trás a 90°, ambas apoiadas. Coluna longa. Incline o tronco por cima da canela da frente mantendo o peito aberto. Troque de lado invertendo as pernas.",
+        "erro": "Erro comum: Deixar o glúteo do lado de trás subir do chão. Se subiu, sente numa almofada e reduza o ângulo.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"112\" cy=\"28\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M112 38 L112 74\"/><path d=\"M112 74 L62 82\"/><path d=\"M62 82 L68 112\"/><path d=\"M68 112 L58 116\"/><path class=\"accent\" d=\"M112 74 L162 66\"/><path class=\"accent\" d=\"M162 66 L176 102\"/><path class=\"accent\" d=\"M176 102 L186 100\"/><path d=\"M112 46 L86 74\"/></svg>"
+      },
+      {
+        "id": "B4 · Glúteo — versão do escritório",
+        "nome": "Figure-4 sentado na cadeira",
+        "dose": "60s · cada lado",
+        "como": "Sentado na beirada da cadeira, tornozelo sobre o joelho oposto, joelho aberto pro lado. Coluna longa, incline o tronco à frente pelo quadril até puxar no glúteo. Faça também durante o expediente.",
+        "erro": "Erro comum: Curvar as costas em vez de inclinar pelo quadril — a lombar já está sobrecarregada de ficar sentado.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><line class=\"prop\" x1=\"78\" y1=\"86\" x2=\"164\" y2=\"86\"/><line class=\"prop\" x1=\"164\" y1=\"86\" x2=\"164\" y2=\"34\"/><line class=\"prop\" x1=\"84\" y1=\"86\" x2=\"84\" y2=\"118\"/><line class=\"prop\" x1=\"158\" y1=\"86\" x2=\"158\" y2=\"118\"/><path d=\"M142 82 L136 46\"/><circle cx=\"134\" cy=\"36\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M142 82 L102 84\"/><path d=\"M102 84 L98 118\"/><path class=\"accent\" d=\"M142 82 L106 56\"/><path class=\"accent\" d=\"M106 56 L96 86\"/><path class=\"accent\" d=\"M96 86 L88 82\"/></svg>"
+      },
+      {
+        "id": "B5 · Torácica e ombro",
+        "nome": "Thread the needle (rotação torácica)",
+        "dose": "60s · cada lado",
+        "como": "Quatro apoios. Passe um braço por baixo do corpo em direção ao lado oposto, deixando o ombro e a lateral da cabeça apoiarem no chão. Quadril permanece alto e alinhado sobre os joelhos.",
+        "erro": "Erro comum: Deixar o quadril desabar pro lado. Quadril parado = a rotação acontece no tórax, que é onde você precisa.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><path d=\"M152 118 L152 84\"/><path d=\"M152 84 L98 88\"/><path d=\"M98 88 L112 118\"/><path class=\"accent\" d=\"M98 88 L58 114\"/><path class=\"accent\" d=\"M58 114 L48 112\"/><circle cx=\"78\" cy=\"108\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/></svg>"
+      },
+      {
+        "id": "B6 · Adutores",
+        "nome": "Borboleta sentado",
+        "dose": "150s",
+        "como": "Sentado, solas dos pés juntas e calcanhares confortavelmente afastados do corpo. Segure os pés e alongue a coluna pra cima; incline à frente pelo quadril, sem curvar as costas. Deixe os joelhos cederem pelo próprio peso.",
+        "erro": "Erro comum: Empurrar os joelhos pra baixo com as mãos. Pressão externa no adutor tenso gera reflexo de defesa — ele fecha mais.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"110\" cy=\"26\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M110 36 L110 72\"/><path d=\"M110 72 L64 90\"/><path d=\"M64 90 L104 106\"/><path d=\"M110 72 L156 90\"/><path d=\"M156 90 L116 106\"/><path d=\"M110 44 L100 102\"/><path d=\"M110 44 L120 102\"/></svg>"
+      },
+      {
+        "id": "B7 · Quadril, tornozelo e lombar",
+        "nome": "Agachamento profundo apoiado",
+        "dose": "90s",
+        "como": "Segurando num batente de porta ou na cadeira, desça ao agachamento mais fundo que conseguir, calcanhares no chão e peito aberto. Fique parado respirando; se quiser, alterne o peso de um lado pro outro.",
+        "erro": "Erro comum: Calcanhar levantando. Se levantar, ponha um calço fino sob eles — não force o tornozelo, ele vem com o tempo.",
+        "svg": "<svg class=\"art \" viewBox=\"0 0 220 130\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><line class=\"floor\" x1=\"8\" y1=\"118\" x2=\"212\" y2=\"118\" stroke-width=\"2\" stroke-dasharray=\"6 6\" opacity=\".5\"/><line class=\"prop\" x1=\"176\" y1=\"30\" x2=\"176\" y2=\"118\"/><path d=\"M100 118 L116 92\"/><path d=\"M116 92 L94 100\"/><path d=\"M94 100 L100 62\"/><circle cx=\"102\" cy=\"52\" r=\"9\" fill=\"currentColor\" stroke=\"none\"/><path d=\"M100 70 L172 78\"/><path d=\"M100 118 L88 116\"/></svg>"
+      }
+    ]
+  }
+]
