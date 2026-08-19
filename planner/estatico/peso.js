@@ -68,3 +68,27 @@ document.addEventListener("click", async (ev) => {
     if (aviso) aviso.textContent = "Não marcou: " + erro.message;
   }
 });
+
+/* Elo: mesma mecânica do peso, seção diferente. */
+document.addEventListener("click", async (ev) => {
+  const botao = ev.target.closest("#elo-gravar");
+  if (!botao) return;
+  const campo = document.getElementById("elo-valor");
+  const aviso = document.getElementById("elo-aviso");
+  const elo = parseInt((campo.value || "").replace(/\D/g, ""), 10);
+  if (!isFinite(elo) || elo < 100 || elo > 3500) {
+    aviso.textContent = "Elo inválido.";
+    return;
+  }
+  botao.disabled = true;
+  aviso.textContent = "gravando…";
+  try {
+    await gravarNoWorker("elo", campo.dataset.dia, elo);
+    aviso.textContent = elo + " anotado. Entra na curva amanhã.";
+    campo.value = "";
+  } catch (erro) {
+    aviso.textContent = "Não gravou: " + erro.message;
+  } finally {
+    botao.disabled = false;
+  }
+});

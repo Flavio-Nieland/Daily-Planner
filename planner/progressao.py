@@ -62,3 +62,23 @@ def feito_hoje(estado: dict, topico: str, dia: date) -> bool:
 def ultima_conclusao(estado: dict, topico: str) -> date | None:
     feitos = conclusoes(estado, topico)
     return feitos[-1] if feitos else None
+
+
+# ---- trilhas: cada uma com ponteiro próprio, andando independente da outra ----
+
+def trilha_da_vez(estado: dict, topico: str, ordem: list[str]) -> str:
+    """A trilha que aparece hoje. A rotação anda a cada conclusão do tópico."""
+    return ordem[len(conclusoes(estado, topico)) % len(ordem)]
+
+
+def posicao_trilha(estado: dict, topico: str, ordem: list[str], trilha: str,
+                   inicial: int, total: int) -> int:
+    """Quantas vezes aquela trilha específica já foi concluída, mais a posição inicial.
+
+    A i-ésima conclusão do tópico pertence à trilha `ordem[i % len(ordem)]` — é assim que
+    o ponteiro de uma trilha anda sem mexer no da outra.
+    """
+    indice = ordem.index(trilha)
+    feitas = sum(1 for i in range(len(conclusoes(estado, topico)))
+                 if i % len(ordem) == indice)
+    return min(inicial + feitas, total)

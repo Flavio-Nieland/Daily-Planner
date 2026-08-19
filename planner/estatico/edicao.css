@@ -94,3 +94,5 @@ table.horas td:last-child{color:var(--ink2);font-size:.94em;text-align:right}
   padding:5px 12px;cursor:pointer}
 .marcar:hover{background:rgba(20,18,9,.08)}
 .marcar:disabled{opacity:.4;cursor:default}
+.presc{border:1.5px solid var(--ink);padding:8px 10px}
+.lances{font-family:"Courier New",monospace;font-size:.95em;line-height:1.5}
