@@ -1,9 +1,7 @@
-# Publica a edição do dia (v2).
+# Publica a edição do dia.
 #
-# ⚠️ GitHub Actions só dispara `schedule` na branch padrão. Enquanto o v2 viver na branch
-# `v2`, este workflow roda por `workflow_dispatch`; o cron abaixo passa a valer quando a v2
-# entrar em `main` (ticket #17). Até lá o `daily.yml` continua publicando o v1 a partir de
-# `main` — não há janela sem jornal.
+# Único workflow do projeto: o `daily.yml` do v1 saiu junto com o resto dele. O cron roda
+# na branch padrão, que é `main`.
 
 name: Edição do dia
 

@@ -23,7 +23,7 @@ def sem_rede(tmp_path, monkeypatch):
     falso.get_spotify_taste_profile = lambda: {"top_artists": ["Radiohead"], "top_genres": ["indie"],
                                                "saved_albums": [{"album": "OK Computer", "artist": "Radiohead"}]}
     falso.search_album = lambda a, b: {"cover_url": None, "spotify_id": None}
-    monkeypatch.setitem(sys.modules, "spotify", falso)
+    monkeypatch.setitem(sys.modules, "planner.spotify", falso)
 
 
 def _pedido(estilo, dia):

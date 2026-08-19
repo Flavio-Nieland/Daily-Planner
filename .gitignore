@@ -15,12 +15,6 @@ env/
 .DS_Store
 Thumbs.db
 
-# Cache do v1 — não comitar (sai no #17, junto com o resto do v1)
-stretching_plan.json
-programming_plan.json
-next_book.json
-album_suggestion.json
-
 # O v2 versiona o que ele escreve e o que foi gerado: é assim que o build do dia
 # seguinte sabe onde ele parou, e é o histórico auditável do projeto.
 !diet_plan.json

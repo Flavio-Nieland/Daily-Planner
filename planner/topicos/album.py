@@ -74,7 +74,7 @@ def _guardar(dia: date, discos: list[dict]) -> None:
 
 def _sugerir(contexto: str, evitar: list[str]) -> dict:
     lista = "\n".join(f"- {x}" for x in evitar[-40:]) or "- (nenhum ainda)"
-    bruto = llm.gerar_json(PROMPT.format(contexto=contexto, evitar=lista), max_tokens=3000)
+    bruto = llm.gerar_json(PROMPT.format(contexto=contexto, evitar=lista), max_tokens=6000)
     return {
         "album": llm.texto(llm.campo(bruto, "album", "álbum", "disco", "title")),
         "artista": llm.texto(llm.campo(bruto, "artista", "artist", "banda")),
@@ -85,7 +85,7 @@ def _sugerir(contexto: str, evitar: list[str]) -> dict:
 
 
 def _capa(disco: dict) -> str:
-    from spotify import search_album
+    from planner.spotify import search_album
 
     try:
         achado = search_album(disco["album"], disco["artista"])
@@ -117,7 +117,7 @@ def _perfil() -> tuple[dict, str | None]:
     O disco do estilo pedido não depende do Spotify — perder a conta não pode custar a
     folha inteira, só a metade que realmente precisa do perfil.
     """
-    from spotify import get_spotify_taste_profile
+    from planner.spotify import get_spotify_taste_profile
 
     try:
         return get_spotify_taste_profile(), None
