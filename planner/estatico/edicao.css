@@ -72,3 +72,5 @@ table.horas td:last-child{color:var(--ink2);font-size:.94em;text-align:right}
 .lede{font-size:1.15em;line-height:1.55;text-align:justify}
 .capitular{float:left;font-weight:700;line-height:.78;padding:5px 8px 0 0;font-size:3.8em;
   font-family:"Bodoni MT",Georgia,serif}
+.bloco.falhou{border:1.5px solid var(--accent);padding:9px 11px}
+.bloco.falhou h4{color:var(--accent);border-bottom-color:var(--accent)}
