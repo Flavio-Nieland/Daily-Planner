@@ -13,7 +13,7 @@ from pathlib import Path
 from planner import acervo, estado, falha, render
 from planner.agenda import NOMES, topicos_do_dia
 from planner.paginacao import medir
-from planner.topicos import corrida, peso, resumo, tempo, xadrez
+from planner.topicos import comida, corrida, peso, resumo, tempo, xadrez
 
 BRT = timezone(timedelta(hours=-3))
 DOCS = Path(__file__).resolve().parent / "docs"
@@ -21,7 +21,7 @@ DOCS = Path(__file__).resolve().parent / "docs"
 # Chapéu (kicker) de cada folha. Tópico sem gerador ainda não entra na edição.
 CHAPEUS = {"resumo": "Edição de hoje", "tempo": "Previsão para São José",
            "peso": "Sua curva", "corrida": "Rumo aos 10 km",
-           "xadrez": "Subindo de Elo"}
+           "xadrez": "Subindo de Elo", "comida": "Repertório de 30 pratos"}
 
 # O Resumo fica de fora: ele fala das outras folhas, então é montado depois delas.
 GERADORES = {
@@ -29,6 +29,7 @@ GERADORES = {
     "peso": lambda dia, est: peso.blocos(dia, estado.serie(est, "peso")),
     "corrida": lambda dia, est: corrida.blocos(dia, est),
     "xadrez": lambda dia, est: xadrez.blocos(dia, est, estado.serie(est, "elo")),
+    "comida": lambda dia, est: comida.blocos(dia, est),
 }
 
 

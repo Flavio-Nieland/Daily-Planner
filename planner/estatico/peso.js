@@ -92,3 +92,22 @@ document.addEventListener("click", async (ev) => {
     botao.disabled = false;
   }
 });
+
+/* Comida: o veredito guarda o prato e o dia numa gravação só. */
+document.addEventListener("click", async (ev) => {
+  const botao = ev.target.closest(".veredito");
+  if (!botao) return;
+  const aviso = document.getElementById("comida-aviso");
+  document.querySelectorAll(".veredito").forEach(b => (b.disabled = true));
+  aviso.textContent = "gravando…";
+  try {
+    await gravarNoWorker("dominio", "prato:" + botao.dataset.prato,
+      { dia: botao.dataset.dia, veredito: botao.dataset.veredito });
+    aviso.textContent = botao.dataset.veredito === "dominado"
+      ? "Marcado como dominado. Amanhã vem o próximo prato."
+      : "Anotado. O prato volta para revisão em alguns dias.";
+  } catch (erro) {
+    document.querySelectorAll(".veredito").forEach(b => (b.disabled = false));
+    aviso.textContent = "Não gravou: " + erro.message;
+  }
+});

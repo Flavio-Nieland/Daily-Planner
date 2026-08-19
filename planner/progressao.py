@@ -82,3 +82,20 @@ def posicao_trilha(estado: dict, topico: str, ordem: list[str], trilha: str,
     feitas = sum(1 for i in range(len(conclusoes(estado, topico)))
                  if i % len(ordem) == indice)
     return min(inicial + feitas, total)
+
+
+# ---- decisões com veredito: comida, onde o prato pode voltar para revisão ----
+
+def decisoes(estado: dict, secao: str, topico: str) -> dict[str, dict]:
+    """Registros `{chave: {"dia": ..., "veredito": ...}}` feitos em dia válido do tópico."""
+    saida = {}
+    for chave_registro, valor in (estado.get(secao) or {}).items():
+        if not isinstance(valor, dict) or "dia" not in valor:
+            continue
+        try:
+            dia = date.fromisoformat(str(valor["dia"]))
+        except ValueError:
+            continue
+        if na_edicao(topico, dia):
+            saida[chave_registro] = {"dia": dia, "veredito": valor.get("veredito")}
+    return saida
