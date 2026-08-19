@@ -22,9 +22,9 @@ def sem_rede(tmp_path, monkeypatch):
 
     def falso(prompt, **k):
         if "40 situações" in prompt:
-            return {"itens": [{"titulo": f"situação {i}"} for i in range(1, 41)]}
-        if "40 vídeos" in prompt:
-            return {"itens": [{"video": f"video{i:07d}", "titulo": f"vídeo {i}"} for i in range(1, 41)]}
+            return {"itens": [{"titulo": f"situação {i}"} for i in range(1, 21)]}
+        if "20 vídeos" in prompt:
+            return {"itens": [{"video": f"video{i:07d}", "titulo": f"vídeo {i}"} for i in range(1, 21)]}
         return dict(ESCUTA) if "legenda oficial do vídeo" in prompt else dict(FALA)
 
     monkeypatch.setattr(ingles.llm, "gerar_json", falso)
