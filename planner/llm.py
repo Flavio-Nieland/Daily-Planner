@@ -44,8 +44,13 @@ def gerar_json(prompt: str, max_tokens: int = 2000) -> dict:
     # Resposta longa trunca o JSON, e o erro que chega é um JSONDecodeError sem pista
     # nenhuma. O modelo ainda gasta tokens de raciocínio dentro deste mesmo limite, então
     # o teto precisa de folga — dizer isso aqui é o que evita caçar o problema no escuro.
-    if getattr(escolha, "finish_reason", None) == "length":
-        raise RuntimeError(f"resposta truncada no limite de {max_tokens} tokens")
+    #
+    # E não basta olhar o finish_reason: o hub devolve "stop" mesmo quando a resposta bateu
+    # no teto. A contagem de tokens gastos é o sinal confiável.
+    gastos = getattr(getattr(resposta, "usage", None), "completion_tokens", 0) or 0
+    if getattr(escolha, "finish_reason", None) == "length" or gastos >= max_tokens:
+        raise RuntimeError(f"resposta truncada no limite de {max_tokens} tokens "
+                           f"(gastou {gastos})")
 
     texto = _limpar(escolha.message.content or "")
     if not texto:

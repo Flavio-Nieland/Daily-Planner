@@ -53,3 +53,22 @@ def test_campo_ignora_valor_vazio():
 def test_texto_junta_lista_onde_o_schema_pedia_string():
     assert llm.texto(["uma frase", "outra"]) == "uma frase outra"
     assert llm.texto(" limpo ") == "limpo"
+
+
+def test_truncamento_detectado_pelo_uso_de_tokens(monkeypatch):
+    """O hub devolve finish_reason 'stop' mesmo quando a resposta bateu no teto."""
+    class _Escolha:
+        finish_reason = "stop"
+        message = type("m", (), {"content": '{"itens": [{"video": "abc'})()
+
+    class _Cliente:
+        class chat:
+            class completions:
+                @staticmethod
+                def create(**k):
+                    return type("r", (), {"choices": [_Escolha()],
+                                          "usage": type("u", (), {"completion_tokens": 6000})()})()
+
+    monkeypatch.setattr(llm, "_cliente", lambda: _Cliente())
+    with pytest.raises(RuntimeError, match="gastou 6000"):
+        llm.gerar_json("qualquer", max_tokens=6000)

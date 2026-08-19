@@ -1,0 +1,26 @@
+{
+  "expressoes": [
+    {
+      "frase": "Sorry, what was that?",
+      "quando": "Use de modo informal e educado quando você não ouviu ou não entendeu o que a pessoa disse."
+    },
+    {
+      "frase": "Could you say that again?",
+      "quando": "Use quando quiser pedir que a pessoa repita algo, com um tom educado e natural."
+    },
+    {
+      "frase": "Sorry, I didn’t catch that.",
+      "quando": "Use quando você não conseguiu ouvir ou captar bem a informação."
+    },
+    {
+      "frase": "Can you repeat that?",
+      "quando": "Use em conversas informais quando quiser uma repetição direta e clara."
+    },
+    {
+      "frase": "What did you say?",
+      "quando": "Use para pedir que a pessoa repita, mas com um tom de voz amigável para não parecer impaciente."
+    }
+  ],
+  "exercicio": "Diga em voz alta: “Sorry, I didn’t catch that. Could you say that again?”. Você foi bem se conseguiu soar natural, com uma pequena pausa depois de “that” e sem traduzir palavra por palavra.",
+  "cuidado": "Evite dizer “Repeat, please”, pois isso soa brusco e pouco natural em uma conversa informal."
+}

@@ -209,3 +209,15 @@ document.addEventListener("click", async (ev) => {
     aviso.textContent = "Não gravou: " + erro.message;
   }
 });
+
+/* Inglês, trilha da fala: o navegador lê a expressão em voz alta. Sempre funciona,
+   offline e sem custo — para ouvir-e-repetir basta, e é o que o tópico precisa aqui. */
+document.addEventListener("click", (ev) => {
+  const frase = ev.target.closest("[data-falar]");
+  if (!frase || !window.speechSynthesis) return;
+  const fala = new SpeechSynthesisUtterance(frase.dataset.falar);
+  fala.lang = "en-US";
+  fala.rate = 0.95;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(fala);
+});
