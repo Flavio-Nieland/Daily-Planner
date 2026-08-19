@@ -1,0 +1,262 @@
+[
+  {
+    "titulo": "Fundamentos de lógica e conjuntos",
+    "depende": []
+  },
+  {
+    "titulo": "Arquitetura de computadores e representação de dados",
+    "depende": []
+  },
+  {
+    "titulo": "Provas matemáticas e invariantes",
+    "depende": [
+      "Fundamentos de lógica e conjuntos"
+    ]
+  },
+  {
+    "titulo": "Análise de complexidade assintótica",
+    "depende": [
+      "Fundamentos de lógica e conjuntos"
+    ]
+  },
+  {
+    "titulo": "Recursão e indução",
+    "depende": [
+      "Provas matemáticas e invariantes"
+    ]
+  },
+  {
+    "titulo": "Memória, endereçamento e layout de dados",
+    "depende": [
+      "Arquitetura de computadores e representação de dados"
+    ]
+  },
+  {
+    "titulo": "Vetores, listas encadeadas, pilhas e filas",
+    "depende": [
+      "Memória, endereçamento e layout de dados"
+    ]
+  },
+  {
+    "titulo": "Tabelas de dispersão",
+    "depende": [
+      "Vetores, listas encadeadas, pilhas e filas",
+      "Análise de complexidade assintótica"
+    ]
+  },
+  {
+    "titulo": "Árvores e travessias",
+    "depende": [
+      "Vetores, listas encadeadas, pilhas e filas",
+      "Recursão e indução"
+    ]
+  },
+  {
+    "titulo": "Árvores binárias de busca",
+    "depende": [
+      "Árvores e travessias"
+    ]
+  },
+  {
+    "titulo": "Árvores AVL",
+    "depende": [
+      "Árvores binárias de busca"
+    ]
+  },
+  {
+    "titulo": "Árvores B",
+    "depende": [
+      "Árvores AVL"
+    ]
+  },
+  {
+    "titulo": "Heaps e filas de prioridade",
+    "depende": [
+      "Árvores e travessias",
+      "Memória, endereçamento e layout de dados",
+      "Análise de complexidade assintótica"
+    ]
+  },
+  {
+    "titulo": "Union-find",
+    "depende": [
+      "Vetores, listas encadeadas, pilhas e filas",
+      "Análise de complexidade assintótica"
+    ]
+  },
+  {
+    "titulo": "Algoritmos de ordenação",
+    "depende": [
+      "Vetores, listas encadeadas, pilhas e filas",
+      "Análise de complexidade assintótica"
+    ]
+  },
+  {
+    "titulo": "Busca em estruturas ordenadas",
+    "depende": [
+      "Algoritmos de ordenação",
+      "Árvores binárias de busca"
+    ]
+  },
+  {
+    "titulo": "Representação de grafos",
+    "depende": [
+      "Vetores, listas encadeadas, pilhas e filas"
+    ]
+  },
+  {
+    "titulo": "Busca em largura e busca em profundidade",
+    "depende": [
+      "Representação de grafos",
+      "Vetores, listas encadeadas, pilhas e filas"
+    ]
+  },
+  {
+    "titulo": "Ordenação topológica e componentes fortemente conexos",
+    "depende": [
+      "Busca em largura e busca em profundidade"
+    ]
+  },
+  {
+    "titulo": "Caminhos mínimos",
+    "depende": [
+      "Representação de grafos",
+      "Heaps e filas de prioridade",
+      "Busca em largura e busca em profundidade"
+    ]
+  },
+  {
+    "titulo": "Árvores geradoras mínimas",
+    "depende": [
+      "Representação de grafos",
+      "Heaps e filas de prioridade",
+      "Union-find"
+    ]
+  },
+  {
+    "titulo": "Dividir e conquistar",
+    "depende": [
+      "Recursão e indução",
+      "Análise de complexidade assintótica"
+    ]
+  },
+  {
+    "titulo": "Algoritmos gulosos",
+    "depende": [
+      "Análise de complexidade assintótica",
+      "Algoritmos de ordenação",
+      "Heaps e filas de prioridade"
+    ]
+  },
+  {
+    "titulo": "Programação dinâmica",
+    "depende": [
+      "Recursão e indução",
+      "Análise de complexidade assintótica"
+    ]
+  },
+  {
+    "titulo": "Computabilidade e decidibilidade",
+    "depende": [
+      "Fundamentos de lógica e conjuntos",
+      "Provas matemáticas e invariantes"
+    ]
+  },
+  {
+    "titulo": "Interrupções e chamadas de sistema",
+    "depende": [
+      "Arquitetura de computadores e representação de dados",
+      "Memória, endereçamento e layout de dados"
+    ]
+  },
+  {
+    "titulo": "Processos, threads e espaços de endereçamento",
+    "depende": [
+      "Interrupções e chamadas de sistema"
+    ]
+  },
+  {
+    "titulo": "Escalonamento de CPU",
+    "depende": [
+      "Processos, threads e espaços de endereçamento"
+    ]
+  },
+  {
+    "titulo": "Concorrência e condições de corrida",
+    "depende": [
+      "Processos, threads e espaços de endereçamento"
+    ]
+  },
+  {
+    "titulo": "Exclusão mútua e semáforos",
+    "depende": [
+      "Concorrência e condições de corrida"
+    ]
+  },
+  {
+    "titulo": "Monitores e variáveis de condição",
+    "depende": [
+      "Exclusão mútua e semáforos"
+    ]
+  },
+  {
+    "titulo": "Deadlocks",
+    "depende": [
+      "Exclusão mútua e semáforos"
+    ]
+  },
+  {
+    "titulo": "Memória virtual e paginação",
+    "depende": [
+      "Interrupções e chamadas de sistema",
+      "Memória, endereçamento e layout de dados"
+    ]
+  },
+  {
+    "titulo": "Sistemas de arquivos",
+    "depende": [
+      "Interrupções e chamadas de sistema",
+      "Memória, endereçamento e layout de dados"
+    ]
+  },
+  {
+    "titulo": "Modelos de comunicação em camadas",
+    "depende": [
+      "Arquitetura de computadores e representação de dados"
+    ]
+  },
+  {
+    "titulo": "Enquadramento, detecção de erros e controle de enlace",
+    "depende": [
+      "Modelos de comunicação em camadas"
+    ]
+  },
+  {
+    "titulo": "Endereçamento e roteamento de redes",
+    "depende": [
+      "Modelos de comunicação em camadas",
+      "Representação de grafos"
+    ]
+  },
+  {
+    "titulo": "Transporte confiável, controle de fluxo e congestionamento",
+    "depende": [
+      "Endereçamento e roteamento de redes"
+    ]
+  },
+  {
+    "titulo": "Protocolos de aplicação e resolução de nomes",
+    "depende": [
+      "Transporte confiável, controle de fluxo e congestionamento"
+    ]
+  },
+  {
+    "titulo": "Segurança de sistemas e redes",
+    "depende": [
+      "Sistemas de arquivos",
+      "Memória virtual e paginação",
+      "Protocolos de aplicação e resolução de nomes",
+      "Exclusão mútua e semáforos"
+    ]
+  }
+]

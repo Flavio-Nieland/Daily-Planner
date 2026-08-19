@@ -97,15 +97,18 @@ document.addEventListener("click", async (ev) => {
 document.addEventListener("click", async (ev) => {
   const botao = ev.target.closest(".veredito");
   if (!botao) return;
-  const aviso = document.getElementById("comida-aviso");
+  const aviso = document.getElementById("comida-aviso")
+             || document.getElementById("programacao-aviso");
   document.querySelectorAll(".veredito").forEach(b => (b.disabled = true));
   aviso.textContent = "gravando…";
   try {
-    await gravarNoWorker("dominio", "prato:" + botao.dataset.prato,
+    const chave = botao.dataset.chave || "prato:" + botao.dataset.prato;
+    await gravarNoWorker("dominio", chave,
       { dia: botao.dataset.dia, veredito: botao.dataset.veredito });
-    aviso.textContent = botao.dataset.veredito === "dominado"
-      ? "Marcado como dominado. Amanhã vem o próximo prato."
-      : "Anotado. O prato volta para revisão em alguns dias.";
+    aviso.textContent = { dominado: "Marcado como dominado. Amanhã vem o próximo prato.",
+                          revisar: "Anotado. O prato volta para revisão em alguns dias.",
+                          concluido: "Concluído. Amanhã entra o próximo tópico liberado." }[botao.dataset.veredito]
+                        || "Anotado.";
   } catch (erro) {
     document.querySelectorAll(".veredito").forEach(b => (b.disabled = false));
     aviso.textContent = "Não gravou: " + erro.message;

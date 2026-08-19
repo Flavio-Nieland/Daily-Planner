@@ -14,7 +14,8 @@ from planner import acervo, estado, falha, render
 from planner.agenda import NOMES, topicos_do_dia
 from planner.paginacao import medir
 from planner.topicos import (album, alongamento, biblia, comida, corrida, dieta, peso,
-                             musica, resumo, tempo, treino, xadrez)
+                             musica, programacao, resumo, tempo,
+                             treino, xadrez)
 
 BRT = timezone(timedelta(hours=-3))
 DOCS = Path(__file__).resolve().parent / "docs"
@@ -25,7 +26,8 @@ CHAPEUS = {"resumo": "Edição de hoje", "tempo": "Previsão para São José",
            "xadrez": "Subindo de Elo", "comida": "Repertório de 30 pratos",
            "album": "Dois discos por dia", "dieta": "2.800 kcal do dia",
            "biblia": "Salmo do dia", "alongamento": "Amplitude e lombar",
-           "treino": "Carga que sobe", "musica": "Entendendo harmonia"}
+           "treino": "Carga que sobe", "musica": "Entendendo harmonia",
+           "programacao": "Fundamentos que não expiram"}
 
 # O Resumo fica de fora: ele fala das outras folhas, então é montado depois delas.
 GERADORES = {
@@ -40,6 +42,7 @@ GERADORES = {
     "alongamento": lambda dia, est: alongamento.blocos(dia, est),
     "treino": lambda dia, est: treino.blocos(dia, est),
     "musica": lambda dia, est: musica.blocos(dia, est),
+    "programacao": lambda dia, est: programacao.blocos(dia, est),
 }
 
 

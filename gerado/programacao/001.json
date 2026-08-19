@@ -1,0 +1,7 @@
+{
+  "porque": "Programas precisam representar regras, condições e grupos de elementos sem depender das ambiguidades da linguagem comum. A lógica foi criada para avaliar afirmações e tirar conclusões válidas, enquanto a teoria dos conjuntos organiza objetos por pertencimento e relação. Juntos, esses fundamentos resolvem problemas de classificação, filtragem, comparação e combinação de informações.",
+  "implemente": "Comece do zero em Python, sem importar bibliotecas, criando dois conjuntos de números e usando operações de união, interseção e diferença. Depois, escreva condições com and, or e not para verificar se um número pertence a um conjunto e se atende a uma regra. Por fim, transforme o exercício em uma pequena lista de aprovados, mantendo apenas os elementos que pertencem ao conjunto correto e satisfazem a condição lógica.",
+  "antes": "Como este é o primeiro tópico, não há um conceito formal anterior: ele parte da observação de objetos, propriedades e relações no mundo. Essa observação deixa pronta a ideia de separar coisas, comparar características e fazer perguntas que possam receber verdadeiro ou falso.",
+  "depois": "Isso leva à construção de algoritmos com decisões, filtros e validações, além de preparar o caminho para funções, estruturas de dados, bancos de dados e provas matemáticas. Também torna possível modelar problemas reais com regras precisas e operações sobre coleções.",
+  "gancho": "É por isso que uma consulta de banco de dados consegue filtrar, combinar e excluir registros usando condições lógicas e conjuntos."
+}
