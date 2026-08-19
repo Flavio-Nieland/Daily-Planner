@@ -1,0 +1,98 @@
+[
+  {
+    "titulo": "Campo harmônico e cifragem",
+    "depende": "nenhum"
+  },
+  {
+    "titulo": "Escalas maior e menor e seus graus",
+    "depende": "Campo harmônico e cifragem"
+  },
+  {
+    "titulo": "Intervalos e construção de acordes",
+    "depende": "Escalas maior e menor e seus graus"
+  },
+  {
+    "titulo": "Tríades diatônicas",
+    "depende": "Intervalos e construção de acordes"
+  },
+  {
+    "titulo": "Tétrades e acordes com sétima",
+    "depende": "Tríades diatônicas"
+  },
+  {
+    "titulo": "Arpejos",
+    "depende": "Tétrades e acordes com sétima"
+  },
+  {
+    "titulo": "Análise por algarismos romanos",
+    "depende": "Arpejos"
+  },
+  {
+    "titulo": "Funções harmônicas",
+    "depende": "Análise por algarismos romanos"
+  },
+  {
+    "titulo": "Progressões diatônicas",
+    "depende": "Funções harmônicas"
+  },
+  {
+    "titulo": "Cadências",
+    "depende": "Progressões diatônicas"
+  },
+  {
+    "titulo": "Inversões e baixo cifrado",
+    "depende": "Cadências"
+  },
+  {
+    "titulo": "Condução de vozes",
+    "depende": "Inversões e baixo cifrado"
+  },
+  {
+    "titulo": "Ritmo harmônico",
+    "depende": "Condução de vozes"
+  },
+  {
+    "titulo": "Dominantes secundárias",
+    "depende": "Ritmo harmônico"
+  },
+  {
+    "titulo": "Modos e sonoridades modais",
+    "depende": "Dominantes secundárias"
+  },
+  {
+    "titulo": "Empréstimo modal",
+    "depende": "Modos e sonoridades modais"
+  },
+  {
+    "titulo": "Tonicização e modulação",
+    "depende": "Empréstimo modal"
+  },
+  {
+    "titulo": "Extensões e tensões dos acordes",
+    "depende": "Tonicização e modulação"
+  },
+  {
+    "titulo": "Dominantes alterados",
+    "depende": "Extensões e tensões dos acordes"
+  },
+  {
+    "titulo": "Substituição por trítono",
+    "depende": "Dominantes alterados"
+  },
+  {
+    "titulo": "Progressão ii–V–I e turnarounds",
+    "depende": "Substituição por trítono"
+  },
+  {
+    "titulo": "Rearmonização",
+    "depende": "Progressão ii–V–I e turnarounds"
+  },
+  {
+    "titulo": "Escalas pentatônicas e blues",
+    "depende": "Rearmonização"
+  },
+  {
+    "titulo": "Escalas sobre acorde",
+    "depende": "Escalas pentatônicas e blues"
+  }
+]

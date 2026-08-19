@@ -119,3 +119,7 @@ ul.lista li,ol.lista li{padding:1px 0}
   margin:2px 0 3px}
 .exercicio .campo input{width:3.4em;font-size:1em}
 .exercicio .aviso-carga:empty{display:none}
+.naoconferida{font-size:.62em;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:3px;padding:1px 4px;white-space:nowrap;
+  font-weight:400;letter-spacing:.06em}
+.indicacao{border-left:3px solid var(--accent);padding-left:10px}
