@@ -123,3 +123,5 @@ ul.lista li,ol.lista li{padding:1px 0}
   border:1px solid var(--accent);border-radius:3px;padding:1px 4px;white-space:nowrap;
   font-weight:400;letter-spacing:.06em}
 .indicacao{border-left:3px solid var(--accent);padding-left:10px}
+.proximo{border-top:1px solid var(--rule);padding-top:5px;margin-top:6px}
+.proximo:first-of-type{border-top:0;padding-top:0;margin-top:2px}

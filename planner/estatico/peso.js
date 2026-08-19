@@ -187,3 +187,25 @@ document.addEventListener("click", async (ev) => {
     aviso.textContent = "Não gravou: " + erro.message;
   }
 });
+
+/* Livros: o que ele escreve é o dado mais valioso do sistema — vai para o Worker na hora. */
+document.addEventListener("click", async (ev) => {
+  const botao = ev.target.closest("#nota-gravar");
+  if (!botao) return;
+  const campo = document.getElementById("nota-valor");
+  const aviso = document.getElementById("nota-aviso");
+  const texto = (campo.value || "").trim();
+  if (texto.length < 3) {
+    aviso.textContent = "Escreva sua resposta antes de anotar.";
+    return;
+  }
+  botao.disabled = true;
+  aviso.textContent = "gravando…";
+  try {
+    await gravarNoWorker("nota", campo.dataset.dia, texto);
+    aviso.textContent = "Anotado. Volta para revisão em três semanas.";
+  } catch (erro) {
+    botao.disabled = false;
+    aviso.textContent = "Não gravou: " + erro.message;
+  }
+});
