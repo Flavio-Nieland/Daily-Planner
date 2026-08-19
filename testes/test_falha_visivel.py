@@ -15,10 +15,13 @@ from planner import acervo
 def hoje(tmp_path, monkeypatch):
     monkeypatch.setattr(acervo, "DOCS", tmp_path)
     monkeypatch.setattr(build, "DOCS", tmp_path)
+    # só o Tempo nesta edição: o assunto aqui é a falha, não os outros tópicos — e assim
+    # nenhum gerador de verdade sai chamando rede durante o teste
+    monkeypatch.setattr(build, "GERADORES", {"tempo": build.GERADORES["tempo"]})
     return date(2026, 8, 19)
 
 
-def _quebrado(_dia):
+def _quebrado(_dia, _estado):
     raise ConnectionError("Open-Meteo fora do ar")
 
 
