@@ -107,3 +107,11 @@ def test_a_curva_e_diaria_e_nao_perde_ponto():
     svg = peso.blocos(date(2026, 8, 19), serie)[2]
     assert svg.count(",") >= len(serie)          # um par x,y por medida
     assert "19 registros" in svg
+
+
+def test_o_estado_json_e_criado_mesmo_sem_worker(arquivo):
+    """O passo de publicação conta com o arquivo existindo."""
+    assert not arquivo.exists()
+    estado.consolidar()
+    assert arquivo.exists()
+    assert json.loads(arquivo.read_text(encoding="utf-8")) == {}
