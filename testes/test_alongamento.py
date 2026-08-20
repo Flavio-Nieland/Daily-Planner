@@ -17,8 +17,8 @@ def test_pernas_na_segunda_quarta_e_sexta_quadril_na_terca_e_quinta():
 def test_o_nucleo_lombar_aparece_todos_os_dias():
     for dia in (SEGUNDA, TERCA, QUARTA, QUINTA, SEXTA):
         saida = "".join(alongamento.blocos(dia, {}))
-        assert saida.count("N1 ·") == 1
-        assert "N6 ·" in saida
+        assert "Núcleo lombar · todo dia" in saida
+        assert "Respiração 90/90 com pernas apoiadas" in saida
 
 
 def test_a_rotina_e_identica_de_uma_semana_para_a_outra():
@@ -29,18 +29,34 @@ def test_a_rotina_e_identica_de_uma_semana_para_a_outra():
     assert alongamento.blocos(SEGUNDA, {})[:-1] == alongamento.blocos(date(2026, 8, 24), {})[:-1]
 
 
-def test_cada_posicao_tem_ilustracao_dose_e_erro_comum():
-    saida = "".join(alongamento.blocos(SEGUNDA, {}))
-    assert saida.count("<svg") == 14          # 6 do núcleo + 8 do bloco A
-    assert "Erro comum:" in saida
-    assert "120s" in saida
+def test_a_folha_cabe_em_uma_pagina_so_com_nomes_e_dose():
+    """As ilustrações custavam sete folhas por edição — a folha traz o nome e a dose."""
+    blocos = alongamento.blocos(SEGUNDA, {})
+    saida = "".join(blocos)
+    assert len(blocos) == 4                   # sessão, núcleo, bloco do dia, medidas
+    assert "<svg" not in saida
+    assert "120s" in saida                    # a dose fica: é o que se executa
+    assert "Erro comum" not in saida
 
 
-def test_os_dois_alvos_travados_tem_pnf():
+def test_o_nome_da_sessao_diz_qual_e_o_bloco():
+    assert alongamento.nome_da_sessao(SEGUNDA) == "Lombar + Pernas (A)"
+    assert alongamento.nome_da_sessao(TERCA) == "Lombar + Quadril (B)"
+
+
+def test_a_execucao_continua_guardada_no_json_versionado():
+    """A folha não mostra mais, mas o dado não se perdeu."""
+    rotina = alongamento._rotina()
+    primeira = rotina[alongamento.NUCLEO]["itens"][0]
+    assert primeira["svg"].startswith("<svg")
+    assert primeira["como"] and primeira["erro"]
+
+
+def test_os_dois_alvos_travados_continuam_na_rotina():
     pernas = "".join(alongamento.blocos(SEGUNDA, {}))
     quadril = "".join(alongamento.blocos(TERCA, {}))
-    assert "Isquiotibiais — PNF" in pernas
-    assert "Psoas — PNF" in quadril
+    assert "Isquiotibial deitado com faixa" in pernas
+    assert "Flexor de quadril meio-ajoelhado" in quadril
 
 
 def test_nenhuma_chamada_de_modelo_neste_topico(monkeypatch):

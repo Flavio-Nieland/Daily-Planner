@@ -4,11 +4,17 @@ Ganho de amplitude vem de repetir a mesma coisa por semanas, não de rotina nova
 Por isso `get_stretching_plan()` saiu: era a única fonte do tópico e gerava sequência nova
 a cada dia, o oposto do que produz resultado.
 
-O conteúdo é a rotina aprovada em 2026-08-18, com as ilustrações que ele desenhou à mão —
-extraídas para `esqueletos/alongamento-rotina.json` e versionadas.
+O conteúdo é a rotina aprovada em 2026-08-18, versionada em
+`esqueletos/alongamento-rotina.json`.
+
+A folha mostra só **qual é a sessão de hoje e os nomes das posições, com a dose**. As
+ilustrações e o modo de fazer ficam fora de propósito: a rotina é a mesma toda semana, ele já
+sabe executar, e o desenho de cada posição custava sete folhas de jornal por edição. O JSON
+continua guardando ilustração, execução e erro comum — está tudo lá se um dia a folha precisar.
 """
 
 import json
+import re
 from datetime import date
 from pathlib import Path
 
@@ -26,15 +32,13 @@ def bloco_do_dia(dia: date) -> int:
     return BLOCO_A if dia.weekday() in DIAS_BLOCO_A else BLOCO_B
 
 
-def _posicao(item: dict) -> str:
-    erro = f'<p class="miudo"><b>Erro comum:</b> {item["erro"].replace("Erro comum:", "").strip()}</p>' if item["erro"] else ""
-    return (
-        f'<div class="bloco posicao"><h4>{item["id"]}</h4>'
-        f'<div class="desenho">{item["svg"]}</div>'
-        f'<p class="destaque-texto">{item["nome"]}</p>'
-        f'<p class="dose">{item["dose"]}</p>'
-        f'<p>{item["como"]}</p>{erro}</div>'
+def _lista(titulo: str, itens: list[dict]) -> str:
+    """Nome e dose de cada posição, uma linha por posição."""
+    linhas = "".join(
+        f'<li><span>{item["nome"]}</span><span class="qtd">{item["dose"]}</span></li>'
+        for item in itens
     )
+    return f'<div class="bloco"><h4>{titulo}</h4><ul>{linhas}</ul></div>' 
 
 
 def _serie(estado: dict, prefixo: str) -> list[tuple[str, float]]:
@@ -81,18 +85,27 @@ def _medidas(dia: date, estado: dict) -> str:
     )
 
 
+def nome_da_sessao(dia: date) -> str:
+    """Lombar + Pernas (A) nas segundas, quartas e sextas; Lombar + Quadril (B) nas terças e quintas."""
+    return ("Lombar + Pernas (A)" if bloco_do_dia(dia) == BLOCO_A
+            else "Lombar + Quadril (B)")
+
+
 def blocos(dia: date, estado: dict) -> list[str]:
     rotina = _rotina()
     nucleo, bloco = rotina[NUCLEO], rotina[bloco_do_dia(dia)]
+    letra = "A" if bloco_do_dia(dia) == BLOCO_A else "B"
 
+    posicoes = len(nucleo["itens"]) + len(bloco["itens"])
+    minutos = sum(int(m) for texto in (nucleo["meta"], bloco["meta"])
+                  for m in re.findall(r"~(\d+)\s*min", texto))
+    duracao = f" · ~{minutos} min" if minutos else ""
     abertura = (f'<div class="bloco"><h4>A sessão de hoje</h4>'
-                f'<p class="destaque-texto">{nucleo["titulo"].split("—")[0].strip()} + '
-                f'{bloco["titulo"].split("—")[-1].strip()}</p>'
-                f'<p class="miudo">{nucleo["meta"]} · {bloco["meta"]}</p>'
-                f'<p class="miudo">A rotina é sempre a mesma: amplitude vem de repetição, '
-                f'não de variedade.</p></div>')
+                f'<p class="destaque-texto">{nome_da_sessao(dia)}</p>'
+                f'<p class="miudo">{posicoes} posições{duracao}</p></div>')
 
-    return ([abertura]
-            + [_posicao(i) for i in nucleo["itens"]]
-            + [_posicao(i) for i in bloco["itens"]]
-            + [_medidas(dia, estado)])
+    return [abertura,
+            _lista("Núcleo lombar · todo dia", nucleo["itens"]),
+            _lista(f'Bloco {letra} · {bloco["titulo"].split("—")[-1].strip().lower()}',
+                   bloco["itens"]),
+            _medidas(dia, estado)]
