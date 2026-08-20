@@ -113,10 +113,6 @@ ul.lista li,ol.lista li{padding:1px 0}
 .bloco ul{list-style:none;padding:0;margin:.35em 0 0;font-size:.96em}
 .bloco ul li{padding:2px 0;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .bloco .qtd{color:var(--ink2);font-style:italic;font-size:.9em;text-align:right;max-width:55%}
-.posicao .desenho{border:1px solid var(--rule);padding:2px;margin:3px 0 5px;background:rgba(255,255,255,.35)}
-.posicao .desenho svg{width:100%;height:auto;display:block;color:var(--ink)}
-.posicao .dose{font-size:.85em;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
-  margin:2px 0 3px}
 .exercicio .campo input{width:3.4em;font-size:1em}
 .exercicio .aviso-carga:empty{display:none}
 .naoconferida{font-size:.62em;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
