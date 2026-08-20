@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Álbuns</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary:    #c2683a;
+            --bg:         #faf7f2;
+            --card:       #f5f0e8;
+            --text:       #2c1810;
+            --muted:      #8c7b6e;
+            --border:     #e8e0d5;
+            --shadow:     0 1px 3px rgba(44,24,16,.06);
+            --radius:     10px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 1rem 1rem 3rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .back-link {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            font-size: 0.82rem; font-weight: 600; color: var(--primary);
+            text-decoration: none; background: #ede8df;
+            border: 1px solid var(--border); border-radius: 999px;
+            padding: 0.35rem 0.9rem; margin-bottom: 1rem; transition: background .15s;
+        }
+        .back-link:hover { background: #e0d8ce; }
+        .back-link::before { content: '\2190'; }
+
+        .hero {
+            background: transparent; padding: 2rem 0 1.25rem; text-align: left;
+            margin-bottom: 1.5rem; border-bottom: 1.5px solid var(--border);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2rem; font-weight: 700; color: var(--text);
+            letter-spacing: -0.01em; line-height: 1.15;
+        }
+        .hero-sub {
+            color: var(--primary); margin-top: 0.3rem; font-size: 0.78rem;
+            font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+
+        .card {
+            background: var(--card); border-radius: var(--radius);
+            padding: 1.25rem; margin-bottom: 0.75rem;
+            border: 1px solid var(--border); box-shadow: var(--shadow);
+        }
+
+        .album-body {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .album-cover {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+            box-shadow: 0 2px 10px rgba(44,24,16,.12);
+        }
+        .album-cover-placeholder {
+            width: 80px; height: 80px;
+            border-radius: 10px;
+            background: #ede8df;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .album-info { flex: 1; min-width: 0; }
+        .album-title  { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+        .album-artist { font-size: 0.85rem; color: var(--muted); margin-top: 0.1rem; }
+        .album-date   {
+            font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem;
+            display: inline-flex; align-items: center; gap: 0.3rem;
+        }
+        .album-date::before { content: '\1F4C5'; font-size: 0.7rem; }
+
+        .btn-play {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.6rem;
+            padding: 0.35rem 0.9rem;
+            background: #1db954;
+            color: #fff;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity .15s;
+        }
+        .btn-play:hover { opacity: .85; }
+
+        /* Paginação */
+        .pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        .page-arrow {
+            font-size: 0.82rem; font-weight: 600; color: var(--primary);
+            text-decoration: none; background: #ede8df;
+            border: 1px solid var(--border); border-radius: 999px;
+            padding: 0.35rem 0.9rem; transition: background .15s;
+        }
+        .page-arrow:hover { background: #e0d8ce; }
+        .page-arrow.disabled {
+            pointer-events: none; opacity: 0.4;
+        }
+        .page-indicator {
+            font-size: 0.78rem; color: var(--muted); font-weight: 600;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center; color: var(--muted); font-size: 0.75rem;
+            margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-link">Voltar ao dia</a>
+
+    <div class="hero">
+        <h1>Histórico de Álbuns</h1>
+        <div class="hero-sub">41 álbuns sugeridos</div>
+    </div>
+
+    
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2732d0e5ab5bd2e234fbcffa3e0" alt="Capa de Ten">
+            
+            <div class="album-info">
+                <div class="album-title">Ten</div>
+                <div class="album-artist">Pearl Jam</div>
+                <div class="album-date">22/05/2026</div>
+                
+                <a href="spotify:album:5B4PYA7wNN4WdEXdIJu58a" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b27347daa44983fa6079910ed295" alt="Capa de Ænima">
+            
+            <div class="album-info">
+                <div class="album-title">Ænima</div>
+                <div class="album-artist">Tool</div>
+                <div class="album-date">21/05/2026</div>
+                
+                <a href="spotify:album:6yWMN087PgSimbcVmHLEwG" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273cf39e4261576717ff4737bb6" alt="Capa de Aja">
+            
+            <div class="album-info">
+                <div class="album-title">Aja</div>
+                <div class="album-artist">Steely Dan</div>
+                <div class="album-date">20/05/2026</div>
+                
+                <a href="spotify:album:1hOK2ey9W76x9GnftSRgrw" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2738b5b6fa1326d996181e71dd7" alt="Capa de Meteora">
+            
+            <div class="album-info">
+                <div class="album-title">Meteora</div>
+                <div class="album-artist">Linkin Park</div>
+                <div class="album-date">19/05/2026</div>
+                
+                <a href="spotify:album:0f7R0jf0pcTb6K6IVVPcMD" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2736857335ec8283c2363853ddb" alt="Capa de Sá, Rodrix & Guarabyra">
+            
+            <div class="album-info">
+                <div class="album-title">Sá, Rodrix & Guarabyra</div>
+                <div class="album-artist">Sá, Rodrix & Guarabyra</div>
+                <div class="album-date">18/05/2026</div>
+                
+                <a href="spotify:album:4McHj0JZB0z9cwd4zRJk7R" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2731dda5f57ba5c203f775ea2dd" alt="Capa de The Head on the Door">
+            
+            <div class="album-info">
+                <div class="album-title">The Head on the Door</div>
+                <div class="album-artist">The Cure</div>
+                <div class="album-date">17/05/2026</div>
+                
+                <a href="spotify:album:7zJzNs8eVgbkVVSQSwKRtx" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273892d166eaa02dfdd7c944e93" alt="Capa de El pueblo unido jamás será vencido (1973-1983) [Collection "L'art de..."]">
+            
+            <div class="album-info">
+                <div class="album-title">El pueblo unido jamás será vencido (1973-1983) [Collection "L'art de..."]</div>
+                <div class="album-artist">Quilapayún</div>
+                <div class="album-date">16/05/2026</div>
+                
+                <a href="spotify:album:0WdtE1ZqaKlx3lpzM0OApA" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2739eee212bba82bed8da96a8f7" alt="Capa de Meddle">
+            
+            <div class="album-info">
+                <div class="album-title">Meddle</div>
+                <div class="album-artist">Pink Floyd</div>
+                <div class="album-date">15/05/2026</div>
+                
+                <a href="spotify:album:468ZwCchVtzEbt9BHmXopb" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b2739eec33b045d88f87b9b06e67" alt="Capa de Songs for the Deaf">
+            
+            <div class="album-info">
+                <div class="album-title">Songs for the Deaf</div>
+                <div class="album-artist">Queens of the Stone Age</div>
+                <div class="album-date">14/05/2026</div>
+                
+                <a href="spotify:album:4w3NeXtywU398NYW4903rY" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="card">
+        <div class="album-body">
+            
+            <img class="album-cover" src="https://i.scdn.co/image/ab67616d0000b273892d166eaa02dfdd7c944e93" alt="Capa de El pueblo unido jamás será vencido (1973-1983) [Collection "L'art de..."]">
+            
+            <div class="album-info">
+                <div class="album-title">El pueblo unido jamás será vencido (1973-1983) [Collection "L'art de..."]</div>
+                <div class="album-artist">Quilapayún</div>
+                <div class="album-date">13/05/2026</div>
+                
+                <a href="spotify:album:0WdtE1ZqaKlx3lpzM0OApA" class="btn-play">▶ Ouvir no Spotify</a>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <div class="pagination">
+        
+        <a href="album-history.html" class="page-arrow">&#8249; Anterior</a>
+        
+
+        <span class="page-indicator">Página 2 de 5</span>
+
+        
+        <a href="album-history-3.html" class="page-arrow">Próxima &#8250;</a>
+        
+    </div>
+    
+
+    
+
+    <footer>
+        Gerado em 06:22 &middot; Daily Organizer
+    </footer>
+
+</body>
+</html>
