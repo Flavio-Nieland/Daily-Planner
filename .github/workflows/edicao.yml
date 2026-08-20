@@ -51,7 +51,7 @@ jobs:
         run: |
           git config user.name "Diário Bot"
           git config user.email "bot@diario"
-          git add docs/ estado.json gerado/
+          git add -A docs gerado esqueletos estado.json album_history.json diet_plan.json
           git diff --cached --quiet || git commit -m "chore: edição de $(date +'%Y-%m-%d')"
           git push
 

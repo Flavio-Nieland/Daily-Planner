@@ -43,9 +43,21 @@ def buscar_no_worker() -> dict | None:
         return None
 
 
+def _gravar(dados: dict) -> None:
+    ARQUIVO.write_text(json.dumps(dados, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                       encoding="utf-8")
+
+
 def consolidar() -> dict:
-    """Junta o que veio do KV ao que já estava no git e grava o estado.json."""
+    """Junta o que veio do KV ao que já estava no git e grava o estado.json.
+
+    O arquivo é criado mesmo vazio: ele é o histórico versionado do que ele escreve, e o
+    passo de publicação conta com a existência dele.
+    """
     do_git = ler_do_git()
+    if not ARQUIVO.exists():
+        _gravar(do_git)
+
     do_kv = buscar_no_worker()
     if do_kv is None:
         return do_git
@@ -58,8 +70,7 @@ def consolidar() -> dict:
             juntos[secao] = registros
 
     if juntos != do_git:
-        ARQUIVO.write_text(json.dumps(juntos, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
-                           encoding="utf-8")
+        _gravar(juntos)
         print(f"  estado consolidado: {sum(len(v) for v in juntos.values() if isinstance(v, dict))} registros")
     return juntos
 
