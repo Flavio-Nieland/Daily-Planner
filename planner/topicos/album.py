@@ -122,7 +122,8 @@ def _perfil() -> tuple[dict, str | None]:
     try:
         return get_spotify_taste_profile(), None
     except Exception as erro:                      # noqa: BLE001
-        return {}, f"{erro.__class__.__name__}"
+        motivo = str(erro).strip() or erro.__class__.__name__
+        return {}, motivo[:160]
 
 
 def blocos(dia: date, estado: dict) -> list[str]:
@@ -165,6 +166,6 @@ def blocos(dia: date, estado: dict) -> list[str]:
 
     primeiro = (_bloco(do_gosto, "Pelo seu gosto") if do_gosto else
                 '<div class="bloco falhou"><h4>Sem o disco do seu gosto hoje</h4>'
-                f'<p>O Spotify não respondeu ({sem_spotify}), então o disco que sai do seu '
-                'perfil ficou de fora desta edição.</p></div>')
+                f'<p>O perfil do Spotify não veio: {sem_spotify}.</p>'
+                '<p class="miudo">O disco do estilo pedido, ao lado, não depende disso.</p></div>')
     return [primeiro, _bloco(do_estilo, "Pelo estilo que você pediu"), caixa]

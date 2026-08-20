@@ -10,8 +10,19 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 
 
+CREDENCIAIS = ("SPOTIFY_CLIENT_ID", "SPOTIFY_CLIENT_SECRET", "SPOTIFY_REFRESH_TOKEN")
+
+
 def _get_client() -> spotipy.Spotify:
-    """Cria cliente Spotify autenticado usando o Refresh Token do .env."""
+    """Cria cliente Spotify autenticado usando o Refresh Token.
+
+    Credencial ausente vinha como KeyError cru, e a folha dizia que "o Spotify não
+    respondeu" — que é outra coisa. Dizer qual variável falta economiza a investigação.
+    """
+    faltando = [nome for nome in CREDENCIAIS if not os.environ.get(nome)]
+    if faltando:
+        raise RuntimeError("falta a credencial do Spotify: " + ", ".join(faltando))
+
     auth_manager = SpotifyOAuth(
         client_id=os.environ["SPOTIFY_CLIENT_ID"],
         client_secret=os.environ["SPOTIFY_CLIENT_SECRET"],
@@ -19,6 +30,8 @@ def _get_client() -> spotipy.Spotify:
         scope="user-top-read user-library-read",
     )
     token_info = auth_manager.refresh_access_token(os.environ["SPOTIFY_REFRESH_TOKEN"])
+    if "access_token" not in token_info:
+        raise RuntimeError("o Spotify recusou o refresh token — gere outro com setup_spotify.py")
     return spotipy.Spotify(auth=token_info["access_token"])
 
 
