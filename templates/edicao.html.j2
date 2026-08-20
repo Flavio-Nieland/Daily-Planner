@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{ jornal }} — {{ data }}</title>
+<style>
+:root{ --papel:url(data:image/jpeg;base64,{{ textura }}) }
+{{ css }}
+</style>
+</head>
+<body>
+<div id="palco"></div>
+<div id="medidor" style="position:absolute;visibility:hidden;pointer-events:none;left:-9999px;top:0"></div>
+<script>
+const EDICAO = {{ dados }};
+</script>
+<script>
+{{ script }}
+</script>
+</body>
+</html>

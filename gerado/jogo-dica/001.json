@@ -1,0 +1,5 @@
+{
+  "dica": "Defina o menor ciclo completo que prove a diversão do jogo: uma batalha por turnos, uma recompensa e uma decisão que leve ao próximo encontro. Deixe de fora, por enquanto, meta progressão, dezenas de inimigos, narrativa elaborada e sistemas que não sejam necessários para esse ciclo funcionar. Isso reduz o risco de um projeto solo crescer sem controle e permite testar cedo se as decisões táticas realmente são interessantes.",
+  "material": "The Art of Game Design: A Book of Lenses, de Jesse Schell, especialmente as lentes relacionadas ao protótipo e ao foco da experiência.",
+  "aplicar": "Hoje, implemente apenas uma sala com um combate, três tipos de inimigo, duas recompensas e uma tela simples de vitória ou derrota em Godot 4."
+}

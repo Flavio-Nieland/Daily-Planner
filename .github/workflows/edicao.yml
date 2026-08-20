@@ -1,0 +1,62 @@
+# Publica a edição do dia.
+#
+# Único workflow do projeto: o `daily.yml` do v1 saiu junto com o resto dele. O cron roda
+# na branch padrão, que é `main`.
+
+name: Edição do dia
+
+on:
+  schedule:
+    - cron: "0 9 * * *"      # 09:00 UTC = 06:00 BRT, todos os dias
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Instalar o Chromium que mede a paginação
+        run: python -m playwright install --with-deps chromium
+
+      - name: Testes
+        run: |
+          python -m pytest testes/ -q
+          node --test worker/
+
+      # A edição precisa ser publicada mesmo quando alguma folha falha — a falha aparece
+      # na própria folha e derruba o job no passo final, depois do push.
+      - name: Gerar a edição
+        id: gerar
+        continue-on-error: true
+        env:
+          WORKER_URL: ${{ secrets.WORKER_URL }}
+          WORKER_TOKEN: ${{ secrets.WORKER_TOKEN }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: python build.py
+
+      - name: Publicar
+        run: |
+          git config user.name "Diário Bot"
+          git config user.email "bot@diario"
+          git add docs/ estado.json gerado/
+          git diff --cached --quiet || git commit -m "chore: edição de $(date +'%Y-%m-%d')"
+          git push
+
+      - name: Falhar se alguma folha falhou
+        if: steps.gerar.outcome == 'failure'
+        run: |
+          echo "::error::alguma folha da edição falhou — veja o resumo da execução"
+          exit 1

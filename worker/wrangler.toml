@@ -1,0 +1,15 @@
+name = "estado"
+main = "index.js"
+compatibility_date = "2026-08-01"
+
+# Criado com:  wrangler kv namespace create ESTADO
+# Cole o id devolvido aqui.
+[[kv_namespaces]]
+binding = "ESTADO"
+id = "e2b625570e5c49258ae77b5637e30b15"
+
+[vars]
+# Origem que pode chamar o Worker pelo navegador. Deixe a URL do GitHub Pages.
+ORIGEM = "https://flavio-nieland.github.io"
+
+# O token não vai aqui — é secret:  wrangler secret put TOKEN

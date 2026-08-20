@@ -1,0 +1,131 @@
+/* Broadsheet de 1978 sobre papel claro e discreto — ADR 0002.
+   Papel claro não perdoa contraste baixo: tinta escura, réguas claras, vinheta quase nula.
+   Tipografia de fontes já instaladas no Windows, sem webfont e sem CDN. */
+:root{ --ink:#141209; --ink2:#514b3c; --rule:#c6bb9d; --accent:#8a2417; --desk:#1e1c19; --tex:.24 }
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--desk);color:var(--ink);display:flex;align-items:center;justify-content:center;
+  padding:14px;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;
+  font-family:"Century Schoolbook","Book Antiqua",Palatino,Georgia,serif}
+h1,h2,h3,h4{margin:0;line-height:1.1;font-weight:700}
+p{margin:0}
+
+.folha{width:min(1000px,97vw);height:calc(100vh - 28px);max-height:920px;background:#fcf9f1;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+  box-shadow:0 3px 6px rgba(0,0,0,.4),0 30px 70px -22px rgba(0,0,0,.85)}
+.grao{position:absolute;inset:0;pointer-events:none;z-index:2;
+  box-shadow:inset 0 0 64px rgba(110,88,40,.10),inset 0 0 220px rgba(110,88,40,.05)}
+.grao::before{content:"";position:absolute;inset:0;background:var(--papel) center/cover;
+  mix-blend-mode:multiply;opacity:var(--tex)}
+.moldura{position:absolute;inset:12px;border:1.5px solid var(--ink);z-index:1;pointer-events:none}
+.moldura::before{content:"";position:absolute;inset:4px;border:.5px solid rgba(20,18,9,.28)}
+.folha>.dentro{position:relative;z-index:3;display:flex;flex-direction:column;height:100%;
+  padding:24px clamp(20px,3vw,34px) 18px}
+
+.mast{border-bottom:1px solid var(--ink);padding-bottom:7px;flex:0 0 auto}
+.mast .titulo{font-family:"Bodoni MT",Didot,"Century Schoolbook",Georgia,serif;
+  font-size:clamp(23px,3.1vw,34px);letter-spacing:.2em;text-transform:uppercase;text-align:center}
+.mast .linha{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;margin-top:5px;border-top:1px solid var(--ink);padding-top:5px}
+
+.cabeca{flex:0 0 auto;padding:14px 0 9px;text-align:center;border-bottom:3px double var(--ink)}
+.cabeca .chapeu{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+.cabeca h2{font-family:"Bodoni MT",Didot,Georgia,serif;font-size:clamp(30px,4.4vw,46px);
+  margin-top:5px;letter-spacing:.01em}
+.cabeca .cont{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  font-weight:400;font-style:italic;margin-top:5px}
+
+.corpo{flex:1 1 auto;min-height:0;overflow:hidden;column-count:3;column-gap:24px;
+  column-rule:1px solid var(--ink);padding:13px 0 12px;font-size:var(--fs,13.5px);line-height:1.52;
+  text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.corpo>*{margin-bottom:13px;break-inside:avoid}
+@media(max-width:820px){.corpo{column-count:2}}
+
+.rodape{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border-top:1px solid var(--ink);padding-top:9px}
+.seta{background:none;border:0;cursor:pointer;padding:4px 2px;line-height:0;color:var(--ink)}
+.seta svg{width:36px;height:30px}
+.seta:disabled{opacity:.18;cursor:default}
+.bolinhas{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;flex:1}
+.bolinha{width:14px;height:10px;border:1.5px solid var(--ink);border-radius:8px;background:none;
+  cursor:pointer;padding:0}
+.bolinha:hover{background:rgba(0,0,0,.12)}
+.bolinha[aria-current="true"]{background:var(--ink)}
+.numero{font-size:14px;font-style:italic;min-width:60px;text-align:right;font-variant-numeric:tabular-nums}
+
+/* blocos de conteúdo */
+.bloco{text-align:left}
+.bloco h4{font-size:.78em;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid var(--rule);
+  padding-bottom:3px;margin-bottom:5px}
+.bloco .destaque{font-size:1.5em;font-variant-numeric:tabular-nums;line-height:1.15}
+.bloco .miudo{font-size:.85em;color:var(--ink2);margin-top:2px}
+.bloco.alerta{border-left:3px solid var(--accent);padding-left:11px}
+.bloco.alerta h4{color:var(--accent);border-bottom-color:var(--accent)}
+table.horas{width:100%;border-collapse:collapse;font-size:.86em;margin-top:6px;
+  font-variant-numeric:tabular-nums}
+table.horas td{padding:1px 0;border-bottom:1px solid var(--rule)}
+table.horas td:nth-child(2),table.horas td:nth-child(3){text-align:right;padding-right:7px}
+table.horas td:last-child{color:var(--ink2);font-size:.94em;text-align:right}
+.sumario{list-style:none;padding:0;margin:0;border-top:1px solid var(--rule)}
+.sumario li{padding:.34em 0;border-bottom:1px solid var(--rule);display:flex;gap:8px;align-items:baseline}
+.sumario b{font-variant-numeric:tabular-nums;min-width:1.6em}
+.lede{font-size:1.15em;line-height:1.55;text-align:justify}
+.capitular{float:left;font-weight:700;line-height:.78;padding:5px 8px 0 0;font-size:3.8em;
+  font-family:"Bodoni MT",Georgia,serif}
+.bloco.falhou{border:1.5px solid var(--accent);padding:9px 11px}
+.bloco.falhou h4{color:var(--accent);border-bottom-color:var(--accent)}
+.campo{display:flex;gap:7px;align-items:center;margin:6px 0 4px}
+.campo input{font:inherit;font-size:1.3em;width:4.6em;padding:2px 6px;text-align:center;
+  border:0;border-bottom:1.5px solid var(--ink);background:transparent;color:inherit;
+  font-variant-numeric:tabular-nums}
+.campo input:focus{outline:none;background:rgba(20,18,9,.05)}
+.campo button{font:inherit;font-size:.85em;letter-spacing:.12em;text-transform:uppercase;
+  border:1.2px solid var(--ink);border-radius:4px;background:none;color:inherit;
+  padding:4px 10px;cursor:pointer}
+.campo button:hover{background:rgba(20,18,9,.08)}
+.campo button:disabled{opacity:.4;cursor:default}
+.curva{width:100%;height:auto;display:block;margin:4px 0 2px;color:var(--ink)}
+.destaque-texto{font-size:1.25em;line-height:1.35;margin-top:2px}
+.barra{height:7px;border:1.3px solid var(--ink);margin:6px 0 5px}
+.barra i{display:block;height:100%;background:var(--ink)}
+.feito{font-weight:700;letter-spacing:.06em}
+.marcar{font:inherit;font-size:.85em;letter-spacing:.12em;text-transform:uppercase;
+  border:1.2px solid var(--ink);border-radius:4px;background:none;color:inherit;
+  padding:5px 12px;cursor:pointer}
+.marcar:hover{background:rgba(20,18,9,.08)}
+.marcar:disabled{opacity:.4;cursor:default}
+.presc{border:1.5px solid var(--ink);padding:8px 10px}
+.lances{font-family:"Courier New",monospace;font-size:.95em;line-height:1.5}
+ul.lista,ol.lista{margin:2px 0 0;padding-left:1.15em;font-size:.97em}
+ul.lista li,ol.lista li{padding:1px 0}
+.disco .capa{width:100%;height:auto;display:block;border:1px solid var(--ink);margin-bottom:6px;
+  filter:grayscale(.35) contrast(1.05)}
+.disco .artista{font-style:italic;color:var(--ink2);margin-top:1px}
+.disco .ouvir{display:inline-block;font-size:.78em;letter-spacing:.1em;text-transform:uppercase;
+  border-bottom:1px solid var(--ink);color:inherit;text-decoration:none;margin-bottom:5px}
+.verso{font-size:1.02em;line-height:1.5;text-indent:1.2em}
+.verso:first-of-type{text-indent:0}
+.citacao{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:8px 0;
+  text-align:center;font-style:italic;font-size:1.08em;line-height:1.35}
+.refeicao h4{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+.refeicao .hora{font-size:.9em;color:var(--ink2);font-weight:400;letter-spacing:0;text-transform:none}
+.refeicao .kcal{margin-left:auto;font-weight:400;letter-spacing:.04em}
+.bloco ul{list-style:none;padding:0;margin:.35em 0 0;font-size:.96em}
+.bloco ul li{padding:2px 0;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.bloco .qtd{color:var(--ink2);font-style:italic;font-size:.9em;text-align:right;max-width:55%}
+.posicao .desenho{border:1px solid var(--rule);padding:2px;margin:3px 0 5px;background:rgba(255,255,255,.35)}
+.posicao .desenho svg{width:100%;height:auto;display:block;color:var(--ink)}
+.posicao .dose{font-size:.85em;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);
+  margin:2px 0 3px}
+.exercicio .campo input{width:3.4em;font-size:1em}
+.exercicio .aviso-carga:empty{display:none}
+.naoconferida{font-size:.62em;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);
+  border:1px solid var(--accent);border-radius:3px;padding:1px 4px;white-space:nowrap;
+  font-weight:400;letter-spacing:.06em}
+.indicacao{border-left:3px solid var(--accent);padding-left:10px}
+.proximo{border-top:1px solid var(--rule);padding-top:5px;margin-top:6px}
+.proximo:first-of-type{border-top:0;padding-top:0;margin-top:2px}
+.frase{font-style:italic;cursor:pointer;border-bottom:1px dotted var(--ink)}
+.gabarito{font-size:.93em;line-height:1.5;margin-top:4px}
+details summary{cursor:pointer;font-size:.85em;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);margin-top:3px}

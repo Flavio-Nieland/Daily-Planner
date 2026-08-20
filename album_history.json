@@ -1,289 +1,110 @@
 [
   {
-    "date": "2026-03-21",
-    "album": "Is This It",
-    "artist": "The Strokes",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273a388a3f20d1bf2123249cc79",
-    "spotify_id": "2yNaksHgeMQM9Quse463b5"
+    "data": "2026-08-19",
+    "album": "Transa",
+    "artista": "Caetano Veloso",
+    "origem": "estilo"
   },
   {
-    "date": "2026-03-23",
-    "album": "Is This It",
-    "artist": "The Strokes",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273a388a3f20d1bf2123249cc79",
-    "spotify_id": "2yNaksHgeMQM9Quse463b5"
+    "data": "2026-08-19",
+    "album": "Clube da Esquina",
+    "artista": "Milton Nascimento e Lô Borges",
+    "origem": "estilo"
   },
   {
-    "date": "2026-03-23",
+    "data": "2026-08-17",
+    "album": "Acabou Chorare",
+    "artista": "Novos Baianos",
+    "origem": "estilo"
+  },
+  {
+    "data": "2026-08-17",
+    "album": "Elis & Tom",
+    "artista": "Elis Regina e Tom Jobim",
+    "origem": "estilo"
+  },
+  {
+    "data": "2026-08-17",
+    "album": "Construção",
+    "artista": "Chico Buarque",
+    "origem": "estilo"
+  },
+  {
+    "data": "2026-08-18",
+    "album": "A Tábua de Esmeralda",
+    "artista": "Jorge Ben",
+    "origem": "estilo"
+  },
+  {
+    "data": "2026-08-18",
+    "album": "Secos & Molhados",
+    "artista": "Secos & Molhados",
+    "origem": "estilo"
+  },
+  {
+    "data": "2026-08-17",
     "album": "Sobrevivendo no Inferno",
-    "artist": "Racionais MC's",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273dc04f429698834d0736ddb0a",
-    "spotify_id": "1UzrzuOmZfBgXyS3pgKD10"
+    "artista": "Racionais MC's",
+    "origem": "estilo"
   },
   {
-    "date": "23/04/2026",
-    "album": "Lonerism",
-    "artist": "Tame Impala",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273370c12f82872c9cfaee80193",
-    "spotify_id": "3C2MFZ2iHotUQOSBzdSvM7"
+    "data": "2026-08-23",
+    "album": "Da Lama ao Caos",
+    "artista": "Chico Science & Nação Zumbi",
+    "origem": "estilo"
   },
   {
-    "date": "26/04/2026",
-    "album": "Keep On Running",
-    "artist": "Nico Saint",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273ef3238c3bc0ad084265e2cfc",
-    "spotify_id": "6VYUrotJr9tagqyJSRrgT8"
+    "data": "2026-08-17",
+    "album": "Alucinação",
+    "artista": "Belchior",
+    "origem": "estilo"
   },
   {
-    "date": "27/04/2026",
-    "album": "OK Computer",
-    "artist": "Radiohead",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273c8b444df094279e70d0ed856",
-    "spotify_id": "6dVIqQ8qmQ5GBnJ9shOYGE"
+    "data": "2026-08-18",
+    "album": "Cabeça Dinossauro",
+    "artista": "Titãs",
+    "origem": "estilo"
   },
   {
-    "date": "28/04/2026",
-    "album": "The Dark Side of the Moon",
-    "artist": "Pink Floyd",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273db216ca805faf5fe35df4ee6",
-    "spotify_id": "4LH4d3cOWNNsVw41Gqt2kv"
+    "data": "2026-08-19",
+    "album": "Expresso 2222",
+    "artista": "Gilberto Gil",
+    "origem": "estilo"
   },
   {
-    "date": "29/04/2026",
-    "album": "The Wall",
-    "artist": "Pink Floyd",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273b694e89ba937dd2631ff584c",
-    "spotify_id": "5Dbax7G8SWrP9xyzkOvy2F"
+    "data": "2026-08-20",
+    "album": "Fruto Proibido",
+    "artista": "Rita Lee & Tutti Frutti",
+    "origem": "estilo"
   },
   {
-    "date": "30/04/2026",
-    "album": "Demon(s)",
-    "artist": "Dartagnan's",
-    "cover_url": null,
-    "spotify_id": null
+    "data": "2026-08-23",
+    "album": "Estudando o Samba",
+    "artista": "Tom Zé",
+    "origem": "estilo"
   },
   {
-    "date": "01/05/2026",
-    "album": "Lo-Fi Hip Hop Chill Wave Radio Beats to Study and Relax to 24/7",
-    "artist": "Various Artists",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273e08c3c088bd8b494eb43dbcd",
-    "spotify_id": "2EmIIHbojdSlOj8ulSFlBX"
+    "data": "2026-08-21",
+    "album": "Chega de Saudade",
+    "artista": "João Gilberto",
+    "origem": "estilo"
   },
   {
-    "date": "02/05/2026",
-    "album": "Sad Boy",
-    "artist": "Loneshark",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273bc80f5d0068d0b0df8868263",
-    "spotify_id": "6eRJuHHp9zuD3HP7RnwpMp"
+    "data": "2026-08-22",
+    "album": "Tim Maia",
+    "artista": "Tim Maia",
+    "origem": "estilo"
   },
   {
-    "date": "03/05/2026",
-    "album": "Animals",
-    "artist": "Pink Floyd",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273472f3fa4fa9c696f7ef8f037",
-    "spotify_id": "3b4E89rxzZQ9zkhgKpj8N4"
+    "data": "2026-08-23",
+    "album": "Samba Esquema Novo",
+    "artista": "Jorge Ben",
+    "origem": "estilo"
   },
   {
-    "date": "04/05/2026",
-    "album": "In Rainbows",
-    "artist": "Radiohead",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273de3c04b5fc750b68899b20a9",
-    "spotify_id": "5vkqYmiPBYLaalcmjujWxK"
-  },
-  {
-    "date": "05/05/2026",
-    "album": "The Fragile",
-    "artist": "Nine Inch Nails",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273237a21c8ba1bfc2d85a83585",
-    "spotify_id": "4uiVwLbTzE6VMkXpaDAwB8"
-  },
-  {
-    "date": "06/05/2026",
-    "album": "Funeral",
-    "artist": "Arcade Fire",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2737870762a58313ad6f981d664",
-    "spotify_id": "6ZB8qaR9JNuS0Q0bG1nbcH"
-  },
-  {
-    "date": "07/05/2026",
-    "album": "O Descobrimento do Brasil",
-    "artist": "Tropicália",
-    "cover_url": null,
-    "spotify_id": null
-  },
-  {
-    "date": "08/05/2026",
-    "album": "Fake Love (feat. Duncan Mighty & WizKid)",
-    "artist": "StarBoy",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2734cfcc7a80d7a8da378f968b0",
-    "spotify_id": "2hCyuqpTXNKYkEXyABXE9j"
-  },
-  {
-    "date": "09/05/2026",
-    "album": "Discovery",
-    "artist": "Daft Punk",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2731e81bff9807a9e629fce5ade",
-    "spotify_id": "2noRn2Aes5aoNVsU6iWThc"
-  },
-  {
-    "date": "10/05/2026",
-    "album": "Pantanal Music",
-    "artist": "Almir Sater",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273c34b85995acaa23f04462145",
-    "spotify_id": "6e8MHVTp5HEUZiqqGg2Eo3"
-  },
-  {
-    "date": "11/05/2026",
-    "album": "Wish You Were Here",
-    "artist": "Pink Floyd",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273828e52cfb7bf22869349799e",
-    "spotify_id": "0bCAjiUamIFqKJsekOYuRw"
-  },
-  {
-    "date": "12/05/2026",
-    "album": "Parachutes",
-    "artist": "Coldplay",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2739164bafe9aaa168d93f4816a",
-    "spotify_id": "6ZG5lRT77aJ3btmArcykra"
-  },
-  {
-    "date": "13/05/2026",
-    "album": "El pueblo unido jamás será vencido (1973-1983) [Collection \"L'art de...\"]",
-    "artist": "Quilapayún",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273892d166eaa02dfdd7c944e93",
-    "spotify_id": "0WdtE1ZqaKlx3lpzM0OApA"
-  },
-  {
-    "date": "14/05/2026",
-    "album": "Songs for the Deaf",
-    "artist": "Queens of the Stone Age",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2739eec33b045d88f87b9b06e67",
-    "spotify_id": "4w3NeXtywU398NYW4903rY"
-  },
-  {
-    "date": "15/05/2026",
-    "album": "Meddle",
-    "artist": "Pink Floyd",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2739eee212bba82bed8da96a8f7",
-    "spotify_id": "468ZwCchVtzEbt9BHmXopb"
-  },
-  {
-    "date": "16/05/2026",
-    "album": "El pueblo unido jamás será vencido (1973-1983) [Collection \"L'art de...\"]",
-    "artist": "Quilapayún",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273892d166eaa02dfdd7c944e93",
-    "spotify_id": "0WdtE1ZqaKlx3lpzM0OApA"
-  },
-  {
-    "date": "17/05/2026",
-    "album": "The Head on the Door",
-    "artist": "The Cure",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2731dda5f57ba5c203f775ea2dd",
-    "spotify_id": "7zJzNs8eVgbkVVSQSwKRtx"
-  },
-  {
-    "date": "18/05/2026",
-    "album": "Sá, Rodrix & Guarabyra",
-    "artist": "Sá, Rodrix & Guarabyra",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2736857335ec8283c2363853ddb",
-    "spotify_id": "4McHj0JZB0z9cwd4zRJk7R"
-  },
-  {
-    "date": "19/05/2026",
-    "album": "Meteora",
-    "artist": "Linkin Park",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2738b5b6fa1326d996181e71dd7",
-    "spotify_id": "0f7R0jf0pcTb6K6IVVPcMD"
-  },
-  {
-    "date": "20/05/2026",
-    "album": "Aja",
-    "artist": "Steely Dan",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273cf39e4261576717ff4737bb6",
-    "spotify_id": "1hOK2ey9W76x9GnftSRgrw"
-  },
-  {
-    "date": "21/05/2026",
-    "album": "Ænima",
-    "artist": "Tool",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b27347daa44983fa6079910ed295",
-    "spotify_id": "6yWMN087PgSimbcVmHLEwG"
-  },
-  {
-    "date": "22/05/2026",
-    "album": "Ten",
-    "artist": "Pearl Jam",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2732d0e5ab5bd2e234fbcffa3e0",
-    "spotify_id": "5B4PYA7wNN4WdEXdIJu58a"
-  },
-  {
-    "date": "23/05/2026",
-    "album": "Sad Boy",
-    "artist": "Loneshark",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273bc80f5d0068d0b0df8868263",
-    "spotify_id": "6eRJuHHp9zuD3HP7RnwpMp"
-  },
-  {
-    "date": "24/05/2026",
-    "album": "Pantanal Music",
-    "artist": "Almir Sater",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273c34b85995acaa23f04462145",
-    "spotify_id": "6e8MHVTp5HEUZiqqGg2Eo3"
-  },
-  {
-    "date": "25/05/2026",
-    "album": "Os Graces",
-    "artist": "Os Graces",
-    "cover_url": null,
-    "spotify_id": null
-  },
-  {
-    "date": "27/05/2026",
-    "album": "Passado Presente Futuro",
-    "artist": "Sa, Rodrix & Guarabyra",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2739b2a28739fe356e1b632fa24",
-    "spotify_id": "78WaHJ6d5nNAhRDrzCUtUF"
-  },
-  {
-    "date": "03/06/2026",
-    "album": "Lo-Fi Hip Hop Chill Wave Radio Beats to Study and Relax to 24/7",
-    "artist": "Various Artists",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273e08c3c088bd8b494eb43dbcd",
-    "spotify_id": "2EmIIHbojdSlOj8ulSFlBX"
-  },
-  {
-    "date": "06/06/2026",
-    "album": "Sad Boy",
-    "artist": "Loneshark",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273bc80f5d0068d0b0df8868263",
-    "spotify_id": "6eRJuHHp9zuD3HP7RnwpMp"
-  },
-  {
-    "date": "07/06/2026",
-    "album": "Nevermind",
-    "artist": "Nirvana",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273fbc71c99f9c1296c56dd51b6",
-    "spotify_id": "2UJcKiJxNryhL050F5Z1Fk"
-  },
-  {
-    "date": "08/06/2026",
-    "album": "Dirt",
-    "artist": "Alice in Chains",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2732d1447994ec24301429681cb",
-    "spotify_id": "58NXIEYqmq5dQHg9nV9duM"
-  },
-  {
-    "date": "09/06/2026",
-    "album": "Kid A",
-    "artist": "Radiohead",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b2736c7112082b63beefffe40151",
-    "spotify_id": "6GjwtEZcfenmOf6l18N7T7"
-  },
-  {
-    "date": "10/06/2026",
-    "album": "In the Aeroplane Over the Sea",
-    "artist": "Neutral Milk Hotel",
-    "cover_url": "https://i.scdn.co/image/ab67616d0000b273bc1e41eed3ddbdfff6f2d74b",
-    "spotify_id": "17q5eeNk3HAjX1gzQnkTX7"
+    "data": "2026-08-19",
+    "album": "Lóki?",
+    "artista": "Arnaldo Baptista",
+    "origem": "estilo"
   }
 ]

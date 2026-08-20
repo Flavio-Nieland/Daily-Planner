@@ -1,0 +1,122 @@
+[
+  {
+    "titulo": "Salada de tomate",
+    "tecnica": "Corte em cubos uniformes"
+  },
+  {
+    "titulo": "Arroz branco",
+    "tecnica": "Cocção por absorção"
+  },
+  {
+    "titulo": "Ovo cozido",
+    "tecnica": "Fervura e controle do ponto"
+  },
+  {
+    "titulo": "Legumes no vapor",
+    "tecnica": "Cocção a vapor"
+  },
+  {
+    "titulo": "Purê de batata",
+    "tecnica": "Esmagamento e incorporação de gordura"
+  },
+  {
+    "titulo": "Omelete simples",
+    "tecnica": "Coagulação e dobradura de ovos"
+  },
+  {
+    "titulo": "Farofa de cebola",
+    "tecnica": "Tostagem de farinha"
+  },
+  {
+    "titulo": "Banana frita",
+    "tecnica": "Fritura rasa"
+  },
+  {
+    "titulo": "Couve à mineira",
+    "tecnica": "Corte em chiffonade"
+  },
+  {
+    "titulo": "Bife acebolado",
+    "tecnica": "Selagem em frigideira"
+  },
+  {
+    "titulo": "Macarrão alho e óleo",
+    "tecnica": "Salteamento"
+  },
+  {
+    "titulo": "Molho de tomate caseiro",
+    "tecnica": "Redução"
+  },
+  {
+    "titulo": "Salada de batata com maionese",
+    "tecnica": "Emulsificação"
+  },
+  {
+    "titulo": "Sopa de legumes",
+    "tecnica": "Cocção lenta"
+  },
+  {
+    "titulo": "Frango assado",
+    "tecnica": "Assamento"
+  },
+  {
+    "titulo": "Quibe assado",
+    "tecnica": "Hidratação de trigo para quibe"
+  },
+  {
+    "titulo": "Escondidinho de carne moída",
+    "tecnica": "Montagem em camadas"
+  },
+  {
+    "titulo": "Arroz de forno",
+    "tecnica": "Gratinação"
+  },
+  {
+    "titulo": "Torta de liquidificador",
+    "tecnica": "Preparo de massa líquida"
+  },
+  {
+    "titulo": "Bolo de fubá",
+    "tecnica": "Aeração da massa"
+  },
+  {
+    "titulo": "Pão de queijo",
+    "tecnica": "Escaldamento"
+  },
+  {
+    "titulo": "Feijão na panela de pressão",
+    "tecnica": "Cocção sob pressão"
+  },
+  {
+    "titulo": "Carne de panela",
+    "tecnica": "Braseamento"
+  },
+  {
+    "titulo": "Galinhada",
+    "tecnica": "Cocção em uma panela"
+  },
+  {
+    "titulo": "Lasanha à bolonhesa",
+    "tecnica": "Preparo de molho bechamel"
+  },
+  {
+    "titulo": "Coxinha de frango",
+    "tecnica": "Modelagem de massa recheada"
+  },
+  {
+    "titulo": "Risoto de frango",
+    "tecnica": "Mantecatura"
+  },
+  {
+    "titulo": "Pudim de leite",
+    "tecnica": "Banho-maria"
+  },
+  {
+    "titulo": "Pão caseiro",
+    "tecnica": "Fermentação de massa"
+  },
+  {
+    "titulo": "Feijoada",
+    "tecnica": "Cozimento em etapas e sincronização de preparos"
+  }
+]

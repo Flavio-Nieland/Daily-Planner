@@ -1,0 +1,66 @@
+[
+  {
+    "titulo": "Abertura Italiana, Giuoco Piano",
+    "extra": "brancas"
+  },
+  {
+    "titulo": "Defesa Caro-Kann, variante Clássica",
+    "extra": "pretas"
+  },
+  {
+    "titulo": "Gambito da Dama, variante do câmbio",
+    "extra": "brancas"
+  },
+  {
+    "titulo": "Defesa Nimzo-Índia, variante Clássica",
+    "extra": "pretas"
+  },
+  {
+    "titulo": "Ruy Lopez, variante Berlim",
+    "extra": "brancas"
+  },
+  {
+    "titulo": "Defesa Eslava, variante principal",
+    "extra": "pretas"
+  },
+  {
+    "titulo": "Abertura Inglesa, sistema Botvinnik",
+    "extra": "brancas"
+  },
+  {
+    "titulo": "Defesa Siciliana, variante Najdorf",
+    "extra": "pretas"
+  },
+  {
+    "titulo": "Sistema Londres",
+    "extra": "brancas"
+  },
+  {
+    "titulo": "Defesa Francesa, variante Tarrasch",
+    "extra": "pretas"
+  },
+  {
+    "titulo": "Abertura Réti, sistema com g3",
+    "extra": "brancas"
+  },
+  {
+    "titulo": "Defesa Índia do Rei, variante clássica",
+    "extra": "pretas"
+  },
+  {
+    "titulo": "Abertura Escocesa, variante Schmidt",
+    "extra": "brancas"
+  },
+  {
+    "titulo": "Defesa Pirc, sistema clássico",
+    "extra": "pretas"
+  },
+  {
+    "titulo": "Gambito do Rei, variante aceita",
+    "extra": "brancas"
+  },
+  {
+    "titulo": "Defesa Grünfeld, variante do câmbio",
+    "extra": "pretas"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "ingredientes": [
+    "3 tomates maduros",
+    "1/2 cebola-roxa",
+    "2 colheres de sopa de azeite",
+    "1 colher de sopa de vinagre",
+    "Sal a gosto",
+    "Pimenta-do-reino a gosto",
+    "2 colheres de sopa de cheiro-verde picado"
+  ],
+  "preparo": [
+    "Lave e seque bem os tomates.",
+    "Corte os tomates ao meio, retire o miolo e faça cubos uniformes.",
+    "Descasque a cebola e corte-a em cubos do mesmo tamanho dos tomates.",
+    "Coloque os tomates e a cebola em uma tigela.",
+    "Tempere com azeite, vinagre, sal e pimenta-do-reino.",
+    "Misture delicadamente, finalize com o cheiro-verde e sirva."
+  ],
+  "ensina": "Este prato ensina a cortar os ingredientes em cubos uniformes para que cozinhem, temperem e apareçam de maneira equilibrada. A mesma técnica serve para vinagretes, molhos, refogados e saladas de frutas.",
+  "erro": "O erro que estraga a salada é cortar os tomates de tamanhos diferentes e deixá-los muito tempo no tempero, fazendo com que soltem água e percam a textura."
+}

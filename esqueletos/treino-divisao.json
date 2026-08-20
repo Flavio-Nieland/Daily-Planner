@@ -1,0 +1,142 @@
+[
+  {
+    "dia": "peito e tríceps",
+    "exercicios": [
+      {
+        "nome": "Supino reto com barra",
+        "series": "4",
+        "reps": "6-10"
+      },
+      {
+        "nome": "Supino inclinado com halteres",
+        "series": "4",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Crucifixo na máquina",
+        "series": "3",
+        "reps": "10-15"
+      },
+      {
+        "nome": "Paralelas com foco no peito",
+        "series": "3",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Tríceps na polia com barra",
+        "series": "4",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Tríceps francês com halter",
+        "series": "3",
+        "reps": "10-15"
+      }
+    ]
+  },
+  {
+    "dia": "costas e bíceps",
+    "exercicios": [
+      {
+        "nome": "Puxada alta na frente",
+        "series": "4",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Remada curvada com barra",
+        "series": "4",
+        "reps": "6-10"
+      },
+      {
+        "nome": "Remada baixa na polia",
+        "series": "3",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Pulldown com braços estendidos",
+        "series": "3",
+        "reps": "10-15"
+      },
+      {
+        "nome": "Rosca direta com barra",
+        "series": "4",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Rosca martelo com halteres",
+        "series": "3",
+        "reps": "10-15"
+      }
+    ]
+  },
+  {
+    "dia": "pernas",
+    "exercicios": [
+      {
+        "nome": "Agachamento livre",
+        "series": "4",
+        "reps": "6-10"
+      },
+      {
+        "nome": "Leg press 45 graus",
+        "series": "4",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Cadeira extensora",
+        "series": "3",
+        "reps": "10-15"
+      },
+      {
+        "nome": "Levantamento terra romeno",
+        "series": "4",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Mesa flexora",
+        "series": "3",
+        "reps": "10-15"
+      },
+      {
+        "nome": "Panturrilha em pé",
+        "series": "4",
+        "reps": "10-15"
+      }
+    ]
+  },
+  {
+    "dia": "ombro e braços",
+    "exercicios": [
+      {
+        "nome": "Desenvolvimento com halteres",
+        "series": "4",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Elevação lateral",
+        "series": "4",
+        "reps": "10-15"
+      },
+      {
+        "nome": "Crucifixo inverso na máquina",
+        "series": "3",
+        "reps": "10-15"
+      },
+      {
+        "nome": "Rosca Scott",
+        "series": "3",
+        "reps": "8-12"
+      },
+      {
+        "nome": "Rosca inclinada com halteres",
+        "series": "3",
+        "reps": "10-15"
+      },
+      {
+        "nome": "Tríceps testa com barra EZ",
+        "series": "4",
+        "reps": "8-12"
+      }
+    ]
+  }
+]
