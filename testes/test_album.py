@@ -94,9 +94,10 @@ def test_historico_registra_os_dois_discos_com_a_origem():
 
 def test_spotify_fora_do_ar_nao_custa_a_folha_inteira(monkeypatch):
     """O disco do estilo pedido não depende do Spotify — ele tem que sair mesmo assim."""
-    monkeypatch.setattr(album, "_perfil", lambda: ({}, "SpotifyOauthError"))
+    monkeypatch.setattr(album, "_perfil", lambda: ({}, "o Spotify recusou o refresh token"))
     blocos = album.blocos(HOJE, _pedido("jazz modal", ONTEM))
     assert "Sem o disco do seu gosto hoje" in blocos[0]
-    assert "SpotifyOauthError" in blocos[0]
+    assert "o Spotify recusou o refresh token" in blocos[0]
     assert "Kind of Blue" in blocos[1], "o disco do estilo pedido continua saindo"
     assert 'id="estilo-gravar"' in blocos[2]
+
