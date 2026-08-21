@@ -54,3 +54,13 @@ def test_bloco_gigante_sozinho_nao_trava_a_paginacao():
                          '<div class="bloco"><p>fim</p></div>']}
     folhas = _folhas([enorme])
     assert [i for f in folhas for i in f["blocos"]] == [0, 1]
+
+
+def test_bloco_marcado_abre_folha_nova():
+    """A Dieta depende disso: a lista de compras nunca divide folha com o jantar."""
+    topico = _topico(4)
+    topico["blocos"][2] = topico["blocos"][2].replace(
+        '<div class="bloco">', '<div class="bloco" data-quebra="Compras">', 1)
+    folhas = _folhas([topico])
+    assert [f["blocos"] for f in folhas] == [[0, 1], [2, 3]]
+    assert [f["cont"] for f in folhas] == [0, 0], "grupo novo recomeça a contagem"

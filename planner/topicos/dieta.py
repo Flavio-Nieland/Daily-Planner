@@ -18,6 +18,7 @@ from planner import llm
 CACHE = Path(__file__).resolve().parent.parent.parent / "diet_plan.json"
 META_KCAL = 2800
 JANELA = 3          # hoje e os dois próximos dias
+CHAPEU_COMPRAS = "Compras dos próximos 3 dias"
 
 PROMPT_DIA = """Monte o plano alimentar de um dia para um homem adulto, em português do Brasil.
 Cinco refeições somando aproximadamente {meta} kcal, com alimentos brasileiros, baratos e da
@@ -157,13 +158,17 @@ def blocos(dia: date) -> list[str]:
         proximos.append(_dia(dia + timedelta(days=n), proximos[-1]))
 
     compras = _compras(proximos)
-    for secao in compras["secoes"]:
+    for n, secao in enumerate(compras["secoes"]):
         itens = "".join(
             f'<li><span>{i["item"]}</span><span class="qtd">{i["qtd"]}'
             + (f' · {i["custo"]}' if i["custo"] else "") + "</span></li>"
             for i in secao["itens"]
         )
-        partes.append(f'<div class="bloco"><h4>Compras · {secao["secao"]}</h4><ul>{itens}</ul></div>')
+        # a primeira seção de compras abre folha nova: o dia e a feira são duas leituras
+        # diferentes, e misturadas empurravam metade da lista para uma terceira folha
+        quebra = f' data-quebra="{CHAPEU_COMPRAS}"' if n == 0 else ""
+        partes.append(f'<div class="bloco"{quebra}><h4>Compras · {secao["secao"]}</h4>'
+                      f'<ul>{itens}</ul></div>')
     if compras["custo_total"]:
         partes.append(f'<div class="bloco"><h4>A conta da semana</h4>'
                       f'<p class="destaque">{compras["custo_total"]}</p>'
