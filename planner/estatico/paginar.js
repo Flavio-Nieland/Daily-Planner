@@ -3,24 +3,56 @@
    no cliente, a folha re-pagina ao abrir e ao redimensionar, porque a tela dele não é a do build.
 
    Armadilha do ADR 0001: multi-coluna transborda na HORIZONTAL. O teste é scrollWidth,
-   não scrollHeight — medir altura não detecta nada e a paginação silenciosamente não acontece. */
+   não scrollHeight — medir altura não detecta nada e a paginação silenciosamente não acontece.
+
+   Layout de 2026-08-21: o masthead saiu e a cabeça encolheu. Numa tela de notebook o
+   cabeçalho antigo comia 210 dos 740 px da folha e o texto ficava com dois terços. Agora
+   é uma cinta de status de uma linha, a cabeça centrada compacta, e o rodapé só com as
+   setas. O auto-fit também parou de crescer até 18,6 px: inflava a folha inteira. */
 
 const SETA_ESQ = '<svg viewBox="0 0 36 30"><path d="M14 6 L5 15 L14 24 M5 15 H31" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
 const SETA_DIR = '<svg viewBox="0 0 36 30"><path d="M22 6 L31 15 L22 24 M31 15 H5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
 
+const TETO_FS = 15;                    // px; o corpo cresce até aqui, não mais
+
 function transborda(el) { return el.scrollWidth > el.clientWidth + 2; }
 
-function masthead() {
-  return '<div class="mast"><div class="titulo">' + EDICAO.jornal + '</div>'
-    + '<div class="linha"><span>' + EDICAO.dia + '</span><span>' + EDICAO.data + '</span>'
-    + '<span>Edição ' + EDICAO.numero + '</span></div></div>';
+function bolinhas(ativo) {
+  return '<div class="bolinhas">' + EDICAO.topicos.map((t, i) =>
+    '<button class="bolinha" data-topico="' + i + '" title="' + t.nome + '" aria-label="' + t.nome
+    + '" aria-current="' + (i === ativo) + '"></button>').join('') + '</div>';
 }
 
-function cabeca(topico, cont, indice, total) {
-  return '<div class="cabeca"><div class="chapeu">' + topico.chapeu + '</div>'
+function cinta(indice, total, ti) {
+  return '<div class="cinta"><span>' + EDICAO.dia + '</span><span>' + EDICAO.data + '</span>'
+    + '<span>Edição ' + EDICAO.numero + '</span>'
+    + '<span>Folha ' + (indice + 1) + ' de ' + total + '</span>'
+    + bolinhas(ti) + '</div>';
+}
+
+function cabeca(topico, cont, chapeu) {
+  return '<div class="cabeca"><div class="chapeu">' + (chapeu || topico.chapeu) + '</div>'
     + '<h2>' + topico.nome + '</h2>'
     + (cont > 0 ? '<span class="cont">continuação · folha ' + (cont + 1) + '</span>' : '')
     + '</div>';
+}
+
+/* Quebra obrigatória: bloco marcado com data-quebra abre folha nova e troca o chapéu.
+   É assim que a Dieta sai sempre em duas — o dia numa folha, as compras dos 3 dias na outra. */
+function quebras(topico) {
+  const caixa = document.createElement('div');
+  return topico.blocos.map(html => {
+    caixa.innerHTML = html;
+    const no = caixa.firstElementChild;
+    return (no && no.dataset.quebra) || null;
+  });
+}
+
+function chapeuDa(topico, primeiro) {
+  const marcas = quebras(topico);
+  let chapeu = topico.chapeu;
+  for (let i = 0; i <= primeiro; i++) if (marcas[i]) chapeu = marcas[i];
+  return chapeu;
 }
 
 /* Distribui os blocos de cada tópico em folhas, medindo numa folha invisível.
@@ -32,26 +64,29 @@ function __paginar() {
   folha.className = 'folha';
   const dentro = document.createElement('div');
   dentro.className = 'dentro';
-  const mast = document.createElement('div');
-  mast.innerHTML = masthead();
+  const topo = document.createElement('div');
   const cab = document.createElement('div');
   const corpo = document.createElement('div');
   corpo.className = 'corpo';
   const pe = document.createElement('div');
   pe.className = 'rodape';
-  pe.style.height = '50px';
-  dentro.append(mast, cab, corpo, pe);
+  pe.style.height = '46px';
+  dentro.append(topo, cab, corpo, pe);
   folha.appendChild(dentro);
   medidor.appendChild(folha);
 
   const folhas = [];
   EDICAO.topicos.forEach((topico, ti) => {
+    const marcas = quebras(topico);
     let cont = 0, postos = 0;
     while (postos < topico.blocos.length) {
-      cab.innerHTML = cabeca(topico, cont);
+      if (marcas[postos]) cont = 0;              // grupo novo recomeça a contagem
+      topo.innerHTML = cinta(0, 1, ti);          // na medição só a altura da cinta importa
+      cab.innerHTML = cabeca(topico, cont, chapeuDa(topico, postos));
       corpo.innerHTML = '';
       const cabem = [];
       for (let i = postos; i < topico.blocos.length; i++) {
+        if (marcas[i] && cabem.length) break;    // quebra obrigatória fecha a folha aqui
         const caixa = document.createElement('div');
         caixa.innerHTML = topico.blocos[i];
         const no = caixa.firstElementChild;
@@ -86,7 +121,8 @@ function desenhar() {
   moldura.className = 'moldura';
   const dentro = document.createElement('div');
   dentro.className = 'dentro';
-  dentro.innerHTML = masthead() + cabeca(topico, f.cont);
+  dentro.innerHTML = cinta(atual, FOLHAS.length, f.topico)
+    + cabeca(topico, f.cont, chapeuDa(topico, f.blocos[0]));
 
   const corpo = document.createElement('div');
   corpo.className = 'corpo';
@@ -96,11 +132,8 @@ function desenhar() {
   const pe = document.createElement('div');
   pe.className = 'rodape';
   pe.innerHTML = '<button class="seta" data-passo="-1"' + (atual === 0 ? ' disabled' : '') + '>' + SETA_ESQ + '</button>'
-    + '<div class="bolinhas">' + EDICAO.topicos.map((t, i) =>
-        '<button class="bolinha" data-topico="' + i + '" title="' + t.nome + '" aria-label="' + t.nome + '"'
-        + ' aria-current="' + (i === f.topico) + '"></button>').join('') + '</div>'
-    + '<button class="seta" data-passo="1"' + (atual === FOLHAS.length - 1 ? ' disabled' : '') + '>' + SETA_DIR + '</button>'
-    + '<span class="numero">' + (atual + 1) + ' / ' + FOLHAS.length + '</span>';
+    + '<span class="numero">' + (atual + 1) + ' / ' + FOLHAS.length + '</span>'
+    + '<button class="seta" data-passo="1"' + (atual === FOLHAS.length - 1 ? ' disabled' : '') + '>' + SETA_DIR + '</button>';
   dentro.appendChild(pe);
 
   folha.append(grao, moldura, dentro);
@@ -109,21 +142,22 @@ function desenhar() {
 
   // colunas adaptativas: folha com pouco conteúdo não merece 3 colunas.
   // A paginação foi medida em 3 colunas, então 2 colunas pode não caber — daí a volta atrás.
-  let colunas = 2;
   corpo.style.columnCount = 2;
-  if (transborda(corpo)) { corpo.style.columnCount = 3; colunas = 3; }
-  // auto-fit tipográfico: o corpo cresce até quase estourar, como jornal fecha a página
-  const MAX = colunas === 2 ? 18.6 : 16.6;
+  if (transborda(corpo)) corpo.style.columnCount = 3;
+  // auto-fit tipográfico: o corpo cresce até quase estourar, com teto — texto de jornal,
+  // não cartaz. Passar de 15 px fazia a folha de duas linhas parecer aviso de porta.
   let fs = 13.5;
   corpo.style.setProperty('--fs', fs + 'px');
-  while (fs < MAX) {
+  while (fs < TETO_FS) {
     const passo = +(fs + 0.4).toFixed(2);
     corpo.style.setProperty('--fs', passo + 'px');
     if (transborda(corpo)) { corpo.style.setProperty('--fs', fs + 'px'); break; }
     fs = passo;
   }
 
-  pe.addEventListener('click', ev => {
+  // as bolinhas moraram no rodapé até 2026-08-21; agora estão na cinta, então o clique
+  // é ouvido na folha inteira
+  dentro.addEventListener('click', ev => {
     const b = ev.target.closest('button');
     if (!b) return;
     if (b.dataset.passo) ir(atual + (+b.dataset.passo));

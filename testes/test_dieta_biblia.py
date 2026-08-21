@@ -50,6 +50,16 @@ def test_o_dia_ja_gerado_nao_e_gerado_de_novo(monkeypatch):
     assert quantos_dias == dieta.JANELA
 
 
+def test_a_lista_de_compras_abre_folha_nova(monkeypatch):
+    """Duas leituras diferentes: o que comer hoje e o que comprar para três dias."""
+    _modelo(monkeypatch)
+    partes = dieta.blocos(HOJE)
+    marcados = [b for b in partes if "data-quebra" in b]
+    assert len(marcados) == 1, "a quebra é uma só, na primeira seção de compras"
+    assert dieta.CHAPEU_COMPRAS in marcados[0]
+    assert "Compras · Hortifrúti" in marcados[0]
+
+
 def test_o_amanha_de_hoje_e_o_hoje_de_amanha(monkeypatch):
     """A janela é o que dá continuidade — o dia seguinte já está escrito."""
     _modelo(monkeypatch)
