@@ -148,5 +148,17 @@
     "album": "África Brasil",
     "artista": "Jorge Ben",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-08-21",
+    "album": "Som Imaginário",
+    "artista": "Som Imaginário",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-08-21",
+    "album": "Tropicália ou Panis et Circencis",
+    "artista": "Vários artistas",
+    "origem": "estilo"
   }
 ]
