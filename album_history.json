@@ -136,5 +136,17 @@
     "album": "Clara Crocodilo",
     "artista": "Arrigo Barnabé",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-08-21",
+    "album": "Ave Sangria",
+    "artista": "Ave Sangria",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-08-21",
+    "album": "África Brasil",
+    "artista": "Jorge Ben",
+    "origem": "estilo"
   }
 ]
