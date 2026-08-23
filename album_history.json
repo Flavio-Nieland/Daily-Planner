@@ -172,5 +172,17 @@
     "album": "Transa",
     "artista": "Caetano Veloso",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-08-23",
+    "album": "Revolver",
+    "artista": "Walter Franco",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-08-23",
+    "album": "Clube da Esquina",
+    "artista": "Milton Nascimento e Lô Borges",
+    "origem": "estilo"
   }
 ]
