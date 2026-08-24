@@ -1170,5 +1170,129 @@
       }
     ],
     "total_kcal": 2832
+  },
+  "2026-08-26": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca com queijo minas frescal",
+            "qtd": "100 g de goma de tapioca e 60 g de queijo minas"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Café preto com açúcar",
+            "qtd": "200 ml de café e 10 g de açúcar"
+          }
+        ],
+        "kcal": 680,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Castanha de caju",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Semente de chia",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 500,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Carne bovina moída refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de repolho",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja no preparo",
+            "qtd": "2 g"
+          }
+        ],
+        "kcal": 740,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média, cerca de 150 g"
+          }
+        ],
+        "kcal": 360,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 520,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
