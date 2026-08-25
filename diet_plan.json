@@ -1294,5 +1294,121 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-08-27": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Ovos cozidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade pequena, aproximadamente 90 g"
+          }
+        ],
+        "kcal": 544,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "15 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média, aproximadamente 130 g"
+          }
+        ],
+        "kcal": 420,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Peito de frango assado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Salada de tomate e cenoura",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 801,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 453,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Salada de alface e tomate",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 593,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2811
   }
 }

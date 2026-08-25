@@ -196,5 +196,17 @@
     "album": "Construção",
     "artista": "Chico Buarque",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-08-25",
+    "album": "Criaturas da Noite",
+    "artista": "O Terço",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-08-25",
+    "album": "Secos & Molhados",
+    "artista": "Secos & Molhados",
+    "origem": "estilo"
   }
 ]
