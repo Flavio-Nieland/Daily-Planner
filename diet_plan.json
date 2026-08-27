@@ -1538,5 +1538,125 @@
       }
     ],
     "total_kcal": 2820
+  },
+  "2026-08-29": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Manteiga",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 643,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 417,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sobrecoxa de frango assada sem pele",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Tomate em rodelas",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 882,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 401,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta de fubá cozida",
+            "qtd": "300 g"
+          },
+          {
+            "alimento": "Omelete de ovos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Chuchu cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "5 g"
+          },
+          {
+            "alimento": "Abacaxi",
+            "qtd": "120 g"
+          }
+        ],
+        "kcal": 494,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2837
   }
 }
