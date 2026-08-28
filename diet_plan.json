@@ -1658,5 +1658,133 @@
       }
     ],
     "total_kcal": 2837
+  },
+  "2026-08-30": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "15 g"
+          },
+          {
+            "alimento": "Mel",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 594,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Goma de tapioca hidratada",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 368,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Patinho moído refogado",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de tomate e cebola",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 833,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "25 g"
+          },
+          {
+            "alimento": "Goiabada",
+            "qtd": "25 g"
+          }
+        ],
+        "kcal": 410,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "190 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "90 g"
+          },
+          {
+            "alimento": "Feijão preto cozido",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Repolho cru fatiado",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 595,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
