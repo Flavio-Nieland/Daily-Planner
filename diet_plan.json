@@ -1786,5 +1786,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-08-31": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "90 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "150 ml"
+          }
+        ],
+        "kcal": 564,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades, 100 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média, 150 g"
+          }
+        ],
+        "kcal": 428,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "140 g"
+          },
+          {
+            "alimento": "Salada de repolho e cenoura",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 773,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "230 g"
+          },
+          {
+            "alimento": "Sardinha em lata, escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "50 g"
+          }
+        ],
+        "kcal": 576,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão comum cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Molho caseiro de tomate",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Ovo cozido",
+            "qtd": "1 unidade"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "5 g"
+          },
+          {
+            "alimento": "Alface",
+            "qtd": "80 g"
+          }
+        ],
+        "kcal": 420,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2761
   }
 }

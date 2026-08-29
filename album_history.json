@@ -256,5 +256,17 @@
     "album": "Estudando o Samba",
     "artista": "Tom Zé",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-08-29",
+    "album": "Samba pra Burro",
+    "artista": "Otto",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-08-29",
+    "album": "Cartola",
+    "artista": "Cartola",
+    "origem": "estilo"
   }
 ]
