@@ -1910,5 +1910,141 @@
       }
     ],
     "total_kcal": 2761
+  },
+  "2026-09-01": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca (goma hidratada)",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "15 g"
+          },
+          {
+            "alimento": "Café preto sem leite",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Açúcar",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 664,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Granola",
+            "qtd": "35 g"
+          }
+        ],
+        "kcal": 351,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Alface, pepino e cebola",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 752,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Sardinha em conserva",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "80 g"
+          }
+        ],
+        "kcal": 420,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Coxa e sobrecoxa de frango assada, sem pele",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Quiabo refogado",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 620,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2807
   }
 }
