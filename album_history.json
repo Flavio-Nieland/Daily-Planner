@@ -280,5 +280,17 @@
     "album": "Bicho",
     "artista": "Caetano Veloso",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-08-31",
+    "album": "Bixo da Seda",
+    "artista": "Bixo da Seda",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-08-31",
+    "album": "Nó na Orelha",
+    "artista": "Criolo",
+    "origem": "estilo"
   }
 ]

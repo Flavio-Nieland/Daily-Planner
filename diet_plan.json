@@ -2046,5 +2046,133 @@
       }
     ],
     "total_kcal": 2807
+  },
+  "2026-09-02": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (90 g)"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 610,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Queijo muçarela",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de repolho e tomate",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 750,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "1 unidade média (100 g)"
+          }
+        ],
+        "kcal": 410,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Macarrão comum cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Carne moída bovina magra",
+            "qtd": "110 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 630,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
