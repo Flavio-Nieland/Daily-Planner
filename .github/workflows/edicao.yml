@@ -8,6 +8,10 @@ name: Edição do dia
 on:
   schedule:
     - cron: "0 9 * * *"      # 09:00 UTC = 06:00 BRT, todos os dias
+    # Rede de segurança: o GitHub atrasa ou descarta `schedule` em carga alta — em 28/08/2026
+    # a edição das 09:00 nunca rodou. Rodar de novo no mesmo dia é inócuo: o conteúdo é
+    # cacheado por sessão e o passo `Publicar` só commita se houver diff.
+    - cron: "0 13 * * *"     # 13:00 UTC = 10:00 BRT
   workflow_dispatch:
 
 permissions:
