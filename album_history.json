@@ -316,5 +316,17 @@
     "album": "A Tábua de Esmeralda",
     "artista": "Jorge Ben",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-09-01",
+    "album": "Ave Sangria",
+    "artista": "Ave Sangria",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-09-01",
+    "album": "Da Lama ao Caos",
+    "artista": "Chico Science & Nação Zumbi",
+    "origem": "estilo"
   }
 ]
