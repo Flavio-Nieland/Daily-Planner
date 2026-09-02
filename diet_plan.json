@@ -2310,5 +2310,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-04": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Sobrecoxa de frango assada sem pele",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Salada de repolho, tomate e cenoura",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja para temperar",
+            "qtd": "1 colher de chá"
+          }
+        ],
+        "kcal": 800,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 330,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho caseiro de tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Salada de alface e pepino",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "1 colher de chá"
+          }
+        ],
+        "kcal": 670,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
