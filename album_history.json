@@ -364,5 +364,17 @@
     "album": "Construção",
     "artista": "Chico Buarque",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-09-03",
+    "album": "Violeta de Outono",
+    "artista": "Violeta de Outono",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-09-03",
+    "album": "Secos & Molhados",
+    "artista": "Secos & Molhados",
+    "origem": "estilo"
   }
 ]

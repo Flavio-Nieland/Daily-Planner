@@ -2434,5 +2434,133 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-05": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca de goma hidratada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Café coado sem açúcar",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 530,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 340,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne bovina moída magra refogada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Tomate em salada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite ou óleo vegetal",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 890,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão integral",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Pera",
+            "qtd": "160 g"
+          }
+        ],
+        "kcal": 374,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Sardinha em conserva, escorrida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Tomate em salada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo vegetal",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 666,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
