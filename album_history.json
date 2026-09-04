@@ -400,5 +400,17 @@
     "album": "Alucinação",
     "artista": "Belchior",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-09-04",
+    "album": "Di Melo",
+    "artista": "Di Melo",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-09-04",
+    "album": "Fruto Proibido",
+    "artista": "Rita Lee & Tutti Frutti",
+    "origem": "estilo"
   }
 ]
