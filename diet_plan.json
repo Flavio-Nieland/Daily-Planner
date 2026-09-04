@@ -2562,5 +2562,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-06": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 580,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Frango assado sem pele",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Salada de tomate e cebola",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá"
+          }
+        ],
+        "kcal": 780,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 380,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Salada de repolho e cenoura",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abacaxi",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 660,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
