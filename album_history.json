@@ -424,5 +424,17 @@
     "album": "Estudando o Samba",
     "artista": "Tom Zé",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-09-05",
+    "album": "Neu!",
+    "artista": "Neu!",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-09-05",
+    "album": "Acabou Chorare",
+    "artista": "Novos Baianos",
+    "origem": "estilo"
   }
 ]
