@@ -2686,5 +2686,125 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-07": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca de goma hidratada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Café coado com açúcar",
+            "qtd": "200 ml de café com 10 g de açúcar"
+          }
+        ],
+        "kcal": 500,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de repolho e cenoura",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja para temperar",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 980,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "80 g"
+          }
+        ],
+        "kcal": 530,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Lombo suíno grelhado",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para refogar",
+            "qtd": "3 g"
+          }
+        ],
+        "kcal": 460,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2820
   }
 }
