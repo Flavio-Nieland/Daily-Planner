@@ -2806,5 +2806,117 @@
       }
     ],
     "total_kcal": 2820
+  },
+  "2026-09-08": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (90 g)"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (180 g)"
+          }
+        ],
+        "kcal": 429,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de alface e tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva para temperar",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 929,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce assada",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 423,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Ovos cozidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Vinagrete de tomate, cebola e pimentão",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 390,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2821
   }
 }
