@@ -7,7 +7,7 @@ import pytest
 from planner import conteudo, esqueleto, progressao
 from planner.topicos import ingles
 
-SEGUNDA, QUINTA = date(2026, 8, 17), date(2026, 8, 20)
+SEGUNDA, QUARTA = date(2026, 8, 17), date(2026, 8, 19)
 
 FALA = {"expressoes": [{"frase": "I see it differently", "quando": "para discordar sem atrito"}],
         "exercicio": "diga em voz alta três vezes.", "cuidado": "não traduza 'com certeza'"}
@@ -37,7 +37,7 @@ def _feito(*dias):
 
 def test_comeca_pela_fala_e_alterna_com_a_escuta():
     assert "trilha da fala" in "".join(ingles.blocos(SEGUNDA, {}))
-    assert "trilha da escuta" in "".join(ingles.blocos(QUINTA, _feito(SEGUNDA)))
+    assert "trilha da escuta" in "".join(ingles.blocos(QUARTA, _feito(SEGUNDA)))
 
 
 def test_a_fala_e_prescritora():
@@ -52,7 +52,7 @@ def test_a_expressao_pode_ser_ouvida_no_proprio_navegador():
 
 
 def test_a_escuta_aponta_o_minuto_e_traz_o_gabarito_da_legenda():
-    saida = "".join(ingles.blocos(QUINTA, _feito(SEGUNDA)))
+    saida = "".join(ingles.blocos(QUARTA, _feito(SEGUNDA)))
     assert "youtube.com/watch?v=" in saida and "&t=37s" in saida
     assert "a partir de 0min37" in saida
     assert "I've been blown away by the whole thing" in saida
@@ -60,7 +60,7 @@ def test_a_escuta_aponta_o_minuto_e_traz_o_gabarito_da_legenda():
 
 
 def test_o_gabarito_e_revelado_depois():
-    saida = "".join(ingles.blocos(QUINTA, _feito(SEGUNDA)))
+    saida = "".join(ingles.blocos(QUARTA, _feito(SEGUNDA)))
     assert "<details>" in saida and "revelar o que foi dito" in saida
 
 
@@ -76,7 +76,7 @@ def test_video_sem_legenda_e_pulado(monkeypatch):
         return list(LINHAS) if len(tentativas) >= 3 else []
 
     monkeypatch.setattr(ingles, "transcricao", so_o_terceiro)
-    saida = "".join(ingles.blocos(QUINTA, _feito(SEGUNDA)))
+    saida = "".join(ingles.blocos(QUARTA, _feito(SEGUNDA)))
     assert len(tentativas) == 3
     assert "I've been blown away" in saida
 
@@ -84,10 +84,10 @@ def test_video_sem_legenda_e_pulado(monkeypatch):
 def test_sem_nenhuma_legenda_a_folha_falha_em_vez_de_inventar(monkeypatch):
     monkeypatch.setattr(ingles, "transcricao", lambda video, inicio=0: [])
     with pytest.raises(RuntimeError, match="nenhum vídeo da fila tinha legenda"):
-        ingles.blocos(QUINTA, _feito(SEGUNDA))
+        ingles.blocos(QUARTA, _feito(SEGUNDA))
 
 
 def test_cada_trilha_tem_ponteiro_proprio():
-    estado = _feito(SEGUNDA, QUINTA)
+    estado = _feito(SEGUNDA, QUARTA)
     assert progressao.posicao_trilha(estado, "ingles", ingles.ORDEM, "fala", 1, 40) == 2
     assert progressao.posicao_trilha(estado, "ingles", ingles.ORDEM, "escuta", 1, 40) == 2

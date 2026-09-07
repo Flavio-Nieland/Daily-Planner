@@ -1,7 +1,12 @@
 """Quais folhas entram na edição de cada dia.
 
-Fonte: AGENDA.md, decidida com o Flávio em 2026-08-18. Substitui o WEEKLY_SCHEDULE
-do schedule.py, que divergia da rotina real dele. O jornal sai sete dias por semana.
+Fonte: AGENDA.md, decidida com o Flávio em 2026-08-18 e revista em 2026-09-07. Substitui o
+WEEKLY_SCHEDULE do schedule.py, que divergia da rotina real dele. O jornal sai sete dias por
+semana.
+
+Revisão de 2026-09-07: Inglês trocou quinta por quarta; Xadrez e Livros trocaram quinta por
+sexta; o Jogo saiu da sexta e ficou só no domingo; a quinta virou o dia do corpo, com Pilates
+novo ao lado do Alongamento e da Corrida.
 """
 
 # Folhas que aparecem todos os dias, na ordem em que entram na edição.
@@ -11,9 +16,9 @@ FIXAS = ["resumo", "tempo", "dieta", "biblia", "album", "peso"]
 POR_DIA = {
     0: ["alongamento", "treino", "ingles", "musica"],
     1: ["alongamento", "treino", "programacao", "xadrez", "livros"],
-    2: ["alongamento", "treino", "musica"],
-    3: ["alongamento", "corrida", "ingles", "xadrez", "livros"],
-    4: ["alongamento", "treino", "programacao", "jogo"],
+    2: ["alongamento", "treino", "musica", "ingles"],
+    3: ["alongamento", "pilates", "corrida"],
+    4: ["alongamento", "treino", "programacao", "xadrez", "livros"],
     5: ["corrida", "livros", "comida", "fazenda"],
     6: ["jogo", "fazenda", "comida"],
 }
@@ -22,7 +27,7 @@ POR_DIA = {
 NOMES = {
     "resumo": "Resumo", "tempo": "Tempo", "dieta": "Dieta", "biblia": "Bíblia",
     "album": "Álbum", "peso": "Peso", "alongamento": "Alongamento", "treino": "Treino",
-    "corrida": "Corrida", "ingles": "Inglês", "musica": "Música",
+    "corrida": "Corrida", "pilates": "Pilates", "ingles": "Inglês", "musica": "Música",
     "programacao": "Programação", "xadrez": "Xadrez", "livros": "Livros",
     "jogo": "Jogo", "comida": "Comida", "fazenda": "Fazenda",
 }

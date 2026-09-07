@@ -7,7 +7,7 @@ import pytest
 from planner import conteudo, esqueleto, progressao
 from planner.topicos import xadrez
 
-TERCA, QUINTA = date(2026, 8, 18), date(2026, 8, 20)
+TERCA, SEXTA = date(2026, 8, 18), date(2026, 8, 21)
 
 ABERTURA = {"lances": "1.e4 e5 2.Cf3 Cc6 3.Bb5", "ideia": "pressiona o cavalo que defende o peão.",
             "erro": "trocar em c6 cedo demais"}
@@ -41,13 +41,13 @@ def test_comeca_pela_abertura_e_diz_qual_vem_depois():
 
 
 def test_marcar_passa_a_vez_para_a_outra_trilha():
-    saida = "".join(xadrez.blocos(QUINTA, _feito(TERCA), []))
+    saida = "".join(xadrez.blocos(SEXTA, _feito(TERCA), []))
     assert "Trilha de hoje: fundamentos" in saida
 
 
 def test_o_ponteiro_de_uma_trilha_nao_mexe_no_da_outra():
     """Duas sessões: abertura anda uma, fundamentos anda uma — nenhuma anda duas."""
-    estado = _feito(TERCA, QUINTA)
+    estado = _feito(TERCA, SEXTA)
     assert xadrez.progressao.posicao_trilha(estado, "xadrez", xadrez.ORDEM, "abertura",
                                             xadrez.INICIAIS["abertura"], 16) == 5
     assert xadrez.progressao.posicao_trilha(estado, "xadrez", xadrez.ORDEM, "fundamentos",
