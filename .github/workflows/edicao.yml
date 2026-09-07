@@ -52,6 +52,9 @@ jobs:
           SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+          # planilha de backtracking dos discos; ausente = o build simplesmente não escreve
+          PLANILHA_URL: ${{ secrets.PLANILHA_URL }}
+          PLANILHA_TOKEN: ${{ secrets.PLANILHA_TOKEN }}
         run: python build.py
 
       - name: Publicar
