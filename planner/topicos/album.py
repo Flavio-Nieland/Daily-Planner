@@ -15,7 +15,7 @@ import json
 from datetime import date
 from pathlib import Path
 
-from planner import llm
+from planner import conteudo, llm
 
 HISTORICO = Path(__file__).resolve().parent.parent.parent / "album_history.json"
 SECAO = "estilo"
@@ -64,9 +64,17 @@ def _historico() -> list[dict]:
 
 
 def _guardar(dia: date, discos: list[dict]) -> None:
-    registros = _historico()
+    """Os discos daquela data SUBSTITUEM o que havia — nunca somam.
+
+    Antes era append cego, e cada build do dia acrescentava dois registros: em 07/09/2026
+    o histórico tinha quatro discos para a mesma data, porque o build rodou duas vezes.
+    Além de mentir sobre o que foi o disco do dia, isso comia a janela do `evitar[-40:]`,
+    que passava a cobrir dez dias em vez de vinte.
+    """
+    hoje = dia.isoformat()
+    registros = [r for r in _historico() if r.get("data") != hoje]
     for disco in discos:
-        registros.append({"data": dia.isoformat(), "album": disco["album"],
+        registros.append({"data": hoje, "album": disco["album"],
                           "artista": disco["artista"], "origem": disco["origem"]})
     HISTORICO.write_text(json.dumps(registros, ensure_ascii=False, indent=2) + "\n",
                          encoding="utf-8")
@@ -95,8 +103,10 @@ def _capa(disco: dict) -> str:
         return ""
     link = (f'<a class="ouvir" href="https://open.spotify.com/album/{achado["spotify_id"]}">ouvir</a>'
             if achado.get("spotify_id") else "")
+    # eager de propósito: são duas capas por edição, e `lazy` fazia a imagem chegar depois
+    # da paginação já ter decidido as colunas (grill de 07/09/2026)
     return (f'<img class="capa" src="{achado["cover_url"]}" alt="capa de {disco["album"]}" '
-            f'loading="lazy">{link}')
+            f'loading="eager">{link}')
 
 
 def _bloco(disco: dict, chapeu: str) -> str:
@@ -133,6 +143,9 @@ def blocos(dia: date, estado: dict) -> list[str]:
     perfil, sem_spotify = _perfil()
     salvos = [f'{a["album"]} — {a["artist"]}' for a in perfil.get("saved_albums", [])]
 
+    # Cada metade cacheia por data em arquivo próprio, de propósito: se o Spotify não vier
+    # no primeiro build do dia, só o disco do gosto fica sem cache e o build seguinte tenta
+    # de novo. Cachear as duas juntas congelaria a falha do Spotify pelo dia inteiro.
     if sem_spotify:
         do_gosto = None
     else:
@@ -141,14 +154,16 @@ def blocos(dia: date, estado: dict) -> list[str]:
             f'Gêneros: {", ".join(perfil.get("top_genres", [])[:5])}. '
             "Sugira um disco que converse com esse gosto e que ele provavelmente não conhece."
         )
-        do_gosto = _sugerir(contexto_gosto, ja_sugeridos + salvos)
+        do_gosto = conteudo.obter_por_data(
+            "album-gosto", dia, lambda: _sugerir(contexto_gosto, ja_sugeridos + salvos))
         do_gosto["origem"] = "gosto"
 
     evitar = ja_sugeridos + salvos
     if do_gosto:
         evitar = evitar + [f'{do_gosto["album"]} — {do_gosto["artista"]}']
     contexto_estilo = f'Ele pediu para ouvir hoje: "{vigente}". Sugira um disco desse estilo.'
-    do_estilo = _sugerir(contexto_estilo, evitar)
+    do_estilo = conteudo.obter_por_data(
+        "album-estilo", dia, lambda: _sugerir(contexto_estilo, evitar))
     do_estilo["origem"] = "estilo"
 
     _guardar(dia, [d for d in (do_gosto, do_estilo) if d])

@@ -64,3 +64,46 @@ def test_bloco_marcado_abre_folha_nova():
     folhas = _folhas([topico])
     assert [f["blocos"] for f in folhas] == [[0, 1], [2, 3]]
     assert [f["cont"] for f in folhas] == [0, 0], "grupo novo recomeça a contagem"
+
+
+# ------------------------------------------------- grill de 07/09/2026: a capa do Álbum
+
+# PNG 64x64 opaco, inline: carrega na hora, sem rede.
+QUADRADO = (
+    "data:image/svg+xml;base64,"
+    "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+"
+    "PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiBmaWxsPSIjODg4Ii8+PC9zdmc+"
+)
+QUEBRADA = "https://invalido.invalido/nao-existe.jpg"     # nunca carrega
+
+
+def _discos(quantos: int, src: str) -> dict:
+    blocos = [
+        f'<div class="bloco disco"><h4>Disco {i}</h4>'
+        f'<img class="capa" src="{src}" alt="capa" loading="eager">'
+        f'<p class="destaque-texto">Album {i}</p><p>{"palavra " * 60}</p></div>'
+        for i in range(quantos)
+    ]
+    return {"id": "album", "nome": "Álbum", "chapeu": "teste", "blocos": blocos}
+
+
+def test_a_capa_ocupa_espaco_mesmo_sem_carregar():
+    """O bug de 07/09/2026: a folha do Álbum saía sem o texto do disco.
+
+    A paginação mede num medidor `visibility:hidden;left:-9999px`, onde imagem nenhuma
+    carrega. Sem altura reservada no CSS a capa media 0px, cabia bloco demais na folha, e
+    o texto ia para uma coluna fora da caixa — invisível, por causa do `overflow:hidden`.
+
+    Se a reserva funciona, medir com a capa carregando e com a capa quebrada tem que dar
+    exatamente a mesma paginação.
+    """
+    carregando = _folhas([_discos(6, QUADRADO)])
+    quebrada = _folhas([_discos(6, QUEBRADA)])
+    assert [f["blocos"] for f in quebrada] == [f["blocos"] for f in carregando]
+
+
+def test_a_capa_nao_e_medida_como_altura_zero():
+    """Trava direta: um disco com capa tem que ocupar mais folha que o mesmo texto sem capa."""
+    com_capa = _folhas([_discos(6, QUADRADO)])
+    sem_capa = _folhas([_topico(6, "album")])
+    assert len(com_capa) > len(sem_capa)

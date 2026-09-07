@@ -111,6 +111,7 @@ def main() -> int:
     for destino in publicar(dia, html):
         print(f"publicado: {destino.relative_to(Path.cwd()) if destino.is_relative_to(Path.cwd()) else destino}")
     acervo.gravar(dia, topicos, falhas)
+    _planilha_albuns()
 
     _resumir(dia, topicos, falhas)
 
@@ -120,6 +121,27 @@ def main() -> int:
         print(f"\nFALHARAM {len(falhas)} folha(s): {quais}", file=sys.stderr)
         return 2
     return 0
+
+
+def _planilha_albuns() -> None:
+    """A planilha de backtracking dos discos. Falha aqui NÃO derruba nada.
+
+    Decisão dele no grill de 07/09/2026: falha silenciosa, só no log. Só é aceitável porque
+    o envio é a tabela inteira em upsert — o dia que não entrar hoje entra na chamada
+    seguinte, sem buraco permanente. Sem os secrets configurados, é no-op sem log.
+    """
+    from planner.topicos.album import _historico
+    from planner import planilha_albuns
+
+    try:
+        resultado = planilha_albuns.enviar(_historico())
+    except Exception as erro:                  # noqa: BLE001 — a planilha nunca é bloqueante
+        print(f"  planilha de álbuns não recebeu: {erro.__class__.__name__}: {erro}",
+              file=sys.stderr)
+        return
+    if resultado:
+        print(f'planilha de álbuns: +{resultado.get("inseridas", 0)} '
+              f'~{resultado.get("atualizadas", 0)}')
 
 
 def _resumir(dia: date, topicos: list[dict], falhas: list[dict]) -> None:

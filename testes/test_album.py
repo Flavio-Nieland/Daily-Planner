@@ -4,6 +4,7 @@ from datetime import date
 
 import pytest
 
+from planner import conteudo
 from planner.topicos import album
 
 HOJE, ONTEM = date(2026, 8, 19), date(2026, 8, 18)
@@ -16,6 +17,7 @@ DISCO = {"album": "Kind of Blue", "artista": "Miles Davis", "ano": "1959",
 @pytest.fixture(autouse=True)
 def sem_rede(tmp_path, monkeypatch):
     monkeypatch.setattr(album, "HISTORICO", tmp_path / "album_history.json")
+    monkeypatch.setattr(conteudo, "PASTA", tmp_path / "gerado")
     monkeypatch.setattr(album.llm, "gerar_json", lambda p, **k: dict(DISCO))
     monkeypatch.setattr(album, "_capa", lambda d: "")
     import sys, types
@@ -101,3 +103,66 @@ def test_spotify_fora_do_ar_nao_custa_a_folha_inteira(monkeypatch):
     assert "Kind of Blue" in blocos[1], "o disco do estilo pedido continua saindo"
     assert 'id="estilo-gravar"' in blocos[2]
 
+
+
+# ---------------------------------------------------------------- grill de 07/09/2026
+
+def _conta_chamadas(monkeypatch, disco=None):
+    """Troca o gerador por um contador, para provar que o cache evita a segunda chamada."""
+    chamadas = []
+
+    def gerar(prompt, **k):
+        chamadas.append(prompt)
+        return dict(disco or DISCO)
+
+    monkeypatch.setattr(album.llm, "gerar_json", gerar)
+    return chamadas
+
+
+def test_o_disco_do_dia_nao_muda_no_segundo_build(monkeypatch):
+    """Com dois crons, o build roda 2x por dia: quem abre de manhã e de tarde vê o mesmo."""
+    chamadas = _conta_chamadas(monkeypatch)
+    primeiro = "".join(album.blocos(HOJE, {}))
+    quantas = len(chamadas)
+    segundo = "".join(album.blocos(HOJE, {}))
+    assert primeiro == segundo
+    assert len(chamadas) == quantas, "o segundo build não pode chamar o modelo de novo"
+
+
+def test_dia_diferente_gera_disco_novo(monkeypatch):
+    chamadas = _conta_chamadas(monkeypatch)
+    album.blocos(ONTEM, {})
+    antes = len(chamadas)
+    album.blocos(HOJE, {})
+    assert len(chamadas) > antes
+
+
+def test_o_historico_nao_acumula_no_mesmo_dia(monkeypatch):
+    _conta_chamadas(monkeypatch)
+    album.blocos(HOJE, {})
+    album.blocos(HOJE, {})
+    album.blocos(HOJE, {})
+    registros = [r for r in album._historico() if r["data"] == HOJE.isoformat()]
+    assert len(registros) == 2, "um disco por origem, não um par por build"
+    assert {r["origem"] for r in registros} == {"gosto", "estilo"}
+
+
+def test_a_capa_carrega_cedo(monkeypatch):
+    """`lazy` fazia a capa chegar depois de a paginação já ter decidido as colunas."""
+    monkeypatch.undo()
+    import sys, types
+    falso = types.ModuleType("spotify")
+    falso.search_album = lambda a, b: {"cover_url": "https://i.scdn.co/x.jpg", "spotify_id": "abc"}
+    monkeypatch.setitem(sys.modules, "planner.spotify", falso)
+    saida = album._capa({"album": "Kind of Blue", "artista": "Miles Davis"})
+    assert 'loading="eager"' in saida
+    assert "lazy" not in saida
+
+
+def test_spotify_fora_do_ar_nao_congela_o_disco_do_gosto(monkeypatch):
+    """Só o estilo fica cacheado: o gosto tenta de novo no build seguinte do mesmo dia."""
+    _conta_chamadas(monkeypatch)
+    monkeypatch.setattr(album, "_perfil", lambda: ({}, "credencial inválida"))
+    album.blocos(HOJE, {})
+    assert not conteudo.caminho_por_data("album-gosto", HOJE).exists()
+    assert conteudo.caminho_por_data("album-estilo", HOJE).exists()
