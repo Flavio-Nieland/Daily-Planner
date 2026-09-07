@@ -2918,5 +2918,137 @@
       }
     ],
     "total_kcal": 2821
+  },
+  "2026-09-09": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Leite semidesnatado",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Chia",
+            "qtd": "10 g"
+          },
+          {
+            "alimento": "Café sem açúcar",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 560,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 390,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 800,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Iogurte natural desnatado",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Tapioca",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Castanha-de-caju",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
