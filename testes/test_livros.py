@@ -7,7 +7,7 @@ import pytest
 from planner import conteudo, progressao
 from planner.topicos import livros
 
-TERCA, QUINTA, SABADO = date(2026, 8, 18), date(2026, 8, 20), date(2026, 8, 22)
+TERCA, SEXTA, SABADO = date(2026, 8, 18), date(2026, 8, 21), date(2026, 8, 22)
 TRECHO = {"onde": "ele está no meio da desilusão do protagonista.",
           "observe": "o narrador usa ironia para não julgar direto.",
           "pergunta": "O que a ironia do narrador esconde aqui?"}
@@ -36,7 +36,7 @@ def test_a_primeira_sessao_traz_as_primeiras_paginas():
 
 
 def test_ler_avanca_as_paginas():
-    saida = "".join(livros.blocos(QUINTA, _feito(TERCA)))
+    saida = "".join(livros.blocos(SEXTA, _feito(TERCA)))
     assert "páginas 16 a 30" in saida
     assert "sessão 2 de 12" in saida
 
@@ -63,7 +63,7 @@ def test_a_pergunta_e_o_campo_de_resposta_aparecem():
 
 def test_nota_recente_ainda_nao_volta():
     estado = _nota(TERCA, "achei irônico")
-    assert "O que você escreveu antes" not in "".join(livros.blocos(QUINTA, estado))
+    assert "O que você escreveu antes" not in "".join(livros.blocos(SEXTA, estado))
 
 
 def test_nota_de_tres_semanas_volta_para_revisao():
