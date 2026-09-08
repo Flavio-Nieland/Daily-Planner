@@ -3050,5 +3050,133 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-10": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca preparada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 584,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade de 50 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média, cerca de 130 g"
+          }
+        ],
+        "kcal": 275,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de tomate, alface e cebola",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          },
+          {
+            "alimento": "Farofa de milho",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 878,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Tangerina",
+            "qtd": "1 unidade média, cerca de 120 g"
+          }
+        ],
+        "kcal": 374,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 671,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2782
   }
 }
