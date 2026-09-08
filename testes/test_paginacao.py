@@ -102,8 +102,49 @@ def test_a_capa_ocupa_espaco_mesmo_sem_carregar():
     assert [f["blocos"] for f in quebrada] == [f["blocos"] for f in carregando]
 
 
-def test_a_capa_nao_e_medida_como_altura_zero():
-    """Trava direta: um disco com capa tem que ocupar mais folha que o mesmo texto sem capa."""
-    com_capa = _folhas([_discos(6, QUADRADO)])
-    sem_capa = _folhas([_topico(6, "album")])
-    assert len(com_capa) > len(sem_capa)
+def _mede_capa(html: str, largura: int = 1440, altura: int = 900) -> dict:
+    """A capa como o navegador a vê, sem depender da contagem de folhas."""
+    import tempfile
+    from pathlib import Path
+
+    from playwright.sync_api import sync_playwright
+
+    with tempfile.TemporaryDirectory() as tmp:
+        alvo = Path(tmp) / "edicao.html"
+        alvo.write_text(html, encoding="utf-8")
+        with sync_playwright() as p:
+            navegador = p.chromium.launch()
+            pagina = navegador.new_page(viewport={"width": largura, "height": altura})
+            pagina.goto(alvo.as_uri())
+            pagina.wait_for_function("typeof window.__paginar === 'function'")
+            medido = pagina.evaluate("""() => {
+                const corpo = document.querySelector('.corpo');
+                const capa = corpo.querySelector('img.capa');
+                return {alta: Math.round(capa.clientHeight),
+                        larga: Math.round(capa.clientWidth),
+                        corpo: Math.round(corpo.clientHeight)};
+            }""")
+            navegador.close()
+    return medido
+
+
+def test_a_capa_reserva_altura_sem_a_imagem_chegar():
+    """`aspect-ratio` é o que dá altura à capa antes do carregamento — e sem ele a paginação
+    media 0px. A imagem aqui aponta para um host que não existe: nunca carrega."""
+    medido = _mede_capa(render.montar(date(2026, 8, 19), [_discos(2, QUEBRADA)]))
+    assert medido["alta"] == medido["larga"], "a capa tem que ser quadrada por reserva"
+    assert medido["alta"] > 0
+
+
+def test_a_capa_e_um_selo_e_nao_um_cartaz():
+    """Variante A: a altura da capa não pode mais ser ditada pela largura da coluna.
+
+    Era `width:100%`, o que dava 455px de altura no notebook — 79% do corpo — e expulsava o
+    texto do disco para a coluna seguinte. O teto de 30% é folgado de propósito: trava a
+    regressão sem amarrar o valor exato do selo.
+    """
+    for largura, altura in ((1366, 768), (1920, 1080), (1100, 620)):
+        medido = _mede_capa(render.montar(date(2026, 8, 19), [_discos(2, QUADRADO)]),
+                            largura, altura)
+        parte = medido["alta"] / medido["corpo"]
+        assert parte < 0.30, f"{largura}x{altura}: capa com {parte:.0%} da altura do corpo"
