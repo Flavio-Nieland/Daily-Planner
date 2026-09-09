@@ -3178,5 +3178,141 @@
       }
     ],
     "total_kcal": 2782
+  },
+  "2026-09-11": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Café com açúcar",
+            "qtd": "200 ml com 5 g de açúcar"
+          }
+        ],
+        "kcal": 554,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão de forma integral",
+            "qtd": "2 fatias, aproximadamente 50 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 375,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída de patinho refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo vegetal para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 768,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 387,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Atum em conserva escorrido",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Ervilha cozida",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Cenoura cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          },
+          {
+            "alimento": "Queijo parmesão ralado",
+            "qtd": "10 g"
+          },
+          {
+            "alimento": "Melancia",
+            "qtd": "300 g"
+          }
+        ],
+        "kcal": 716,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
