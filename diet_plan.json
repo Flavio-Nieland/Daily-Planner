@@ -3314,5 +3314,137 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-12": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca de goma hidratada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "15 g"
+          },
+          {
+            "alimento": "Sementes de chia",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 620,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 390,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de tomate, cebola e alface",
+            "qtd": "1 prato de sobremesa"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 840,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade pequena, 50 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Ovo cozido",
+            "qtd": "1 unidade"
+          }
+        ],
+        "kcal": 310,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Molho caseiro de tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 640,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
