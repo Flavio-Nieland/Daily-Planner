@@ -3446,5 +3446,133 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-13": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 565,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "120 g"
+          }
+        ],
+        "kcal": 302,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída de patinho",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá assada",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Salada de alface e tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá"
+          }
+        ],
+        "kcal": 754,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 450,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão de trigo cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Couve fatiada refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá"
+          }
+        ],
+        "kcal": 745,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2816
   }
 }
