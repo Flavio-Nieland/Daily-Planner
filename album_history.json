@@ -532,5 +532,17 @@
     "album": "Araçá Azul",
     "artista": "Caetano Veloso",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-09-13",
+    "album": "Cidadão Instigado e o Método Tufo de Experiências",
+    "artista": "Cidadão Instigado",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-09-13",
+    "album": "Sátwa",
+    "artista": "Lula Côrtes e Laílson",
+    "origem": "estilo"
   }
 ]

@@ -3706,5 +3706,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-15": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          }
+        ],
+        "kcal": 563,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade média, 50 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 286,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída bovina magra",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 967,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Melão",
+            "qtd": "200 g"
+          }
+        ],
+        "kcal": 375,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "110 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "5 g"
+          },
+          {
+            "alimento": "Abacaxi",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 596,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2787
   }
 }
