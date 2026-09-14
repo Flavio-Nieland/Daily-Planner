@@ -3830,5 +3830,121 @@
       }
     ],
     "total_kcal": 2787
+  },
+  "2026-09-16": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Banana",
+            "qtd": "1 unidade média (120 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Café sem açúcar",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 671,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha em lata",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (180 g)"
+          }
+        ],
+        "kcal": 508,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 884,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "1 pote (170 g)"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 474,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Omelete de ovos",
+            "qtd": "3 unidades"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 280,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2817
   }
 }
