@@ -3946,5 +3946,129 @@
       }
     ],
     "total_kcal": 2817
+  },
+  "2026-09-17": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "200 g"
+          }
+        ],
+        "kcal": 618,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade média, cerca de 50 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "180 ml"
+          }
+        ],
+        "kcal": 416,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão preto cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Patinho moído refogado",
+            "qtd": "140 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de alface, tomate e cebola com azeite",
+            "qtd": "150 g de salada e 10 g de azeite"
+          }
+        ],
+        "kcal": 840,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Tapioca de goma hidratada",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Manga",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 425,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "175 g"
+          },
+          {
+            "alimento": "Tilápia grelhada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Salada de tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 488,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2787
   }
 }
