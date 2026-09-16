@@ -4070,5 +4070,129 @@
       }
     ],
     "total_kcal": 2787
+  },
+  "2026-09-18": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "15 g"
+          },
+          {
+            "alimento": "Café sem leite com açúcar",
+            "qtd": "200 ml de café + 10 g de açúcar"
+          }
+        ],
+        "kcal": 569,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Granola",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média, aproximadamente 180 g"
+          }
+        ],
+        "kcal": 415,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo para o preparo",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 843,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Tapioca",
+            "qtd": "80 g de goma"
+          },
+          {
+            "alimento": "Ovo cozido",
+            "qtd": "1 unidade"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 395,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "300 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Salada de repolho",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 636,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2858
   }
 }
