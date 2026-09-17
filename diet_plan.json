@@ -4194,5 +4194,137 @@
       }
     ],
     "total_kcal": 2858
+  },
+  "2026-09-19": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Sementes de chia",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 611,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade, 50 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 434,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Carne moída bovina",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Salada de tomate",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 714,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "50 g"
+          }
+        ],
+        "kcal": 476,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta de fubá cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Brócolis cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 585,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2820
   }
 }
