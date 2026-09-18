@@ -4326,5 +4326,137 @@
       }
     ],
     "total_kcal": 2820
+  },
+  "2026-09-20": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Tapioca preparada",
+            "qtd": "50 g de goma"
+          },
+          {
+            "alimento": "Açúcar no café",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 598,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "1 pote de 170 g"
+          },
+          {
+            "alimento": "Maçã",
+            "qtd": "1 unidade pequena (130 g)"
+          },
+          {
+            "alimento": "Granola",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Castanha-de-caju",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 368,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de repolho e tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 752,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (180 g)"
+          }
+        ],
+        "kcal": 439,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Brócolis cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "50 g"
+          }
+        ],
+        "kcal": 620,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2777
   }
 }
