@@ -4582,5 +4582,145 @@
       }
     ],
     "total_kcal": 2794
+  },
+  "2026-09-22": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca de goma hidratada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "15 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "30 g"
+          }
+        ],
+        "kcal": 547,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 394,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de repolho e beterraba",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo para preparo",
+            "qtd": "10 g"
+          },
+          {
+            "alimento": "Abacaxi",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 887,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "35 g"
+          },
+          {
+            "alimento": "Melancia",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 406,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Filé de tilápia grelhado",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Óleo para preparo",
+            "qtd": "4 g"
+          }
+        ],
+        "kcal": 566,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
