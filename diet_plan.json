@@ -4722,5 +4722,141 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-23": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades médias (100 g)"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Café sem açúcar",
+            "qtd": "150 ml"
+          }
+        ],
+        "kcal": 630,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Maçã",
+            "qtd": "1 unidade média (130 g)"
+          },
+          {
+            "alimento": "Chia",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 375,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída de patinho",
+            "qtd": "140 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Salada de tomate e cebola",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 825,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Queijo coalho",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Café com açúcar",
+            "qtd": "150 ml de café com 5 g de açúcar"
+          }
+        ],
+        "kcal": 370,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Molho caseiro de tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 600,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
