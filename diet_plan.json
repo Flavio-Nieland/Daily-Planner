@@ -4990,5 +4990,141 @@
       }
     ],
     "total_kcal": 2804
+  },
+  "2026-09-25": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade (50 g)"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 555,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "1 pote (170 g)"
+          },
+          {
+            "alimento": "Granola",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Maçã",
+            "qtd": "1 unidade média (130 g)"
+          },
+          {
+            "alimento": "Sementes de girassol",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 401,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne bovina moída magra refogada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "10 g"
+          },
+          {
+            "alimento": "Pepino",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 821,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Café sem açúcar",
+            "qtd": "150 ml"
+          }
+        ],
+        "kcal": 305,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão integral cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 706,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2788
   }
 }
