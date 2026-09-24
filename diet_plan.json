@@ -5126,5 +5126,133 @@
       }
     ],
     "total_kcal": 2788
+  },
+  "2026-09-26": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca",
+            "qtd": "90 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Café coado com açúcar",
+            "qtd": "250 ml com 9 g de açúcar"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 600,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de alface e tomate com azeite",
+            "qtd": "100 g de salada e 5 g de azeite"
+          }
+        ],
+        "kcal": 850,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Ovo cozido",
+            "qtd": "1 unidade"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "9 g"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Atum em água",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Salada de repolho",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 550,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
