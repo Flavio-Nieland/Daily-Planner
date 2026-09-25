@@ -5254,5 +5254,125 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-09-27": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          }
+        ],
+        "kcal": 560,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades, aproximadamente 100 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 455,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "1 colher de chá, 5 ml"
+          }
+        ],
+        "kcal": 707,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          }
+        ],
+        "kcal": 335,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "1 colher de chá, 5 ml"
+          }
+        ],
+        "kcal": 742,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2799
   }
 }
