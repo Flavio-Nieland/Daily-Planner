@@ -5374,5 +5374,145 @@
       }
     ],
     "total_kcal": 2799
+  },
+  "2026-09-28": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "15 g"
+          },
+          {
+            "alimento": "Pão de forma integral",
+            "qtd": "35 g"
+          },
+          {
+            "alimento": "Mel",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 640,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Tapioca",
+            "qtd": "70 g de goma"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média, cerca de 130 g"
+          }
+        ],
+        "kcal": 440,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "140 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Repolho e cenoura crus",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja no preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 820,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Abacaxi",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 380,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Omelete de ovos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Cebola",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "5 g"
+          },
+          {
+            "alimento": "Queijo parmesão ralado",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 520,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
