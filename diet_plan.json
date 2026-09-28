@@ -5646,5 +5646,137 @@
       }
     ],
     "total_kcal": 2844
+  },
+  "2026-09-30": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca preparada com goma de mandioca",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "15 g"
+          },
+          {
+            "alimento": "Queijo coalho",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Chá-mate com açúcar",
+            "qtd": "200 ml de chá + 8 g de açúcar"
+          }
+        ],
+        "kcal": 501,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 450,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Fígado bovino grelhado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Óleo para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 911,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Sardinha enlatada em água",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 434,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 528,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2824
   }
 }
