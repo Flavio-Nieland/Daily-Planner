@@ -5778,5 +5778,133 @@
       }
     ],
     "total_kcal": 2824
+  },
+  "2026-10-01": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Café com açúcar",
+            "qtd": "1 xícara com 5 g de açúcar"
+          }
+        ],
+        "kcal": 602,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades médias"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "50 g"
+          }
+        ],
+        "kcal": 403,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 804,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 410,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Carne bovina moída refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Salada de alface e cenoura",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 602,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2821
   }
 }
