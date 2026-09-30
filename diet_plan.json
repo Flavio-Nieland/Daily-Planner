@@ -5906,5 +5906,137 @@
       }
     ],
     "total_kcal": 2821
+  },
+  "2026-10-02": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca preparada com goma de mandioca",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (100 g)"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "25 g"
+          },
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "1 pote (170 g)"
+          }
+        ],
+        "kcal": 610,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne bovina moída refogada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 720,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (150 g)"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 447,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Macarrão comum cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Carne bovina moída refogada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Chuchu cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 710,
+        "nome": "Jantar"
+      },
+      {
+        "hora": "22:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "35 g"
+          },
+          {
+            "alimento": "Leite desnatado",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Cacau em pó sem açúcar",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 313,
+        "nome": "Ceia"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
