@@ -6038,5 +6038,133 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-03": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade pequena (50 g)"
+          },
+          {
+            "alimento": "Ovo cozido",
+            "qtd": "1 unidade"
+          }
+        ],
+        "kcal": 680,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (180 g)"
+          }
+        ],
+        "kcal": 393,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Alface e cenoura",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 848,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Ovo cozido",
+            "qtd": "1 unidade"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 378,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta de fubá cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Lombo suíno grelhado",
+            "qtd": "110 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Repolho cru fatiado",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "3 g"
+          }
+        ],
+        "kcal": 507,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2806
   }
 }
