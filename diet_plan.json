@@ -6166,5 +6166,129 @@
       }
     ],
     "total_kcal": 2806
+  },
+  "2026-10-04": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca preparada com goma de mandioca",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Queijo coalho",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (100 g)"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Café preto sem açúcar",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 580,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "1 pote (170 g)"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 390,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Tomate em salada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 800,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "1 unidade grande (150 g)"
+          }
+        ],
+        "kcal": 510,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão de trigo cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "90 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 520,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
