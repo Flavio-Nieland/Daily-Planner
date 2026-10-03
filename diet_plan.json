@@ -6290,5 +6290,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-05": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "200 g"
+          }
+        ],
+        "kcal": 606,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 431,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de alface e tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo para preparo",
+            "qtd": "3 ml"
+          }
+        ],
+        "kcal": 824,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 461,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta de fubá cozida",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Lombo suíno grelhado",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Salada de repolho e tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Melancia",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 479,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2801
   }
 }
