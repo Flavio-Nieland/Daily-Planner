@@ -6414,5 +6414,129 @@
       }
     ],
     "total_kcal": 2801
+  },
+  "2026-10-06": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca de goma hidratada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "2 unidades médias"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "25 g"
+          },
+          {
+            "alimento": "Café preto com açúcar",
+            "qtd": "200 ml + 10 g de açúcar"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo vegetal para preparo",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 850,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão de forma integral",
+            "qtd": "2 fatias"
+          },
+          {
+            "alimento": "Abacate amassado",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade pequena"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta de fubá cozida",
+            "qtd": "300 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Cebola refogada",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Azeite ou óleo vegetal",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 550,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
