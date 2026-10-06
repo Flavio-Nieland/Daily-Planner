@@ -6666,5 +6666,133 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-08": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (90 g)"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Queijo coalho",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Café preto com açúcar",
+            "qtd": "200 ml de café + 10 g de açúcar"
+          }
+        ],
+        "kcal": 630,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Tapioca",
+            "qtd": "60 g de goma preparada"
+          },
+          {
+            "alimento": "Coco ralado",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 370,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne bovina moída cozida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Óleo de soja para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 779,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (150 g)"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 355,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão de trigo cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 659,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2793
   }
 }
