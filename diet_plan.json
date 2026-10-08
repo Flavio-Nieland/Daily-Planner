@@ -6910,5 +6910,133 @@
       }
     ],
     "total_kcal": 2812
+  },
+  "2026-10-10": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca de goma de mandioca",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Café preto sem açúcar",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade média, 50 g"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média, 150 g"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída bovina cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de alface e tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 800,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Abacaxi",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão de trigo cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Proteína de soja texturizada hidratada",
+            "qtd": "45 g seca, aproximadamente 120 g hidratada"
+          },
+          {
+            "alimento": "Molho caseiro de tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 550,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
