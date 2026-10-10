@@ -7162,5 +7162,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-12": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca (goma hidratada)",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Café sem leite com açúcar",
+            "qtd": "200 ml de café + 10 g de açúcar"
+          }
+        ],
+        "kcal": 473,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade média, 50 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 361,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Acém bovino cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de alface e tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite ou óleo vegetal para temperar",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 803,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 352,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abobrinha refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo vegetal para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 830,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2819
   }
 }
