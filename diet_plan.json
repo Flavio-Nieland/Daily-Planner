@@ -7286,5 +7286,141 @@
       }
     ],
     "total_kcal": 2819
+  },
+  "2026-10-13": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 635,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Maçã",
+            "qtd": "1 unidade média, aproximadamente 130 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 391,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Cenoura cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 859,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 380,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Filé de tilápia grelhado",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 523,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2788
   }
 }
