@@ -7422,5 +7422,125 @@
       }
     ],
     "total_kcal": 2788
+  },
+  "2026-10-14": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (100 g)"
+          },
+          {
+            "alimento": "Margarina",
+            "qtd": "10 g"
+          },
+          {
+            "alimento": "Café preto com açúcar",
+            "qtd": "200 ml com 10 g de açúcar"
+          }
+        ],
+        "kcal": 640,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (150 g)"
+          }
+        ],
+        "kcal": 320,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Carne bovina moída refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Óleo de cozinha no preparo",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 960,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Tapioca preparada",
+            "qtd": "80 g de goma"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "1 unidade média (150 g)"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Salada de tomate",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 530,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
