@@ -7542,5 +7542,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-15": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Granola simples",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 410,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Salada de alface, tomate e cenoura",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "10 g"
+          },
+          {
+            "alimento": "Farofa de farinha de milho",
+            "qtd": "30 g"
+          }
+        ],
+        "kcal": 918,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Goma de tapioca hidratada",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "50 g"
+          }
+        ],
+        "kcal": 381,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha",
+            "qtd": "90 g"
+          },
+          {
+            "alimento": "Salada de tomate e cebola",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "3 g"
+          }
+        ],
+        "kcal": 441,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
