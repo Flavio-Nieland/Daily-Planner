@@ -7666,5 +7666,149 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-16": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Tapioca de goma hidratada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Café coado com açúcar",
+            "qtd": "200 ml com 10 g de açúcar"
+          },
+          {
+            "alimento": "Manteiga",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 620,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Café coado com açúcar",
+            "qtd": "200 ml com 5 g de açúcar"
+          }
+        ],
+        "kcal": 430,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "110 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve fatiada refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Farofa de mandioca",
+            "qtd": "25 g"
+          },
+          {
+            "alimento": "Óleo para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 850,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Queijo coalho",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Manga",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Manteiga",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "90 g"
+          },
+          {
+            "alimento": "Abóbora refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Óleo para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 500,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
