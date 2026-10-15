@@ -7810,5 +7810,125 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-17": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 630,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Abacaxi",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 375,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Óleo de soja para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 765,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Bolo de fubá simples",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 430,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta de fubá cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Chuchu cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Óleo de soja para o preparo",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 600,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
