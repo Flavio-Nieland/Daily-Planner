@@ -7930,5 +7930,125 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-18": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades médias (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (90 g)"
+          },
+          {
+            "alimento": "Café preto com açúcar",
+            "qtd": "200 ml com 5 g de açúcar"
+          }
+        ],
+        "kcal": 560,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Tapioca",
+            "qtd": "1 unidade média feita com 60 g de goma"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "1 unidade média (150 g)"
+          }
+        ],
+        "kcal": 355,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne moída bovina refogada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Salada de tomate e cebola",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "1 colher de chá (5 g)"
+          }
+        ],
+        "kcal": 704,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (130 g)"
+          }
+        ],
+        "kcal": 578,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta de fubá cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Lombo suíno grelhado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Chuchu refogado",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja para o preparo",
+            "qtd": "1 colher de chá (5 g)"
+          },
+          {
+            "alimento": "Melancia",
+            "qtd": "200 g"
+          }
+        ],
+        "kcal": 610,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2807
   }
 }
