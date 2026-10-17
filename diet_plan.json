@@ -8050,5 +8050,129 @@
       }
     ],
     "total_kcal": 2807
+  },
+  "2026-10-19": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 555,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "180 g"
+          }
+        ],
+        "kcal": 351,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sobrecoxa de frango assada sem pele",
+            "qtd": "140 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de repolho e cenoura com vinagre",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de canola",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 828,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha em conserva escorrida",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "60 g"
+          }
+        ],
+        "kcal": 487,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Lombo suíno grelhado",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de canola",
+            "qtd": "5 g"
+          }
+        ],
+        "kcal": 586,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2807
   }
 }
