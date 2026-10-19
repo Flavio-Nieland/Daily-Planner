@@ -8306,5 +8306,133 @@
       }
     ],
     "total_kcal": 2878
+  },
+  "2026-10-21": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "25 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 608,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Queijo muçarela",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 368,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Macarrão integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Peito de frango grelhado",
+            "qtd": "130 g"
+          },
+          {
+            "alimento": "Lentilha cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá assada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Salada de alface, cenoura e repolho",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 775,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "170 g"
+          },
+          {
+            "alimento": "Tapioca",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 325,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Polenta de fubá cozida",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Carne bovina moída magra refogada",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Abobrinha e cenoura refogadas",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite de oliva",
+            "qtd": "8 g"
+          }
+        ],
+        "kcal": 724,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
