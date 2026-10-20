@@ -8434,5 +8434,137 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-22": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "3 unidades (150 g)"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (90 g)"
+          },
+          {
+            "alimento": "Café com açúcar",
+            "qtd": "1 xícara (200 ml) com 10 g de açúcar"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "1 pote (170 g)"
+          },
+          {
+            "alimento": "Granola simples",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Maçã",
+            "qtd": "1 unidade média (130 g)"
+          },
+          {
+            "alimento": "Castanha de caju",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne bovina de panela",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Salada de tomate e alface",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "1 colher de sopa (10 ml)"
+          }
+        ],
+        "kcal": 850,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão de forma",
+            "qtd": "2 fatias (50 g)"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "60 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (150 g)"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Lombo suíno assado",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Vagem cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Salada de repolho e cenoura",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 550,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
