@@ -8690,5 +8690,141 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-24": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (80 g)"
+          },
+          {
+            "alimento": "Café com açúcar",
+            "qtd": "1 xícara (200 ml)"
+          },
+          {
+            "alimento": "Margarina",
+            "qtd": "1 colher de chá (5 g)"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "1 pote (170 g)"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "4 colheres de sopa (40 g)"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "1 unidade média (150 g)"
+          },
+          {
+            "alimento": "Mel",
+            "qtd": "1 colher de chá (7 g)"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "1½ xícara (240 g)"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "1 concha média (150 g)"
+          },
+          {
+            "alimento": "Carne bovina de panela",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "1 porção (100 g)"
+          },
+          {
+            "alimento": "Beterraba cozida",
+            "qtd": "½ xícara (85 g)"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "1 colher de sopa (10 ml), no preparo"
+          }
+        ],
+        "kcal": 900,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão de forma",
+            "qtd": "2 fatias (50 g)"
+          },
+          {
+            "alimento": "Queijo muçarela",
+            "qtd": "1 fatia (25 g)"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "½ unidade pequena (100 g)"
+          },
+          {
+            "alimento": "Limão",
+            "qtd": "suco de ½ unidade"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "1½ xícara (210 g)"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "1 lata (84 g)"
+          },
+          {
+            "alimento": "Molho de tomate",
+            "qtd": "½ xícara (120 g)"
+          },
+          {
+            "alimento": "Chuchu cozido",
+            "qtd": "1 xícara (150 g)"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "1 colher de chá (5 ml), no preparo"
+          }
+        ],
+        "kcal": 500,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
