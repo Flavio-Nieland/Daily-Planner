@@ -8826,5 +8826,121 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-25": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "25 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Frango assado",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 900,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão de milho",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Queijo coalho",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Suco de maracujá sem açúcar",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha assada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Chuchu cozido",
+            "qtd": "150 g"
+          }
+        ],
+        "kcal": 550,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
