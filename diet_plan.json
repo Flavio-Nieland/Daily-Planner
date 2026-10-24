@@ -8942,5 +8942,125 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-26": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "3 unidades"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Café com açúcar",
+            "qtd": "1 xícara (200 ml), com 1 colher de chá de açúcar"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural integral",
+            "qtd": "1 pote (170 g)"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "1½ xícara (240 g)"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "qtd": "1 concha média (150 g)"
+          },
+          {
+            "alimento": "Carne bovina de panela",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Chuchu refogado",
+            "qtd": "1 xícara (150 g)"
+          },
+          {
+            "alimento": "Tomate e alface",
+            "qtd": "1 prato de sobremesa (100 g)"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "1 colher de chá (5 ml), no preparo"
+          }
+        ],
+        "kcal": 850,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Tapioca preparada com goma",
+            "qtd": "1 unidade média (70 g de goma)"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "1 lata (84 g)"
+          },
+          {
+            "alimento": "Abacaxi",
+            "qtd": "2 fatias médias (160 g)"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "2 xícaras (280 g)"
+          },
+          {
+            "alimento": "Carne moída refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho de tomate",
+            "qtd": "½ xícara (120 g)"
+          },
+          {
+            "alimento": "Salada de repolho e cenoura",
+            "qtd": "1 prato de sobremesa (100 g)"
+          }
+        ],
+        "kcal": 500,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
