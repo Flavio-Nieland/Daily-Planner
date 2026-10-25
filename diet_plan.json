@@ -9062,5 +9062,117 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-27": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Mamão formosa",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "250 ml"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "25 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sobrecoxa de frango assada",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 900,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Milho-verde cozido",
+            "qtd": "1 espiga média (150 g)"
+          },
+          {
+            "alimento": "Queijo coalho",
+            "qtd": "40 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce assada",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Sardinha assada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Vagem cozida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 550,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
