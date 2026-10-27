@@ -9306,5 +9306,133 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-10-29": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "250 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Queijo coalho",
+            "qtd": "30 g"
+          },
+          {
+            "alimento": "Mexerica",
+            "qtd": "1 unidade média (130 g)"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Coxa de frango assada sem pele",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá assada",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Farinha de mandioca",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 900,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão de milho",
+            "qtd": "70 g"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "80 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "220 g"
+          },
+          {
+            "alimento": "Carne moída magra refogada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Chuchu cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 550,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
