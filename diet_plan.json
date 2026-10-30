@@ -9678,5 +9678,137 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-11-01": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "2 unidades (100 g)"
+          },
+          {
+            "alimento": "Banana-prata",
+            "qtd": "1 unidade média (90 g)"
+          },
+          {
+            "alimento": "Café coado com leite semidesnatado",
+            "qtd": "200 ml"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "20 g"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "1 pote (170 g)"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "1 unidade média (150 g)"
+          },
+          {
+            "alimento": "Castanha de caju",
+            "qtd": "15 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Carne bovina de panela",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Batata-doce cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de sopa (10 ml)"
+          }
+        ],
+        "kcal": 950,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão de forma",
+            "qtd": "2 fatias (50 g)"
+          },
+          {
+            "alimento": "Ricota",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Abacate",
+            "qtd": "100 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho de tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Brócolis cozido",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 500,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
