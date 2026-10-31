@@ -9810,5 +9810,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-11-02": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Queijo minas",
+            "qtd": "50 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 620,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "20 g"
+          },
+          {
+            "alimento": "Tangerina",
+            "qtd": "1 unidade média (150 g)"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Coxa de frango assada, sem pele",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 890,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão de queijo",
+            "qtd": "2 unidades médias (100 g)"
+          },
+          {
+            "alimento": "Suco de maracujá natural, sem açúcar",
+            "qtd": "250 ml"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "qtd": "10 g"
+          }
+        ],
+        "kcal": 390,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Sardinha fresca assada",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Chuchu cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 550,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
