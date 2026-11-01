@@ -9934,5 +9934,129 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-11-03": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "2 unidades médias (100 g)"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "qtd": "3 unidades"
+          },
+          {
+            "alimento": "Banana",
+            "qtd": "1 unidade média"
+          },
+          {
+            "alimento": "Café com leite semidesnatado, sem açúcar",
+            "qtd": "1 xícara (200 ml)"
+          }
+        ],
+        "kcal": 650,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "qtd": "1 pote (170 g)"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "qtd": "4 colheres de sopa (40 g)"
+          },
+          {
+            "alimento": "Goiaba",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz branco cozido",
+            "qtd": "1½ xícara (240 g)"
+          },
+          {
+            "alimento": "Feijão-carioca cozido",
+            "qtd": "1 concha média (150 g)"
+          },
+          {
+            "alimento": "Carne bovina de panela",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Chuchu e cenoura cozidos",
+            "qtd": "1½ xícara (200 g)"
+          },
+          {
+            "alimento": "Alface e tomate",
+            "qtd": "1 prato de sobremesa (120 g)"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 850,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "qtd": "1 unidade média (50 g)"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "½ lata (60 g)"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "2 xícaras (280 g)"
+          },
+          {
+            "alimento": "Frango grelhado",
+            "qtd": "120 g"
+          },
+          {
+            "alimento": "Molho de tomate caseiro",
+            "qtd": "½ xícara (120 g)"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "qtd": "1 xícara (100 g)"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 600,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
