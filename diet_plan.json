@@ -10058,5 +10058,121 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-11-04": {
+    "refeicoes": [
+      {
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Cuscuz de milho cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "qtd": "40 g"
+          },
+          {
+            "alimento": "Mamão",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Leite integral",
+            "qtd": "200 ml"
+          }
+        ],
+        "kcal": 620,
+        "nome": "Café da manhã"
+      },
+      {
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mandioca cozida",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Amendoim torrado sem sal",
+            "qtd": "25 g"
+          }
+        ],
+        "kcal": 350,
+        "nome": "Lanche da manhã"
+      },
+      {
+        "hora": "13:00",
+        "itens": [
+          {
+            "alimento": "Arroz integral cozido",
+            "qtd": "180 g"
+          },
+          {
+            "alimento": "Feijão-preto cozido",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Sobrecoxa de frango assada, sem pele",
+            "qtd": "160 g"
+          },
+          {
+            "alimento": "Abóbora cabotiá cozida",
+            "qtd": "150 g"
+          },
+          {
+            "alimento": "Couve refogada",
+            "qtd": "80 g"
+          },
+          {
+            "alimento": "Óleo de soja para preparo",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 850,
+        "nome": "Almoço"
+      },
+      {
+        "hora": "16:30",
+        "itens": [
+          {
+            "alimento": "Pão de queijo",
+            "qtd": "2 unidades médias (80 g)"
+          },
+          {
+            "alimento": "Laranja",
+            "qtd": "1 unidade média (130 g)"
+          }
+        ],
+        "kcal": 360,
+        "nome": "Lanche da tarde"
+      },
+      {
+        "hora": "20:00",
+        "itens": [
+          {
+            "alimento": "Macarrão cozido",
+            "qtd": "200 g"
+          },
+          {
+            "alimento": "Sardinha em lata escorrida",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Molho de tomate",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Brócolis cozido",
+            "qtd": "100 g"
+          },
+          {
+            "alimento": "Azeite",
+            "qtd": "1 colher de chá (5 ml)"
+          }
+        ],
+        "kcal": 620,
+        "nome": "Jantar"
+      }
+    ],
+    "total_kcal": 2800
   }
 }
