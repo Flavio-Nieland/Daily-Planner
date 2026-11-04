@@ -10,7 +10,8 @@ novo ao lado do Alongamento e da Corrida.
 """
 
 # Folhas que aparecem todos os dias, na ordem em que entram na edição.
-FIXAS = ["resumo", "tempo", "dieta", "biblia", "album", "peso"]
+# Compras entrou em 2026-11-03: virou caderno próprio, ao lado da Dieta (compra a cada 3 dias).
+FIXAS = ["resumo", "tempo", "dieta", "compras", "biblia", "album", "peso"]
 
 # Tópicos por dia da semana, no padrão do datetime: 0 = segunda ... 6 = domingo.
 POR_DIA = {
@@ -25,7 +26,7 @@ POR_DIA = {
 
 # Nome de exibição de cada tópico. As bolinhas do rodapé usam isto no title.
 NOMES = {
-    "resumo": "Resumo", "tempo": "Tempo", "dieta": "Dieta", "biblia": "Bíblia",
+    "resumo": "Resumo", "tempo": "Tempo", "dieta": "Dieta", "compras": "Compras", "biblia": "Bíblia",
     "album": "Álbum", "peso": "Peso", "alongamento": "Alongamento", "treino": "Treino",
     "corrida": "Corrida", "pilates": "Pilates", "ingles": "Inglês", "musica": "Música",
     "programacao": "Programação", "xadrez": "Xadrez", "livros": "Livros",
