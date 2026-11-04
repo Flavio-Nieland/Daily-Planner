@@ -78,4 +78,32 @@ def consolidar() -> dict:
 def serie(estado: dict, secao: str) -> list[tuple[str, float]]:
     """Uma seção com data na chave, em ordem cronológica."""
     registros = estado.get(secao) or {}
-    return sorted(((data, valor) for data, valor in registros.items()), key=lambda x: x[0])
+    saida = []
+    for data, valor in registros.items():
+        # desde 2026-11-03 o peso grava {kg, em} para a curva saber a hora do registro
+        if isinstance(valor, dict):
+            valor = valor.get("kg")
+        try:
+            saida.append((data, float(valor)))
+        except (TypeError, ValueError):
+            continue
+    return sorted(saida, key=lambda x: x[0])
+
+
+def publico(estado: dict, dia, dias: int = 21) -> dict:
+    """O pedaço do estado que vai embutido no HTML público da edição.
+
+    Só o que as páginas leem: o peso inteiro (a curva), as marcações de `feito` recentes
+    (o "o que falta hoje" e os "como foi?") e a meta do peso. As notas dos livros e os
+    vereditos ficam de fora — o site é público.
+    """
+    from datetime import timedelta
+
+    desde = (dia - timedelta(days=dias)).isoformat()
+    feito = {}
+    for chave, valor in (estado.get("feito") or {}).items():
+        datas = [parte for parte in chave.split(":") if len(parte) == 10 and parte[4] == "-"]
+        if datas and datas[0] >= desde:
+            feito[chave] = valor
+    medida = {k: v for k, v in (estado.get("medida") or {}).items() if k.startswith("meta:")}
+    return {"peso": dict(estado.get("peso") or {}), "feito": feito, "medida": medida}

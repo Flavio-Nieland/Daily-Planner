@@ -145,3 +145,105 @@ ul.lista li,ol.lista li{padding:1px 0}
 .gabarito{font-size:.93em;line-height:1.5;margin-top:4px}
 details summary{cursor:pointer;font-size:.85em;letter-spacing:.08em;text-transform:uppercase;
   color:var(--accent);margin-top:3px}
+
+/* ===================== Cadernos — 2026-11-03 =====================
+   Tópico com páginas nomeadas e diagramação própria, em vez de blocos distribuídos por
+   transbordo. Tudo aqui vale dentro de `.corpo.pagina` ou do sumário da cabeça, para não
+   tocar nos tópicos de blocos. Protótipo aprovado: diario-subpaginas-prototipo.html. */
+:root{ --fundo:#fcf9f1 }
+.sumario-cad{display:flex;justify-content:center;flex-wrap:wrap;margin:9px 0 0;padding:6px 0 7px;border-top:1px solid var(--rule)}
+.sumario-cad button{background:none;border:0;cursor:pointer;padding:2px 9px;font:inherit;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink2);position:relative}
+.sumario-cad button+button::before{content:"·";position:absolute;left:-3px;color:var(--rule)}
+.sumario-cad button:hover{color:var(--ink)}
+.sumario-cad button[aria-current="true"]{color:var(--accent);font-weight:700;text-decoration:underline;
+  text-underline-offset:4px;text-decoration-thickness:1.5px}
+.cabeca:has(.sumario-cad){padding-bottom:0}
+.onde{font-size:13px;font-style:italic;text-align:center;font-variant-numeric:tabular-nums}
+.onde small{display:block;font-style:normal;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);margin-top:1px}
+.cinta .falta{background:none;border:0;padding:0;font:inherit;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);
+  cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.cinta .falta.ok{color:var(--ink2);cursor:default}
+.bolinha.feita{background:repeating-linear-gradient(45deg,var(--ink) 0 1.5px,transparent 1.5px 3.5px)}
+.bolinha.feita[aria-current="true"]{background:var(--ink)}
+@media(max-width:760px){.cinta .so-largo{display:none}}
+
+.corpo.pagina{column-count:auto;overflow:auto;padding:16px 2px 10px;font-size:15px;line-height:1.5;text-align:left;
+  hyphens:manual;scrollbar-width:thin}
+.corpo.pagina>*{margin-bottom:0}
+.pagina button{font:inherit;color:inherit}
+.pagina .rotulo{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--rule);
+  padding-bottom:3px;margin-bottom:7px;display:flex;align-items:baseline;gap:8px}
+.pagina .rotulo .dir{margin-left:auto;font-weight:400;letter-spacing:.08em}
+.pagina .rotulo.centro{justify-content:center;border:0}
+.pagina .miudo{font-size:.82em;color:var(--ink2)}
+.pagina .grande{font-family:"Bodoni MT",Didot,Georgia,serif;font-size:clamp(28px,3.6vw,40px);line-height:1.05}
+.pagina .num{font-variant-numeric:tabular-nums}
+.pagina .vazio{color:var(--ink2);font-style:italic}
+.pagina .link{background:none;border:0;border-bottom:1px solid var(--ink);padding:0;cursor:pointer;font-size:.86em;
+  letter-spacing:.08em;text-transform:uppercase}
+.pagina .botao{display:inline-block;font-size:.85em;letter-spacing:.12em;text-transform:uppercase;border:1.2px solid var(--ink);
+  border-radius:4px;background:none;padding:5px 12px;cursor:pointer;color:inherit;text-decoration:none}
+.pagina .botao:hover{background:rgba(20,18,9,.08)}
+.pagina .botao:disabled{opacity:.4;cursor:default}
+.pagina .seg{display:flex;border:1.2px solid var(--ink);border-radius:3px;overflow:hidden;width:max-content;max-width:100%}
+.pagina .seg button,.cabeca .seg button{background:none;border:0;padding:3px 11px;cursor:pointer;font:inherit;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.pagina .seg button+button,.cabeca .seg button+button{border-left:1px solid var(--ink)}
+.pagina .seg button[aria-pressed="true"],.cabeca .seg button[aria-pressed="true"]{background:var(--ink);color:var(--fundo)}
+.pagina .seg button:disabled{opacity:.35;cursor:default}
+.cabeca .seg{display:flex;border:1.2px solid var(--ink);border-radius:3px;overflow:hidden;width:max-content;margin:0 auto 8px}
+.cabeca .seg b{font-weight:400;opacity:.7;margin-left:4px;letter-spacing:.02em}
+@media(max-width:760px){.cabeca .seg b{display:none}}
+.linha-ctl{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+
+/* matéria + coluna lateral, com fio entre elas */
+.materia{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(0,1fr);gap:0 30px}
+.materia>.lado{border-left:1px solid var(--ink);padding-left:26px}
+@media(max-width:760px){.materia{grid-template-columns:1fr}
+  .materia>.lado{border-left:0;padding-left:0;border-top:1px solid var(--ink);padding-top:14px;margin-top:16px}}
+
+.comofoi{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:-2px 0 12px;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink2)}
+.sugestao{border:1.5px solid var(--ink);padding:9px 11px;margin-top:14px}
+.sugestao b{color:var(--accent)}
+#aviso-global{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:20;
+  background:var(--fundo);color:var(--ink);border:1.5px solid var(--accent);padding:8px 14px;font-size:14px;
+  box-shadow:0 6px 20px rgba(0,0,0,.35);transition:opacity .2s,transform .2s;max-width:90vw}
+#aviso-global.visivel{opacity:1;transform:translate(-50%,0)}
+
+/* Peso */
+.grafico{position:relative;margin-top:10px}
+.grafico svg{width:100%;height:auto;display:block;overflow:visible}
+.grafico .eixo{font-size:11px;fill:var(--ink2);font-family:inherit}
+.dica{position:absolute;pointer-events:none;background:var(--fundo);border:1.3px solid var(--ink);padding:6px 10px;font-size:13px;
+  line-height:1.35;white-space:nowrap;transform:translate(-50%,calc(-100% - 12px));box-shadow:0 3px 10px rgba(0,0,0,.18);display:none}
+.dica b{font-size:1.2em;font-variant-numeric:tabular-nums}
+.dica span{display:block;font-size:.85em;color:var(--ink2)}
+.legenda{display:flex;flex-wrap:wrap;gap:16px;font-size:.8em;color:var(--ink2);margin-top:6px}
+.legenda i{display:inline-block;width:18px;height:0;border-top:1.6px solid var(--ink);vertical-align:middle;margin-right:5px}
+.legenda i.mm{border-top:1.6px dashed var(--accent)}
+.legenda i.alvo{border-top:1.2px dotted var(--accent)}
+.stats,.macros{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.macros{grid-template-columns:repeat(3,1fr);margin:8px 0 4px}
+.stats div,.macros div{border-top:2px solid var(--ink);padding-top:4px}
+.stats b,.macros b{display:block;font-size:1.3em;font-variant-numeric:tabular-nums}
+.stats span,.macros span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.registro{max-width:520px;margin:6px auto 0;text-align:center}
+.registro .kg{display:flex;align-items:center;justify-content:center;gap:10px;margin:18px 0 6px}
+.registro input{font-family:"Bodoni MT",Didot,Georgia,serif;font-size:64px;width:3.3em;text-align:center;border:0;
+  border-bottom:2px solid var(--ink);background:transparent;color:inherit;font-variant-numeric:tabular-nums;min-width:0}
+.registro input:focus{outline:none;background:rgba(20,18,9,.04)}
+.registro .un{font-size:22px;color:var(--ink2)}
+.registro .passo{width:38px;height:38px;border:1.3px solid var(--ink);border-radius:50%;background:none;cursor:pointer;
+  font-size:20px;line-height:1;flex:0 0 auto}
+.registro .botao{font-size:13px;padding:8px 22px;margin-top:10px}
+.registro .resp{min-height:1.4em;margin-top:10px}
+.parado{border:1.5px solid var(--accent);color:var(--accent);padding:7px 12px;display:inline-block;margin-bottom:6px;font-size:.9em}
+.spark{margin-top:22px}
+.spark svg{width:100%;max-width:360px}
+@media(max-width:760px){.registro input{font-size:48px}}
+/* celular: com 10+ tópicos as bolinhas não cabiam na cinta e saíam pela borda da folha */
+@media(max-width:760px){.cinta{flex-wrap:wrap;row-gap:5px}.cinta>span{white-space:nowrap}
+  .cinta .bolinhas{margin-left:0;width:100%;justify-content:center;flex-wrap:wrap}}

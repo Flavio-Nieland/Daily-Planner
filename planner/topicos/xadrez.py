@@ -125,7 +125,7 @@ def blocos(dia: date, estado: dict, serie_elo: list[tuple[str, float]]) -> list[
 
 
 def _elo(dia: date, serie: list[tuple[str, float]]) -> str:
-    from planner.topicos.peso import _grafico
+    from planner.curva import grafico as _grafico
 
     atual = f'{serie[-1][1]:.0f}' if serie else "—"
     variacao = ""
@@ -144,7 +144,7 @@ def _elo(dia: date, serie: list[tuple[str, float]]) -> str:
 
 
 def _curva(serie: list[tuple[str, float]]) -> str:
-    from planner.topicos.peso import _grafico
+    from planner.curva import grafico as _grafico
     return _grafico(serie)
 
 
