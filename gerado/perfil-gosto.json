@@ -1,28 +1,122 @@
 {
- "top_artists": [
-  "Lula Côrtes e Zé Ramalho",
-  "Ave Sangria",
-  "Som Imaginário",
-  "O Terço",
-  "Som Nosso de Cada Dia",
-  "Júpiter Maçã",
-  "Banda Black Rio",
-  "Walter Franco",
-  "Pedro Santos",
-  "Jards Macalé",
-  "Otto",
-  "Arnaldo Baptista",
-  "Bixo da Seda",
-  "Lula Côrtes e Laílson",
-  "Os Mutantes",
-  "Violeta de Outono",
-  "The United States of America",
-  "Pescado Rabioso",
-  "Di Melo",
-  "Módulo 1000"
- ],
  "top_genres": [],
- "saved_albums": [],
- "atualizado": "2026-09-15",
- "origem": "historico: artistas dos discos do gosto sugeridos até o token cair"
+ "top_artists": [
+  "Charlie Brown Jr.",
+  "The Strokes",
+  "Pink Floyd",
+  "Led Zeppelin",
+  "Sa, Rodrix & Guarabyra",
+  "Jorge Ben Jor",
+  "Raul Seixas",
+  "Racionais MC's",
+  "Creedence Clearwater Revival",
+  "Linkin Park"
+ ],
+ "top_tracks": [
+  "I'll Try Anything Once (\"You Only Live Once\" demo) - Heart In a Cage B-Side - The Strokes",
+  "Os Alquimistas Estão Chegando Os Alquimistas - Jorge Ben Jor",
+  "Black Dog - Remaster - Led Zeppelin",
+  "Tapanacara - Raul Seixas",
+  "Figure.09 - Linkin Park",
+  "The Adults Are Talking - The Strokes",
+  "Roque Santeiro - Ao Vivo - Sa, Rodrix & Guarabyra",
+  "Stairway to Heaven - Remaster - Led Zeppelin",
+  "Capítulo 4, Versículo 3 - Racionais MC's",
+  "Brother - Jorge Ben Jor"
+ ],
+ "saved_albums": [
+  {
+   "album": "Rock Rural",
+   "artist": "Various Artists",
+   "year": "2021",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b27311d20f95f0fb6381f241879b",
+   "spotify_id": "0DqlMta9SQdlI8wsx8tRLK"
+  },
+  {
+   "album": "Passado Presente Futuro",
+   "artist": "Sa, Rodrix & Guarabyra",
+   "year": "1972",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b2739b2a28739fe356e1b632fa24",
+   "spotify_id": "78WaHJ6d5nNAhRDrzCUtUF"
+  },
+  {
+   "album": "Keep On Running",
+   "artist": "Nico Saint",
+   "year": "2025",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b273ef3238c3bc0ad084265e2cfc",
+   "spotify_id": "6VYUrotJr9tagqyJSRrgT8"
+  },
+  {
+   "album": "Sad Boy",
+   "artist": "Loneshark",
+   "year": "2021",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b273bc80f5d0068d0b0df8868263",
+   "spotify_id": "6eRJuHHp9zuD3HP7RnwpMp"
+  },
+  {
+   "album": "Mellon Collie And The Infinite Sadness (Deluxe Edition)",
+   "artist": "The Smashing Pumpkins",
+   "year": "1995",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b273431ac6e6f393acf475730ec6",
+   "spotify_id": "55RhFRyQFihIyGf61MgcfV"
+  },
+  {
+   "album": "Pantanal Music, Vol. 2",
+   "artist": "Almir Sater",
+   "year": "2015",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b273a4851d2c96c9d695f3daa0c0",
+   "spotify_id": "1z2acbkzHoqXnsbT7GoSs0"
+  },
+  {
+   "album": "Pantanal Music",
+   "artist": "Almir Sater",
+   "year": "1997",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b273c34b85995acaa23f04462145",
+   "spotify_id": "6e8MHVTp5HEUZiqqGg2Eo3"
+  },
+  {
+   "album": "Fake Love (feat. Duncan Mighty & WizKid)",
+   "artist": "StarBoy",
+   "year": "2018",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b2734cfcc7a80d7a8da378f968b0",
+   "spotify_id": "2hCyuqpTXNKYkEXyABXE9j"
+  },
+  {
+   "album": "Lo-Fi Hip Hop Chill Wave Radio Beats to Study and Relax to 24/7",
+   "artist": "Various Artists",
+   "year": "2018",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b273e08c3c088bd8b494eb43dbcd",
+   "spotify_id": "2EmIIHbojdSlOj8ulSFlBX"
+  },
+  {
+   "album": "Abraham",
+   "artist": "Mohsen Chavoshi",
+   "year": "2018",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b2730c167f250a88b20cffe9a5d0",
+   "spotify_id": "4yqO0rXbnP4CYB5pPJzNrP"
+  },
+  {
+   "album": "Ouroboros",
+   "artist": "Diomedes Chinaski",
+   "year": "2016",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b2737e0ae8b9b7c47cb93e596a7a",
+   "spotify_id": "7z8KFiBQk1TVca1F46ygfY"
+  },
+  {
+   "album": "El pueblo unido jamás será vencido (1973-1983) [Collection \"L'art de...\"]",
+   "artist": "Quilapayún",
+   "year": "1990",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b273892d166eaa02dfdd7c944e93",
+   "spotify_id": "0WdtE1ZqaKlx3lpzM0OApA"
+  },
+  {
+   "album": "Relax",
+   "artist": "Various Artists",
+   "year": "2008",
+   "cover_url": "https://i.scdn.co/image/ab67616d0000b273f2ec3b7fa68a883a2ec8ae8f",
+   "spotify_id": "6PCQFjklDvRWq1iW7SW7ja"
+  }
+ ],
+ "atualizado": "2026-11-04",
+ "origem": "spotify"
 }
