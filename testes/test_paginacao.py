@@ -77,33 +77,17 @@ QUADRADO = (
 QUEBRADA = "https://invalido.invalido/nao-existe.jpg"     # nunca carrega
 
 
-def _discos(quantos: int, src: str) -> dict:
-    blocos = [
-        f'<div class="bloco disco"><h4>Disco {i}</h4>'
-        f'<img class="capa" src="{src}" alt="capa" loading="eager">'
-        f'<p class="destaque-texto">Album {i}</p><p>{"palavra " * 60}</p></div>'
-        for i in range(quantos)
-    ]
-    return {"id": "album", "nome": "Álbum", "chapeu": "teste", "blocos": blocos}
+def _album(src: str) -> dict:
+    """O caderno do Álbum com um disco de texto longo, como o do dia a dia."""
+    disco = {"album": "Album", "artista": "Artista", "ano": "1972", "faixa": "Faixa — ouça isso",
+             "historia": "palavra " * 90, "capa": src, "id": "abc"}
+    return {"id": "album", "nome": "Álbum", "chapeu": "teste", "blocos": [], "caderno": "album",
+            "dados": {"hoje": "2026-11-04", "gosto": disco, "estilo": dict(disco), "sem_spotify": None,
+                      "perfil_de": None, "vigente": "jazz", "pendente": None, "discoteca": [],
+                      "planilha": "https://exemplo"}}
 
 
-def test_a_capa_ocupa_espaco_mesmo_sem_carregar():
-    """O bug de 07/09/2026: a folha do Álbum saía sem o texto do disco.
-
-    A paginação mede num medidor `visibility:hidden;left:-9999px`, onde imagem nenhuma
-    carrega. Sem altura reservada no CSS a capa media 0px, cabia bloco demais na folha, e
-    o texto ia para uma coluna fora da caixa — invisível, por causa do `overflow:hidden`.
-
-    Se a reserva funciona, medir com a capa carregando e com a capa quebrada tem que dar
-    exatamente a mesma paginação.
-    """
-    carregando = _folhas([_discos(6, QUADRADO)])
-    quebrada = _folhas([_discos(6, QUEBRADA)])
-    assert [f["blocos"] for f in quebrada] == [f["blocos"] for f in carregando]
-
-
-def _mede_capa(html: str, largura: int = 1440, altura: int = 900) -> dict:
-    """A capa como o navegador a vê, sem depender da contagem de folhas."""
+def _mede_album(html: str, largura: int, altura: int) -> dict:
     import tempfile
     from pathlib import Path
 
@@ -115,36 +99,30 @@ def _mede_capa(html: str, largura: int = 1440, altura: int = 900) -> dict:
         with sync_playwright() as p:
             navegador = p.chromium.launch()
             pagina = navegador.new_page(viewport={"width": largura, "height": altura})
-            pagina.goto(alvo.as_uri())
-            pagina.wait_for_function("typeof window.__paginar === 'function'")
+            pagina.goto(alvo.as_uri() + "#album/1")
+            pagina.wait_for_selector(".disco-pg img.capa")
             medido = pagina.evaluate("""() => {
-                const corpo = document.querySelector('.corpo');
+                const corpo = document.querySelector('.corpo.pagina');
                 const capa = corpo.querySelector('img.capa');
-                return {alta: Math.round(capa.clientHeight),
-                        larga: Math.round(capa.clientWidth),
-                        corpo: Math.round(corpo.clientHeight)};
+                return {alta: Math.round(capa.clientHeight), larga: Math.round(capa.clientWidth),
+                        lado: corpo.scrollWidth - corpo.clientWidth,
+                        rola: getComputedStyle(corpo).overflowY};
             }""")
             navegador.close()
     return medido
 
 
-def test_a_capa_reserva_altura_sem_a_imagem_chegar():
-    """`aspect-ratio` é o que dá altura à capa antes do carregamento — e sem ele a paginação
-    media 0px. A imagem aqui aponta para um host que não existe: nunca carrega."""
-    medido = _mede_capa(render.montar(date(2026, 8, 19), [_discos(2, QUEBRADA)]))
-    assert medido["alta"] == medido["larga"], "a capa tem que ser quadrada por reserva"
-    assert medido["alta"] > 0
+def test_a_capa_reserva_o_quadrado_sem_a_imagem_chegar():
+    """Desde 07/09/2026: `aspect-ratio` dá altura à capa antes do carregamento. A imagem
+    aqui aponta para um host que não existe — nunca carrega."""
+    medido = _mede_album(render.montar(date(2026, 11, 4), [_album(QUEBRADA)]), 1366, 768)
+    assert medido["alta"] == medido["larga"] > 0
 
 
-def test_a_capa_e_um_selo_e_nao_um_cartaz():
-    """Variante A: a altura da capa não pode mais ser ditada pela largura da coluna.
-
-    Era `width:100%`, o que dava 455px de altura no notebook — 79% do corpo — e expulsava o
-    texto do disco para a coluna seguinte. O teto de 30% é folgado de propósito: trava a
-    regressão sem amarrar o valor exato do selo.
-    """
-    for largura, altura in ((1366, 768), (1920, 1080), (1100, 620)):
-        medido = _mede_capa(render.montar(date(2026, 8, 19), [_discos(2, QUADRADO)]),
-                            largura, altura)
-        parte = medido["alta"] / medido["corpo"]
-        assert parte < 0.30, f"{largura}x{altura}: capa com {parte:.0%} da altura do corpo"
+def test_a_pagina_do_disco_nao_esconde_texto_em_tela_nenhuma():
+    """O defeito de 07/09/2026 era texto cortado em silêncio. A página do caderno rola em vez
+    de cortar, e nunca transborda para o lado."""
+    for largura, altura in ((1366, 768), (1920, 1080), (390, 820)):
+        medido = _mede_album(render.montar(date(2026, 11, 4), [_album(QUADRADO)]), largura, altura)
+        assert medido["lado"] <= 0, f"{largura}x{altura}"
+        assert medido["rola"] == "auto"

@@ -40,7 +40,7 @@ GERADORES = {
     "corrida": lambda dia, est: corrida.blocos(dia, est),
     "xadrez": lambda dia, est: xadrez.blocos(dia, est, estado.serie(est, "elo")),
     "comida": lambda dia, est: comida.blocos(dia, est),
-    "album": lambda dia, est: album.blocos(dia, est),
+    "album": lambda dia, est: album.caderno(dia, est),
     "dieta": lambda dia, est: dieta.caderno(dia),
     "compras": lambda dia, est: dieta.caderno_compras(dia),
     "biblia": lambda dia, est: biblia.blocos(dia),
@@ -119,7 +119,7 @@ def main() -> int:
     for destino in publicar(dia, html):
         print(f"publicado: {destino.relative_to(Path.cwd()) if destino.is_relative_to(Path.cwd()) else destino}")
     acervo.gravar(dia, topicos, falhas)
-    _planilha_albuns()
+    _planilha_albuns(est)
 
     _resumir(dia, topicos, falhas)
 
@@ -131,18 +131,18 @@ def main() -> int:
     return 0
 
 
-def _planilha_albuns() -> None:
+def _planilha_albuns(est: dict) -> None:
     """A planilha de backtracking dos discos. Falha aqui NÃO derruba nada.
 
     Decisão dele no grill de 07/09/2026: falha silenciosa, só no log. Só é aceitável porque
     o envio é a tabela inteira em upsert — o dia que não entrar hoje entra na chamada
     seguinte, sem buraco permanente. Sem os secrets configurados, é no-op sem log.
     """
-    from planner.topicos.album import _historico
+    from planner.topicos.album import _historico, notas
     from planner import planilha_albuns
 
     try:
-        resultado = planilha_albuns.enviar(_historico())
+        resultado = planilha_albuns.enviar(_historico(), notas(est))
     except Exception as erro:                  # noqa: BLE001 — a planilha nunca é bloqueante
         print(f"  planilha de álbuns não recebeu: {erro.__class__.__name__}: {erro}",
               file=sys.stderr)

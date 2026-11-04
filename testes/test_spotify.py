@@ -37,3 +37,18 @@ def test_refresh_recusado_diz_o_que_fazer(monkeypatch):
     monkeypatch.setattr(spotify, "SpotifyOAuth", _Auth)
     with pytest.raises(RuntimeError, match="recusou o refresh token"):
         spotify._get_client()
+
+
+def test_a_busca_de_capa_nao_precisa_do_login(monkeypatch):
+    """O refresh token caiu (invalid_grant) e as capas sumiram junto: busca é pública."""
+    monkeypatch.setenv("SPOTIFY_CLIENT_ID", "id")
+    monkeypatch.setenv("SPOTIFY_CLIENT_SECRET", "segredo")
+    monkeypatch.delenv("SPOTIFY_REFRESH_TOKEN", raising=False)
+
+    class _Sp:
+        def __init__(self, auth_manager): self.auth = auth_manager
+        def search(self, **k):
+            return {"albums": {"items": [{"id": "x1", "images": [{"url": "https://capa"}]}]}}
+
+    monkeypatch.setattr(spotify.spotipy, "Spotify", _Sp)
+    assert spotify.search_album("Gita", "Raul Seixas") == {"cover_url": "https://capa", "spotify_id": "x1"}
