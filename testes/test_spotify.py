@@ -81,7 +81,27 @@ def test_busca_solta_nao_aceita_disco_de_outro_nome(monkeypatch):
         def __init__(self, auth_manager): pass
         def search(self, q, **k):
             solta = not q.startswith("album:")
-            return {"albums": {"items": [{"id": "x", "name": "Outro Disco", "images": []}] if solta else []}}
+            return {"albums": {"items": [{"id": "x", "name": "Outro Disco", "images": [],
+                                          "artists": [{"name": "Lula Côrtes"}]}] if solta else []}}
 
     monkeypatch.setattr(spotify.spotipy, "Spotify", _Sp)
     assert spotify.search_album("Paêbirú", "Lula Côrtes") == {"cover_url": None, "spotify_id": None}
+
+
+def test_busca_solta_nao_aceita_disco_de_mesmo_nome_de_outro_artista(monkeypatch):
+    """04/11: "Quem Não Vive Tem Medo da Morte — Ave Sangria" pegou a capa do Ney Matogrosso."""
+    monkeypatch.setenv("SPOTIFY_CLIENT_ID", "id")
+    monkeypatch.setenv("SPOTIFY_CLIENT_SECRET", "segredo")
+
+    class _Sp:
+        def __init__(self, auth_manager): pass
+        def search(self, q, **k):
+            if q.startswith("album:"):
+                return {"albums": {"items": []}}
+            return {"albums": {"items": [{"id": "ney", "name": "Quem Não Vive Tem Medo da Morte",
+                                          "images": [{"url": "u"}], "artists": [{"name": "Ney Matogrosso"}]}]}}
+
+    monkeypatch.setattr(spotify.spotipy, "Spotify", _Sp)
+    assert spotify.search_album("Quem Não Vive Tem Medo da Morte", "Ave Sangria")["spotify_id"] is None
+    assert spotify.search_album("Quem Não Vive Tem Medo da Morte", "Ney Matogrosso")["spotify_id"] == "ney"
+    assert spotify.search_album("Quem Não Vive Tem Medo da Morte", "Vários artistas")["spotify_id"] == "ney"
