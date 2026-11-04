@@ -2,15 +2,16 @@ from datetime import date
 
 from planner.agenda import FIXAS, topicos_do_dia
 
-# Contagem de folhas por dia, conforme a tabela do AGENDA.md (revisão de 2026-09-07).
+# Contagem de folhas por dia, conforme a tabela do AGENDA.md (revisão de 2026-09-07),
+# mais a Compras, que virou tópico fixo em 2026-11-03.
 ESPERADO = {
-    date(2026, 8, 17): 10,   # segunda
-    date(2026, 8, 18): 11,   # terça
-    date(2026, 8, 19): 10,   # quarta
-    date(2026, 8, 20): 9,    # quinta — o dia do corpo
-    date(2026, 8, 21): 11,   # sexta
-    date(2026, 8, 22): 10,   # sábado
-    date(2026, 8, 23): 9,    # domingo
+    date(2026, 8, 17): 11,   # segunda
+    date(2026, 8, 18): 12,   # terça
+    date(2026, 8, 19): 11,   # quarta
+    date(2026, 8, 20): 10,   # quinta — o dia do corpo
+    date(2026, 8, 21): 12,   # sexta
+    date(2026, 8, 22): 11,   # sábado
+    date(2026, 8, 23): 10,   # domingo
 }
 
 
