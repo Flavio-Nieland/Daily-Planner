@@ -118,6 +118,9 @@ def _consultas(album_name: str, artist_name: str) -> list[str]:
     return consultas
 
 
+GENERICOS = {"variosartistas", "various", "variousartists", "va", "coletanea"}
+
+
 def _simples(texto: str) -> str:
     sem_acento = unicodedata.normalize("NFD", texto.lower())
     return "".join(c for c in sem_acento if c.isalnum())
@@ -132,10 +135,18 @@ def search_album(album_name: str, artist_name: str) -> dict:
     try:
         sp = _cliente_publico()
         alvo = _simples(album_name)
+        quem = _simples(_consultas(album_name, artist_name)[0].split("artist:")[1])
+        primeiro = _simples(re.split(r"\s+(?:e|&|and|com|feat\.?)\s+|,|/", artist_name, maxsplit=1)[0])
+        generico = quem in GENERICOS
         for consulta in _consultas(album_name, artist_name):
             items = sp.search(q=consulta, type="album", limit=5)["albums"]["items"]
             if not consulta.startswith("album:"):
-                items = [a for a in items if alvo and alvo in _simples(a.get("name", ""))]
+                # busca solta: o nome do disco tem que bater, e o artista também — senão
+                # "Quem Não Vive Tem Medo da Morte" de outro artista vira a capa (04/11)
+                items = [a for a in items if alvo and alvo in _simples(a.get("name", ""))
+                         and (generico or any(primeiro and (primeiro in _simples(x.get("name", ""))
+                                                            or _simples(x.get("name", "")) in primeiro)
+                                              for x in a.get("artists", [])))]
             if items:
                 album = items[0]
                 cover_url = album["images"][0]["url"] if album.get("images") else None
