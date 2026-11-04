@@ -4,6 +4,8 @@
 # e busca capa de álbum por nome/artista.
 
 import os
+import re
+import unicodedata
 from collections import Counter
 
 import spotipy
@@ -104,24 +106,40 @@ def _cliente_publico() -> spotipy.Spotify:
         client_secret=os.environ["SPOTIFY_CLIENT_SECRET"]))
 
 
+def _consultas(album_name: str, artist_name: str) -> list[str]:
+    """Do mais estrito ao mais solto. `artist:` casa um artista só: com dois no nome
+    ("Lula Côrtes e Zé Ramalho") a busca estrita voltava vazia e o disco saía sem capa."""
+    primeiro = re.split(r"\s+(?:e|&|and|com|feat\.?)\s+|,|/", artist_name, maxsplit=1)[0].strip()
+    consultas = [f"album:{album_name} artist:{artist_name}"]
+    if primeiro and primeiro != artist_name:
+        consultas.append(f"album:{album_name} artist:{primeiro}")
+    consultas.append(f"{album_name} {primeiro or artist_name}")
+    consultas.append(album_name)          # "Vários artistas" e afins atrapalham até a busca solta
+    return consultas
+
+
+def _simples(texto: str) -> str:
+    sem_acento = unicodedata.normalize("NFD", texto.lower())
+    return "".join(c for c in sem_acento if c.isalnum())
+
+
 def search_album(album_name: str, artist_name: str) -> dict:
     """
     Busca um álbum no Spotify por nome e artista, sem precisar do login dele.
     Retorna {"cover_url": ..., "spotify_id": ...} ou valores None se não encontrar.
+    Nas buscas soltas, só aceita resultado cujo nome contenha o do disco.
     """
     try:
         sp = _cliente_publico()
-        results = sp.search(
-            q=f"album:{album_name} artist:{artist_name}",
-            type="album",
-            limit=1,
-        )
-        items = results["albums"]["items"]
-        if items:
-            album = items[0]
-            cover_url  = album["images"][0]["url"] if album.get("images") else None
-            spotify_id = album.get("id")
-            return {"cover_url": cover_url, "spotify_id": spotify_id}
+        alvo = _simples(album_name)
+        for consulta in _consultas(album_name, artist_name):
+            items = sp.search(q=consulta, type="album", limit=5)["albums"]["items"]
+            if not consulta.startswith("album:"):
+                items = [a for a in items if alvo and alvo in _simples(a.get("name", ""))]
+            if items:
+                album = items[0]
+                cover_url = album["images"][0]["url"] if album.get("images") else None
+                return {"cover_url": cover_url, "spotify_id": album.get("id")}
     except Exception:
         pass
     return {"cover_url": None, "spotify_id": None}

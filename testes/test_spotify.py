@@ -52,3 +52,36 @@ def test_a_busca_de_capa_nao_precisa_do_login(monkeypatch):
 
     monkeypatch.setattr(spotify.spotipy, "Spotify", _Sp)
     assert spotify.search_album("Gita", "Raul Seixas") == {"cover_url": "https://capa", "spotify_id": "x1"}
+
+
+def test_capa_de_disco_com_dois_artistas_cai_para_o_primeiro(monkeypatch):
+    """"Lula Côrtes e Zé Ramalho" não casa com `artist:` — o Paêbirú saía sem capa (03/11)."""
+    monkeypatch.setenv("SPOTIFY_CLIENT_ID", "id")
+    monkeypatch.setenv("SPOTIFY_CLIENT_SECRET", "segredo")
+    consultas = []
+
+    class _Sp:
+        def __init__(self, auth_manager): pass
+        def search(self, q, **k):
+            consultas.append(q)
+            achou = "artist:Lula Côrtes" in q and "Zé" not in q
+            itens = [{"id": "pb", "name": "Paêbirú", "images": [{"url": "https://capa"}]}] if achou else []
+            return {"albums": {"items": itens}}
+
+    monkeypatch.setattr(spotify.spotipy, "Spotify", _Sp)
+    assert spotify.search_album("Paêbirú", "Lula Côrtes e Zé Ramalho")["spotify_id"] == "pb"
+    assert consultas[:2] == ["album:Paêbirú artist:Lula Côrtes e Zé Ramalho", "album:Paêbirú artist:Lula Côrtes"]
+
+
+def test_busca_solta_nao_aceita_disco_de_outro_nome(monkeypatch):
+    monkeypatch.setenv("SPOTIFY_CLIENT_ID", "id")
+    monkeypatch.setenv("SPOTIFY_CLIENT_SECRET", "segredo")
+
+    class _Sp:
+        def __init__(self, auth_manager): pass
+        def search(self, q, **k):
+            solta = not q.startswith("album:")
+            return {"albums": {"items": [{"id": "x", "name": "Outro Disco", "images": []}] if solta else []}}
+
+    monkeypatch.setattr(spotify.spotipy, "Spotify", _Sp)
+    assert spotify.search_album("Paêbirú", "Lula Côrtes") == {"cover_url": None, "spotify_id": None}
