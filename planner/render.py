@@ -16,7 +16,8 @@ DIAS = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira",
 
 # A ordem importa só para a leitura: tudo roda no DOMContentLoaded.
 SCRIPTS = ("estado.js", "paginar.js", "interacoes.js", "cadernos.js", "caderno-peso.js",
-           "caderno-dieta.js", "caderno-compras.js", "caderno-album.js")
+           "caderno-dieta.js", "caderno-compras.js", "caderno-album.js",
+           "caderno-resumo.js")
 
 
 def montar(data, topicos: list[dict], folhas: list[dict] | None = None,

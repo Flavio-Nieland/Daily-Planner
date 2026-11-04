@@ -14,9 +14,13 @@ function focoDieta(d) { return DIETA.foco && d.dias[DIETA.foco] ? DIETA.foco : d
 function pratoDe(r) { return r.prato || (r.itens && r.itens[0] ? r.itens[0].alimento : r.nome); }
 function chaveRef(iso, i) { return 'refeicao:' + iso + ':' + i; }
 
-/* A refeição da vez: a última cujo horário já chegou, com 30 min de antecedência. */
+/* A refeição da vez: a última cujo horário já chegou, com 30 min de antecedência.
+   A antecedência não pode virar o dia: às 23:50 somar 30 min dava 00:20 e a edição abria
+   no café da manhã em vez do jantar (visto na prévia de 03/11/2026). */
 function refeicaoDaHora(d) {
-  const t = new Date(Date.now() + 30 * 6e4).toTimeString().slice(0, 5);
+  const agora = new Date(Date.now());
+  const min = Math.min(agora.getHours() * 60 + agora.getMinutes() + 30, 23 * 60 + 59);
+  const t = String(Math.floor(min / 60)).padStart(2, '0') + ':' + String(min % 60).padStart(2, '0');
   let vez = 0;
   d.dias[d.hoje].refeicoes.forEach((r, i) => { if ((r.hora || '99') <= t) vez = i; });
   return vez;

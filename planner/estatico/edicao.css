@@ -327,3 +327,24 @@ table.lista tr.ok .nome{text-decoration:line-through}
 @media(max-width:760px){.discos{columns:1}}
 .pagina .chapeu{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
 .pagina .planilha{margin-bottom:18px}
+
+/* Resumo — o que falta hoje e o balanço da semana */
+.abertura .bloco{margin-bottom:18px;display:flow-root}   /* a capitular não invade o bloco seguinte */
+.abertura .lede{font-size:1.25em}
+.pagina .mt{margin-top:8px}
+.agora-prato{font-size:26px !important;margin:4px 0 8px}
+.pend-lista{list-style:none;padding:0;margin:0}
+.pend-lista li{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--rule)}
+.pend-lista li .st{width:1.4em;text-align:center;font-weight:700;flex:0 0 auto}
+.pend-lista li.ok{color:var(--ink2)}
+.pend-lista li .ir{margin-left:auto;flex:0 0 auto}
+table.semanas{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+table.semanas th{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);font-weight:400;text-align:right;
+  border-bottom:1.5px solid var(--ink);padding:0 6px 4px}
+table.semanas th:first-child,table.semanas td:first-child{text-align:left}
+table.semanas td{text-align:right;padding:6px;border-bottom:1px solid var(--rule)}
+table.semanas tr.vazia td{color:var(--ink2);font-style:italic}
+.alvo input{font-family:"Bodoni MT",Didot,Georgia,serif;font-size:34px;width:2.8em;text-align:center;border:0;
+  border-bottom:2px solid var(--ink);background:transparent;color:inherit}
+.alvo input:focus{outline:none;background:rgba(20,18,9,.04)}
+@media(max-width:760px){table.semanas th:nth-child(4),table.semanas td:nth-child(4){display:none}}

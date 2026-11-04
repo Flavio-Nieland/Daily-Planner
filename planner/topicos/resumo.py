@@ -1,13 +1,19 @@
-"""Folha de abertura — o que tem na edição de hoje.
+"""Caderno do Resumo — a edição de hoje, o que falta hoje e o balanço da semana.
 
-Sem LLM: é a lista das folhas que a edição realmente traz, para ele saber o que vem antes
-de virar a primeira folha.
+Sem LLM. A primeira página é a abertura de sempre (a lista dos tópicos da edição); as outras
+duas são desenhadas no navegador por caderno-resumo.js, a partir das marcações dele
+(2026-11-03): o diário passa a saber o que ele fez, e não só o que prescreveu.
 """
 
 from planner.agenda import NOMES
 
 DIAS = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira",
         "sexta-feira", "sábado", "domingo"]
+
+
+def caderno(data, na_edicao: list[str]) -> dict:
+    """A abertura vai como blocos da primeira página; o resto o navegador monta."""
+    return {"caderno": "resumo", "dados": {"hoje": data.isoformat()}, "blocos": blocos(data, na_edicao)}
 
 
 def blocos(data, na_edicao: list[str]) -> list[str]:
