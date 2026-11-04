@@ -329,7 +329,7 @@ table.lista tr.ok .nome{text-decoration:line-through}
 .pagina .planilha{margin-bottom:18px}
 
 /* Resumo — o que falta hoje e o balanço da semana */
-.abertura .bloco{margin-bottom:18px}
+.abertura .bloco{margin-bottom:18px;display:flow-root}   /* a capitular não invade o bloco seguinte */
 .abertura .lede{font-size:1.25em}
 .pagina .mt{margin-top:8px}
 .agora-prato{font-size:26px !important;margin:4px 0 8px}

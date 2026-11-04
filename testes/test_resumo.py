@@ -89,3 +89,20 @@ def test_o_balanco_mostra_o_alvo_e_quanto_falta(tmp_path, pagina):
     pagina.fill("#alvo", "69")
     pagina.dispatch_event("#alvo", "change")
     pagina.wait_for_function("() => document.querySelector('.lado').textContent.includes('Faltam 1,2 kg')")
+
+
+def test_perto_da_meia_noite_a_refeicao_da_vez_e_o_jantar_e_nao_o_cafe(tmp_path, pagina):
+    """Somar a antecedência de 30 min às 23:50 virava 00:20 e a edição abria no café."""
+    _abrir(pagina, _edicao(tmp_path, {}), "resumo/1")
+    vez = pagina.evaluate("""() => {
+        const refs = dadosDe('dieta').dias['2026-11-04'].refeicoes;
+        refs[0].hora = '07:00'; refs[1].hora = '20:00';
+        Date.now = () => new Date(2026, 10, 4, 23, 50).getTime();
+        return refeicaoDaHora(dadosDe('dieta'));
+    }""")
+    assert vez == 1          # o jantar, às 23:50
+    cedo = pagina.evaluate("""() => {
+        Date.now = () => new Date(2026, 10, 4, 6, 0).getTime();
+        return refeicaoDaHora(dadosDe('dieta'));
+    }""")
+    assert cedo == 0
