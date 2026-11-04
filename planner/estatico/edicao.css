@@ -325,3 +325,5 @@ table.lista tr.ok .nome{text-decoration:line-through}
 .discos li{break-inside:avoid;padding:5px 0;border-bottom:1px solid var(--rule);font-size:.92em}
 .discos .d{color:var(--ink2);font-variant-numeric:tabular-nums;font-size:.85em;margin-right:6px}
 @media(max-width:760px){.discos{columns:1}}
+.pagina .chapeu{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
+.pagina .planilha{margin-bottom:18px}
