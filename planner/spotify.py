@@ -7,7 +7,7 @@ import os
 from collections import Counter
 
 import spotipy
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 
 
 CREDENCIAIS = ("SPOTIFY_CLIENT_ID", "SPOTIFY_CLIENT_SECRET", "SPOTIFY_REFRESH_TOKEN")
@@ -90,13 +90,27 @@ def get_spotify_taste_profile() -> dict:
     }
 
 
+def _cliente_publico() -> spotipy.Spotify:
+    """Cliente sem o login dele (client credentials): basta para a busca de discos.
+
+    As capas sumiram do site junto com o refresh token (invalid_grant, set/2026) só porque a
+    busca usava o cliente do usuário — e busca é pública. Agora capa não depende do login.
+    """
+    faltando = [nome for nome in CREDENCIAIS[:2] if not os.environ.get(nome)]
+    if faltando:
+        raise RuntimeError("falta a credencial do Spotify: " + ", ".join(faltando))
+    return spotipy.Spotify(auth_manager=SpotifyClientCredentials(
+        client_id=os.environ["SPOTIFY_CLIENT_ID"],
+        client_secret=os.environ["SPOTIFY_CLIENT_SECRET"]))
+
+
 def search_album(album_name: str, artist_name: str) -> dict:
     """
-    Busca um álbum no Spotify por nome e artista.
+    Busca um álbum no Spotify por nome e artista, sem precisar do login dele.
     Retorna {"cover_url": ..., "spotify_id": ...} ou valores None se não encontrar.
     """
     try:
-        sp = _get_client()
+        sp = _cliente_publico()
         results = sp.search(
             q=f"album:{album_name} artist:{artist_name}",
             type="album",

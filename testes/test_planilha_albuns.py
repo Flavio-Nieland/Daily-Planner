@@ -93,3 +93,12 @@ def test_recusa_do_script_virou_erro_sem_vazar_o_token(monkeypatch):
     assert "token" in str(erro.value)
     assert "segredo-que-nao-pode-aparecer" not in str(erro.value)
     assert "exemplo" not in str(erro.value)
+
+
+def test_a_nota_dele_vai_na_mesma_celula_do_disco():
+    linhas = planilha_albuns.consolidar(
+        [_r("2026-11-04", "Da Lama ao Caos", "Chico Science", "gosto"),
+         _r("2026-11-04", "Gita", "Raul Seixas", "estilo")],
+        {"2026-11-04:gosto": "gostei"})
+    assert linhas == [{"data": "2026-11-04", "gosto": "Da Lama ao Caos — Chico Science · gostei",
+                       "pedido": "Gita — Raul Seixas"}]

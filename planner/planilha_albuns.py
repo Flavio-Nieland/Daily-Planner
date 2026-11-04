@@ -20,7 +20,7 @@ import os
 TEMPO_LIMITE = 25          # s; o Apps Script costuma responder em 2-4
 
 
-def consolidar(historico: list[dict]) -> list[dict]:
+def consolidar(historico: list[dict], notas: dict | None = None) -> list[dict]:
     """Uma linha por data: o disco de cada origem, no formato "Álbum — Artista".
 
     Data com mais de um disco da mesma origem é resquício da época do append cego, quando
@@ -41,10 +41,15 @@ def consolidar(historico: list[dict]) -> list[dict]:
         if not album:
             continue
         linha[qual] = f"{album} — {artista}" if artista else album
+        # a nota dele vai na mesma célula: o Apps Script só escreve B e C, e republicá-lo
+        # exige a mão dele no editor do script (2026-11-03)
+        nota = (notas or {}).get(f'{data}:{registro.get("origem")}')
+        if nota:
+            linha[qual] += f" · {nota}"
     return [por_data[data] for data in sorted(por_data)]
 
 
-def enviar(historico: list[dict]) -> dict | None:
+def enviar(historico: list[dict], notas: dict | None = None) -> dict | None:
     """Devolve a resposta do script, ou None quando não há para onde mandar."""
     url = os.environ.get("PLANILHA_URL", "").strip()
     token = os.environ.get("PLANILHA_TOKEN", "").strip()
@@ -53,7 +58,7 @@ def enviar(historico: list[dict]) -> dict | None:
 
     import requests
 
-    linhas = consolidar(historico)
+    linhas = consolidar(historico, notas)
     corpo = json.dumps({"token": token, "linhas": linhas}, ensure_ascii=False)
     # text/plain é o que o Apps Script aceita sem preflight, e é o padrão já usado nos
     # outros scripts dele. O redirect 302 para googleusercontent é seguido como GET pelo
