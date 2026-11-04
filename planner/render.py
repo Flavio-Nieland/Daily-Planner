@@ -14,8 +14,15 @@ DIAS = ["segunda-feira", "terça-feira", "quarta-feira", "quinta-feira",
         "sexta-feira", "sábado", "domingo"]
 
 
-def montar(data, topicos: list[dict], folhas: list[dict] | None = None) -> str:
-    """topicos: [{'id','nome','chapeu','blocos':[html]}]. folhas: medidas pelo build."""
+# A ordem importa só para a leitura: tudo roda no DOMContentLoaded.
+SCRIPTS = ("estado.js", "paginar.js", "interacoes.js", "cadernos.js", "caderno-peso.js")
+
+
+def montar(data, topicos: list[dict], folhas: list[dict] | None = None,
+           estado: dict | None = None) -> str:
+    """topicos: [{'id','nome','chapeu','blocos':[html]}] ou, nos cadernos, com 'caderno' e
+    'dados'. folhas: medidas pelo build. estado: as fatias que as páginas leem (ver
+    `estado.publico`) — nunca o estado inteiro, que tem as notas dele."""
     env = Environment(
         loader=FileSystemLoader(RAIZ / "templates"),
         autoescape=select_autoescape(enabled_extensions=()),
@@ -26,6 +33,8 @@ def montar(data, topicos: list[dict], folhas: list[dict] | None = None) -> str:
         "data": data.strftime("%d/%m/%Y"),
         "dia": DIAS[data.weekday()],
         "numero": data.strftime("%Y%m%d"),
+        "iso": data.isoformat(),
+        "estado": estado or {},
         "topicos": topicos,
         "folhas": folhas or [],
     }
@@ -35,6 +44,6 @@ def montar(data, topicos: list[dict], folhas: list[dict] | None = None) -> str:
         textura=(RAIZ / "assets" / "papel-textura.b64").read_text(encoding="utf-8").strip(),
         css=(ESTATICO / "edicao.css").read_text(encoding="utf-8"),
         script="\n".join((ESTATICO / nome).read_text(encoding="utf-8")
-                         for nome in ("paginar.js", "peso.js")),
+                         for nome in SCRIPTS),
         dados=json.dumps(dados, ensure_ascii=False),
     )

@@ -35,7 +35,7 @@ CHAPEUS = {"resumo": "Edição de hoje", "tempo": "Previsão para São José",
 # O Resumo fica de fora: ele fala das outras folhas, então é montado depois delas.
 GERADORES = {
     "tempo": lambda dia, est: tempo.blocos(),
-    "peso": lambda dia, est: peso.blocos(dia, estado.serie(est, "peso")),
+    "peso": lambda dia, est: peso.caderno(dia),
     "corrida": lambda dia, est: corrida.blocos(dia, est),
     "xadrez": lambda dia, est: xadrez.blocos(dia, est, estado.serie(est, "elo")),
     "comida": lambda dia, est: comida.blocos(dia, est),
@@ -54,9 +54,14 @@ GERADORES = {
 }
 
 
-def _folha(tid: str, blocos: list[str], falhou: bool = False) -> dict:
-    return {"id": tid, "nome": NOMES[tid], "chapeu": CHAPEUS.get(tid, NOMES[tid]),
-            "blocos": blocos, "falhou": falhou}
+def _folha(tid: str, conteudo, falhou: bool = False) -> dict:
+    """Gerador devolve blocos (lista de HTML) ou um caderno ({"caderno", "dados"[, "blocos"]})."""
+    folha = {"id": tid, "nome": NOMES[tid], "chapeu": CHAPEUS.get(tid, NOMES[tid]),
+             "blocos": conteudo, "falhou": falhou}
+    if isinstance(conteudo, dict):
+        folha.update(blocos=conteudo.get("blocos", []), caderno=conteudo["caderno"],
+                     dados=conteudo["dados"])
+    return folha
 
 
 def montar_topicos(dia: date, est: dict | None = None) -> tuple[list[dict], list[dict]]:
@@ -102,11 +107,12 @@ def main() -> int:
     print(f"edição de {dia:%d/%m/%Y}: {len(topicos)} tópicos "
           f"({sum(len(t['blocos']) for t in topicos)} blocos)")
 
-    html = render.montar(dia, topicos)
+    publico = estado.publico(est, dia)
+    html = render.montar(dia, topicos, estado=publico)
     folhas = [] if args.sem_medir else medir(html)
     if folhas:
-        print(f"paginação medida: {len(folhas)} folhas")
-        html = render.montar(dia, topicos, folhas)
+        print(f"paginação medida: {len(folhas)} folhas de blocos")
+        html = render.montar(dia, topicos, folhas, estado=publico)
 
     for destino in publicar(dia, html):
         print(f"publicado: {destino.relative_to(Path.cwd()) if destino.is_relative_to(Path.cwd()) else destino}")

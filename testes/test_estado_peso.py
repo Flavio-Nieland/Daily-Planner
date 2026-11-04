@@ -74,39 +74,36 @@ def test_serie_sai_em_ordem_cronologica(arquivo):
     assert [d for d, _ in estado.serie(est, "peso")] == ["2026-08-01", "2026-08-10", "2026-08-19"]
 
 
-# ---- a folha ----
+# ---- o caderno e o recorte público ----
 
-def test_a_folha_sempre_traz_o_campo_de_registro():
-    for serie in ([], [("2026-08-19", 78.4)]):
-        assert 'id="peso-gravar"' in peso.blocos(date(2026, 8, 19), serie)[0]
-
-
-def test_folha_sem_medida_alguma_nao_quebra():
-    blocos = peso.blocos(date(2026, 8, 19), [])
-    assert "Sem medidas ainda" in blocos[1]
+def test_peso_com_hora_entra_na_serie_pelo_kg():
+    """Desde 2026-11-03 o registro é {kg, em}; os antigos continuam número."""
+    est = {"peso": {"2026-09-07": 67.9, "2026-11-04": {"kg": 68.1, "em": "2026-11-04T09:12:00Z"}}}
+    assert estado.serie(est, "peso") == [("2026-09-07", 67.9), ("2026-11-04", 68.1)]
 
 
-def test_mostra_ultima_medida_e_variacao():
-    blocos = peso.blocos(date(2026, 8, 19), [("2026-08-17", 79.0), ("2026-08-19", 78.4)])
-    assert "78.4 kg" in blocos[1]
-    assert "-0.6 kg desde 17/08" in blocos[1]
+def test_valor_estranho_na_serie_e_ignorado_sem_derrubar():
+    est = {"peso": {"2026-09-07": "abc", "2026-09-08": {"em": "x"}, "2026-09-09": 67.0}}
+    assert estado.serie(est, "peso") == [("2026-09-09", 67.0)]
 
 
-def test_curva_aparece_a_partir_de_duas_medidas():
-    uma = peso.blocos(date(2026, 8, 19), [("2026-08-19", 78.4)])
-    assert all("<svg" not in b for b in uma)
-
-    varias = peso.blocos(date(2026, 8, 19),
-                         [("2026-08-01", 79.9), ("2026-08-10", 79.0), ("2026-08-19", 78.4)])
-    assert "<svg" in varias[2]
-    assert "3 registros" in varias[2]
+def test_o_caderno_leva_o_dia_e_a_meta():
+    c = peso.caderno(date(2026, 11, 4))
+    assert c == {"caderno": "peso", "dados": {"hoje": "2026-11-04", "meta": peso.META_KG}}
 
 
-def test_a_curva_e_diaria_e_nao_perde_ponto():
-    serie = [(f"2026-08-{d:02d}", 79.0 - d * 0.05) for d in range(1, 20)]
-    svg = peso.blocos(date(2026, 8, 19), serie)[2]
-    assert svg.count(",") >= len(serie)          # um par x,y por medida
-    assert "19 registros" in svg
+def test_o_html_publico_nao_leva_as_notas_dos_livros():
+    est = {"peso": {"2026-11-03": 68.1}, "nota": {"2026-11-01": "o que eu penso do livro"},
+           "dominio": {"prato:3": {"veredito": "revisar"}},
+           "feito": {"treino:2026-11-02": True, "treino:2026-08-01": True,
+                     "refeicao:2026-11-03:2": "segui", "compra:2026-11-04:ovos": True},
+           "medida": {"maochao:2026-11-01": 12, "meta:peso": 70}}
+    pub = estado.publico(est, date(2026, 11, 4))
+    assert set(pub) == {"peso", "feito", "medida"}
+    assert "o que eu penso" not in json.dumps(pub)
+    assert pub["feito"] == {"treino:2026-11-02": True, "refeicao:2026-11-03:2": "segui",
+                            "compra:2026-11-04:ovos": True}
+    assert pub["medida"] == {"meta:peso": 70}
 
 
 def test_o_estado_json_e_criado_mesmo_sem_worker(arquivo):

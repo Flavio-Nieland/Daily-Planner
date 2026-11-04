@@ -1,5 +1,8 @@
 """O registro do peso indo do navegador até o Worker, sem recarregar a folha.
 
+Desde 2026-11-03 o Peso é um caderno: a página Registrar grava {kg, em} e o ponto entra
+na curva na hora, sem esperar a edição de amanhã.
+
 Aqui um servidor local finge ser o Worker com o mesmo contrato do worker/index.js —
 o que se prova é o lado do navegador: token guardado, corpo enviado, confirmação na folha
 e o que acontece quando o token é recusado.
@@ -68,10 +71,11 @@ def folha(tmp_path, worker, monkeypatch):
     _, url = worker
     monkeypatch.setenv("WORKER_URL", url)
     dia = date(2026, 8, 19)
-    topicos = [{"id": "peso", "nome": "Peso", "chapeu": "Sua curva",
-                "blocos": peso.blocos(dia, [("2026-08-18", 78.9)]), "falhou": False}]
+    topicos = [{"id": "peso", "nome": "Peso", "chapeu": "Sua curva", "blocos": [],
+                "falhou": False, **peso.caderno(dia)}]
     destino = tmp_path / "index.html"
-    destino.write_text(render.montar(dia, topicos), encoding="utf-8")
+    destino.write_text(render.montar(dia, topicos, estado={"peso": {"2026-08-18": 78.9}}),
+                       encoding="utf-8")
 
     from http.server import SimpleHTTPRequestHandler
     from functools import partial
@@ -84,7 +88,7 @@ def folha(tmp_path, worker, monkeypatch):
 
 
 def _abrir(pagina, endereco, token=TOKEN):
-    pagina.goto(endereco)
+    pagina.goto(endereco + "#peso/2")
     if token:
         pagina.evaluate("t => localStorage.setItem('diario.token', t)", token)
     pagina.wait_for_selector("#peso-gravar")
@@ -106,11 +110,36 @@ def test_o_peso_chega_ao_worker_e_a_folha_confirma(folha, pagina, worker):
     pagina.click("#peso-gravar")
     pagina.wait_for_function("() => document.getElementById('peso-aviso').textContent.includes('gravado')")
 
-    assert _Worker.recebidos == [{"secao": "peso", "chave": "2026-08-19", "valor": 78.1}]
+    [recebido] = _Worker.recebidos
+    assert (recebido["secao"], recebido["chave"]) == ("peso", "2026-08-19")
+    assert recebido["valor"]["kg"] == 78.1
+    assert recebido["valor"]["em"].startswith("20")          # a hora do registro vai junto
     aviso = pagina.text_content("#peso-aviso")
-    assert "78.1 kg gravado" in aviso
-    assert "amanhã" in aviso, "a folha precisa dizer que a curva só muda amanhã"
-    assert pagina.input_value("#peso-valor") == ""
+    assert "78,1 kg gravado" in aviso
+    assert "na curva" in aviso, "o ponto entra na curva agora, não amanhã"
+
+
+def test_o_ponto_gravado_aparece_na_curva_na_hora(folha, pagina):
+    _abrir(pagina, folha)
+    pagina.fill("#peso-valor", "78,1")
+    pagina.click("#peso-gravar")
+    pagina.wait_for_function("() => document.getElementById('peso-aviso').textContent.includes('gravado')")
+    pagina.click("[data-pag='0']")
+    pagina.wait_for_selector("#grafico svg")
+    assert pagina.locator("#grafico circle[r='4.5']").count() == 1
+    assert pagina.locator("#grafico svg").get_attribute("aria-label") == "curva do peso, 2 registros"
+
+
+def test_passar_o_mouse_no_ponto_diz_quanto_e_quando(folha, pagina):
+    pagina.goto(folha + "#peso/1")
+    pagina.wait_for_selector("#grafico .sensor")
+    caixa = pagina.locator("#grafico .sensor").bounding_box()
+    pagina.mouse.move(caixa["x"] + 2, caixa["y"] + caixa["height"] / 2)
+    dica = pagina.locator("#dica")
+    assert dica.is_visible()
+    assert "78,9 kg" in dica.text_content()
+    assert "18/08/2026" in dica.text_content()
+    assert "hora não registrada" in dica.text_content()
 
 
 def test_virgula_e_ponto_valem_a_mesma_coisa(folha, pagina):
@@ -118,7 +147,7 @@ def test_virgula_e_ponto_valem_a_mesma_coisa(folha, pagina):
     pagina.fill("#peso-valor", "77.9")
     pagina.click("#peso-gravar")
     pagina.wait_for_function("() => document.getElementById('peso-aviso').textContent.includes('gravado')")
-    assert _Worker.recebidos[0]["valor"] == 77.9
+    assert _Worker.recebidos[0]["valor"]["kg"] == 77.9
 
 
 def test_peso_absurdo_nem_sai_do_navegador(folha, pagina):
