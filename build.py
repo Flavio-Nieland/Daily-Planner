@@ -84,7 +84,7 @@ def montar_topicos(dia: date, est: dict | None = None) -> tuple[list[dict], list
             folhas.append(_folha(tid, falha.blocos(NOMES[tid], erro,
                                                   acervo.blocos_de_ontem(dia, tid)), falhou=True))
     na_edicao = ["resumo"] + [f["id"] for f in folhas]
-    return [_folha("resumo", resumo.blocos(dia, na_edicao))] + folhas, falhas
+    return [_folha("resumo", resumo.caderno(dia, na_edicao))] + folhas, falhas
 
 
 def publicar(dia: date, html: str) -> list[Path]:
