@@ -54,13 +54,13 @@ function montarGrafico(dados) {
     return;
   }
   const W = 860, H = 300, ml = 46, mr = 16, mt = 16, mb = 30;
-  const t0 = dt(pts[0].data).getTime(), t1 = Math.max(dt(pts[pts.length - 1].data).getTime(), t0 + 864e5 * 6);
   const vals = pts.map(p => p.kg);
   let lo = Math.min(...vals, meta), hi = Math.max(...vals, meta);
   lo = Math.floor((lo - 0.4) * 2) / 2; hi = Math.ceil((hi + 0.4) * 2) / 2;
-  const X = t => ml + (t - t0) / (t1 - t0) * (W - ml - mr);
+  // pedido dele (2026-11-04): pontos equidistantes, sem proporção de datas — a data fica no eixo e na dica
+  const X = i => pts.length < 2 ? (ml + W - mr) / 2 : ml + 8 + i / (pts.length - 1) * (W - ml - mr - 16);
   const Y = v => mt + (hi - v) / (hi - lo) * (H - mt - mb);
-  const xy = pts.map(p => [X(dt(p.data).getTime()), Y(p.kg)]);
+  const xy = pts.map((p, i) => [X(i), Y(p.kg)]);
   // média móvel por tempo: tudo o que caiu nos 7 dias até o ponto
   const mm = pts.map(p => {
     const lim = mais(p.data, -6), w = serie.filter(q => q.data >= lim && q.data <= p.data);
@@ -72,21 +72,19 @@ function montarGrafico(dados) {
     g += '<line x1="' + ml + '" x2="' + (W - mr) + '" y1="' + y + '" y2="' + y + '" stroke="' + (inteiro ? '#c6bb9d' : '#e4dcc6') + '"/>';
     if (inteiro) g += '<text class="eixo" x="' + (ml - 8) + '" y="' + (y + 4) + '" text-anchor="end">' + v + ' kg</text>';
   }
-  const passoDias = Math.max(1, Math.ceil((t1 - t0) / 864e5 / 8));
-  for (let t = t0; t <= t1; t += passoDias * 864e5) {
-    g += '<text class="eixo" x="' + X(t) + '" y="' + (H - 8) + '" text-anchor="middle">' + ddmm(new Date(t).toISOString().slice(0, 10)) + '</text>';
-  }
+  const passo = Math.max(1, Math.ceil(pts.length / 8));
+  pts.forEach((p, i) => {
+    if (i % passo === 0) g += '<text class="eixo" x="' + X(i) + '" y="' + (H - 8) + '" text-anchor="middle">' + ddmm(p.data) + '</text>';
+  });
   g += '<line x1="' + ml + '" x2="' + (W - mr) + '" y1="' + Y(meta) + '" y2="' + Y(meta) + '" stroke="#8a2417" stroke-width="1" stroke-dasharray="1 4"/>'
     + '<text class="eixo" x="' + (W - mr) + '" y="' + (Y(meta) - 5) + '" text-anchor="end" fill="#8a2417">alvo ' + nf(meta) + ' kg</text>';
-  // mais de 7 dias sem pesar não é "peso estável": o trecho vira pontilhado e a média recomeça
+  // mais de 7 dias sem pesar não é "peso estável": o trecho vira pontilhado (curto, já sem escala de tempo) e a média recomeça
   const trechos = [[0]];
   for (let i = 1; i < pts.length; i++) {
     const dias = Math.round((dt(pts[i].data) - dt(pts[i - 1].data)) / 864e5);
     if (dias > 7) {
       g += '<line x1="' + xy[i - 1][0] + '" y1="' + xy[i - 1][1] + '" x2="' + xy[i][0] + '" y2="' + xy[i][1]
-        + '" stroke="#141209" stroke-dasharray="1 5" opacity=".6"/>'
-        + '<text class="eixo" font-style="italic" x="' + ((xy[i - 1][0] + xy[i][0]) / 2) + '" y="'
-        + (Math.min(xy[i - 1][1], xy[i][1]) - 10) + '" text-anchor="middle">' + dias + ' dias sem registro</text>';
+        + '" stroke="#141209" stroke-dasharray="1 5" opacity=".6"/>';
       trechos.push([i]);
     } else trechos[trechos.length - 1].push(i);
   }
@@ -112,7 +110,9 @@ function montarGrafico(dados) {
     mira.setAttribute('x1', x); mira.setAttribute('x2', x); mira.setAttribute('visibility', 'visible');
     foco.setAttribute('cx', x); foco.setAttribute('cy', y); foco.setAttribute('visibility', 'visible');
     const ant = serie[serie.findIndex(q => q.data === p.data) - 1];
-    const delta = ant ? (p.kg - ant.kg >= 0 ? '+' : '−') + nf(Math.abs(p.kg - ant.kg)) + ' kg desde ' + ddmm(ant.data) : 'primeiro registro';
+    const gap = ant ? Math.round((dt(p.data) - dt(ant.data)) / 864e5) : 0;
+    const delta = ant ? (p.kg - ant.kg >= 0 ? '+' : '−') + nf(Math.abs(p.kg - ant.kg)) + ' kg desde ' + ddmm(ant.data)
+      + ' (' + gap + (gap === 1 ? ' dia' : ' dias') + ')' : 'primeiro registro';
     const quando = p.em ? 'gravado às ' + new Date(p.em).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' }) : 'hora não registrada';
     dica.innerHTML = '<b>' + nf(p.kg) + ' kg</b><span>' + SEMANA[dt(p.data).getDay()] + ', ' + ddmm(p.data) + '/' + p.data.slice(0, 4)
       + ' · ' + quando + '</span><span>' + delta + '</span>';
@@ -161,8 +161,7 @@ function montarSpark() {
   const el = document.getElementById('spark'), pts = seriePeso().slice(-14);
   if (!el || pts.length < 2) return;
   const W = 360, H = 60, vals = pts.map(p => p.kg), lo = Math.min(...vals) - 0.2, hi = Math.max(...vals) + 0.2;
-  const t0 = dt(pts[0].data).getTime(), t1 = dt(pts[pts.length - 1].data).getTime();
-  const xy = pts.map(p => [6 + (dt(p.data).getTime() - t0) / ((t1 - t0) || 1) * (W - 12), 6 + (hi - p.kg) / (hi - lo) * (H - 12)]);
+  const xy = pts.map((p, i) => [6 + i / ((pts.length - 1) || 1) * (W - 12), 6 + (hi - p.kg) / (hi - lo) * (H - 12)]);
   el.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '"><polyline points="' + xy.map(a => a.join(',')).join(' ')
     + '" fill="none" stroke="#141209" stroke-width="1.5"/><circle cx="' + xy[xy.length - 1][0] + '" cy="' + xy[xy.length - 1][1]
     + '" r="3.5" fill="#141209"/></svg><p class="miudo">últimos ' + pts.length
