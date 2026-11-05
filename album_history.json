@@ -22,5 +22,17 @@
     "album": "Clube da Esquina",
     "artista": "Milton Nascimento e Lô Borges",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-05",
+    "album": "Jorge Ben",
+    "artista": "Jorge Ben",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-05",
+    "album": "In the Court of the Crimson King",
+    "artista": "King Crimson",
+    "origem": "estilo"
   }
 ]
