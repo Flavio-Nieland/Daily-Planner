@@ -46,5 +46,17 @@
     "album": "Close to the Edge",
     "artista": "Yes",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-07",
+    "album": "Gita",
+    "artista": "Ten Years After",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-07",
+    "album": "Aqualung",
+    "artista": "Jethro Tull",
+    "origem": "estilo"
   }
 ]
