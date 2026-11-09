@@ -70,5 +70,17 @@
     "album": "The Snow Goose",
     "artista": "Camel",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-09",
+    "album": "Matança do Porco",
+    "artista": "Som Imaginário",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-09",
+    "album": "Selling England by the Pound",
+    "artista": "Genesis",
+    "origem": "estilo"
   }
 ]
