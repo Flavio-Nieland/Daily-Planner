@@ -82,5 +82,17 @@
     "album": "Selling England by the Pound",
     "artista": "Genesis",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-10",
+    "album": "A Tábua de Esmeralda",
+    "artista": "Jorge Ben",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-10",
+    "album": "Thick as a Brick",
+    "artista": "Jethro Tull",
+    "origem": "estilo"
   }
 ]
