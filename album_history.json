@@ -94,5 +94,17 @@
     "album": "Thick as a Brick",
     "artista": "Jethro Tull",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-11",
+    "album": "Juju",
+    "artista": "Siouxsie and the Banshees",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-11",
+    "album": "Ommadawn",
+    "artista": "Mike Oldfield",
+    "origem": "estilo"
   }
 ]
