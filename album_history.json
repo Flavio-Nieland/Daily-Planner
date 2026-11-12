@@ -106,5 +106,17 @@
     "album": "Ommadawn",
     "artista": "Mike Oldfield",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-12",
+    "album": "Boca de Lobo",
+    "artista": "A Bolha",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-12",
+    "album": "The Lamb Lies Down on Broadway",
+    "artista": "Genesis",
+    "origem": "estilo"
   }
 ]
