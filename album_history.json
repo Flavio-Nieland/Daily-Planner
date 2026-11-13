@@ -118,5 +118,17 @@
     "album": "The Lamb Lies Down on Broadway",
     "artista": "Genesis",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-13",
+    "album": "Estudando o Samba",
+    "artista": "Tom Zé",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-13",
+    "album": "Mirage",
+    "artista": "Camel",
+    "origem": "estilo"
   }
 ]

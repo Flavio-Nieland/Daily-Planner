@@ -12718,5 +12718,614 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-11-16": {
+    "refeicoes": [
+      {
+        "aproveita": "Use parte da couve comprada para o jantar.",
+        "carbo_g": 76,
+        "gordura_g": 20,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Flocão de milho cozido",
+            "gramas": 200.0,
+            "produto": "Flocão de milho",
+            "qtd": "1 prato médio",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "gramas": 100.0,
+            "produto": "Ovos",
+            "qtd": "2 unidades",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Couve refogada",
+            "gramas": 60.0,
+            "produto": "Couve",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 5.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 600,
+        "nome": "Café da manhã",
+        "prato": "Cuscuz com ovos e couve",
+        "preparo": "Hidrate e cozinhe o cuscuz. Refogue a couve e sirva com ovos mexidos.",
+        "proteina_g": 27
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 43,
+        "gordura_g": 12,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Banana",
+            "gramas": 120.0,
+            "produto": "Banana",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Pasta de amendoim",
+            "gramas": 20.0,
+            "produto": "Pasta de amendoim",
+            "qtd": "1 colher de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 300,
+        "nome": "Lanche da manhã",
+        "prato": "Banana com pasta de amendoim",
+        "preparo": "Fatie a banana e sirva com pasta de amendoim.",
+        "proteina_g": 8
+      },
+      {
+        "aproveita": "Reserve 150 g de peixe assado para o jantar de hoje.",
+        "carbo_g": 102,
+        "gordura_g": 21,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Peixe branco assado",
+            "gramas": 200.0,
+            "produto": "Peixe branco",
+            "qtd": "1 filé grande",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 240.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara e meia",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "gramas": 150.0,
+            "produto": "Feijão carioca",
+            "qtd": "1 concha média",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Alface",
+            "gramas": 60.0,
+            "produto": "Alface",
+            "qtd": "2 xícaras",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 100.0,
+            "produto": "Tomate",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Limão",
+            "gramas": 50.0,
+            "produto": "Limão",
+            "qtd": "1 unidade",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 5.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 800,
+        "nome": "Almoço",
+        "prato": "Peixe assado com arroz, feijão e salada",
+        "preparo": "Asse o peixe temperado com alho e limão. Sirva com arroz, feijão e salada de alface e tomate; asse porções extras do peixe para o jantar.",
+        "proteina_g": 48
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 52,
+        "gordura_g": 13,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "gramas": 70.0,
+            "produto": "Pão francês",
+            "qtd": "1 unidade grande",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Ricota",
+            "gramas": 60.0,
+            "produto": "Ricota",
+            "qtd": "3 colheres de sopa",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 60.0,
+            "produto": "Tomate",
+            "qtd": "meia unidade",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da tarde",
+        "prato": "Pão com ricota e tomate",
+        "preparo": "Amasse a ricota com temperos e espalhe no pão. Complete com tomate fatiado.",
+        "proteina_g": 18
+      },
+      {
+        "aproveita": "Use os 150 g de peixe assado reservados do almoço.",
+        "carbo_g": 89,
+        "gordura_g": 17,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Peixe branco assado e desfiado",
+            "gramas": 150.0,
+            "produto": "Peixe branco",
+            "qtd": "1 porção",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Fubá cozido",
+            "gramas": 250.0,
+            "produto": "Fubá",
+            "qtd": "1 prato fundo",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Couve refogada",
+            "gramas": 60.0,
+            "produto": "Couve",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 5.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 700,
+        "nome": "Jantar",
+        "prato": "Peixe desfiado com polenta e couve",
+        "preparo": "Reaqueça o peixe reservado e desfie. Sirva com polenta cremosa e couve rapidamente refogada.",
+        "proteina_g": 42
+      }
+    ],
+    "total_kcal": 2800
+  },
+  "2026-11-17": {
+    "refeicoes": [
+      {
+        "aproveita": "",
+        "carbo_g": 69,
+        "gordura_g": 22,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "gramas": 100.0,
+            "produto": "Pão francês",
+            "qtd": "2 unidades pequenas",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Ovos mexidos",
+            "gramas": 150.0,
+            "produto": "Ovos",
+            "qtd": "3 unidades",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 120.0,
+            "produto": "Tomate",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 5.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 600,
+        "nome": "Café da manhã",
+        "prato": "Pão com ovos e tomate",
+        "preparo": "Prepare ovos mexidos com tomate. Sirva com pão francês.",
+        "proteina_g": 29
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 42,
+        "gordura_g": 12,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mamão",
+            "gramas": 250.0,
+            "produto": "Mamão",
+            "qtd": "1 fatia grande",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Sementes de abóbora",
+            "gramas": 20.0,
+            "produto": "Sementes de abóbora",
+            "qtd": "1 colher e meia de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 300,
+        "nome": "Lanche da manhã",
+        "prato": "Mamão com sementes de abóbora",
+        "preparo": "Corte o mamão e salpique as sementes.",
+        "proteina_g": 10
+      },
+      {
+        "aproveita": "Reserve 120 g de carne moída refogada para o jantar.",
+        "carbo_g": 98,
+        "gordura_g": 25,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Carne bovina moída cozida",
+            "gramas": 180.0,
+            "produto": "Carne bovina moída",
+            "qtd": "1 porção grande",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Mandioca cozida",
+            "gramas": 200.0,
+            "produto": "Mandioca",
+            "qtd": "1 prato de sobremesa",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Abóbora assada",
+            "gramas": 180.0,
+            "produto": "Abóbora",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Cebola",
+            "gramas": 50.0,
+            "produto": "Cebola",
+            "qtd": "meia unidade",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alho",
+            "gramas": 5.0,
+            "produto": "Alho",
+            "qtd": "1 dente",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 5.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 800,
+        "nome": "Almoço",
+        "prato": "Carne moída com mandioca e abóbora",
+        "preparo": "Cozinhe a mandioca e asse a abóbora em cubos. Refogue a carne moída com cebola e alho; faça porção extra para o jantar.",
+        "proteina_g": 43
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 64,
+        "gordura_g": 10,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Banana",
+            "gramas": 120.0,
+            "produto": "Banana",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 250.0,
+            "produto": "Leite",
+            "qtd": "1 copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 20.0,
+            "produto": "Aveia em flocos",
+            "qtd": "2 colheres de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da tarde",
+        "prato": "Vitamina de banana com leite",
+        "preparo": "Bata a banana com leite e aveia até ficar homogêneo.",
+        "proteina_g": 16
+      },
+      {
+        "aproveita": "Use a carne moída reservada do almoço e a abóbora assada que sobrou.",
+        "carbo_g": 93,
+        "gordura_g": 18,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Carne bovina moída cozida",
+            "gramas": 120.0,
+            "produto": "Carne bovina moída",
+            "qtd": "1 porção",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 240.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara e meia",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Abóbora assada",
+            "gramas": 100.0,
+            "produto": "Abóbora",
+            "qtd": "meia xícara",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 700,
+        "nome": "Jantar",
+        "prato": "Arroz de carne com abóbora",
+        "preparo": "Aqueça a carne reservada com arroz cozido e cubos de abóbora. Finalize com cheiro-verde, se desejar.",
+        "proteina_g": 37
+      }
+    ],
+    "total_kcal": 2800
+  },
+  "2026-11-18": {
+    "refeicoes": [
+      {
+        "aproveita": "",
+        "carbo_g": 83,
+        "gordura_g": 19,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Banana",
+            "gramas": 140.0,
+            "produto": "Banana",
+            "qtd": "1 unidade grande",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Ovos",
+            "gramas": 100.0,
+            "produto": "Ovos",
+            "qtd": "2 unidades",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 60.0,
+            "produto": "Aveia em flocos",
+            "qtd": "6 colheres de sopa",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 5.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 600,
+        "nome": "Café da manhã",
+        "prato": "Panqueca de banana e aveia",
+        "preparo": "Amasse a banana e misture com ovos e aveia. Doure pequenas porções em frigideira untada.",
+        "proteina_g": 25
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 38,
+        "gordura_g": 14,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Maçã",
+            "gramas": 180.0,
+            "produto": "Maçã",
+            "qtd": "1 unidade grande",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Amendoim torrado",
+            "gramas": 25.0,
+            "produto": "Amendoim",
+            "qtd": "1 punhado pequeno",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 300,
+        "nome": "Lanche da manhã",
+        "prato": "Maçã com amendoim",
+        "preparo": "Lave a maçã e sirva com amendoim.",
+        "proteina_g": 8
+      },
+      {
+        "aproveita": "Reserve 150 g de frango ensopado para o jantar.",
+        "carbo_g": 98,
+        "gordura_g": 22,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Frango ensopado sem pele",
+            "gramas": 220.0,
+            "produto": "Frango",
+            "qtd": "1 porção grande",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 180.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Feijão carioca cozido",
+            "gramas": 150.0,
+            "produto": "Feijão carioca",
+            "qtd": "1 concha média",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "gramas": 100.0,
+            "produto": "Repolho",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Cebola",
+            "gramas": 50.0,
+            "produto": "Cebola",
+            "qtd": "meia unidade",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alho",
+            "gramas": 5.0,
+            "produto": "Alho",
+            "qtd": "1 dente",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 5.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 800,
+        "nome": "Almoço",
+        "prato": "Frango ensopado com arroz, feijão e repolho",
+        "preparo": "Cozinhe o frango com cebola, alho e temperos; prepare quantidade extra para o jantar. Sirva com arroz, feijão e repolho refogado.",
+        "proteina_g": 52
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 55,
+        "gordura_g": 12,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "gramas": 70.0,
+            "produto": "Pão francês",
+            "qtd": "1 unidade grande",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Ricota",
+            "gramas": 60.0,
+            "produto": "Ricota",
+            "qtd": "3 colheres de sopa",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Cenoura ralada",
+            "gramas": 70.0,
+            "produto": "Cenoura",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 400,
+        "nome": "Lanche da tarde",
+        "prato": "Pão com ricota e cenoura",
+        "preparo": "Rale a cenoura e misture com ricota amassada. Recheie o pão e sirva.",
+        "proteina_g": 18
+      },
+      {
+        "aproveita": "Use o frango ensopado reservado do almoço e o repolho restante.",
+        "carbo_g": 92,
+        "gordura_g": 17,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Frango ensopado desfiado",
+            "gramas": 150.0,
+            "produto": "Frango",
+            "qtd": "1 porção",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Fubá cozido",
+            "gramas": 250.0,
+            "produto": "Fubá",
+            "qtd": "1 prato fundo",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "gramas": 70.0,
+            "produto": "Repolho",
+            "qtd": "meia xícara",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 700,
+        "nome": "Jantar",
+        "prato": "Polenta com frango desfiado e repolho",
+        "preparo": "Desfie e aqueça o frango reservado com um pouco do caldo. Sirva sobre polenta mole, com repolho refogado.",
+        "proteina_g": 43
+      }
+    ],
+    "total_kcal": 2800
   }
 }
