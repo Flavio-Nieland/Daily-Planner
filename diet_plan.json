@@ -13327,5 +13327,600 @@
       }
     ],
     "total_kcal": 2800
+  },
+  "2026-11-19": {
+    "refeicoes": [
+      {
+        "aproveita": "",
+        "carbo_g": 83,
+        "gordura_g": 12,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 60.0,
+            "produto": "Aveia em flocos",
+            "qtd": "6 colheres de sopa",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 250.0,
+            "produto": "Leite",
+            "qtd": "1 copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Pera",
+            "gramas": 160.0,
+            "produto": "Pera",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Canela em pó",
+            "gramas": 1.0,
+            "produto": "Canela em pó",
+            "qtd": "1 pitada",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 520,
+        "nome": "Café da manhã",
+        "prato": "Mingau de aveia com pera e leite",
+        "preparo": "Cozinhe a aveia no leite até engrossar. Sirva com pera picada e canela.",
+        "proteina_g": 21
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 49,
+        "gordura_g": 8,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "gramas": 170.0,
+            "produto": "Iogurte natural",
+            "qtd": "1 pote",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Uvas",
+            "gramas": 120.0,
+            "produto": "Uvas",
+            "qtd": "1 cacho pequeno",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 20.0,
+            "produto": "Aveia em flocos",
+            "qtd": "2 colheres de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 330,
+        "nome": "Lanche da manhã",
+        "prato": "Iogurte com uvas e aveia",
+        "preparo": "Misture a aveia ao iogurte e sirva com uvas lavadas.",
+        "proteina_g": 15
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 91,
+        "gordura_g": 23,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Coxa e sobrecoxa de frango assadas",
+            "gramas": 220.0,
+            "produto": "Frango",
+            "qtd": "2 pedaços médios",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Batata-doce assada",
+            "gramas": 250.0,
+            "produto": "Batata-doce",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alface",
+            "gramas": 50.0,
+            "produto": "Alface",
+            "qtd": "1 prato de sobremesa",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 100.0,
+            "produto": "Tomate",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Azeite",
+            "gramas": 5.0,
+            "produto": "Azeite",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 790,
+        "nome": "Almoço",
+        "prato": "Frango assado com batata-doce e salada",
+        "preparo": "Asse o frango temperado e a batata-doce em pedaços até dourarem. Reserve uma porção de frango para o jantar de amanhã e outra para o lanche de hoje.",
+        "proteina_g": 54
+      },
+      {
+        "aproveita": "Use a porção de frango reservada do almoço de hoje.",
+        "carbo_g": 47,
+        "gordura_g": 12,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Pão integral",
+            "gramas": 70.0,
+            "produto": "Pão integral",
+            "qtd": "2 fatias",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Frango assado desfiado",
+            "gramas": 90.0,
+            "produto": "Frango",
+            "qtd": "1 porção pequena",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Cenoura ralada",
+            "gramas": 60.0,
+            "produto": "Cenoura",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alface",
+            "gramas": 15.0,
+            "produto": "Alface",
+            "qtd": "2 folhas",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 430,
+        "nome": "Lanche da tarde",
+        "prato": "Sanduíche de frango desfiado",
+        "preparo": "Desfie o frango já assado e misture com cenoura ralada. Recheie o pão e acrescente folhas de alface.",
+        "proteina_g": 34
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 88,
+        "gordura_g": 23,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Ovos",
+            "gramas": 150.0,
+            "produto": "Ovos",
+            "qtd": "3 unidades",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Espinafre",
+            "gramas": 70.0,
+            "produto": "Espinafre",
+            "qtd": "1 prato de folhas",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 240.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara e meia",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Azeite",
+            "gramas": 5.0,
+            "produto": "Azeite",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 700,
+        "nome": "Jantar",
+        "prato": "Omelete de espinafre com arroz",
+        "preparo": "Refogue o espinafre e junte aos ovos batidos. Cozinhe a omelete e sirva com arroz já cozido.",
+        "proteina_g": 33
+      }
+    ],
+    "total_kcal": 2770
+  },
+  "2026-11-20": {
+    "refeicoes": [
+      {
+        "aproveita": "",
+        "carbo_g": 72,
+        "gordura_g": 15,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Pão integral",
+            "gramas": 105.0,
+            "produto": "Pão integral",
+            "qtd": "3 fatias",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Queijo minas frescal",
+            "gramas": 60.0,
+            "produto": "Queijo minas frescal",
+            "qtd": "2 fatias médias",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Pera",
+            "gramas": 160.0,
+            "produto": "Pera",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 510,
+        "nome": "Café da manhã",
+        "prato": "Pão integral com queijo e pera",
+        "preparo": "Recheie o pão com queijo minas e sirva com a pera fatiada.",
+        "proteina_g": 24
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 57,
+        "gordura_g": 9,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Leite",
+            "gramas": 250.0,
+            "produto": "Leite",
+            "qtd": "1 copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Mamão",
+            "gramas": 180.0,
+            "produto": "Mamão",
+            "qtd": "1 fatia grande",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 30.0,
+            "produto": "Aveia em flocos",
+            "qtd": "3 colheres de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 360,
+        "nome": "Lanche da manhã",
+        "prato": "Vitamina de leite com mamão e aveia",
+        "preparo": "Bata o leite com mamão e aveia até ficar homogêneo.",
+        "proteina_g": 16
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 96,
+        "gordura_g": 19,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Filé de tilápia grelhado",
+            "gramas": 180.0,
+            "produto": "Filé de tilápia",
+            "qtd": "1 filé grande",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 240.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara e meia",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Abóbora assada",
+            "gramas": 250.0,
+            "produto": "Abóbora",
+            "qtd": "2 xícaras em cubos",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Azeite",
+            "gramas": 5.0,
+            "produto": "Azeite",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 760,
+        "nome": "Almoço",
+        "prato": "Tilápia grelhada com arroz e abóbora",
+        "preparo": "Grelhe a tilápia temperada e asse a abóbora em cubos. Sirva com arroz e reserve uma porção de tilápia para o jantar de amanhã.",
+        "proteina_g": 47
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 55,
+        "gordura_g": 9,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Iogurte natural",
+            "gramas": 170.0,
+            "produto": "Iogurte natural",
+            "qtd": "1 pote",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Maçã",
+            "gramas": 150.0,
+            "produto": "Maçã",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 20.0,
+            "produto": "Aveia em flocos",
+            "qtd": "2 colheres de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 360,
+        "nome": "Lanche da tarde",
+        "prato": "Iogurte com maçã e aveia",
+        "preparo": "Pique a maçã e misture ao iogurte com a aveia.",
+        "proteina_g": 16
+      },
+      {
+        "aproveita": "Use o frango assado reservado do almoço de 2026-11-19.",
+        "carbo_g": 90,
+        "gordura_g": 22,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Frango assado desfiado",
+            "gramas": 150.0,
+            "produto": "Frango",
+            "qtd": "1 porção média",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Abóbora assada amassada",
+            "gramas": 180.0,
+            "produto": "Abóbora",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 160.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 30.0,
+            "produto": "Leite",
+            "qtd": "2 colheres de sopa",
+            "secao": "Laticínios e frios"
+          }
+        ],
+        "kcal": 770,
+        "nome": "Jantar",
+        "prato": "Frango desfiado com purê de abóbora",
+        "preparo": "Aqueça o frango reservado e desfie. Amasse a abóbora assada com um pouco de leite e sirva com arroz.",
+        "proteina_g": 48
+      }
+    ],
+    "total_kcal": 2760
+  },
+  "2026-11-21": {
+    "refeicoes": [
+      {
+        "aproveita": "",
+        "carbo_g": 75,
+        "gordura_g": 16,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 60.0,
+            "produto": "Aveia em flocos",
+            "qtd": "6 colheres de sopa",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Ovos",
+            "gramas": 100.0,
+            "produto": "Ovos",
+            "qtd": "2 unidades",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Maçã ralada",
+            "gramas": 150.0,
+            "produto": "Maçã",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 30.0,
+            "produto": "Leite",
+            "qtd": "2 colheres de sopa",
+            "secao": "Laticínios e frios"
+          }
+        ],
+        "kcal": 530,
+        "nome": "Café da manhã",
+        "prato": "Panqueca de aveia com maçã",
+        "preparo": "Misture ovos, aveia e maçã ralada. Doure pequenas panquecas em frigideira antiaderente.",
+        "proteina_g": 25
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 52,
+        "gordura_g": 8,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Mamão",
+            "gramas": 180.0,
+            "produto": "Mamão",
+            "qtd": "1 fatia grande",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Iogurte natural",
+            "gramas": 170.0,
+            "produto": "Iogurte natural",
+            "qtd": "1 pote",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 20.0,
+            "produto": "Aveia em flocos",
+            "qtd": "2 colheres de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 340,
+        "nome": "Lanche da manhã",
+        "prato": "Mamão com iogurte e aveia",
+        "preparo": "Sirva o mamão em cubos com iogurte e aveia por cima.",
+        "proteina_g": 16
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 96,
+        "gordura_g": 25,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Carne bovina cozida",
+            "gramas": 180.0,
+            "produto": "Carne bovina para panela",
+            "qtd": "1 porção grande",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Mandioca cozida",
+            "gramas": 250.0,
+            "produto": "Mandioca",
+            "qtd": "1 xícara e meia",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Cenoura cozida",
+            "gramas": 100.0,
+            "produto": "Cenoura",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 160.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 810,
+        "nome": "Almoço",
+        "prato": "Carne de panela com mandioca e cenoura",
+        "preparo": "Cozinhe a carne com mandioca e cenoura até ficarem macias. Faça uma porção extra de carne para o lanche da tarde.",
+        "proteina_g": 48
+      },
+      {
+        "aproveita": "Use a porção extra de carne de panela preparada no almoço de hoje.",
+        "carbo_g": 54,
+        "gordura_g": 12,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Pão integral",
+            "gramas": 70.0,
+            "produto": "Pão integral",
+            "qtd": "2 fatias",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Carne de panela desfiada",
+            "gramas": 90.0,
+            "produto": "Carne bovina para panela",
+            "qtd": "1 porção pequena",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 80.0,
+            "produto": "Tomate",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 430,
+        "nome": "Lanche da tarde",
+        "prato": "Pão com carne desfiada e tomate",
+        "preparo": "Desfie a carne cozida e recheie o pão. Junte tomate fatiado.",
+        "proteina_g": 29
+      },
+      {
+        "aproveita": "Use o filé de tilápia reservado do almoço de 2026-11-20.",
+        "carbo_g": 78,
+        "gordura_g": 20,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Filé de tilápia grelhado",
+            "gramas": 150.0,
+            "produto": "Filé de tilápia",
+            "qtd": "1 filé médio",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Fubá cozido em polenta",
+            "gramas": 250.0,
+            "produto": "Fubá",
+            "qtd": "1 prato fundo",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Espinafre refogado",
+            "gramas": 70.0,
+            "produto": "Espinafre",
+            "qtd": "1 prato de folhas",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Azeite",
+            "gramas": 5.0,
+            "produto": "Azeite",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 690,
+        "nome": "Jantar",
+        "prato": "Tilápia com polenta e espinafre",
+        "preparo": "Aqueça a tilápia reservada e sirva com polenta cremosa. Refogue rapidamente o espinafre como acompanhamento.",
+        "proteina_g": 43
+      }
+    ],
+    "total_kcal": 2800
   }
 }
