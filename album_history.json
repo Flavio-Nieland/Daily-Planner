@@ -154,5 +154,17 @@
     "album": "Red",
     "artista": "King Crimson",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-16",
+    "album": "Kiko",
+    "artista": "Los Lobos",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-16",
+    "album": "The Dark Side of the Moon",
+    "artista": "Pink Floyd",
+    "origem": "estilo"
   }
 ]
