@@ -166,5 +166,17 @@
     "album": "The Dark Side of the Moon",
     "artista": "Pink Floyd",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-17",
+    "album": "Sobrevivendo no Inferno",
+    "artista": "Racionais MC's",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-17",
+    "album": "A Plague of Lighthouse Keepers",
+    "artista": "Van der Graaf Generator",
+    "origem": "estilo"
   }
 ]
