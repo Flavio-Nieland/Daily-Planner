@@ -178,5 +178,17 @@
     "album": "A Plague of Lighthouse Keepers",
     "artista": "Van der Graaf Generator",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-18",
+    "album": "Violeta de Outono",
+    "artista": "Violeta de Outono",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-18",
+    "album": "In a Glass House",
+    "artista": "Gentle Giant",
+    "origem": "estilo"
   }
 ]
