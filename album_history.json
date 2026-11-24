@@ -250,5 +250,17 @@
     "album": "Mirage",
     "artista": "Yes",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-24",
+    "album": "Snegs",
+    "artista": "Som Nosso de Cada Dia",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-24",
+    "album": "Água e Vinho",
+    "artista": "Egberto Gismonti",
+    "origem": "estilo"
   }
 ]
