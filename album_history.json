@@ -262,5 +262,17 @@
     "album": "Água e Vinho",
     "artista": "Egberto Gismonti",
     "origem": "estilo"
+  },
+  {
+    "data": "2026-11-25",
+    "album": "Construção",
+    "artista": "Chico Buarque",
+    "origem": "gosto"
+  },
+  {
+    "data": "2026-11-25",
+    "album": "A Farewell to Kings",
+    "artista": "Rush",
+    "origem": "estilo"
   }
 ]
