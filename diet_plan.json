@@ -15812,5 +15812,684 @@
       }
     ],
     "total_kcal": 2810
+  },
+  "2026-12-01": {
+    "refeicoes": [
+      {
+        "aproveita": "Use a aveia e o leite também no mingau do dia seguinte.",
+        "carbo_g": 80,
+        "gordura_g": 14,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 80.0,
+            "produto": "Aveia em flocos",
+            "qtd": "1 xícara",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 250.0,
+            "produto": "Leite integral",
+            "qtd": "1 copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Maçã picada",
+            "gramas": 100.0,
+            "produto": "Maçã",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Canela em pó",
+            "gramas": 1.0,
+            "produto": "Canela em pó",
+            "qtd": "1 pitada",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 520,
+        "nome": "Café da manhã",
+        "prato": "Mingau de aveia com maçã e canela",
+        "preparo": "Cozinhe a aveia no leite até engrossar. Sirva com maçã picada e canela.",
+        "proteina_g": 19
+      },
+      {
+        "aproveita": "Use parte da aveia comprada para o mingau e a vitamina do dia seguinte.",
+        "carbo_g": 53,
+        "gordura_g": 7,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Banana",
+            "gramas": 100.0,
+            "produto": "Banana",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 200.0,
+            "produto": "Leite integral",
+            "qtd": "1 copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 20.0,
+            "produto": "Aveia em flocos",
+            "qtd": "2 colheres de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 320,
+        "nome": "Lanche da manhã",
+        "prato": "Vitamina de banana e leite",
+        "preparo": "Bata a banana com o leite e a aveia. Sirva gelada.",
+        "proteina_g": 12
+      },
+      {
+        "aproveita": "Reserve 120 g de frango cozido para o recheio do lanche da tarde de amanhã.",
+        "carbo_g": 105,
+        "gordura_g": 20,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Frango cozido",
+            "gramas": 200.0,
+            "produto": "Frango",
+            "qtd": "1 filé grande",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 240.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara e meia",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Feijão cozido",
+            "gramas": 150.0,
+            "produto": "Feijão carioca",
+            "qtd": "1 concha média",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "gramas": 180.0,
+            "produto": "Abóbora",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Cebola",
+            "gramas": 50.0,
+            "produto": "Cebola",
+            "qtd": "meia unidade",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alho",
+            "gramas": 5.0,
+            "produto": "Alho",
+            "qtd": "1 dente",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 10.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 820,
+        "nome": "Almoço",
+        "prato": "Frango ensopado com arroz, feijão e abóbora",
+        "preparo": "Cozinhe o frango com cebola e alho; acrescente a abóbora em cubos até ficar macia. Sirva com arroz e feijão e reserve uma porção de frango para amanhã.",
+        "proteina_g": 52
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 55,
+        "gordura_g": 13,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Pão francês",
+            "gramas": 100.0,
+            "produto": "Pão francês",
+            "qtd": "2 unidades pequenas",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Ricota",
+            "gramas": 60.0,
+            "produto": "Ricota",
+            "qtd": "3 colheres de sopa",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 100.0,
+            "produto": "Tomate",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Orégano",
+            "gramas": 1.0,
+            "produto": "Orégano seco",
+            "qtd": "1 pitada",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 420,
+        "nome": "Lanche da tarde",
+        "prato": "Pão com ricota e tomate",
+        "preparo": "Recheie o pão com ricota amassada e tomate fatiado. Tempere com sal e orégano.",
+        "proteina_g": 20
+      },
+      {
+        "aproveita": "Prepare arroz e carne em quantidade para usar no almoço de amanhã.",
+        "carbo_g": 85,
+        "gordura_g": 22,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Carne bovina em cubos",
+            "gramas": 140.0,
+            "produto": "Carne bovina",
+            "qtd": "1 porção",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 180.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Repolho refogado",
+            "gramas": 120.0,
+            "produto": "Repolho",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Cebola",
+            "gramas": 50.0,
+            "produto": "Cebola",
+            "qtd": "meia unidade",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alho",
+            "gramas": 5.0,
+            "produto": "Alho",
+            "qtd": "1 dente",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 10.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 700,
+        "nome": "Jantar",
+        "prato": "Arroz carreteiro de carne e repolho refogado",
+        "preparo": "Refogue a carne em cubos com cebola e alho, junte o arroz e cozinhe até ficar macio. Refogue o repolho à parte e sirva junto.",
+        "proteina_g": 37
+      }
+    ],
+    "total_kcal": 2780
+  },
+  "2026-12-02": {
+    "refeicoes": [
+      {
+        "aproveita": "Use a aveia e o leite restantes da compra do primeiro dia.",
+        "carbo_g": 84,
+        "gordura_g": 12,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 80.0,
+            "produto": "Aveia em flocos",
+            "qtd": "1 xícara",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 250.0,
+            "produto": "Leite integral",
+            "qtd": "1 copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Banana",
+            "gramas": 100.0,
+            "produto": "Banana",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Canela em pó",
+            "gramas": 1.0,
+            "produto": "Canela em pó",
+            "qtd": "1 pitada",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 520,
+        "nome": "Café da manhã",
+        "prato": "Aveia cozida com banana e leite",
+        "preparo": "Cozinhe a aveia no leite até engrossar. Cubra com banana em rodelas e canela.",
+        "proteina_g": 20
+      },
+      {
+        "aproveita": "",
+        "carbo_g": 38,
+        "gordura_g": 15,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Laranja",
+            "gramas": 180.0,
+            "produto": "Laranja",
+            "qtd": "1 unidade grande",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Castanha-do-pará",
+            "gramas": 25.0,
+            "produto": "Castanha-do-pará",
+            "qtd": "4 unidades",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 300,
+        "nome": "Lanche da manhã",
+        "prato": "Laranja com castanha-do-pará",
+        "preparo": "Descasque a laranja e sirva com as castanhas.",
+        "proteina_g": 7
+      },
+      {
+        "aproveita": "Use a porção de arroz e carne preparada no jantar de ontem.",
+        "carbo_g": 96,
+        "gordura_g": 23,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Arroz carreteiro com carne",
+            "gramas": 350.0,
+            "produto": "Carne bovina",
+            "qtd": "1 prato fundo",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Repolho cru fatiado",
+            "gramas": 80.0,
+            "produto": "Repolho",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 100.0,
+            "produto": "Tomate",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 780,
+        "nome": "Almoço",
+        "prato": "Arroz carreteiro com carne e salada de repolho",
+        "preparo": "Aqueça o arroz carreteiro preparado ontem até ficar bem quente. Sirva com repolho fatiado e tomate.",
+        "proteina_g": 38
+      },
+      {
+        "aproveita": "Use o frango cozido reservado do almoço de ontem.",
+        "carbo_g": 52,
+        "gordura_g": 12,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Frango cozido desfiado",
+            "gramas": 120.0,
+            "produto": "Frango",
+            "qtd": "1 porção",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Pão francês",
+            "gramas": 100.0,
+            "produto": "Pão francês",
+            "qtd": "2 unidades pequenas",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 60.0,
+            "produto": "Tomate",
+            "qtd": "meia unidade",
+            "secao": "Hortifrúti"
+          }
+        ],
+        "kcal": 440,
+        "nome": "Lanche da tarde",
+        "prato": "Pão recheado com frango e tomate",
+        "preparo": "Desfie o frango reservado e misture com tomate picado. Recheie os pães e aqueça rapidamente.",
+        "proteina_g": 34
+      },
+      {
+        "aproveita": "Use as folhas mais frescas da compra neste jantar; cozinhe batata extra para o almoço de amanhã.",
+        "carbo_g": 74,
+        "gordura_g": 22,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Filé de peixe",
+            "gramas": 180.0,
+            "produto": "Filé de peixe",
+            "qtd": "1 filé grande",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Batata cozida",
+            "gramas": 300.0,
+            "produto": "Batata",
+            "qtd": "2 unidades médias",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 100.0,
+            "produto": "Leite integral",
+            "qtd": "meio copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Alface",
+            "gramas": 80.0,
+            "produto": "Alface",
+            "qtd": "2 xícaras",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alho",
+            "gramas": 5.0,
+            "produto": "Alho",
+            "qtd": "1 dente",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 5.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de chá",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 700,
+        "nome": "Jantar",
+        "prato": "Peixe grelhado com purê de batata e alface",
+        "preparo": "Grelhe o peixe temperado com alho. Cozinhe e amasse as batatas com um pouco de leite; sirva com alface.",
+        "proteina_g": 43
+      }
+    ],
+    "total_kcal": 2740
+  },
+  "2026-12-03": {
+    "refeicoes": [
+      {
+        "aproveita": "Use o restante da aveia comprada no primeiro dia.",
+        "carbo_g": 70,
+        "gordura_g": 17,
+        "hora": "07:00",
+        "itens": [
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 80.0,
+            "produto": "Aveia em flocos",
+            "qtd": "1 xícara",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Ovo",
+            "gramas": 100.0,
+            "produto": "Ovo",
+            "qtd": "2 unidades",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 120.0,
+            "produto": "Leite integral",
+            "qtd": "meio copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Maçã ralada",
+            "gramas": 100.0,
+            "produto": "Maçã",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Canela em pó",
+            "gramas": 1.0,
+            "produto": "Canela em pó",
+            "qtd": "1 pitada",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 520,
+        "nome": "Café da manhã",
+        "prato": "Panqueca de aveia com maçã",
+        "preparo": "Misture aveia, ovo e leite e doure porções pequenas em frigideira untada. Sirva com maçã ralada e canela.",
+        "proteina_g": 23
+      },
+      {
+        "aproveita": "Finalize o pacote de aveia comprado no primeiro dia.",
+        "carbo_g": 55,
+        "gordura_g": 8,
+        "hora": "10:00",
+        "itens": [
+          {
+            "alimento": "Banana",
+            "gramas": 100.0,
+            "produto": "Banana",
+            "qtd": "1 unidade média",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Leite",
+            "gramas": 200.0,
+            "produto": "Leite integral",
+            "qtd": "1 copo",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Aveia em flocos",
+            "gramas": 20.0,
+            "produto": "Aveia em flocos",
+            "qtd": "2 colheres de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 330,
+        "nome": "Lanche da manhã",
+        "prato": "Vitamina de banana com aveia",
+        "preparo": "Bata banana, leite e aveia até ficar homogêneo. Sirva na hora.",
+        "proteina_g": 14
+      },
+      {
+        "aproveita": "Use o restante do arroz e do feijão cozidos do ciclo.",
+        "carbo_g": 104,
+        "gordura_g": 25,
+        "hora": "12:30",
+        "itens": [
+          {
+            "alimento": "Ovo",
+            "gramas": 150.0,
+            "produto": "Ovo",
+            "qtd": "3 unidades",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Tomate",
+            "gramas": 200.0,
+            "produto": "Tomate",
+            "qtd": "2 unidades médias",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Arroz cozido",
+            "gramas": 240.0,
+            "produto": "Arroz",
+            "qtd": "1 xícara e meia",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Feijão cozido",
+            "gramas": 150.0,
+            "produto": "Feijão carioca",
+            "qtd": "1 concha média",
+            "secao": "Mercearia"
+          },
+          {
+            "alimento": "Cebola",
+            "gramas": 50.0,
+            "produto": "Cebola",
+            "qtd": "meia unidade",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alho",
+            "gramas": 5.0,
+            "produto": "Alho",
+            "qtd": "1 dente",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 10.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 800,
+        "nome": "Almoço",
+        "prato": "Ovos ao molho de tomate com arroz e feijão",
+        "preparo": "Refogue cebola, alho e tomate, quebre os ovos no molho e cozinhe até firmarem. Sirva com arroz e feijão.",
+        "proteina_g": 32
+      },
+      {
+        "aproveita": "Use a ricota aberta no primeiro dia.",
+        "carbo_g": 54,
+        "gordura_g": 13,
+        "hora": "16:00",
+        "itens": [
+          {
+            "alimento": "Ricota",
+            "gramas": 80.0,
+            "produto": "Ricota",
+            "qtd": "4 colheres de sopa",
+            "secao": "Laticínios e frios"
+          },
+          {
+            "alimento": "Pão francês",
+            "gramas": 100.0,
+            "produto": "Pão francês",
+            "qtd": "2 unidades pequenas",
+            "secao": "Padaria"
+          },
+          {
+            "alimento": "Cenoura ralada",
+            "gramas": 80.0,
+            "produto": "Cenoura",
+            "qtd": "1 unidade pequena",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Orégano",
+            "gramas": 1.0,
+            "produto": "Orégano seco",
+            "qtd": "1 pitada",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 420,
+        "nome": "Lanche da tarde",
+        "prato": "Ricota temperada com pão e cenoura",
+        "preparo": "Amasse a ricota com cenoura ralada e orégano. Sirva com pão.",
+        "proteina_g": 21
+      },
+      {
+        "aproveita": "Use a abóbora comprada no primeiro dia e as batatas cozidas a mais no jantar de ontem.",
+        "carbo_g": 75,
+        "gordura_g": 25,
+        "hora": "19:30",
+        "itens": [
+          {
+            "alimento": "Carne moída cozida",
+            "gramas": 150.0,
+            "produto": "Carne bovina",
+            "qtd": "1 porção",
+            "secao": "Açougue e peixaria"
+          },
+          {
+            "alimento": "Abóbora cozida",
+            "gramas": 200.0,
+            "produto": "Abóbora",
+            "qtd": "1 xícara",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Batata cozida",
+            "gramas": 250.0,
+            "produto": "Batata",
+            "qtd": "2 unidades médias",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Cebola",
+            "gramas": 50.0,
+            "produto": "Cebola",
+            "qtd": "meia unidade",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Alho",
+            "gramas": 5.0,
+            "produto": "Alho",
+            "qtd": "1 dente",
+            "secao": "Hortifrúti"
+          },
+          {
+            "alimento": "Óleo de soja",
+            "gramas": 10.0,
+            "produto": "Óleo de soja",
+            "qtd": "1 colher de sopa",
+            "secao": "Mercearia"
+          }
+        ],
+        "kcal": 700,
+        "nome": "Jantar",
+        "prato": "Carne moída com abóbora e batata",
+        "preparo": "Refogue a carne com cebola e alho, junte a abóbora e cozinhe até amaciar. Sirva com as batatas cozidas reservadas.",
+        "proteina_g": 39
+      }
+    ],
+    "total_kcal": 2770
   }
 }
